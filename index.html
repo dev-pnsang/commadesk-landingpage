@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoreShift — All-in-one HR Platform & Solutions</title>
+  <meta name="description" content="CoreShift is a modern, all-in-one HR platform designed to perfectly fit your business needs. Streamline HR processes, enhance team transparency, and empower your workforce.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22black%22/><text y=%2265%22 font-size=%2250%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 x=%2250%22>C</text></svg>">
+
+  <!-- Tailwind CSS v4 CDN (Hỗ trợ mở qua Live Server / Server tĩnh) -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <link rel="stylesheet" href="./src/index.css">
+  <style>
+    /* Tối ưu hóa bôi đen tô văn bản (Text Selection) toàn trang */
+    ::selection {
+      background-color: #FF4D38 !important;
+      color: #ffffff !important;
+    }
+    ::-moz-selection {
+      background-color: #FF4D38 !important;
+      color: #ffffff !important;
+    }
+    img, svg {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    p, h1, h2, h3, h4, h5, h6, span, a, li, blockquote, label {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      user-select: text;
+    }
+
+    /* ================= HERO 2: DUAL ORBITING WHEELS MOTION ================= */
+    .hero2-orbit-node {
+      will-change: transform, opacity;
+      transition: transform 0.08s linear;
+    }
+    .hero2-avatar-card {
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+      will-change: transform, box-shadow;
+    }
+    .hero2-avatar-card:hover {
+      transform: scale(1.12) translateY(-6px) !important;
+      box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.22) !important;
+      z-index: 50 !important;
+    }
+
+    /* ================= SCROLL REVEAL & BENTO GRID ANIMATIONS ================= */
+    .scroll-blur-reveal {
+      opacity: 0;
+      filter: blur(12px);
+      transform: translateY(26px) scale(0.97);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, filter, transform;
+    }
+    .scroll-blur-reveal.is-revealed {
+      opacity: 1 !important;
+      filter: blur(0px) !important;
+      transform: translateY(0) scale(1) !important;
+    }
+
+    /* Khối cha chứa Text Wipe thì để con tự điều khiển blur mờ độc lập */
+    .scroll-blur-reveal:has(.text-blur-wipe),
+    .scroll-blur-reveal.has-text-wipe {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+    }
+
+    /* Text Blur Wipe Reveal (Horizontal Staggered Blur Reveal - Frame 11.0s) */
+    .text-blur-wipe {
+      display: inline-block;
+      will-change: transform;
+    }
+    .text-blur-wipe .reveal-word {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .text-blur-wipe .reveal-space {
+      display: inline;
+    }
+    .text-blur-wipe .reveal-char {
+      display: inline-block;
+      opacity: 0.12;
+      filter: blur(14px);
+      transform: translateY(4px);
+      transition: opacity 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  filter 0.48s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition-delay: calc(var(--char-idx, 0) * 20ms);
+      will-change: opacity, filter, transform;
+    }
+    .is-revealed .text-blur-wipe .reveal-char,
+    .text-blur-wipe.is-revealed .reveal-char {
+      opacity: 1 !important;
+      filter: blur(0px) !important;
+      transform: translateY(0) !important;
+    }
+
+    .text-blur-wipe-sub {
+      opacity: 0.15;
+      filter: blur(10px);
+      transform: translateY(8px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: 220ms;
+      will-change: opacity, filter, transform;
+    }
+    .is-revealed .text-blur-wipe-sub,
+    .text-blur-wipe-sub.is-revealed {
+      opacity: 1 !important;
+      filter: blur(0px) !important;
+      transform: translateY(0) !important;
+    }
+
+    .scroll-fade-up {
+      opacity: 0;
+      transform: translateY(38px) scale(0.96);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .scroll-fade-up.is-revealed {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+    }
+
+    /* Stagger delays */
+    .delay-75 { transition-delay: 75ms; }
+    .delay-100 { transition-delay: 100ms; }
+    .delay-150 { transition-delay: 150ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-250 { transition-delay: 250ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    /* Bento Card 1: Attendance Report Bar Grow Animation */
+    .chart-bar {
+      transform-origin: bottom;
+      transform: scaleY(0);
+      transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+    .is-revealed .chart-bar {
+      transform: scaleY(1);
+    }
+    .chart-badge {
+      opacity: 0;
+      transform: translateY(10px) scale(0.7);
+      transition: opacity 0.5s ease 0.6s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s;
+    }
+    .is-revealed .chart-badge {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Bento Card 5: Team Orbit Slow Spin */
+    @keyframes spin-very-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-orbit-slow {
+      animation: spin-very-slow 40s linear infinite;
+    }
+
+    /* Concentric ripples */
+    @keyframes ripple-subtle {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.04); opacity: 0.8; }
+    }
+    .animate-ripple {
+      animation: ripple-subtle 4s ease-in-out infinite;
+    }
+
+    /* ================= TESTIMONIALS: ENVELOPE TO 3D FAN-OUT ANIMATION (Frame 11.0s - 14s) ================= */
+    .testi-envelope-wrap {
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+    .testi-fanout-card {
+      transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 100%);
+      border: 1px solid rgba(226, 232, 240, 0.7);
+      box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    }
+    .testi-card-item {
+      transform: translate(-50%, -50%);
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.6s ease,
+                  box-shadow 0.4s ease;
+      will-change: transform, opacity;
+    }
+    .testi-nav-controls {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.6s ease;
+      will-change: transform, opacity;
+    }
+
+    /* ================= 1. TRẠNG THÁI 1: CHỈ HIỆN PHONG BÌ TÍM (Frame 11.6s & Ảnh 2) ================= */
+    /* Khi chưa bung xòe (:not(.is-fanout)) */
+    .testi-stage:not(.is-fanout) #envelopeBackWrap {
+      opacity: 1 !important;
+      transform: translate(-50%, -50%) scale(1) !important;
+      pointer-events: none;
+    }
+    .testi-stage:not(.is-fanout) #envelopeFrontWrap {
+      opacity: 1 !important;
+      transform: translate(-50%, calc(-50% + 95px)) scale(1) !important;
+      pointer-events: none;
+    }
+    /* Thẻ Sarah cắm lọt lòng trong phong bì, hơi nghiêng nhẹ -2.8deg như Ảnh 2 & Frame 11.6s */
+    .testi-stage:not(.is-fanout) #cardSarah {
+      opacity: 1 !important;
+      transform: translate(-50%, calc(-50% + 14px)) rotate(-2.8deg) scale(0.98) !important;
+      pointer-events: auto;
+      z-index: 20;
+    }
+    .testi-stage:not(.is-fanout) #cardJames {
+      opacity: 0 !important;
+      transform: translate(-50%, -50%) scale(0.9) !important;
+      pointer-events: none !important;
+    }
+    /* HOÀN TOÀN ẨN 2 thẻ trắng nghiêng khi đang ở phong bì tím (như Ảnh 2 & Frame 11.6s) */
+    .testi-stage:not(.is-fanout) #leftTiltCard {
+      opacity: 0 !important;
+      transform: translate(-50%, -50%) rotate(0deg) scale(0.7) !important;
+      pointer-events: none !important;
+    }
+    .testi-stage:not(.is-fanout) #rightTiltCard {
+      opacity: 0 !important;
+      transform: translate(-50%, -50%) rotate(0deg) scale(0.7) !important;
+      pointer-events: none !important;
+    }
+    /* HOÀN TOÀN ẨN 2 nút điều hướng khi đang ở phong bì tím (như Ảnh 2 & Frame 11.6s) */
+    .testi-stage:not(.is-fanout) #testiNavControls {
+      opacity: 0 !important;
+      transform: translateY(24px) !important;
+      pointer-events: none !important;
+    }
+
+    /* ================= 2. TRẠNG THÁI 2: HIỆU ỨNG BUNG XÒE 3D FAN-OUT (Frame 12.6s & Ảnh 3) ================= */
+    /* Khi kích hoạt (.is-fanout): Phong bì biến mất, lá thư trồi lên, 2 thẻ xòe ra, hiện nút điều hướng */
+    .testi-stage.is-fanout #envelopeBackWrap {
+      opacity: 0 !important;
+      transform: translate(-50%, calc(-50% + 90px)) scale(0.9) !important;
+      pointer-events: none !important;
+    }
+    .testi-stage.is-fanout #envelopeFrontWrap {
+      opacity: 0 !important;
+      transform: translate(-50%, calc(-50% + 160px)) scale(0.9) !important;
+      pointer-events: none !important;
+    }
+    .testi-stage.is-fanout #cardSarah.is-active {
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      pointer-events: auto;
+      z-index: 20;
+    }
+    .testi-stage.is-fanout #leftTiltCard {
+      opacity: 1 !important;
+      transform: translate(calc(-50% - 325px), calc(-50% - 16px)) rotate(-14.5deg) scale(1) !important;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .testi-stage.is-fanout #rightTiltCard {
+      opacity: 1 !important;
+      transform: translate(calc(-50% + 325px), calc(-50% - 16px)) rotate(14.5deg) scale(1) !important;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .testi-stage.is-fanout #testiNavControls {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      pointer-events: auto;
+    }
+
+    /* Chuyển slide giữa Sarah Mitchell và James Carter (Frame 13.5s & Ảnh 4) */
+    .testi-stage.is-fanout .testi-card-item.is-active {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 20;
+    }
+    .testi-stage.is-fanout .testi-card-item.is-left {
+      transform: translate(calc(-50% - 290px), calc(-50% - 14px)) rotate(-12.5deg) scale(0.94);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .testi-stage.is-fanout .testi-card-item.is-right {
+      transform: translate(calc(-50% + 290px), calc(-50% - 14px)) rotate(12.5deg) scale(0.94);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Responsive Media Queries */
+    @media (min-width: 1440px) {
+      .testi-stage.is-fanout #leftTiltCard {
+        transform: translate(calc(-50% - 335px), calc(-50% - 16px)) rotate(-14.5deg) scale(1) !important;
+      }
+      .testi-stage.is-fanout #rightTiltCard {
+        transform: translate(calc(-50% + 335px), calc(-50% - 16px)) rotate(14.5deg) scale(1) !important;
+      }
+    }
+    @media (max-width: 1280px) {
+      .testi-stage.is-fanout #leftTiltCard {
+        transform: translate(calc(-50% - 290px), calc(-50% - 14px)) rotate(-13deg) scale(0.96) !important;
+      }
+      .testi-stage.is-fanout #rightTiltCard {
+        transform: translate(calc(-50% + 290px), calc(-50% - 14px)) rotate(13deg) scale(0.96) !important;
+      }
+    }
+    @media (max-width: 1024px) {
+      .testi-stage.is-fanout #leftTiltCard {
+        transform: translate(calc(-50% - 240px), calc(-50% - 12px)) rotate(-11deg) scale(0.9) !important;
+        opacity: 0.85 !important;
+      }
+      .testi-stage.is-fanout #rightTiltCard {
+        transform: translate(calc(-50% + 240px), calc(-50% - 12px)) rotate(11deg) scale(0.9) !important;
+        opacity: 0.85 !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .testi-stage:not(.is-fanout) #envelopeBackWrap {
+        transform: translate(-50%, -50%) scale(0.88) !important;
+      }
+      .testi-stage:not(.is-fanout) #envelopeFrontWrap {
+        transform: translate(-50%, calc(-50% + 85px)) scale(0.88) !important;
+      }
+      .testi-stage:not(.is-fanout) #cardSarah {
+        transform: translate(-50%, calc(-50% + 12px)) rotate(-2.5deg) scale(0.86) !important;
+      }
+      .testi-stage.is-fanout #leftTiltCard {
+        transform: translate(calc(-50% - 160px), calc(-50% - 8px)) rotate(-8deg) scale(0.82) !important;
+        opacity: 0.7 !important;
+      }
+      .testi-stage.is-fanout #rightTiltCard {
+        transform: translate(calc(-50% + 160px), calc(-50% - 8px)) rotate(8deg) scale(0.82) !important;
+        opacity: 0.7 !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .testi-stage:not(.is-fanout) #envelopeBackWrap {
+        transform: translate(-50%, -50%) scale(0.78) !important;
+      }
+      .testi-stage:not(.is-fanout) #envelopeFrontWrap {
+        transform: translate(-50%, calc(-50% + 72px)) scale(0.78) !important;
+      }
+      .testi-stage:not(.is-fanout) #cardSarah {
+        transform: translate(-50%, calc(-50% + 10px)) rotate(-2deg) scale(0.76) !important;
+      }
+      .testi-stage.is-fanout #leftTiltCard,
+      .testi-stage.is-fanout #rightTiltCard {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    }
+
+    /* Mobile Hamburger Animation */
+    .hamburger-line {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+    #mobileMenuBtn.is-active #hamburgerLine1 {
+      transform: translateY(5px) rotate(45deg);
+    }
+    #mobileMenuBtn.is-active #hamburgerLine2 {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    #mobileMenuBtn.is-active #hamburgerLine3 {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+  </style>
+</head>
+<body class="bg-[#EAEDF1] min-h-screen text-slate-800 p-2 sm:p-4 md:p-6 lg:p-8 selection:bg-[#FF4D38] selection:text-white">
+
+  <!-- ================= FLOATING PILL NAVBAR & RESPONSIVE MOBILE MENU ================= -->
+  <header id="mainHeader" class="fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] sm:w-[92%] max-w-[760px] pointer-events-none">
+    <!-- Navbar Floating Pill Container -->
+    <div id="navbarPill" class="pointer-events-auto bg-white/95 backdrop-blur-md px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full border border-slate-200/90 shadow-md shadow-slate-200/40 flex items-center justify-between gap-2 sm:gap-3 transition-all duration-300">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-1.5 sm:gap-2 group shrink-0">
+        <div class="w-6 h-6 rounded-md bg-black flex items-center justify-center text-white font-bold transition-transform group-hover:scale-105">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8c2.05 0 3.91.78 5.34 2.07l-2.02 2.02C14.39 7.42 13.24 7 12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c1.24 0 2.39-.42 3.32-1.09l2.02 2.02C15.91 19.22 14.05 20 12 20z"/>
+          </svg>
+        </div>
+        <span class="font-extrabold text-sm sm:text-base tracking-tight text-gray-950">CoreShift</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-[13px] font-medium text-gray-700">
+        <a href="#heroSection1" class="hover:text-black transition-colors">Product</a>
+        <a href="#features" class="hover:text-black transition-colors">Features</a>
+        <a href="#integrations" class="hover:text-black transition-colors">Pricing</a>
+        <a href="#testimonials" class="hover:text-black transition-colors">Resources</a>
+      </nav>
+
+      <!-- Right Actions (CTA & Mobile Menu Button) -->
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <!-- Sign in (Chỉ hiện trên tablet/desktop để không làm chật và ngắt dòng trên mobile) -->
+        <a href="#signin" class="hidden sm:inline-block text-[13px] font-medium text-gray-700 hover:text-black transition-colors px-1 whitespace-nowrap">Sign in</a>
+        
+        <!-- Request a Demo (CTA) -->
+        <a href="#demo" class="bg-black hover:bg-neutral-800 text-white text-xs sm:text-[13px] font-medium px-3 sm:px-5 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xs whitespace-nowrap">
+          Request a Demo
+        </a>
+
+        <!-- Mobile Hamburger Button (Chỉ hiển thị trên mobile < md) -->
+        <button id="mobileMenuBtn" type="button" class="md:hidden w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200/80 active:scale-90 flex items-center justify-center text-slate-800 transition-all focus:outline-none cursor-pointer" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <div class="w-4 h-3 flex flex-col justify-between items-center relative">
+            <span id="hamburgerLine1" class="hamburger-line w-full h-[2px] bg-slate-800 rounded-full origin-center"></span>
+            <span id="hamburgerLine2" class="hamburger-line w-full h-[2px] bg-slate-800 rounded-full"></span>
+            <span id="hamburgerLine3" class="hamburger-line w-full h-[2px] bg-slate-800 rounded-full origin-center"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu Panel (Giao diện kính mờ sang trọng, trượt xuống mượt mà) -->
+    <div id="mobileMenuPanel" class="pointer-events-auto md:hidden hidden mt-2 bg-white/95 backdrop-blur-xl rounded-[26px] border border-slate-200/90 shadow-2xl shadow-slate-900/10 p-4 transition-all duration-300 ease-out origin-top opacity-0 -translate-y-2">
+      <!-- Menu Links -->
+      <nav class="flex flex-col gap-1">
+        <a href="#heroSection1" class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:bg-slate-100/80 transition-colors font-medium text-sm">
+          <span>Product</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#features" class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:bg-slate-100/80 transition-colors font-medium text-sm">
+          <span>Features</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#integrations" class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:bg-slate-100/80 transition-colors font-medium text-sm">
+          <span>Pricing</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#testimonials" class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:bg-slate-100/80 transition-colors font-medium text-sm">
+          <span>Resources</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Divider -->
+      <div class="h-px bg-slate-100 my-2.5"></div>
+
+      <!-- Mobile Actions -->
+      <div class="flex flex-col gap-2 pt-1">
+        <a href="#signin" class="mobile-nav-link w-full py-2.5 px-3 text-center text-sm font-semibold text-slate-700 hover:text-black hover:bg-slate-100/80 rounded-xl transition-colors">
+          Sign in
+        </a>
+        <a href="#demo" class="mobile-nav-link w-full py-2.5 px-3 bg-[#FF4D38] hover:bg-[#E03E2A] text-white text-center text-sm font-bold rounded-full shadow-md shadow-[#FF4D38]/20 transition-all active:scale-[0.98]">
+          Request a Demo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop Overlay (Chạm ra ngoài để đóng menu) -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-slate-900/20 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
+
+
+
+  <!-- ================= KHUNG CHỨA CÁC CANVAS CARD ĐỘC LẬP (Chuẩn xác 100% theo video mẫu) ================= -->
+  <main class="max-w-[1440px] mx-auto space-y-6 sm:space-y-8 md:space-y-10 relative">
+
+    <!-- ================= CARD 1: HERO 1 (All-in-one HR platform - Frame 00s Video) ================= -->
+    <section id="hero1Card" class="canvas-card bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-20 sm:pt-24 md:pt-26 pb-14 sm:pb-18 px-4 sm:px-6 md:px-8 text-center min-h-[85vh] sm:min-h-[88vh] flex flex-col justify-center">
+
+      <!-- Central Graphic Network (Hộp tím trung tâm to bản kết nối 4 nodes & 2 avatars trải rộng) -->
+      <div class="relative w-full max-w-[960px] lg:max-w-[1080px] xl:max-w-[1180px] h-[280px] sm:h-[320px] md:h-[350px] mx-auto flex items-center justify-center">
+        
+        <!-- Connecting Lines SVG -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none stroke-slate-200" stroke-width="1.8">
+          <!-- Nhánh trái -->
+          <line x1="50%" y1="48%" x2="35%" y2="48%" />
+          <line x1="35%" y1="48%" x2="25%" y2="24%" />
+          <line x1="35%" y1="48%" x2="14%" y2="48%" />
+          <line x1="35%" y1="48%" x2="25%" y2="74%" />
+          
+          <!-- Nhánh phải -->
+          <line x1="50%" y1="48%" x2="65%" y2="48%" />
+          <line x1="65%" y1="48%" x2="76%" y2="24%" />
+          <line x1="65%" y1="48%" x2="88%" y2="48%" />
+          <line x1="65%" y1="48%" x2="79%" y2="70%" />
+        </svg>
+
+        <!-- Nút chấm tròn tím nhỏ trên các mối rẽ (Chuẩn xác Video Frame 00.0s) -->
+        <div class="absolute top-[24%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#7C6AF7] ring-4 ring-white shadow-xs"></div>
+        <div class="absolute top-[74%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#7C6AF7] ring-4 ring-white shadow-xs"></div>
+        <div class="absolute top-[24%] left-[76%] -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#7C6AF7] ring-4 ring-white shadow-xs"></div>
+        <div class="absolute top-[70%] left-[79%] -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#7C6AF7] ring-4 ring-white shadow-xs"></div>
+
+        <!-- Center Node: Purple Square with Checkmark Chevron (To bản 160px x 160px chuẩn video 00:00) -->
+        <div class="relative z-20 w-28 h-28 sm:w-36 sm:h-36 md:w-[158px] md:h-[158px] rounded-[30px] sm:rounded-[38px] md:rounded-[42px] bg-gradient-to-br from-[#9465FA] via-[#834EF8] to-[#6A35F5] shadow-[0_24px_55px_-12px_rgba(118,70,245,0.48)] flex items-center justify-center border-2 border-white/70 transition-transform duration-500 hover:scale-105 cursor-pointer">
+          <div class="w-13 h-13 sm:w-16 sm:h-16 md:w-[74px] md:h-[74px] rounded-full border-[3px] border-white/80 flex items-center justify-center shadow-inner">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Node 1 (Top Left): Yellow Lightbulb (Bóng đèn vàng to bản - Frame 00.0s) -->
+        <div class="absolute top-[4%] sm:top-[6%] left-[15%] sm:left-[17%] z-10 w-14 h-14 sm:w-18 sm:h-18 md:w-[84px] md:h-[84px] rounded-2xl sm:rounded-[26px] bg-[#FFC024] text-white flex items-center justify-center shadow-xl shadow-amber-400/40 border-2 border-white/80 animate-float-slow">
+          <svg class="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+        </div>
+
+        <!-- Node 2 (Bottom Left): Cyan 2 Balloons (2 quả bóng bay xanh to bản - Frame 00.0s) -->
+        <div class="absolute bottom-[2%] sm:bottom-[4%] left-[16%] sm:left-[18%] z-10 w-16 h-16 sm:w-20 sm:h-20 md:w-[98px] md:h-[98px] rounded-2xl sm:rounded-[30px] bg-[#16BEFA] text-white flex items-center justify-center shadow-xl shadow-sky-400/40 border-2 border-white/80 animate-float-reverse">
+          <svg class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="currentColor">
+            <!-- Balloon 1 -->
+            <path d="M8 2.5a3.8 3.8 0 00-3.8 3.8c0 2.8 2.4 4.8 3.4 5.3l-.4 1.4h1.6l-.4-1.4c1-.5 3.4-2.5 3.4-5.3A3.8 3.8 0 008 2.5z"/>
+            <path d="M7.8 13c-.3 1.5.4 2.5.9 3.5s.4 2-.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <!-- Balloon 2 -->
+            <path d="M15 5a3.2 3.2 0 00-3.2 3.2c0 2.4 2 4 2.8 4.5l-.3 1.2h1.4l-.3-1.2c.8-.5 2.8-2.1 2.8-4.5A3.2 3.2 0 0015 5z"/>
+            <path d="M14.8 14c-.2 1.2.3 2 .7 2.8s.3 1.6-.4 2.7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- Node 3 (Top Right): Red Shield with Lightning Bolt (Khiên đỏ tia sét to bản - Frame 00.0s) -->
+        <div class="absolute top-[4%] sm:top-[6%] right-[16%] sm:right-[18%] z-10 w-16 h-16 sm:w-20 sm:h-20 md:w-[98px] md:h-[98px] rounded-2xl sm:rounded-[30px] bg-[#FF4747] text-white flex items-center justify-center shadow-xl shadow-red-500/40 border-2 border-white/80 animate-float-drift">
+          <svg class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 16l-3-6h3V6l5 7h-4v4z"/>
+          </svg>
+        </div>
+
+        <!-- Node 4 (Right Middle): 2D Vector Cartoon Eyes looking left (Node mắt to bản chuẩn Frame 00.0s) -->
+        <div class="absolute top-[48%] -translate-y-1/2 right-[0.5%] sm:right-[2%] z-10 w-18 h-18 sm:w-24 sm:h-24 md:w-[114px] md:h-[114px] rounded-[24px] sm:rounded-[32px] md:rounded-[36px] bg-white text-slate-800 flex items-center justify-center shadow-2xl shadow-slate-200/90 border border-slate-100 animate-float-slow">
+          <svg class="w-10 h-7 sm:w-14 sm:h-10 md:w-18 md:h-12" viewBox="0 0 44 28" fill="none">
+            <!-- Left Eye -->
+            <ellipse cx="13" cy="14" rx="9" ry="12" fill="white" stroke="#0F172A" stroke-width="2.8"/>
+            <circle cx="9.5" cy="14" r="4.6" fill="#0F172A"/>
+            <circle cx="8" cy="12" r="1.4" fill="white"/>
+            <!-- Right Eye -->
+            <ellipse cx="31" cy="14" rx="9" ry="12" fill="white" stroke="#0F172A" stroke-width="2.8"/>
+            <circle cx="27.5" cy="14" r="4.6" fill="#0F172A"/>
+            <circle cx="26" cy="12" r="1.4" fill="white"/>
+          </svg>
+        </div>
+
+        <!-- Floating Avatar 1 (Left Middle): Chàng trai tóc dài lượn sóng to bản (y hệt Frame 00.0s) -->
+        <div class="absolute top-[48%] -translate-y-1/2 left-[0.5%] sm:left-[2%] z-10 animate-float-slow">
+          <div class="w-18 h-18 sm:w-24 sm:h-24 md:w-[114px] md:h-[114px] rounded-[24px] sm:rounded-[32px] md:rounded-[36px] p-0.5 bg-white shadow-2xl shadow-slate-300/70 border-2 border-white overflow-hidden">
+            <img src="./avatars/hero1_man.png" alt="Team member" class="w-full h-full object-cover rounded-[22px] sm:rounded-[30px] md:rounded-[34px]" />
+          </div>
+        </div>
+
+        <!-- Floating Avatar 2 (Bottom Right): Cô gái cười tươi nghe điện thoại (y hệt Frame 00.0s) -->
+        <div class="absolute bottom-[4%] sm:bottom-[6%] right-[15%] sm:right-[17%] z-10 animate-float-reverse">
+          <div class="w-14 h-16 sm:w-18 sm:h-22 md:w-[78px] md:h-[94px] rounded-2xl sm:rounded-[24px] p-0.5 bg-white shadow-2xl shadow-slate-300/70 border-2 border-white overflow-hidden">
+            <img src="./avatars/hero1_woman.png" alt="Team member" class="w-full h-full object-cover rounded-xl sm:rounded-[20px]" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography & CTA Button (To bản, bề thế, font-black y hệt video 00:00) -->
+      <div class="scroll-blur-reveal max-w-4xl mx-auto px-4 mt-4 sm:mt-6">
+        <h1 class="text-blur-wipe text-4xl sm:text-5xl md:text-6xl lg:text-[70px] xl:text-[76px] font-black text-gray-950 tracking-tight leading-[1.04]">
+          All-in-one HR<br>platform
+        </h1>
+        <p class="text-blur-wipe-sub mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-500 font-normal leading-relaxed max-w-xl mx-auto">
+          CoreShift is a modern, all-in-one HR platform designed to perfectly fit your business needs
+        </p>
+        <div class="mt-6 sm:mt-7 flex justify-center">
+          <a href="#demo" class="inline-flex items-center justify-center min-w-[220px] sm:min-w-[250px] px-8 sm:px-10 py-3 sm:py-3.5 rounded-2xl text-white font-semibold text-sm sm:text-base bg-[#FF5A43] hover:bg-[#EE4832] shadow-xl shadow-[#FF5A43]/35 transition-all duration-300 hover:scale-105 active:scale-95">
+            Request a Demo
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= CARD 2: HERO 2 (Core HR solutions - Frame 02s Video - Canvas Card Độc Lập) ================= -->
+    <section id="hero2Card" class="canvas-card scroll-mt-28 bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative min-h-[820px] sm:min-h-[880px] lg:min-h-[940px] xl:min-h-[960px] flex items-center justify-center px-4 sm:px-8 text-center">
+      
+      <!-- CỤM 8 AVATARS ĐỐI XỨNG CÂN ĐỐI TUYỆT ĐỐI (Chuẩn xác 100% Video Frame 01s - 03s & t_2.8s.png) -->
+      <div id="hero2AvatarsContainer" class="absolute inset-0 pointer-events-none">
+        
+        <!-- ================= BÊN TRÁI (4 Avatars bánh xe trái xoay tròn) ================= -->
+        
+        <!-- 1. Cột ngoài cùng trên: Nam da màu áo sọc (Video: top 20%, left 3.8% - Nguyên vẹn bo góc) -->
+        <div class="hero2-avatar-item hero2-avatar-left hidden sm:block absolute top-[17%] sm:top-[18%] lg:top-[20%] left-[1.5%] sm:left-[2.5%] lg:left-[3.8%] pointer-events-auto transition-shadow duration-300" data-index="0">
+          <div class="hero2-avatar-card w-[110px] h-[142px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[22px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_1.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- 2. Cột trong trên: Nam tóc nâu lượn sóng (Video: top 30%, left 16.5% - Thấp hơn Nam áo sọc 10%) -->
+        <div class="hero2-avatar-item hero2-avatar-left absolute top-[16%] sm:top-[26%] lg:top-[30%] left-[2%] sm:left-[12%] lg:left-[16.5%] pointer-events-auto transition-shadow duration-300" data-index="1">
+          <div class="hero2-avatar-card w-[95px] h-[125px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[20px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_2.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- 3. Cột trong dưới: Nữ tóc vàng nghe điện thoại (Video: top 56%, left 16.5% - Thẳng hàng Nam tóc nâu) -->
+        <div class="hero2-avatar-item hero2-avatar-left absolute top-[68%] sm:top-[54%] lg:top-[56%] left-[2%] sm:left-[12%] lg:left-[16.5%] pointer-events-auto transition-shadow duration-300" data-index="2">
+          <div class="hero2-avatar-card w-[95px] h-[125px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[20px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_3.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- 4. Cột ngoài cùng dưới: Nam mũ fedora đen kính râm (Video: top 68%, left 3.8% - Thẳng hàng Nam áo sọc, KHÔNG BỊ CẮT ĐÁY) -->
+        <div class="hero2-avatar-item hero2-avatar-left hidden sm:block absolute top-[64%] sm:top-[66%] lg:top-[68%] left-[1.5%] sm:left-[2.5%] lg:left-[3.8%] pointer-events-auto transition-shadow duration-300" data-index="3">
+          <div class="hero2-avatar-card w-[110px] h-[142px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[22px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_4.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+
+        <!-- ================= BÊN PHẢI (4 Avatars bánh xe phải xoay tròn đối xứng) ================= -->
+        
+        <!-- 5. Cột ngoài cùng trên: Nữ đeo headphone (Video: top 20%, right 3.8% - Ngang hàng Nam áo sọc) -->
+        <div class="hero2-avatar-item hero2-avatar-right hidden sm:block absolute top-[17%] sm:top-[18%] lg:top-[20%] right-[1.5%] sm:right-[2.5%] lg:right-[3.8%] pointer-events-auto transition-shadow duration-300" data-index="0">
+          <div class="hero2-avatar-card w-[110px] h-[142px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[22px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_6.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- 6. Cột trong trên: Nam cầm mũ fedora trắng cười tươi (Video: top 30%, right 16.5% - Ngang hàng Nam tóc nâu) -->
+        <div class="hero2-avatar-item hero2-avatar-right absolute top-[16%] sm:top-[26%] lg:top-[30%] right-[2%] sm:right-[12%] lg:right-[16.5%] pointer-events-auto transition-shadow duration-300" data-index="1">
+          <div class="hero2-avatar-card w-[95px] h-[125px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[20px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_7.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- 7. Cột trong dưới: Nam laptop kính cận áo xanh (Video: top 56%, right 16.5% - Ngang hàng Nữ nghe đt) -->
+        <div class="hero2-avatar-item hero2-avatar-right absolute top-[68%] sm:top-[54%] lg:top-[56%] right-[2%] sm:right-[12%] lg:right-[16.5%] pointer-events-auto transition-shadow duration-300" data-index="2">
+          <div class="hero2-avatar-card w-[95px] h-[125px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[20px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_8.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- 8. Cột ngoài cùng dưới: Nữ tóc xoăn áo hoa xanh (Video: top 68%, right 3.8% - Ngang hàng Nam mũ fedora, KHÔNG BỊ CẮT ĐÁY) -->
+        <div class="hero2-avatar-item hero2-avatar-right hidden sm:block absolute top-[64%] sm:top-[66%] lg:top-[68%] right-[1.5%] sm:right-[2.5%] lg:right-[3.8%] pointer-events-auto transition-shadow duration-300" data-index="3">
+          <div class="hero2-avatar-card w-[110px] h-[142px] sm:w-[130px] sm:h-[168px] md:w-[148px] md:h-[192px] lg:w-[165px] lg:h-[215px] rounded-[22px] sm:rounded-[28px] md:rounded-[32px] bg-white shadow-xl shadow-slate-300/40 overflow-hidden border-[3px] border-white relative">
+            <img src="./avatars/hero2_9.png" alt="Team member" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Center Content: Icon Tím, Tiêu đề, Phụ đề, Nút Learn more (Nằm chính giữa không gian thoáng đãng) -->
+      <div class="relative z-20 max-w-[480px] lg:max-w-[540px] mx-auto px-4 py-8">
+        <!-- Center Icon: Purple User Profile (Frame 02.0s) -->
+        <div class="scroll-blur-reveal w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-lg shadow-indigo-100/80 flex items-center justify-center text-[#7C3AED] mx-auto mb-6 border border-slate-100">
+          <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+
+        <!-- Typography & CTA -->
+        <div class="scroll-blur-reveal delay-100">
+          <h2 class="text-blur-wipe text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-[1.08]">
+            Core HR<br>solutions
+          </h2>
+          <p class="text-blur-wipe-sub mt-4 text-sm sm:text-base text-gray-500 font-normal leading-relaxed max-w-sm sm:max-w-md mx-auto">
+            Streamline HR processes in one centralized platform, enhancing team transparency.
+          </p>
+          <div class="mt-8 flex justify-center">
+            <a href="#learn-more" class="inline-flex items-center justify-center px-8 py-3 rounded-xl text-white font-medium text-sm bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#7C3AED] hover:to-[#6D28D9] shadow-lg shadow-indigo-300/40 transition-all duration-300 hover:scale-105 active:scale-95">
+              Learn more
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- ================= CARD 2: BUILT FOR EVERYONE (Bento Grid - Frame 05s & 06s) ================= -->
+  <section id="features" class="canvas-card scroll-mt-32 sm:scroll-mt-36 md:scroll-mt-40 bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-32 sm:pt-40 md:pt-44 pb-20 sm:pb-28 px-4 sm:px-10 lg:px-14">
+    <!-- Section Header (Scroll Blur Reveal) -->
+    <div class="scroll-blur-reveal text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-blur-wipe text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
+        Built for everyone
+      </h2>
+      <p class="text-blur-wipe-sub mt-3 text-sm sm:text-base text-gray-500">
+        Thousands of businesses, from startups to enterprises, use CoreShift to handle payments.
+      </p>
+    </div>
+
+    <!-- Bento Grid 5 Cards (Y hệt Frame 05s & 06s) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      
+      <!-- CARD 1: For HR professionals (Attendance Report) -->
+      <div class="scroll-fade-up delay-75 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <!-- Graphic: Attendance Report Box có mép thẻ 2 bên -->
+        <div class="relative bg-white rounded-2xl p-4 sm:p-5 border border-slate-100 mb-6 shadow-xs overflow-hidden">
+          <!-- Mép thẻ mờ hai bên tạo chiều sâu 3D (Frame 05s) -->
+          <div class="absolute -left-12 top-6 bottom-6 w-16 bg-slate-50 border border-slate-100 rounded-xl opacity-60"></div>
+          <div class="absolute -right-12 top-6 bottom-6 w-16 bg-slate-50 border border-slate-100 rounded-xl opacity-60"></div>
+
+          <div class="relative z-10 flex items-center justify-between mb-3">
+            <span class="text-xs font-semibold text-gray-700">Attendance Report</span>
+            <span class="text-[10px] font-medium text-gray-400 bg-slate-50 px-2 py-0.5 rounded-full border border-gray-100">Monthly ▾</span>
+          </div>
+          
+          <!-- Graphic with Mon-Fri Axis & +17% Badge -->
+          <div class="relative z-10 h-28 flex items-end justify-between gap-2 pt-2 px-1">
+            <div class="absolute top-8 left-6 right-2 border-b border-dashed border-slate-300/80 pointer-events-none"></div>
+
+            <div class="flex flex-col justify-between h-20 text-[9px] text-gray-400 pr-1">
+              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
+            </div>
+
+            <!-- Cột 1 -->
+            <div class="w-full flex flex-col items-center">
+              <div class="chart-bar w-full bg-[#FF4D38]/30 rounded-t-md h-12" style="transition-delay: 200ms;"></div>
+            </div>
+            <!-- Cột 2 -->
+            <div class="w-full flex flex-col items-center">
+              <div class="chart-bar w-full bg-[#FF4D38]/50 rounded-t-md h-16" style="transition-delay: 300ms;"></div>
+            </div>
+            <!-- Cột 3 - Cao nhất kèm Badge đen +17% -->
+            <div class="w-full flex flex-col items-center relative">
+              <span class="chart-badge absolute -top-6 text-[9px] font-bold bg-black text-white px-1.5 py-0.5 rounded-md shadow-xs" style="transition-delay: 500ms;">+17%</span>
+              <div class="chart-bar w-full bg-[#7C6AF7] rounded-t-md h-24 shadow-sm shadow-indigo-300/50" style="transition-delay: 450ms;"></div>
+            </div>
+            <!-- Cột 4 -->
+            <div class="w-full flex flex-col items-center">
+              <div class="chart-bar w-full bg-[#7C6AF7]/60 rounded-t-md h-16" style="transition-delay: 550ms;"></div>
+            </div>
+            <!-- Cột 5 -->
+            <div class="w-full flex flex-col items-center">
+              <div class="chart-bar w-full bg-[#FF4D38]/70 rounded-t-md h-20" style="transition-delay: 650ms;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">For HR professionals</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Use a single cloud system for your employees, candidates and HR processes info.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 2: For managers & leaders (Concentric Circles + Stacked 3D Cards) -->
+      <div class="scroll-fade-up delay-150 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <!-- Graphic: Concentric Radar & Stacked Badges -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 mb-6 flex items-center justify-center min-h-[170px] relative overflow-hidden shadow-xs">
+          <!-- Concentric Circles Background (Đường tròn đồng tâm như Frame 05s) -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none animate-ripple">
+            <div class="w-48 h-48 rounded-full border border-slate-100"></div>
+            <div class="absolute w-32 h-32 rounded-full border border-slate-100"></div>
+            <div class="absolute w-16 h-16 rounded-full border border-slate-100"></div>
+          </div>
+
+          <!-- Stacked Cards Container (Hiệu ứng xếp lớp 3D y hệt Frame 05s & 06s) -->
+          <div class="relative z-10 flex flex-col items-center">
+            <!-- Thẻ lót 3 (dưới cùng có mép vàng) -->
+            <div class="w-56 h-10 bg-slate-50 rounded-xl border border-slate-200/60 shadow-xs -mb-7 scale-90 relative">
+              <div class="absolute -bottom-1 left-4 w-5 h-1.5 bg-amber-400 rounded-full"></div>
+            </div>
+            <!-- Thẻ lót 2 (ở giữa có mép đỏ) -->
+            <div class="w-60 h-10 bg-slate-100/80 rounded-xl border border-slate-200/70 shadow-xs -mb-7 scale-95 relative">
+              <div class="absolute -bottom-1 left-4 w-5 h-1.5 bg-red-400 rounded-full"></div>
+            </div>
+            <!-- Thẻ chính (Dynamic Cylinder Stacked Badge lật 3 thông điệp) -->
+            <div id="dynamicBadgeContainer" class="relative z-10 px-5 py-3 bg-white rounded-2xl border border-slate-200 shadow-xl flex items-center gap-3 transition-all duration-500">
+              <span id="badgeIcon" class="w-8 h-8 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center text-sm font-bold shadow-2xs">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </span>
+              <span id="badgeText" class="text-sm font-bold text-gray-800 tracking-tight">
+                Access Real-Time Insights
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">For managers & leaders</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Get always up-to-date data and monitor performance of the company.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 3: For legal teams (Layered Legal Documents & Shield) -->
+      <div class="scroll-fade-up delay-200 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <!-- Graphic: Sọc kẻ dọc mờ + Hai tài liệu nghiêng + Khối tím 3D icon khiên check -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 mb-6 flex items-center justify-center min-h-[170px] relative overflow-hidden shadow-xs">
+          <!-- Vertical Lines Background (Sọc kẻ dọc mảnh mờ như Frame 05s) -->
+          <div class="absolute inset-0 flex justify-between px-8 pointer-events-none opacity-40">
+            <div class="w-px h-full bg-slate-100"></div>
+            <div class="w-px h-full bg-slate-100"></div>
+            <div class="w-px h-full bg-slate-100"></div>
+            <div class="w-px h-full bg-slate-100"></div>
+            <div class="w-px h-full bg-slate-100"></div>
+          </div>
+
+          <!-- Tài liệu nghiêng trái -->
+          <div class="absolute w-24 h-32 bg-slate-50 rounded-xl border border-slate-200 shadow-md transform -rotate-12 -translate-x-6 p-2 space-y-1.5 opacity-90">
+            <div class="w-8 h-2 bg-slate-200 rounded-full"></div>
+            <div class="w-14 h-1.5 bg-slate-200/60 rounded-full"></div>
+            <div class="w-10 h-1.5 bg-slate-200/60 rounded-full"></div>
+          </div>
+          <!-- Tài liệu nghiêng phải -->
+          <div class="absolute w-24 h-32 bg-slate-50 rounded-xl border border-slate-200 shadow-md transform rotate-12 translate-x-6 p-2 space-y-1.5 opacity-90">
+            <div class="w-8 h-2 bg-slate-200 rounded-full"></div>
+            <div class="w-14 h-1.5 bg-slate-200/60 rounded-full"></div>
+            <div class="w-10 h-1.5 bg-slate-200/60 rounded-full"></div>
+          </div>
+          <!-- Khối tím trung tâm với khiên check -->
+          <div class="relative z-20 w-14 h-14 rounded-2xl bg-gradient-to-br from-[#8B77FF] to-[#6A53F5] text-white flex items-center justify-center shadow-xl shadow-indigo-400/40 border border-white/80">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">For legal teams</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            CoreShift helps legal teams by streamlining compliance, managing contracts and policies.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 4 (Wide - 2 Columns): All employee data at once (Frame 06s) -->
+      <div class="scroll-fade-up delay-250 md:col-span-2 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+        <!-- Icon tài liệu đỏ cam góc trái (như video Frame 06s) -->
+        <div class="absolute top-6 left-6 w-10 h-10 rounded-2xl bg-white border border-slate-100 shadow-md flex items-center justify-center text-red-500 z-20">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+          </svg>
+        </div>
+
+        <!-- Graphic Grid: Slider trượt luân phiên Training Participation và Employees (Frame 05s -> 06s) -->
+        <div class="relative bg-white rounded-2xl p-4 sm:p-5 border border-slate-100 mb-6 pl-14 sm:pl-16 shadow-xs overflow-hidden">
+          <div id="card4SlideTrack" class="grid grid-cols-1 lg:grid-cols-2 gap-4 transition-all duration-700 ease-in-out">
+            
+            <!-- Training Participation Bar Chart Mini (Frame 05s bên trái) -->
+            <div id="card4Training" class="bg-slate-50/80 rounded-2xl p-3 border border-slate-100 flex flex-col justify-between order-1">
+              <div class="flex items-center justify-between text-xs font-semibold text-gray-700">
+                <span>Training Participation</span>
+                <div class="flex items-center gap-1 text-[9px]">
+                  <span class="text-gray-400">Daily</span>
+                  <span class="text-gray-400">Weekly</span>
+                  <span class="bg-black text-white px-1.5 py-0.5 rounded-full">Monthly</span>
+                </div>
+              </div>
+              <div class="h-20 flex items-end justify-between gap-1.5 pt-2">
+                <div class="flex flex-col justify-between h-full text-[8px] text-gray-300 pr-0.5">
+                  <span>100%</span><span>80%</span><span>60%</span><span>40%</span><span>20%</span>
+                </div>
+                <div class="chart-bar w-full bg-slate-200 rounded-t-md h-8" style="transition-delay: 200ms;"></div>
+                <div class="chart-bar w-full bg-slate-200 rounded-t-md h-12" style="transition-delay: 300ms;"></div>
+                <div class="w-full flex flex-col items-center relative">
+                  <span class="chart-badge absolute -top-5 text-[8px] font-bold bg-black text-white px-1 py-0.2 rounded-xs" style="transition-delay: 500ms;">46%</span>
+                  <div class="chart-bar w-full bg-gradient-to-t from-indigo-500 to-indigo-600 rounded-t-md h-16 shadow-xs" style="transition-delay: 450ms;"></div>
+                </div>
+                <div class="chart-bar w-full bg-slate-200 rounded-t-md h-10" style="transition-delay: 550ms;"></div>
+                <div class="chart-bar w-full bg-slate-200 rounded-t-md h-14" style="transition-delay: 650ms;"></div>
+              </div>
+            </div>
+
+              <!-- Employees Directory Mini (Frame 05s bên phải, 06s trượt sang trái) -->
+              <div id="card4Employees" class="bg-slate-50/80 rounded-2xl p-3 border border-slate-100 space-y-2 order-2">
+                <div class="flex items-center justify-between text-xs font-semibold text-gray-700 pb-1 border-b border-slate-100">
+                  <span>Employees</span>
+                  <span class="text-[10px] text-gray-400 font-normal">See all</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-[9px] font-semibold text-gray-500 overflow-x-auto">
+                  <span class="bg-black text-white px-2 py-0.5 rounded-full whitespace-nowrap">Project Dept. 24</span>
+                  <span class="bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">Sales Dept. 11</span>
+                  <span class="bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">Marketing Dept.</span>
+                </div>
+                <div class="space-y-1.5 pt-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <img src="./avatars/hero2_1.png" class="w-6 h-6 rounded-full object-cover" />
+                      <div>
+                        <p class="text-[11px] font-semibold text-gray-800 leading-tight">Willem Gray</p>
+                        <p class="text-[9px] text-gray-400">Visual Director</p>
+                      </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">✉</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <img src="./avatars/hero2_7.png" class="w-6 h-6 rounded-full object-cover" />
+                      <div>
+                        <p class="text-[11px] font-semibold text-gray-800 leading-tight">Dimitri Ryabell</p>
+                        <p class="text-[9px] text-gray-400">PM/BA</p>
+                      </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">✉</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <img src="./avatars/hero2_3.png" class="w-6 h-6 rounded-full object-cover" />
+                      <div>
+                        <p class="text-[11px] font-semibold text-gray-800 leading-tight">Olivia Klyver</p>
+                        <p class="text-[9px] text-gray-400">PM/BA</p>
+                      </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">✉</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">All employee data at once</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Contact and personal information, paid and unpaid leave balances, career history, projects and more.
+            </p>
+          </div>
+        </div>
+
+        <!-- CARD 5: For teams & employees (Vòng tròn 12 Avatar xoay đều - Frame 06s) -->
+        <div class="scroll-fade-up delay-300 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <!-- Graphic: Vòng tròn 12 Avatar nhân sự xếp như mặt đồng hồ -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-100 mb-6 flex items-center justify-center min-h-[170px] relative overflow-hidden shadow-xs">
+            <!-- Tâm: Icon 2 người màu đen teamwork -->
+            <div class="w-12 h-12 rounded-full bg-white shadow-md border border-slate-100 flex items-center justify-center z-20 text-gray-800">
+              <svg class="w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.66-3.3-1-4.5-1C5.17 13 2 14.17 2 16.5V19h15v-2.5c0-2.33-3.17-3.5-5.5-3.5zM7.5 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm9 0c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 2c-.41 0-.85.04-1.31.11.87.69 1.48 1.63 1.69 2.76.71.18 1.4.38 2.12.63V19h4v-2.5c0-1.84-2.52-2.92-4.5-3.5z"/>
+              </svg>
+            </div>
+
+            <!-- Vòng tròn 12 Avatar xoay chậm (animate-orbit-slow) -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none animate-orbit-slow">
+              <div class="w-36 h-36 rounded-full relative">
+                <img src="./avatars/hero2_1.png" class="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero2_2.png" class="absolute top-[7%] right-[25%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero2_3.png" class="absolute top-[25%] right-[7%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero2_4.png" class="absolute top-1/2 right-0 -translate-y-1/2 w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero2_5.png" class="absolute bottom-[25%] right-[7%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero2_6.png" class="absolute bottom-[7%] right-[25%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero2_7.png" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero2_8.png" class="absolute bottom-[7%] left-[25%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero1_man.png" class="absolute bottom-[25%] left-[7%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/hero1_woman.png" class="absolute top-1/2 left-0 -translate-y-1/2 w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/sarah_mitchell.png" class="absolute top-[25%] left-[7%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+                <img src="./avatars/james_carter.png" class="absolute top-[7%] left-[25%] w-6 h-6 rounded-full border border-white shadow-2xs object-cover" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">For teams & employees</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Get to know who is going to be out of office and be aware of upcoming events.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= CARD 3: 3D ARC CAROUSEL (Frame 08s & 10s y hệt ảnh user gửi) ================= -->
+    <section id="integrations" class="canvas-card scroll-mt-28 sm:scroll-mt-36 md:scroll-mt-40 bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative flex flex-col justify-center pt-24 sm:pt-32 md:pt-36 pb-20 sm:pb-28 px-4 sm:px-10 lg:px-14 text-center">
+      
+      <!-- Icon 2 bánh răng đôi màu cam đỏ lồng nhau (Double gear icon chuẩn theo Frame 08s & Ảnh video) -->
+      <div class="scroll-blur-reveal inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white text-[#FF5A43] mb-5 sm:mb-6 shadow-sm border border-slate-100 mx-auto">
+        <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor">
+          <!-- Bánh răng chính -->
+          <path d="M12 8a4 4 0 100 8 4 4 0 000-8zm-1 3a1 1 0 112 0 1 1 0 01-2 0z"/>
+          <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+        </svg>
+      </div>
+
+      <!-- Heading to, đậm, căn giữa -->
+      <h2 class="text-blur-wipe scroll-blur-reveal delay-100 text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black text-gray-900 tracking-tight max-w-2xl mx-auto leading-tight">
+        Integrate with your existing<br>tools in seconds
+      </h2>
+
+      <!-- 3D Arc Curved Carousel Container (Vòm cong 5 thẻ hoành tráng trên Desktop, co giãn responsive linh hoạt, có khoảng cách rõ ràng) -->
+      <div class="scroll-scale-up delay-200 relative max-w-5xl xl:max-w-6xl mx-auto mt-12 sm:mt-16 flex flex-col items-center justify-center">
+        
+        <!-- Curved Arc Container -->
+        <div id="arcContainer" class="relative w-full h-44 sm:h-52 md:h-60 lg:h-64 xl:h-72 flex items-center justify-center overflow-visible">
+          <div id="arcTrack" class="relative w-full max-w-[840px] md:max-w-[920px] lg:max-w-[1000px] xl:max-w-[1060px] h-40 sm:h-48 md:h-56 lg:h-60 xl:h-64 flex items-center justify-center">
+            
+            <!-- Left White Blur Shadow Mask (Bóng trắng làm mờ rìa ngoài cùng) -->
+            <div class="pointer-events-none absolute -inset-y-4 left-0 w-16 sm:w-24 md:w-32 lg:w-36 xl:w-40 bg-gradient-to-r from-white via-white/80 to-transparent z-[22]"></div>
+            
+            <!-- Right White Blur Shadow Mask (Bóng trắng làm mờ rìa ngoài cùng) -->
+            <div class="pointer-events-none absolute -inset-y-4 right-0 w-16 sm:w-24 md:w-32 lg:w-36 xl:w-40 bg-gradient-to-l from-white via-white/80 to-transparent z-[22]"></div>
+
+            <!-- App 0: Microsoft Teams -->
+            <div id="arcTile0" data-index="0" class="arc-tile cursor-pointer flex items-center justify-center select-none" title="Microsoft Teams">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[142px] xl:h-[142px] rounded-[20px] sm:rounded-[24px] md:rounded-[26px] lg:rounded-[28px] xl:rounded-[32px] bg-[#F1F3F5] flex items-center justify-center p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-sm transition-all duration-300">
+                <svg class="w-full h-full max-w-[40px] max-h-[40px] sm:max-w-[46px] sm:max-h-[46px] lg:max-w-[54px] lg:max-h-[54px] xl:max-w-[62px] xl:max-h-[62px]" viewBox="0 0 48 48" fill="none">
+                  <circle cx="34" cy="16" r="4.5" fill="#5059C9"/>
+                  <path d="M26 31C26 27.134 29.134 24 33 24H35C38.866 24 42 27.134 42 31V34H26V31Z" fill="#5059C9"/>
+                  <rect x="6" y="12" width="24" height="24" rx="5" fill="#464EB8"/>
+                  <path d="M13 18H23V21H19.5V30H16.5V21H13V18Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- App 1: Gmail (Logo chuẩn Google M 4 màu) -->
+            <div id="arcTile1" data-index="1" class="arc-tile cursor-pointer flex items-center justify-center select-none" title="Gmail">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[142px] xl:h-[142px] rounded-[20px] sm:rounded-[24px] md:rounded-[26px] lg:rounded-[28px] xl:rounded-[32px] bg-[#F1F3F5] flex items-center justify-center p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-sm transition-all duration-300">
+                <svg class="w-full h-full max-w-[38px] max-h-[38px] sm:max-w-[44px] sm:max-h-[44px] lg:max-w-[52px] lg:max-h-[52px] xl:max-w-[58px] xl:max-h-[58px]" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M2.5 5.5v13c0 .8.7 1.5 1.5 1.5h3v-9L2.5 7.5z"/>
+                  <path fill="#34A853" d="M17 20h3c.8 0 1.5-.7 1.5-1.5v-13L17 11z"/>
+                  <path fill="#EA4335" d="M17 11V4c0-.7-.6-1.2-1.2-1.2h-7.6C7.6 2.8 7 3.3 7 4v7l5 3.8z"/>
+                  <path fill="#FBBC04" d="M2.5 5.5C2.5 4.7 3.2 4 4 4c.4 0 .8.2 1.1.4L12 9.5l6.9-5.1c.3-.2.7-.4 1.1-.4.8 0 1.5.7 1.5 1.5L12 13.5z"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- App 2: Loom (Hoa thị tím xanh 8 cánh đặc trưng y hệt Frame 08s) -->
+            <div id="arcTile2" data-index="2" class="arc-tile cursor-pointer flex items-center justify-center select-none" title="Loom">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[142px] xl:h-[142px] rounded-[20px] sm:rounded-[24px] md:rounded-[26px] lg:rounded-[28px] xl:rounded-[32px] bg-[#F1F3F5] flex items-center justify-center p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-sm transition-all duration-300">
+                <svg class="w-full h-full max-w-[40px] max-h-[40px] sm:max-w-[46px] sm:max-h-[46px] lg:max-w-[54px] lg:max-h-[54px] xl:max-w-[62px] xl:max-h-[62px]" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2v6m0 8v6M2 12h6m8 0h6m-3.07-6.93l-4.24 4.24m-5.38 5.38l-4.24 4.24m13.86 0l-4.24-4.24m-5.38-5.38L4.93 5.07" stroke="#625DF5" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- App 3: Google Meet -->
+            <div id="arcTile3" data-index="3" class="arc-tile cursor-pointer flex items-center justify-center select-none" title="Google Meet">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[142px] xl:h-[142px] rounded-[20px] sm:rounded-[24px] md:rounded-[26px] lg:rounded-[28px] xl:rounded-[32px] bg-[#F1F3F5] flex items-center justify-center p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-sm transition-all duration-300">
+                <svg class="w-full h-full max-w-[38px] max-h-[38px] sm:max-w-[44px] sm:max-h-[44px] lg:max-w-[52px] lg:max-h-[52px] xl:max-w-[58px] xl:max-h-[58px]" viewBox="0 0 24 24"><path fill="#00832d" d="M15 8l4.5-3.5v15L15 16V8z"/><rect fill="#00ac47" x="2" y="6" width="13" height="12" rx="2"/><path fill="#ea4335" d="M15 8l4.5-3.5V8H15z"/><path fill="#2684fc" d="M15 16l4.5 3.5V16H15z"/><path fill="#ffba00" d="M2 16h13v2H2z"/></svg>
+              </div>
+            </div>
+
+            <!-- App 4: Microsoft Outlook -->
+            <div id="arcTile4" data-index="4" class="arc-tile cursor-pointer flex items-center justify-center select-none" title="Microsoft Outlook">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[142px] xl:h-[142px] rounded-[20px] sm:rounded-[24px] md:rounded-[26px] lg:rounded-[28px] xl:rounded-[32px] bg-[#F1F3F5] flex items-center justify-center p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-sm transition-all duration-300">
+                <svg class="w-full h-full max-w-[40px] max-h-[40px] sm:max-w-[46px] sm:max-h-[46px] lg:max-w-[54px] lg:max-h-[54px] xl:max-w-[62px] xl:max-h-[62px]" viewBox="0 0 48 48" fill="none">
+                  <path d="M28 8H40C42.2091 8 44 9.79086 44 12V36C44 38.2091 42.2091 40 40 40H28V8Z" fill="#0078D4"/>
+                  <path d="M28 8L44 20V36L28 24V8Z" fill="#1490DF"/>
+                  <path d="M28 24L44 36H28V24Z" fill="#28A8EA"/>
+                  <path d="M28 8L44 20H28V8Z" fill="#005A9E"/>
+                  <rect x="6" y="11" width="22" height="26" rx="5" fill="#0078D4"/>
+                  <circle cx="17" cy="24" r="6" stroke="white" stroke-width="3" fill="none"/>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Active App Label & Details (Crossfade mượt mà theo Frame 08s) -->
+        <div id="activeAppDetails" class="mt-6 sm:mt-8 text-center transition-all duration-300 min-h-[52px]">
+          <h3 id="activeAppName" class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">Loom</h3>
+          <p id="activeAppDesc" class="text-xs sm:text-sm font-normal text-gray-500 mt-1">Video feedback & communication</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= CARD 4: WORDS OF APPRECIATION (Envelope to 3D Fan-out Cards on Scroll - Frame 11s-13s) ================= -->
+    <section id="testimonials" class="canvas-card scroll-mt-20 sm:scroll-mt-24 md:scroll-mt-28 bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 relative pt-12 sm:pt-16 md:pt-20 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-8 lg:px-12 text-center overflow-hidden min-h-[760px] lg:min-h-[820px] flex flex-col justify-center items-center">
+      
+      <!-- Section Header (Scroll Blur Reveal) -->
+      <div class="scroll-blur-reveal max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-10">
+        <h2 class="text-blur-wipe text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
+          Words of Appreciation
+        </h2>
+        <p class="text-blur-wipe-sub mt-2.5 text-sm sm:text-base text-gray-500">
+          Thousands of businesses, from startups to enterprises, use CoreShift to handle payments.
+        </p>
+      </div>
+
+      <!-- Testimonials Stage (Chuyển đổi từ Phong Bì Thư sang 3D Fan-out Cards khi cuộn xuống) -->
+      <div id="fanOutStage" class="testi-stage scroll-scale-up delay-150 relative max-w-[1400px] w-full mx-auto flex flex-col items-center justify-center min-h-[480px] sm:min-h-[500px] md:min-h-[520px]" title="Click để xem hiệu ứng Phong Bì Thư / Fan-out Cards">
+        
+        <!-- Cards & Envelope Container (Đồng nhất hệ tọa độ chuẩn xác 100% theo Frame 13s-14s) -->
+        <div class="relative w-full max-w-[1240px] h-[450px] sm:h-[480px] md:h-[500px] mx-auto flex items-center justify-center overflow-visible">
+          
+          <!-- 1. LEFT TILT CARD (Thẻ trắng to bản xòe sang trái vươn cao - Frame 13s, 14s & Ảnh 3) -->
+          <div id="leftTiltCard" class="testi-fanout-card absolute left-1/2 top-1/2 w-[320px] sm:w-[380px] md:w-[410px] lg:w-[430px] h-[440px] sm:h-[490px] md:h-[520px] lg:h-[540px] rounded-[36px] sm:rounded-[44px] bg-white border border-slate-200/80 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.06)] z-10 pointer-events-none">
+            <!-- Nền trắng tinh khiết chuẩn Video Frame 13s-14s -->
+          </div>
+
+          <!-- 2. RIGHT TILT CARD (Thẻ trắng to bản xòe sang phải vươn cao - Frame 13s, 14s & Ảnh 3) -->
+          <div id="rightTiltCard" class="testi-fanout-card absolute left-1/2 top-1/2 w-[320px] sm:w-[380px] md:w-[410px] lg:w-[430px] h-[440px] sm:h-[490px] md:h-[520px] lg:h-[540px] rounded-[36px] sm:rounded-[44px] bg-white border border-slate-200/80 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.06)] z-10 pointer-events-none">
+            <!-- Nền trắng tinh khiết chuẩn Video Frame 13s-14s -->
+          </div>
+
+          <!-- 3. PHONG BÌ THƯ MÀU TÍM HOÀN CHỈNH (Hiển thị đầu tiên chuẩn Video Frame 11.5s & Ảnh 2) -->
+          <!-- 3a. Lưng phong bì & Lót tím violet mở nắp (Back Lining - Z-15, nằm SAU lá thư Sarah) -->
+          <div id="envelopeBackWrap" class="testi-envelope-wrap absolute left-1/2 top-1/2 w-[94vw] max-w-[500px] sm:max-w-[540px] md:max-w-[560px] h-[390px] sm:h-[410px] md:h-[420px] pointer-events-none z-15">
+            <svg class="w-full h-full drop-shadow-md" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="purpleLiningGrad" x1="0" y1="100" x2="560" y2="420" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#9661F8"/>
+                  <stop offset="100%" stop-color="#7330F5"/>
+                </linearGradient>
+              </defs>
+              <!-- Lớp lót tím mở hé hai bên với tai tím vươn cao ở góc ngoài chuẩn xác 100% Frame 11.6s & Ảnh 2 -->
+              <path d="M 0 100 L 115 225 L 445 225 L 560 100 L 560 392 C 560 406 548 418 532 418 L 28 418 C 12 418 0 406 0 392 Z" fill="url(#purpleLiningGrad)"/>
+              <path d="M 0 100 L 115 225" stroke="#A77BF9" stroke-width="2" opacity="0.6"/>
+              <path d="M 560 100 L 445 225" stroke="#8E53F7" stroke-width="2" opacity="0.6"/>
+            </svg>
+          </div>
+
+          <!-- 4. ACTIVE CARD: SARAH MITCHELL (Z-20, cắm lọt lòng vào phong bì) -->
+          <div id="cardSarah" class="testi-card-item is-active absolute left-1/2 top-1/2 z-20 w-[88vw] max-w-[350px] sm:max-w-[375px] md:max-w-[390px] bg-white rounded-[28px] sm:rounded-[36px] p-6 sm:p-8 text-center shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08)] border border-slate-200/80 transition-all duration-700 will-change-transform select-text cursor-default">
+            <div class="w-16 h-16 sm:w-18 sm:h-18 mx-auto rounded-2xl p-0.5 bg-white shadow-md border border-slate-100 overflow-hidden mb-3">
+              <img src="./avatars/sarah_mitchell.png" alt="Sarah Mitchell" class="w-full h-full object-cover rounded-xl" />
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight select-text cursor-text">Sarah Mitchell</h4>
+            <p class="text-xs sm:text-sm text-gray-400 font-medium mt-0.5 select-text cursor-text">HR Director at Nexa Solutions</p>
+            <div class="flex items-center justify-center gap-1 my-2.5 text-amber-400 text-sm sm:text-base select-text">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs sm:text-sm font-bold text-gray-800 ml-1.5">5.0</span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal select-text cursor-text">
+              “CoreShift has streamlined our HR processes, making tasks like onboarding and performance tracking more efficient. It helps us stay organized and saves our team time, allowing us to focus more on supporting our employees.”
+            </p>
+          </div>
+
+          <!-- 3b. Vạt trước phong bì màu trắng hình chữ V (Front Pocket - Z-25, ôm 35% thân dưới của lá thư Sarah) -->
+          <div id="envelopeFrontWrap" class="testi-envelope-wrap absolute left-1/2 top-1/2 w-[94vw] max-w-[500px] sm:max-w-[540px] md:max-w-[560px] h-[225px] sm:h-[240px] md:h-[250px] pointer-events-none z-25">
+            <svg class="w-full h-full" viewBox="0 0 560 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <filter id="envFrontDropShadow" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="-4" stdDeviation="8" flood-color="#000000" flood-opacity="0.08"/>
+              </filter>
+              <!-- Vạt trước màu trắng hình chữ V ôm nửa dưới thẻ -->
+              <path d="M 0 25 L 280 135 L 560 25 L 560 224 C 560 238 548 248 532 248 L 28 248 C 12 248 0 238 0 224 Z" fill="#FFFFFF" filter="url(#envFrontDropShadow)"/>
+              <!-- Nếp gấp chéo từ đáy vào tâm chữ V -->
+              <path d="M 0 248 L 260 140" stroke="#E8ECF0" stroke-width="1.5" opacity="0.7"/>
+              <path d="M 560 248 L 300 140" stroke="#DFE3E8" stroke-width="1.5" opacity="0.7"/>
+              <!-- Viền mép túi chữ V -->
+              <path d="M 0 25 L 280 135 L 560 25" stroke="#F1F3F5" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+
+          <!-- 5. NEXT CARD: JAMES CARTER (Z-20) -->
+          <div id="cardJames" class="testi-card-item is-right absolute left-1/2 top-1/2 z-20 w-[88vw] max-w-[350px] sm:max-w-[375px] md:max-w-[390px] bg-white rounded-[28px] sm:rounded-[36px] p-6 sm:p-8 text-center shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08)] border border-slate-200/80 transition-all duration-700 will-change-transform select-text cursor-default">
+            <div class="w-16 h-16 sm:w-18 sm:h-18 mx-auto rounded-2xl p-0.5 bg-white shadow-md border border-slate-100 overflow-hidden mb-3">
+              <img src="./avatars/james_carter.png" alt="James Carter" class="w-full h-full object-cover rounded-xl" />
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight select-text cursor-text">James Carter</h4>
+            <p class="text-xs sm:text-sm text-gray-400 font-medium mt-0.5 select-text cursor-text">HR Manager at BrightPath Solutions</p>
+            <div class="flex items-center justify-center gap-1 my-2.5 text-amber-400 text-sm sm:text-base select-text">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs sm:text-sm font-bold text-gray-800 ml-1.5">5.0</span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal select-text cursor-text">
+              “The platform is easy to use, keeps everything in one place, and helps our team stay on top of things without extra hassle.”
+            </p>
+          </div>
+
+
+
+        </div>
+
+        <!-- 6. BOTTOM NAVIGATION CONTROLS (< > tròn trắng - Frame 13s, 14s & Ảnh 2 người dùng gửi - Z-30) -->
+        <div id="testiNavControls" class="testi-nav-controls flex items-center justify-center gap-4 mt-8 sm:mt-10 relative z-30">
+          <button id="testiPrevBtn" aria-label="Previous Testimonial" class="w-11 h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <button id="testiNextBtn" aria-label="Next Testimonial" class="w-11 h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= CARD 5: FOOTER (Responsive Toàn Diện: Trải Đều Trên Tablet & Desktop, Grid 2 Cột Gọn Gàng Trên Mobile) ================= -->
+    <footer class="canvas-card bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-6 sm:px-10 md:px-12 lg:px-16 flex flex-col justify-between">
+      
+      <!-- Upper Section: Bio, Nav links & Socials (Trải đều cân đối trên tablet md: 768px+ và desktop lg: 1024px+, không bị dồn lệch sang trái) -->
+      <div class="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-6 lg:gap-12 pb-12 sm:pb-16">
+        
+        <!-- Col 1: Bio (Ngắt dòng chuẩn mực theo video gốc) -->
+        <div class="w-full md:w-[220px] lg:w-[280px] shrink-0">
+          <p class="text-base sm:text-lg font-semibold text-gray-900 leading-snug tracking-tight">
+            CoreShift is the HRM platform that build a thriving workplace culture—all in one place.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation Links (Grid 2 cột trên Mobile, 4 cột trên sm/md/lg cân đối tuyệt đối, không rớt chữ Resources) -->
+        <div class="w-full md:w-auto grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-7 lg:gap-12 xl:gap-14">
+          
+          <!-- Sub-col 1: Product -->
+          <div class="space-y-3 sm:space-y-3.5">
+            <h4 class="text-sm font-semibold text-gray-900">Product</h4>
+            <ul class="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
+              <li><a href="#heroSection1" class="hover:text-black transition-colors">CoreHR</a></li>
+              <li><a href="#features" class="hover:text-black transition-colors">Recruit</a></li>
+              <li><a href="#integrations" class="hover:text-black transition-colors">Perform</a></li>
+              <li><a href="#testimonials" class="hover:text-black transition-colors">Pulse</a></li>
+            </ul>
+          </div>
+
+          <!-- Sub-col 2: Features -->
+          <div class="space-y-3 sm:space-y-3.5">
+            <h4 class="text-sm font-semibold text-gray-900">Features</h4>
+            <ul class="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
+              <li><a href="#features" class="hover:text-black transition-colors">Desk</a></li>
+              <li><a href="#features" class="hover:text-black transition-colors">Time</a></li>
+              <li><a href="#features" class="hover:text-black transition-colors">Analytics</a></li>
+            </ul>
+          </div>
+
+          <!-- Sub-col 3: Pricing -->
+          <div class="space-y-3 sm:space-y-3.5">
+            <h4 class="text-sm font-semibold text-gray-900">
+              <a href="#integrations" class="hover:text-black transition-colors">Pricing</a>
+            </h4>
+          </div>
+
+          <!-- Sub-col 4: Resources -->
+          <div class="space-y-3 sm:space-y-3.5">
+            <h4 class="text-sm font-semibold text-gray-900">
+              <a href="#testimonials" class="hover:text-black transition-colors">Resources</a>
+            </h4>
+          </div>
+
+        </div>
+
+        <!-- Col 3: Follow us (Căn góc phải trên md/lg, thứ tự chuẩn video: Instagram, X, TikTok) -->
+        <div class="w-full md:w-auto space-y-3 sm:space-y-3.5 shrink-0">
+          <h4 class="text-sm font-semibold text-gray-900">Follow us</h4>
+          <div class="flex items-center gap-2.5 sm:gap-3">
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram" class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-2xl bg-[#F4F5F7] hover:bg-slate-200 text-gray-950 flex items-center justify-center transition-all hover:scale-105 shrink-0">
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- X Twitter -->
+            <a href="#" aria-label="X Twitter" class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-2xl bg-[#F4F5F7] hover:bg-slate-200 text-gray-950 flex items-center justify-center transition-all hover:scale-105 shrink-0">
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" aria-label="TikTok" class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-2xl bg-[#F4F5F7] hover:bg-slate-200 text-gray-950 flex items-center justify-center transition-all hover:scale-105 shrink-0">
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright sạch sẽ theo yêu cầu của user -->
+      <div class="pt-6 border-t border-slate-100 text-center">
+        <p class="text-xs sm:text-sm font-medium text-gray-400">
+          © 2026 CoreShift Inc. All rights reserved.
+        </p>
+      </div>
+
+    </footer>
+
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

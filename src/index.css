@@ -1,0 +1,530 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: #EDEFF2;
+    color: #111827;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tối ưu hóa bôi đen tô văn bản (Text Selection) toàn trang */
+  ::selection {
+    background-color: #FF4D38 !important;
+    color: #ffffff !important;
+  }
+  ::-moz-selection {
+    background-color: #FF4D38 !important;
+    color: #ffffff !important;
+  }
+
+  img, svg {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  p, h1, h2, h3, h4, h5, h6, span, a, li, blockquote, label {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
+  }
+}
+
+/* Custom Floating Animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1deg);
+  }
+}
+
+@keyframes float-drift {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  33% {
+    transform: translate(5px, -6px);
+  }
+  66% {
+    transform: translate(-4px, 4px);
+  }
+}
+
+/* ================= HERO 2: DUAL ORBITING WHEELS MOTION ================= */
+.hero2-orbit-node {
+  will-change: transform, opacity;
+  transition: transform 0.08s linear;
+}
+
+.hero2-avatar-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.hero2-avatar-card:hover {
+  transform: scale(1.12) translateY(-6px) !important;
+  box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.22) !important;
+  z-index: 50 !important;
+}
+
+
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+/* 3D Arc & Flip Transitions */
+.arc-tile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+  will-change: transform, opacity, filter;
+  cursor: pointer;
+}
+
+.arc-tile > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arc-tile:hover > div {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
+}
+
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+@keyframes spin-very-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit-slow {
+  animation: spin-very-slow 45s linear infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-float-drift {
+  animation: float-drift 8s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Glassmorphism & Floating Elements */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EDEFF2;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ================= SCROLL REVEAL & BLUR ANIMATIONS (Chuẩn Apple / Framer Style) ================= */
+.scroll-blur-reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(26px) scale(0.98);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+
+.scroll-blur-reveal.is-revealed {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0) scale(1);
+}
+
+/* Khối cha chứa Text Wipe thì để con tự điều khiển blur mờ độc lập */
+.scroll-blur-reveal:has(.text-blur-wipe),
+.scroll-blur-reveal.has-text-wipe {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* ================= TEXT BLUR WIPE REVEAL (Horizontal Staggered Blur Reveal - Frame 11.0s) ================= */
+.text-blur-wipe {
+  display: inline-block;
+  will-change: transform;
+}
+
+.text-blur-wipe .reveal-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.text-blur-wipe .reveal-space {
+  display: inline;
+}
+
+.text-blur-wipe .reveal-char {
+  display: inline-block;
+  opacity: 0.12;
+  filter: blur(14px);
+  transform: translateY(4px);
+  transition: opacity 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 0.48s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--char-idx, 0) * 20ms);
+  will-change: opacity, filter, transform;
+}
+
+/* Khi phần tử cuộn tới hoặc được kích hoạt */
+.is-revealed .text-blur-wipe .reveal-char,
+.text-blur-wipe.is-revealed .reveal-char {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+/* Subtitle trôi lên mượt mà từ mờ sang rõ ngay sau khi tiêu đề quét */
+.text-blur-wipe-sub {
+  opacity: 0.15;
+  filter: blur(10px);
+  transform: translateY(8px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 220ms;
+  will-change: opacity, filter, transform;
+}
+
+.is-revealed .text-blur-wipe-sub,
+.text-blur-wipe-sub.is-revealed {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+.scroll-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-fade-up.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-scale-up {
+  opacity: 0;
+  transform: scale(0.93) translateY(20px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-scale-up.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Stagger transition delays */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-350 { transition-delay: 350ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Canvas Card Style */
+.canvas-card {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ================= TESTIMONIALS: ENVELOPE TO 3D FAN-OUT ANIMATION (Frame 11.0s - 14s) ================= */
+.testi-envelope-wrap {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.testi-fanout-card {
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 100%);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.testi-card-item {
+  transform: translate(-50%, -50%);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease,
+              box-shadow 0.4s ease;
+  will-change: transform, opacity;
+}
+
+.testi-nav-controls {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+
+/* ================= 1. TRẠNG THÁI 1: CHỈ HIỆN PHONG BÌ TÍM (Frame 11.6s & Ảnh 2) ================= */
+/* Khi chưa bung xòe (:not(.is-fanout)) */
+.testi-stage:not(.is-fanout) #envelopeBackWrap {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  pointer-events: none;
+}
+.testi-stage:not(.is-fanout) #envelopeFrontWrap {
+  opacity: 1 !important;
+  transform: translate(-50%, calc(-50% + 95px)) scale(1) !important;
+  pointer-events: none;
+}
+
+/* Thẻ Sarah cắm lọt lòng trong phong bì, hơi nghiêng nhẹ -2.8deg như Ảnh 2 & Frame 11.6s */
+.testi-stage:not(.is-fanout) #cardSarah {
+  opacity: 1 !important;
+  transform: translate(-50%, calc(-50% + 14px)) rotate(-2.8deg) scale(0.98) !important;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.testi-stage:not(.is-fanout) #cardJames {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(0.9) !important;
+  pointer-events: none !important;
+}
+
+/* HOÀN TOÀN ẨN 2 thẻ trắng nghiêng khi đang ở phong bì tím (như Ảnh 2 & Frame 11.6s) */
+.testi-stage:not(.is-fanout) #leftTiltCard {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) rotate(0deg) scale(0.7) !important;
+  pointer-events: none !important;
+}
+
+.testi-stage:not(.is-fanout) #rightTiltCard {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) rotate(0deg) scale(0.7) !important;
+  pointer-events: none !important;
+}
+
+/* HOÀN TOÀN ẨN 2 nút điều hướng khi đang ở phong bì tím (như Ảnh 2 & Frame 11.6s) */
+.testi-stage:not(.is-fanout) #testiNavControls {
+  opacity: 0 !important;
+  transform: translateY(24px) !important;
+  pointer-events: none !important;
+}
+
+/* ================= 2. TRẠNG THÁI 2: HIỆU ỨNG BUNG XÒE 3D FAN-OUT (Frame 12.6s & Ảnh 3) ================= */
+/* Khi kích hoạt (.is-fanout): Phong bì biến mất, lá thư trồi lên, 2 thẻ xòe ra, hiện nút điều hướng */
+.testi-stage.is-fanout #envelopeBackWrap {
+  opacity: 0 !important;
+  transform: translate(-50%, calc(-50% + 90px)) scale(0.9) !important;
+  pointer-events: none !important;
+}
+.testi-stage.is-fanout #envelopeFrontWrap {
+  opacity: 0 !important;
+  transform: translate(-50%, calc(-50% + 160px)) scale(0.9) !important;
+  pointer-events: none !important;
+}
+
+.testi-stage.is-fanout #cardSarah.is-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.testi-stage.is-fanout #leftTiltCard {
+  opacity: 1 !important;
+  transform: translate(calc(-50% - 325px), calc(-50% - 16px)) rotate(-14.5deg) scale(1) !important;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.testi-stage.is-fanout #rightTiltCard {
+  opacity: 1 !important;
+  transform: translate(calc(-50% + 325px), calc(-50% - 16px)) rotate(14.5deg) scale(1) !important;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.testi-stage.is-fanout #testiNavControls {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto;
+}
+
+/* Chuyển slide giữa Sarah Mitchell và James Carter (Frame 13.5s & Ảnh 4) */
+.testi-stage.is-fanout .testi-card-item.is-active {
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.testi-stage.is-fanout .testi-card-item.is-left {
+  transform: translate(calc(-50% - 290px), calc(-50% - 14px)) rotate(-12.5deg) scale(0.94);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.testi-stage.is-fanout .testi-card-item.is-right {
+  transform: translate(calc(-50% + 290px), calc(-50% - 14px)) rotate(12.5deg) scale(0.94);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Responsive Media Queries */
+@media (min-width: 1440px) {
+  .testi-stage.is-fanout #leftTiltCard {
+    transform: translate(calc(-50% - 335px), calc(-50% - 16px)) rotate(-14.5deg) scale(1) !important;
+  }
+  .testi-stage.is-fanout #rightTiltCard {
+    transform: translate(calc(-50% + 335px), calc(-50% - 16px)) rotate(14.5deg) scale(1) !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .testi-stage.is-fanout #leftTiltCard {
+    transform: translate(calc(-50% - 290px), calc(-50% - 14px)) rotate(-13deg) scale(0.96) !important;
+  }
+  .testi-stage.is-fanout #rightTiltCard {
+    transform: translate(calc(-50% + 290px), calc(-50% - 14px)) rotate(13deg) scale(0.96) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .testi-stage.is-fanout #leftTiltCard {
+    transform: translate(calc(-50% - 240px), calc(-50% - 12px)) rotate(-11deg) scale(0.9) !important;
+    opacity: 0.85 !important;
+  }
+  .testi-stage.is-fanout #rightTiltCard {
+    transform: translate(calc(-50% + 240px), calc(-50% - 12px)) rotate(11deg) scale(0.9) !important;
+    opacity: 0.85 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .testi-stage:not(.is-fanout) #envelopeBackWrap {
+    transform: translate(-50%, -50%) scale(0.88) !important;
+  }
+  .testi-stage:not(.is-fanout) #envelopeFrontWrap {
+    transform: translate(-50%, calc(-50% + 85px)) scale(0.88) !important;
+  }
+  .testi-stage:not(.is-fanout) #cardSarah {
+    transform: translate(-50%, calc(-50% + 12px)) rotate(-2.5deg) scale(0.86) !important;
+  }
+  .testi-stage.is-fanout #leftTiltCard {
+    transform: translate(calc(-50% - 160px), calc(-50% - 8px)) rotate(-8deg) scale(0.82) !important;
+    opacity: 0.7 !important;
+  }
+  .testi-stage.is-fanout #rightTiltCard {
+    transform: translate(calc(-50% + 160px), calc(-50% - 8px)) rotate(8deg) scale(0.82) !important;
+    opacity: 0.7 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .testi-stage:not(.is-fanout) #envelopeBackWrap {
+    transform: translate(-50%, -50%) scale(0.78) !important;
+  }
+  .testi-stage:not(.is-fanout) #envelopeFrontWrap {
+    transform: translate(-50%, calc(-50% + 72px)) scale(0.78) !important;
+  }
+  .testi-stage:not(.is-fanout) #cardSarah {
+    transform: translate(-50%, calc(-50% + 10px)) rotate(-2deg) scale(0.76) !important;
+  }
+  .testi-stage.is-fanout #leftTiltCard,
+  .testi-stage.is-fanout #rightTiltCard {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* ================= MOBILE MENU & HAMBURGER STYLES ================= */
+.hamburger-line {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+#mobileMenuBtn.is-active #hamburgerLine1 {
+  transform: translateY(5px) rotate(45deg);
+}
+
+#mobileMenuBtn.is-active #hamburgerLine2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#mobileMenuBtn.is-active #hamburgerLine3 {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+
+
+
