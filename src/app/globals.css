@@ -446,7 +446,7 @@
   pointer-events: auto;
 }
 
-/* Chuyển slide giữa Sarah Mitchell và James Carter (Frame 13.5s & Ảnh 4) */
+/* Chuyển slide giữa các testimonials linh hoạt */
 .testi-stage.is-fanout .testi-card-item.is-active {
   transform: translate(-50%, -50%) rotate(0deg) scale(1);
   opacity: 1;
@@ -466,6 +466,19 @@
   opacity: 0;
   pointer-events: none;
   z-index: 10;
+}
+
+.testi-stage.is-fanout .testi-card-item.is-hidden {
+  transform: translate(-50%, -50%) scale(0.85);
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: 5;
+}
+
+.testi-stage:not(.is-fanout) .testi-card-item:not(#cardSarah) {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(0.9) !important;
+  pointer-events: none !important;
 }
 
 /* Responsive Media Queries */

@@ -10,9 +10,9 @@ export function AttendanceReportCard() {
         <div className="absolute -right-12 top-6 bottom-6 w-16 bg-slate-50 border border-slate-100 rounded-xl opacity-60 pointer-events-none" />
 
         <div className="relative z-10 flex items-center justify-between mb-3">
-          <span className="text-xs font-semibold text-gray-700">Attendance Report</span>
+          <span className="text-xs font-semibold text-gray-700">Time Logs &amp; Velocity</span>
           <span className="text-[10px] font-medium text-gray-400 bg-slate-50 px-2 py-0.5 rounded-full border border-gray-100">
-            Monthly ▾
+            Weekly ▾
           </span>
         </div>
 
@@ -73,9 +73,9 @@ export function AttendanceReportCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">For HR professionals</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">Projects, Kanban &amp; Time Logs</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Use a single cloud system for your employees, candidates and HR processes info.
+          Manage workflows with drag-and-drop Kanban, log billable project hours, and track team velocity automatically.
         </p>
       </div>
     </div>

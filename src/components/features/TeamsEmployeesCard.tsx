@@ -50,9 +50,9 @@ export function TeamsEmployeesCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">For teams & employees</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">Internal Chat &amp; Notifications</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Get to know who is going to be out of office and be aware of upcoming events.
+          Keep teams aligned with matrix-based internal chat, realtime in-app notifications, events, and company surveys.
         </p>
       </div>
     </div>

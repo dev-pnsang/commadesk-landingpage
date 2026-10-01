@@ -10,11 +10,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'CoreShift — All-in-one HR Platform & Solutions',
+  title: 'Commadesk — Enterprise Multi-Module SaaS Platform',
   description:
-    'CoreShift is a modern, all-in-one HR platform designed to perfectly fit your business needs. Streamline HR processes, enhance team transparency, and empower your workforce.',
+    'Commadesk unites project management, Kanban & Gantt, multi-tenant org charts, timesheets, document registry, and Casbin RBAC security in one centralized workplace.',
   icons: {
-    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="black"/><text y="65" font-size="50" font-family="sans-serif" font-weight="bold" fill="white" text-anchor="middle" x="50">C</text></svg>',
+    icon: '/favicon.ico',
   },
 };
 

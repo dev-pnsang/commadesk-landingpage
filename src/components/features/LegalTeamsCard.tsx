@@ -45,9 +45,9 @@ export function LegalTeamsCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">For legal teams</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">Document Registry &amp; RBAC</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          CoreShift helps legal teams by streamlining compliance, managing contracts and policies.
+          Manage inbound and outbound documents with automated numbering rules, protected by granular Casbin RBAC security.
         </p>
       </div>
     </div>

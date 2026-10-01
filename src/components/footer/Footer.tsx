@@ -9,7 +9,7 @@ export function Footer() {
         {/* Col 1: Bio */}
         <div className="w-full md:w-[220px] lg:w-[280px] shrink-0">
           <p className="text-base sm:text-lg font-semibold text-gray-900 leading-snug tracking-tight">
-            CoreShift is the HRM platform that build a thriving workplace culture—all in one place.
+            Commadesk unites project management, timesheets, org hierarchy, document registry, and Casbin RBAC security into one enterprise platform.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export function Footer() {
       {/* Copyright */}
       <div className="pt-6 border-t border-slate-100 text-center">
         <p className="text-xs sm:text-sm font-medium text-gray-400">
-          © 2026 CoreShift Inc. All rights reserved.
+          © 2026 Commadesk Inc. All rights reserved.
         </p>
       </div>
     </footer>

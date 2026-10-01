@@ -110,11 +110,11 @@ export function TestimonialsSection() {
       } else {
         if (
           isScrollingDown &&
-          currentIdx === 0 &&
           stageCenterY <= windowCenterY - 40 &&
           !isTransitioning
         ) {
-          goToSlide(1);
+          const nextIdx = (currentIdx + 1) % TESTIMONIALS_DATA.length;
+          goToSlide(nextIdx);
         } else if (isScrollingUp && stageCenterY >= windowCenterY + 80) {
           resetToEnvelope();
         }
@@ -131,13 +131,14 @@ export function TestimonialsSection() {
       if (e.deltaY > 15) {
         if (!hasFannedOut) {
           triggerFanOut();
-        } else if (currentIdx === 0 && !isTransitioning) {
-          goToSlide(1);
+        } else if (!isTransitioning) {
+          const nextIdx = (currentIdx + 1) % TESTIMONIALS_DATA.length;
+          goToSlide(nextIdx);
         }
       } else if (e.deltaY < -15) {
         if (hasFannedOut) {
-          if (currentIdx === 1 && !isTransitioning) {
-            goToSlide(0);
+          if (currentIdx > 0 && !isTransitioning) {
+            goToSlide(currentIdx - 1);
           } else if (currentIdx === 0 && stageRect.top > 40) {
             resetToEnvelope();
           }
@@ -162,12 +163,13 @@ export function TestimonialsSection() {
       if (deltaY > 20) {
         if (!hasFannedOut) {
           triggerFanOut();
-        } else if (currentIdx === 0 && !isTransitioning) {
-          goToSlide(1);
+        } else if (!isTransitioning) {
+          const nextIdx = (currentIdx + 1) % TESTIMONIALS_DATA.length;
+          goToSlide(nextIdx);
         }
       } else if (deltaY < -20 && hasFannedOut) {
-        if (currentIdx === 1 && !isTransitioning) {
-          goToSlide(0);
+        if (currentIdx > 0 && !isTransitioning) {
+          goToSlide(currentIdx - 1);
         } else if (currentIdx === 0 && stageRect.top > 40) {
           resetToEnvelope();
         }
@@ -238,7 +240,7 @@ export function TestimonialsSection() {
           Words of Appreciation
         </TextBlurWipe>
         <p className="text-blur-wipe-sub mt-2.5 text-sm sm:text-base text-gray-500">
-          Thousands of businesses, from startups to enterprises, use CoreShift to handle payments.
+          Trusted by operations leads, engineering heads, and executives across fast-growing enterprises.
         </p>
       </div>
 
@@ -272,32 +274,42 @@ export function TestimonialsSection() {
           {/* 3. Phong bì thư màu tím và vạt trước màu trắng */}
           <EnvelopeGraphic />
 
-          {/* 4. Thẻ Sarah Mitchell */}
-          <TestimonialCard
-            id="cardSarah"
-            testimonial={TESTIMONIALS_DATA[0]}
-            statusClass={currentIdx === 0 ? 'is-active' : 'is-left'}
-          />
+          {/* 4. Render danh sách toàn bộ Testimonial Cards */}
+          {TESTIMONIALS_DATA.map((item, index) => {
+            let statusClass = 'is-hidden';
+            if (index === currentIdx) {
+              statusClass = 'is-active';
+            } else if (
+              index ===
+              (currentIdx - 1 + TESTIMONIALS_DATA.length) % TESTIMONIALS_DATA.length
+            ) {
+              statusClass = 'is-left';
+            } else if (index === (currentIdx + 1) % TESTIMONIALS_DATA.length) {
+              statusClass = 'is-right';
+            }
 
-          {/* 5. Thẻ James Carter */}
-          <TestimonialCard
-            id="cardJames"
-            testimonial={TESTIMONIALS_DATA[1]}
-            statusClass={currentIdx === 1 ? 'is-active' : 'is-right'}
-          />
+            return (
+              <TestimonialCard
+                key={item.id}
+                id={index === 0 ? 'cardSarah' : `cardTesti_${item.id}`}
+                testimonial={item}
+                statusClass={statusClass}
+              />
+            );
+          })}
         </div>
 
-        {/* 6. Navigation Controls */}
+        {/* 5. Navigation Controls: Prev, Interactive Dots & Counter, Next */}
         <div
           id="testiNavControls"
-          className="testi-nav-controls flex items-center justify-center gap-4 mt-8 sm:mt-10 relative z-30"
+          className="testi-nav-controls flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 relative z-30"
         >
           <button
             id="testiPrevBtn"
             type="button"
             onClick={handlePrev}
             aria-label="Previous Testimonial"
-            className="w-11 h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <svg
               className="w-4 h-4"
@@ -313,12 +325,41 @@ export function TestimonialsSection() {
               />
             </svg>
           </button>
+
+          {/* Interactive Pagination Dots + Counter Badge */}
+          <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/95 backdrop-blur-md rounded-full border border-slate-200/90 shadow-xs">
+            <span className="text-[11px] font-bold text-gray-400 mr-1 select-none">
+              {String(currentIdx + 1).padStart(2, '0')}&nbsp;/&nbsp;{String(TESTIMONIALS_DATA.length).padStart(2, '0')}
+            </span>
+
+            <div className="flex items-center gap-1.5">
+              {TESTIMONIALS_DATA.map((item, dotIdx) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToSlide(dotIdx);
+                    startAutoRotate();
+                  }}
+                  className={`transition-all duration-300 rounded-full cursor-pointer ${
+                    dotIdx === currentIdx
+                      ? 'w-5 sm:w-6 h-2 bg-[#7C3AED]'
+                      : 'w-2 h-2 bg-slate-200 hover:bg-slate-400'
+                  }`}
+                  aria-label={`Go to ${item.name}`}
+                  title={`${item.name} (${item.role})`}
+                />
+              ))}
+            </div>
+          </div>
+
           <button
             id="testiNextBtn"
             type="button"
             onClick={handleNext}
             aria-label="Next Testimonial"
-            className="w-11 h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <svg
               className="w-4 h-4"

@@ -71,13 +71,15 @@ export function Navbar() {
             className="flex items-center gap-1.5 sm:gap-2 group shrink-0"
             onClick={(e) => handleLinkClick(e, '#')}
           >
-            <div className="w-6 h-6 rounded-md bg-black flex items-center justify-center text-white font-bold transition-transform group-hover:scale-105">
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8c2.05 0 3.91.78 5.34 2.07l-2.02 2.02C14.39 7.42 13.24 7 12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c1.24 0 2.39-.42 3.32-1.09l2.02 2.02C15.91 19.22 14.05 20 12 20z" />
-              </svg>
+            <div className="w-6 h-6 rounded-md bg-black flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 p-0.5">
+              <img
+                src="/commadesk/logo_CommaDesk-icon.webp"
+                alt="Commadesk Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className="font-extrabold text-sm sm:text-base tracking-tight text-gray-950">
-              CoreShift
+              Commadesk
             </span>
           </Link>
 
@@ -106,11 +108,11 @@ export function Navbar() {
             </a>
 
             <a
-              href="#demo"
-              onClick={(e) => handleLinkClick(e, '#demo')}
+              href="#get-started"
+              onClick={(e) => handleLinkClick(e, '#get-started')}
               className="bg-black hover:bg-neutral-800 text-white text-xs sm:text-[13px] font-medium px-3 sm:px-5 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xs whitespace-nowrap"
             >
-              Request a Demo
+              Get Started
             </a>
 
             {/* Mobile Hamburger Button */}
@@ -176,11 +178,11 @@ export function Navbar() {
                 Sign in
               </a>
               <a
-                href="#demo"
-                onClick={(e) => handleLinkClick(e, '#demo')}
+                href="#get-started"
+                onClick={(e) => handleLinkClick(e, '#get-started')}
                 className="w-full py-2.5 px-3 bg-[#FF4D38] hover:bg-[#E03E2A] text-white text-center text-sm font-bold rounded-full shadow-md shadow-[#FF4D38]/20 transition-all active:scale-[0.98]"
               >
-                Request a Demo
+                Get Started
               </a>
             </div>
           </div>

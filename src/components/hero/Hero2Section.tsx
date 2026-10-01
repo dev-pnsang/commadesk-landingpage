@@ -26,19 +26,19 @@ export function Hero2Section() {
             as="h2"
             className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-[1.08]"
           >
-            {['Core HR', <br key="br2" />, 'solutions']}
+            {['One workspace', <br key="br2" />, 'for your team']}
           </TextBlurWipe>
 
           <p className="text-blur-wipe-sub mt-4 text-sm sm:text-base text-gray-500 font-normal leading-relaxed max-w-sm sm:max-w-md mx-auto">
-            Streamline HR processes in one centralized platform, enhancing team transparency.
+            Coordinate across multi-tenant org charts, track project timelines with Gantt charts, and streamline multi-manager approvals.
           </p>
 
           <div className="mt-8 flex justify-center">
             <a
-              href="#learn-more"
+              href="#features"
               className="inline-flex items-center justify-center px-8 py-3 rounded-xl text-white font-medium text-sm bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#7C3AED] hover:to-[#6D28D9] shadow-lg shadow-indigo-300/40 transition-all duration-300 hover:scale-105 active:scale-95"
             >
-              Learn more
+              Explore Workspace
             </a>
           </div>
         </div>

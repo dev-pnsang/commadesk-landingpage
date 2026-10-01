@@ -42,7 +42,7 @@ export function EmployeeDataCard() {
               : 'translateX(0)',
           }}
         >
-          {/* Training Participation Bar Chart Mini */}
+          {/* Sprint Completion Bar Chart Mini */}
           <div
             id="card4Training"
             className={`bg-slate-50/80 rounded-2xl p-3 border border-slate-100 flex flex-col justify-between ${
@@ -50,7 +50,7 @@ export function EmployeeDataCard() {
             }`}
           >
             <div className="flex items-center justify-between text-xs font-semibold text-gray-700">
-              <span>Training Participation</span>
+              <span>Sprint Completion</span>
               <div className="flex items-center gap-1 text-[9px]">
                 <span className="text-gray-400">Daily</span>
                 <span className="text-gray-400">Weekly</span>
@@ -96,7 +96,7 @@ export function EmployeeDataCard() {
             </div>
           </div>
 
-          {/* Employees Directory Mini */}
+          {/* Workspace Members Directory Mini */}
           <div
             id="card4Employees"
             className={`bg-slate-50/80 rounded-2xl p-3 border border-slate-100 space-y-2 ${
@@ -104,18 +104,18 @@ export function EmployeeDataCard() {
             }`}
           >
             <div className="flex items-center justify-between text-xs font-semibold text-gray-700 pb-1 border-b border-slate-100">
-              <span>Employees</span>
+              <span>Org Directory</span>
               <span className="text-[10px] text-gray-400 font-normal">See all</span>
             </div>
             <div className="flex items-center gap-1.5 text-[9px] font-semibold text-gray-500 overflow-x-auto">
               <span className="bg-black text-white px-2 py-0.5 rounded-full whitespace-nowrap">
-                Project Dept. 24
+                Engineering Dept.
               </span>
               <span className="bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">
-                Sales Dept. 11
+                Product Ops
               </span>
               <span className="bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">
-                Marketing Dept.
+                Business
               </span>
             </div>
             <div className="space-y-1.5 pt-1">
@@ -185,10 +185,9 @@ export function EmployeeDataCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">All employee data at once</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">Org Hierarchy &amp; 360° Directory</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Contact and personal information, paid and unpaid leave balances, career history,
-          projects and more.
+          Manage multi-tenant org charts, employee 360° profiles, shift scheduling, and work entries with complete data isolation.
         </p>
       </div>
     </div>

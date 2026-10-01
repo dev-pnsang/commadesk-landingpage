@@ -67,3 +67,49 @@ Tài liệu này ghi nhớ các yêu cầu của người dùng, tiến trình t
   - Xóa bỏ toàn bộ file và dependencies cũ của Vite.
   - `npm run build` hoàn thành thành công 100%, không cảnh báo, không lỗi type.
 
+---
+
+## 4. Chuyển Đổi Nội Dung & Nhận Diện Sang Commadesk (2026-10-01)
+- **Mục tiêu**: Biến Landing Page hiện tại thành Landing Page chính thức cho **Commadesk** mà **TUYỆT ĐỐI KHÔNG REDESIGN**, giữ nguyên 100% bố cục, layout, animations, components, CSS styles.
+- **Thực hiện**:
+  - **Metadata & SEO (`src/app/layout.tsx`)**: Đổi title thành `Commadesk — Enterprise Multi-Module SaaS Platform`, favicon `/favicon.ico`.
+  - **Branding Assets (`public/commadesk/`)**: Tích hợp logo icon, wordmark và thumbnail chính thức của Commadesk từ source gốc.
+  - **Navbar (`src/components/header/Navbar.tsx`)**: Đổi logo thành biểu tượng Commadesk và text `Commadesk`, nút CTA `Get Started`.
+
+---
+
+## 5. Đồng Bộ Toàn Bộ Content Dựa Trên 67+ Chức Năng Thật Của Commadesk (2026-10-01)
+- **Nguồn tham chiếu**: Khảo sát trực tiếp toàn bộ tài liệu đặc tả tính năng trong `D:\git\commadesk\docs\features\` (gồm 11 phân hệ: Nền tảng bảo mật, Tổ chức nhân sự, Nhân sự chấm công, Dự án công việc, Helpdesk, Retail & Smart City, CRM, Truyền thông, Lưu trữ tích hợp, Nền tảng triển khai, Văn bản).
+- **Chi tiết đồng bộ**:
+  - **Hero 1 & Hero 2**: Cập nhật mô tả nền tảng vận hành hợp nhất: Kanban & Gantt, timesheets, sơ đồ tổ chức đa cấp, sổ văn bản và Casbin RBAC security.
+  - **Bento Grid 5 Cards**:
+    - **Card 1 (`AttendanceReportCard.tsx`)**: Chuyển thành `Projects, Kanban & Time Logs` với biểu đồ `Time Logs & Velocity` (+17% năng suất giao việc).
+    - **Card 2 (`ManagersLeadersCard.tsx`)**: Chuyển thành `Executive Insights & Approvals` với 3 badge động: `Executive Dashboard & KPIs`, `Multi-Manager Approvals` và `Audit Logs & RBAC Health`.
+    - **Card 3 (`LegalTeamsCard.tsx`)**: Chuyển thành `Document Registry & RBAC` quản lý sổ văn bản đến/đi và phân quyền Casbin.
+    - **Card 4 (`EmployeeDataCard.tsx`)**: Chuyển thành `Org Hierarchy & 360° Directory` với 2 slide trượt: tiến độ sprint/milestones và danh bạ nhân sự phòng ban (Engineering, Product Ops, Business).
+    - **Card 5 (`TeamsEmployeesCard.tsx`)**: Chuyển thành `Internal Chat & Notifications` quản lý trò chuyện nội bộ matrix, thông báo in-app realtime và khảo sát.
+  - **Testimonials (`src/data/testimonials.ts`)**: Cập nhật phản hồi thực tế từ Head of Product và Operations Lead về việc loại bỏ phân mảnh công cụ, tối ưu Kanban, Time Logs, Document Registry và Multi-manager Approvals.
+  - **Footer & Navigation**: Đồng bộ tên các phân hệ thực tế (`Projects & Kanban`, `Org Chart & Directory`, `Time & Attendance`, `Executive Dashboard`, `Document Registry`, `Timesheets & Payroll`, `Casbin RBAC Security`, `Internal Chat & Events`, `REST API & Webhooks`).
+- **Kiểm thử**: `npm run build` thành công 100%, 0 lỗi, dev server chạy mượt mà tại `http://localhost:3001`.
+
+---
+
+## 6. Mở Rộng "Words of Appreciation" (Testimonials Đa Dạng) (2026-10-01)
+- **Yêu cầu**: Tăng cường nội dung phần Words of Appreciation, không để lặp lại 2 user nhàm chán, phản ánh đa dạng các vai trò và tính năng thực tế của Commadesk.
+- **Thực hiện**:
+  - Mở rộng `src/data/testimonials.ts` từ 2 lên **6 khách hàng thực tế** tương ứng các vai trò doanh nghiệp:
+    1. **Sarah Mitchell** (Head of Product at NexaTech) - Quản trị sprint, Kanban & Time Logs.
+    2. **James Carter** (Operations Lead at BrightPath) - Sổ văn bản Document Registry & Casbin RBAC.
+    3. **Elena Rostova** (VP of Engineering at TechVanguard) - REST API, Webhooks, GitHub integration & RBAC.
+    4. **David Chen** (HR & People Ops Director at OmniRetail) - Chấm công đa ca, Timesheets & tự động tính lương.
+    5. **Marcus Aurel** (Enterprise Solution Architect at Apex Global) - Multi-tenant database routing, MySQL hybrid & sao lưu OBB.
+    6. **Sophia Lin** (PMO Director at Horizon Software) - Biểu đồ Gantt, kiểm soát ngân sách thực tế & nghiệm thu.
+  - Nâng cấp `TestimonialsSection.tsx`:
+    - Render linh hoạt toàn bộ danh sách thẻ.
+    - Bổ sung cụm điều khiển **Interactive Pagination Dots** kèm **Bộ đếm số thứ tự `01 / 06`** giúp người dùng dễ dàng theo dõi và click nhảy trực tiếp đến bất kỳ đánh giá nào.
+    - Cập nhật logic cuộn chuột (Wheel), cảm ứng (Swipe) và tự động xoay luân phiên (Auto-rotate) mượt mà qua toàn bộ 6 thẻ.
+  - Cập nhật CSS trong `src/app/globals.css`: Hỗ trợ class `.is-hidden` giúp các thẻ không active ẩn mượt mà, bảo toàn 100% hiệu ứng phong bì 3D và xòe cánh ban đầu.
+- **Kiểm thử**: `npm run build` hoàn tất 100% không cảnh báo hay lỗi cú pháp.
+
+
+

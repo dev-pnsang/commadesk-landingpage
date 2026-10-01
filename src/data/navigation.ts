@@ -4,28 +4,31 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Product', href: '#hero1Card' },
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#integrations' },
-  { label: 'Resources', href: '#testimonials' },
+  { label: 'Modules', href: '#features' },
+  { label: 'Workspace', href: '#hero2Card' },
+  { label: 'Integrations', href: '#integrations' },
+  { label: 'Security & Trust', href: '#testimonials' },
 ];
 
 export const FOOTER_LINKS = {
   product: [
-    { label: 'CoreHR', href: '#hero1Card' },
-    { label: 'Recruit', href: '#features' },
-    { label: 'Perform', href: '#integrations' },
-    { label: 'Pulse', href: '#testimonials' },
+    { label: 'Projects & Kanban', href: '#features' },
+    { label: 'Org Chart & Directory', href: '#hero2Card' },
+    { label: 'Time & Attendance', href: '#features' },
+    { label: 'Executive Dashboard', href: '#features' },
   ],
   features: [
-    { label: 'Desk', href: '#features' },
-    { label: 'Time', href: '#features' },
-    { label: 'Analytics', href: '#features' },
+    { label: 'Document Registry', href: '#features' },
+    { label: 'Timesheets & Payroll', href: '#features' },
+    { label: 'Casbin RBAC Security', href: '#features' },
+    { label: 'Internal Chat & Events', href: '#features' },
   ],
   pricing: [
-    { label: 'Pricing', href: '#integrations' },
+    { label: 'Multi-Tenant Cloud', href: '#hero1Card' },
+    { label: 'Desktop & Mobile Parity', href: '#hero1Card' },
   ],
   resources: [
-    { label: 'Resources', href: '#testimonials' },
+    { label: 'REST API & Webhooks', href: '#integrations' },
+    { label: 'Feature Documentation', href: '#testimonials' },
   ],
 };

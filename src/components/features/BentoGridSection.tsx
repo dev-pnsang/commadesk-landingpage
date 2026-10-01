@@ -18,10 +18,10 @@ export function BentoGridSection() {
           as="h2"
           className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight"
         >
-          Built for everyone
+          Built for modern teams
         </TextBlurWipe>
         <p className="text-blur-wipe-sub mt-3 text-sm sm:text-base text-gray-500">
-          Thousands of businesses, from startups to enterprises, use CoreShift to handle payments.
+          From Kanban boards and org hierarchy to document registry and executive insights—all in one place.
         </p>
       </div>
 

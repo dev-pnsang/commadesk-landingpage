@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 const BADGES = [
   {
-    text: 'Access Real-Time Insights',
+    text: 'Executive Dashboard & KPIs',
     iconClass: 'bg-sky-50 text-sky-500',
     icon: (
       <svg
@@ -23,7 +23,7 @@ const BADGES = [
     ),
   },
   {
-    text: 'Make Data-Driven Decisions',
+    text: 'Multi-Manager Approvals',
     iconClass: 'bg-red-50 text-red-500',
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ const BADGES = [
     ),
   },
   {
-    text: 'Track Performance in Real Time',
+    text: 'Audit Logs & RBAC Health',
     iconClass: 'bg-amber-50 text-amber-500',
     icon: (
       <svg
@@ -116,9 +116,9 @@ export function ManagersLeadersCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">For managers & leaders</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">Executive Insights &amp; Approvals</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Get always up-to-date data and monitor performance of the company.
+          Monitor budgets vs. actual costs, review task acceptance, and automate multi-level approvals across departments.
         </p>
       </div>
     </div>
