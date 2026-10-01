@@ -5,9 +5,13 @@
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-sans);
-    background-color: #EDEFF2;
+    background-color: #EAEDF1;
     color: #111827;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -86,8 +90,6 @@
   z-index: 50 !important;
 }
 
-
-
 @keyframes pulse-subtle {
   0%, 100% {
     opacity: 1;
@@ -119,7 +121,6 @@
   box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
 }
 
-
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -138,7 +139,7 @@
 }
 
 .animate-orbit-slow {
-  animation: spin-very-slow 45s linear infinite;
+  animation: spin-very-slow 40s linear infinite;
 }
 
 .animate-float-slow {
@@ -155,6 +156,15 @@
 
 .animate-pulse-subtle {
   animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Concentric ripples */
+@keyframes ripple-subtle {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.04); opacity: 0.8; }
+}
+.animate-ripple {
+  animation: ripple-subtle 4s ease-in-out infinite;
 }
 
 /* Glassmorphism & Floating Elements */
@@ -192,9 +202,9 @@
 }
 
 .scroll-blur-reveal.is-revealed {
-  opacity: 1;
-  filter: blur(0px);
-  transform: translateY(0) scale(1);
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  transform: translateY(0) scale(1) !important;
 }
 
 /* Khối cha chứa Text Wipe thì để con tự điều khiển blur mờ độc lập */
@@ -235,9 +245,9 @@
 /* Khi phần tử cuộn tới hoặc được kích hoạt */
 .is-revealed .text-blur-wipe .reveal-char,
 .text-blur-wipe.is-revealed .reveal-char {
-  opacity: 1;
-  filter: blur(0px);
-  transform: translateY(0);
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  transform: translateY(0) !important;
 }
 
 /* Subtitle trôi lên mượt mà từ mờ sang rõ ngay sau khi tiêu đề quét */
@@ -254,9 +264,9 @@
 
 .is-revealed .text-blur-wipe-sub,
 .text-blur-wipe-sub.is-revealed {
-  opacity: 1;
-  filter: blur(0px);
-  transform: translateY(0);
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  transform: translateY(0) !important;
 }
 
 .scroll-fade-up {
@@ -268,8 +278,8 @@
 }
 
 .scroll-fade-up.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .scroll-scale-up {
@@ -281,8 +291,8 @@
 }
 
 .scroll-scale-up.is-revealed {
-  opacity: 1;
-  transform: scale(1) translateY(0);
+  opacity: 1 !important;
+  transform: scale(1) translateY(0) !important;
 }
 
 /* Stagger transition delays */
@@ -295,6 +305,26 @@
 .delay-350 { transition-delay: 350ms; }
 .delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
+
+/* Bento Card 1: Attendance Report Bar Grow Animation */
+.chart-bar {
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+.is-revealed .chart-bar {
+  transform: scaleY(1);
+}
+.chart-badge {
+  opacity: 0;
+  transform: translateY(10px) scale(0.7);
+  transition: opacity 0.5s ease 0.6s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s;
+}
+.is-revealed .chart-badge {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
 /* Canvas Card Style */
 .canvas-card {
@@ -332,7 +362,6 @@
 }
 
 /* ================= 1. TRẠNG THÁI 1: CHỈ HIỆN PHONG BÌ TÍM (Frame 11.6s & Ảnh 2) ================= */
-/* Khi chưa bung xòe (:not(.is-fanout)) */
 .testi-stage:not(.is-fanout) #envelopeBackWrap {
   opacity: 1 !important;
   transform: translate(-50%, -50%) scale(1) !important;
@@ -379,7 +408,6 @@
 }
 
 /* ================= 2. TRẠNG THÁI 2: HIỆU ỨNG BUNG XÒE 3D FAN-OUT (Frame 12.6s & Ảnh 3) ================= */
-/* Khi kích hoạt (.is-fanout): Phong bì biến mất, lá thư trồi lên, 2 thẻ xòe ra, hiện nút điều hướng */
 .testi-stage.is-fanout #envelopeBackWrap {
   opacity: 0 !important;
   transform: translate(-50%, calc(-50% + 90px)) scale(0.9) !important;
@@ -512,19 +540,18 @@
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
 }
 
-#mobileMenuBtn.is-active #hamburgerLine1 {
+#mobileMenuBtn.is-active #hamburgerLine1,
+.hamburger-btn.is-active .hamburger-line-1 {
   transform: translateY(5px) rotate(45deg);
 }
 
-#mobileMenuBtn.is-active #hamburgerLine2 {
+#mobileMenuBtn.is-active #hamburgerLine2,
+.hamburger-btn.is-active .hamburger-line-2 {
   opacity: 0;
   transform: scaleX(0);
 }
 
-#mobileMenuBtn.is-active #hamburgerLine3 {
+#mobileMenuBtn.is-active #hamburgerLine3,
+.hamburger-btn.is-active .hamburger-line-3 {
   transform: translateY(-5px) rotate(-45deg);
 }
-
-
-
-

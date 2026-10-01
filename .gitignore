@@ -1,59 +1,33 @@
-# Logs
-logs
-*.log
+# Next.js build output & cache
+.next/
+out/
+build/
+dist/
+
+# Dependencies
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Diagnostic / analysis frames, videos & test scripts
-.agent/AGENTS.md
-docs/
-temp_*/
-temp/
-tmp/
-*.temp
-*.tmp
-*.mp4
-*.mov
-*.avi
-*.webm
-*.mkv
-
-# Python cache & temporary analysis scripts
-__pycache__/
-*.py[cod]
-*$py.class
-*.py
-
-# Node test scripts & diagnostic inspection scripts
-test_*.cjs
-inspect_*.cjs
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Production build output
-dist/
-dist-ssr/
-
-# Local env files
+# Environment files
 .env
 .env.local
 .env.*.local
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs
+logs/
+*.log
 
 # OS generated files
 .DS_Store
@@ -65,7 +39,25 @@ ehthumbs.db
 Thumbs.db
 desktop.ini
 
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 # Temporary files & cache
+temp/
+tmp/
+temp_*/
+*.temp
+*.tmp
 .temp/
 .tmp/
 .cache/
+__pycache__/
+*.py[cod]
+*$py.class
