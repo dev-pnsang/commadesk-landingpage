@@ -7,13 +7,14 @@
   
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     font-family: var(--font-sans);
     background-color: #EAEDF1;
     color: #111827;
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -40,6 +41,19 @@
     -moz-user-select: text;
     user-select: text;
   }
+}
+
+/* Glassmorphism & Frosted Glass Utilities Chuẩn Quốc Tế */
+.frosted-backdrop {
+  background-color: rgba(15, 23, 42, 0.12);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.frosted-menu {
+  background-color: #FFFFFF;
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
 }
 
 /* Custom Floating Animations */
@@ -192,22 +206,21 @@
 
 /* ================= SCROLL REVEAL & BLUR ANIMATIONS (Chuẩn Apple / Framer Style) ================= */
 .scroll-blur-reveal {
-  opacity: 0;
-  filter: blur(10px);
-  transform: translateY(26px) scale(0.98);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, filter, transform;
+  opacity: 1;
+  filter: none;
+  transform: translateY(0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .scroll-blur-reveal.is-revealed {
   opacity: 1 !important;
-  filter: blur(0px) !important;
+  filter: none !important;
   transform: translateY(0) scale(1) !important;
 }
 
-/* Khối cha chứa Text Wipe thì để con tự điều khiển blur mờ độc lập */
+/* Khối cha chứa Text Wipe thì để con tự điều khiển hiển thị */
 .scroll-blur-reveal:has(.text-blur-wipe),
 .scroll-blur-reveal.has-text-wipe {
   opacity: 1 !important;
@@ -215,7 +228,7 @@
   transform: none !important;
 }
 
-/* ================= TEXT BLUR WIPE REVEAL (Horizontal Staggered Blur Reveal - Frame 11.0s) ================= */
+/* ================= TEXT BLUR WIPE REVEAL ================= */
 .text-blur-wipe {
   display: inline-block;
   will-change: transform;
@@ -232,40 +245,31 @@
 
 .text-blur-wipe .reveal-char {
   display: inline-block;
-  opacity: 0.12;
-  filter: blur(14px);
-  transform: translateY(4px);
-  transition: opacity 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
-              filter 0.48s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
-  transition-delay: calc(var(--char-idx, 0) * 20ms);
-  will-change: opacity, filter, transform;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: translateY(0) !important;
+  will-change: opacity, transform;
 }
 
 /* Khi phần tử cuộn tới hoặc được kích hoạt */
 .is-revealed .text-blur-wipe .reveal-char,
 .text-blur-wipe.is-revealed .reveal-char {
   opacity: 1 !important;
-  filter: blur(0px) !important;
+  filter: none !important;
   transform: translateY(0) !important;
 }
 
-/* Subtitle trôi lên mượt mà từ mờ sang rõ ngay sau khi tiêu đề quét */
+/* Subtitle hiển thị rõ nét */
 .text-blur-wipe-sub {
-  opacity: 0.15;
-  filter: blur(10px);
-  transform: translateY(8px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 220ms;
-  will-change: opacity, filter, transform;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: translateY(0) !important;
 }
 
 .is-revealed .text-blur-wipe-sub,
 .text-blur-wipe-sub.is-revealed {
   opacity: 1 !important;
-  filter: blur(0px) !important;
+  filter: none !important;
   transform: translateY(0) !important;
 }
 

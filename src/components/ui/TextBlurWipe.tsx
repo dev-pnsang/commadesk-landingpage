@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useRef, useState } from 'react';
 
 interface TextBlurWipeProps {
   children: React.ReactNode;
@@ -13,6 +13,42 @@ export function TextBlurWipe({
   className = '',
   as: Component = 'div',
 }: TextBlurWipeProps) {
+  const containerRef = useRef<HTMLElement>(null);
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    // Đảm bảo chữ luôn sắc nét sau tối đa 350ms dù cuộn nhanh hay observer bị trễ
+    const timer = setTimeout(() => {
+      setIsRevealed(true);
+    }, 350);
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsRevealed(true);
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.02, rootMargin: '120px 0px 120px 0px' }
+      );
+      observer.observe(el);
+
+      return () => {
+        clearTimeout(timer);
+        observer.disconnect();
+      };
+    } else {
+      setIsRevealed(true);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   // Trích xuất text thô cho thuộc tính aria-label phục vụ SEO & Accessibility
   const rawText = useMemo(() => {
     if (typeof children === 'string') return children;
@@ -86,7 +122,8 @@ export function TextBlurWipe({
 
   return (
     <Component
-      className={`text-blur-wipe ${className}`}
+      ref={containerRef as any}
+      className={`text-blur-wipe ${isRevealed ? 'is-revealed' : ''} ${className}`}
       aria-label={rawText || undefined}
     >
       {elements}

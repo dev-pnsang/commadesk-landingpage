@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { TextBlurWipe } from '@/components/ui/TextBlurWipe';
 import { INTEGRATION_APPS } from '@/data/integrations';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 // SVG Icons cho từng app
 const APP_ICONS: Record<string, React.ReactNode> = {
@@ -84,6 +85,7 @@ const APP_ICONS: Record<string, React.ReactNode> = {
 };
 
 export function ArcCarousel() {
+  const { t, language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(2); // Loom ban đầu ở giữa
   const [windowWidth, setWindowWidth] = useState(1200);
   const [textVisible, setTextVisible] = useState(true);
@@ -207,7 +209,9 @@ export function ArcCarousel() {
           as="h2"
           className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black text-gray-900 tracking-tight max-w-2xl mx-auto leading-tight"
         >
-          {['Integrate with your existing', <br key="br3" />, 'tools in seconds']}
+          {language === 'vi'
+            ? ['Tích hợp công cụ sẵn có', <br key="br3" />, 'chỉ trong vài giây']
+            : ['Integrate with your existing', <br key="br3" />, 'tools in seconds']}
         </TextBlurWipe>
       </div>
 

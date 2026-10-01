@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function EmployeeDataCard() {
+  const { t } = useLanguage();
   const [isFlipped, setIsFlipped] = useState(false);
   const [animating, setAnimating] = useState(false);
 
@@ -50,7 +52,7 @@ export function EmployeeDataCard() {
             }`}
           >
             <div className="flex items-center justify-between text-xs font-semibold text-gray-700">
-              <span>Sprint Completion</span>
+              <span>{t.features.card4.tab1}</span>
               <div className="flex items-center gap-1 text-[9px]">
                 <span className="text-gray-400">Daily</span>
                 <span className="text-gray-400">Weekly</span>
@@ -104,7 +106,7 @@ export function EmployeeDataCard() {
             }`}
           >
             <div className="flex items-center justify-between text-xs font-semibold text-gray-700 pb-1 border-b border-slate-100">
-              <span>Org Directory</span>
+              <span>{t.features.card4.tab2}</span>
               <span className="text-[10px] text-gray-400 font-normal">See all</span>
             </div>
             <div className="flex items-center gap-1.5 text-[9px] font-semibold text-gray-500 overflow-x-auto">
@@ -185,9 +187,9 @@ export function EmployeeDataCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Org Hierarchy &amp; 360° Directory</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{t.features.card4.title}</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Manage multi-tenant org charts, employee 360° profiles, shift scheduling, and work entries with complete data isolation.
+          {t.features.card4.desc}
         </p>
       </div>
     </div>

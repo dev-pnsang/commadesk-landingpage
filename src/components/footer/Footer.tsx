@@ -1,70 +1,194 @@
+'use client';
+
 import React from 'react';
-import { FOOTER_LINKS } from '@/data/navigation';
+import Link from 'next/link';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function Footer() {
+  const { t, language } = useLanguage();
+  const isVi = language === 'vi';
+
   return (
-    <footer className="canvas-card bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-6 sm:px-10 md:px-12 lg:px-16 flex flex-col justify-between">
+    <footer className="canvas-card bg-white rounded-[24px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-12 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-3.5 sm:px-10 md:px-12 lg:px-16 flex flex-col justify-between">
       {/* Upper Section */}
-      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-6 lg:gap-12 pb-12 sm:pb-16">
-        {/* Col 1: Bio */}
-        <div className="w-full md:w-[220px] lg:w-[280px] shrink-0">
-          <p className="text-base sm:text-lg font-semibold text-gray-900 leading-snug tracking-tight">
-            Commadesk unites project management, timesheets, org hierarchy, document registry, and Casbin RBAC security into one enterprise platform.
+      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-6 lg:gap-12 pb-10 sm:pb-16">
+        {/* Col 1: Bio & Branding */}
+        <div className="w-full md:w-[240px] lg:w-[290px] shrink-0 text-left">
+          <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
+            <div className="w-7 h-7 rounded-lg bg-black flex items-center justify-center p-1 transition-transform group-hover:scale-105">
+              <img
+                src="/commadesk/logo_CommaDesk-icon.webp"
+                alt="Commadesk Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span className="font-extrabold text-lg tracking-tight text-gray-950">
+              Commadesk
+            </span>
+          </Link>
+          <p className="text-sm font-normal text-gray-500 leading-relaxed">
+            {t.footer.bio}
           </p>
+
+          <div className="mt-5">
+            <Link
+              href="/#features"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FF4D38] hover:bg-[#E03E2A] text-white text-xs font-bold shadow-md shadow-[#FF4D38]/20 transition-all active:scale-95"
+            >
+              <span>{isVi ? 'Khám phá giải pháp' : 'Explore Platform'}</span>
+              <span>→</span>
+            </Link>
+          </div>
         </div>
 
         {/* Col 2: Navigation Links */}
-        <div className="w-full md:w-auto grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-7 lg:gap-12 xl:gap-14">
-          {/* Sub-col 1: Product */}
+        <div className="w-full md:w-auto grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 md:gap-7 lg:gap-12 xl:gap-14 text-left">
+          {/* Sub-col 1: Core Modules */}
           <div className="space-y-3 sm:space-y-3.5">
-            <h4 className="text-sm font-semibold text-gray-900">Product</h4>
+            <h4 className="text-sm font-semibold text-gray-900">
+              {t.footer.columns.products}
+            </h4>
             <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
-              {FOOTER_LINKS.product.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-black transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/products/work-management"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'Dự án & Kanban' : 'Work & Projects'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/hr-workforce"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'Tổ chức & Nhân sự' : 'HR & Workforce'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/ai-smart-city"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'AI Vision & Smart City' : 'AI Vision & Cameras'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/operations-documents"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'Sổ văn bản & Kho SKU' : 'Operations & Registry'}
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Sub-col 2: Features */}
+          {/* Sub-col 2: Solutions & Operations */}
           <div className="space-y-3 sm:space-y-3.5">
-            <h4 className="text-sm font-semibold text-gray-900">Features</h4>
+            <h4 className="text-sm font-semibold text-gray-900">
+              {t.footer.columns.solutions}
+            </h4>
             <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
-              {FOOTER_LINKS.features.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-black transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/products/crm-helpdesk"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'CRM & IT Helpdesk' : 'CRM & Helpdesk'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/security-platform"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'Bảo mật Casbin RBAC' : 'Casbin RBAC Security'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/security-platform"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'Đa tổ chức Multi-Tenant' : 'Multi-Tenant Platform'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#features"
+                  className="hover:text-black hover:translate-x-0.5 inline-block transition-all"
+                >
+                  {isVi ? 'Báo cáo điều hành & KPIs' : 'Executive Dashboard'}
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Sub-col 3: Pricing */}
+          {/* Sub-col 3: Deployment */}
           <div className="space-y-3 sm:space-y-3.5">
             <h4 className="text-sm font-semibold text-gray-900">
-              <a href="#integrations" className="hover:text-black transition-colors">
-                Pricing
-              </a>
+              {t.footer.columns.pricing}
             </h4>
+            <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
+              <li>
+                <Link href="/products/security-platform" className="hover:text-black transition-colors">
+                  Multi-Tenant Cloud
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/security-platform" className="hover:text-black transition-colors">
+                  Private Cloud / On-Prem
+                </Link>
+              </li>
+              <li>
+                <Link href="/#hero2Card" className="hover:text-black transition-colors">
+                  Desktop &amp; Mobile Parity
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/security-platform" className="hover:text-black transition-colors">
+                  SLA &amp; Compliance
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Sub-col 4: Resources */}
+          {/* Sub-col 4: Resources & Access */}
           <div className="space-y-3 sm:space-y-3.5">
             <h4 className="text-sm font-semibold text-gray-900">
-              <a href="#testimonials" className="hover:text-black transition-colors">
-                Resources
-              </a>
+              {t.footer.columns.resources}
             </h4>
+            <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
+              <li>
+                <Link href="/products/work-management" className="hover:text-black transition-colors font-semibold text-slate-700">
+                  {isVi ? 'Tài liệu quản lý công việc' : 'Work & Projects Guide'}
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/ai-smart-city" className="hover:text-black transition-colors">
+                  {isVi ? 'Kiến trúc AI Smart City' : 'AI Smart City Architecture'}
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/security-platform" className="hover:text-black transition-colors">
+                  REST API &amp; Webhooks
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/work-management" className="hover:text-black transition-colors">
+                  {isVi ? 'Tài liệu hướng dẫn' : 'Feature Documentation'}
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Col 3: Follow us */}
-        <div className="w-full md:w-auto space-y-3 sm:space-y-3.5 shrink-0">
-          <h4 className="text-sm font-semibold text-gray-900">Follow us</h4>
+        <div className="w-full md:w-auto space-y-3 sm:space-y-3.5 shrink-0 text-left">
+          <h4 className="text-sm font-semibold text-gray-900">
+            {t.footer.followUs}
+          </h4>
           <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Instagram */}
             <a
@@ -103,7 +227,7 @@ export function Footer() {
       {/* Copyright */}
       <div className="pt-6 border-t border-slate-100 text-center">
         <p className="text-xs sm:text-sm font-medium text-gray-400">
-          © 2026 Commadesk Inc. All rights reserved.
+          {t.footer.copyright}
         </p>
       </div>
     </footer>

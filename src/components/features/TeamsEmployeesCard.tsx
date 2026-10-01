@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const ORBIT_AVATARS = [
   { src: '/avatars/hero2_1.png', pos: 'top-0 left-1/2 -translate-x-1/2' },
@@ -17,6 +20,8 @@ const ORBIT_AVATARS = [
 ];
 
 export function TeamsEmployeesCard() {
+  const { t } = useLanguage();
+
   return (
     <div className="scroll-fade-up delay-300 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
       {/* Graphic: Vòng tròn 12 Avatar nhân sự xếp như mặt đồng hồ */}
@@ -50,9 +55,9 @@ export function TeamsEmployeesCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Internal Chat &amp; Notifications</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{t.features.card5.title}</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Keep teams aligned with matrix-based internal chat, realtime in-app notifications, events, and company surveys.
+          {t.features.card5.desc}
         </p>
       </div>
     </div>

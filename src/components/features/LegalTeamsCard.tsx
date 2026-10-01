@@ -1,6 +1,11 @@
+'use client';
+
 import React from 'react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function LegalTeamsCard() {
+  const { t } = useLanguage();
+
   return (
     <div className="scroll-fade-up delay-200 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
       {/* Graphic: Sọc kẻ dọc mờ + Hai tài liệu nghiêng + Khối tím 3D icon khiên check */}
@@ -45,9 +50,9 @@ export function LegalTeamsCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Document Registry &amp; RBAC</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{t.features.card3.title}</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Manage inbound and outbound documents with automated numbering rules, protected by granular Casbin RBAC security.
+          {t.features.card3.desc}
         </p>
       </div>
     </div>

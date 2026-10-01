@@ -1,6 +1,11 @@
+'use client';
+
 import React from 'react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function AttendanceReportCard() {
+  const { t } = useLanguage();
+
   return (
     <div className="scroll-fade-up delay-75 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
       {/* Graphic: Attendance Report Box */}
@@ -73,9 +78,9 @@ export function AttendanceReportCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Projects, Kanban &amp; Time Logs</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{t.features.card1.title}</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Manage workflows with drag-and-drop Kanban, log billable project hours, and track team velocity automatically.
+          {t.features.card1.desc}
         </p>
       </div>
     </div>

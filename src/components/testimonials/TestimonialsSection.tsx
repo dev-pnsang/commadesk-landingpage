@@ -5,8 +5,10 @@ import { TextBlurWipe } from '@/components/ui/TextBlurWipe';
 import { TESTIMONIALS_DATA } from '@/data/testimonials';
 import { EnvelopeGraphic } from './EnvelopeGraphic';
 import { TestimonialCard } from './TestimonialCard';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function TestimonialsSection() {
+  const { t, language } = useLanguage();
   const [hasFannedOut, setHasFannedOut] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -233,14 +235,18 @@ export function TestimonialsSection() {
     >
       {/* Section Header */}
       <div className="scroll-blur-reveal max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-10">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span>
+          {t.testimonials.badge}
+        </div>
         <TextBlurWipe
           as="h2"
           className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight"
         >
-          Words of Appreciation
+          {t.testimonials.title}
         </TextBlurWipe>
-        <p className="text-blur-wipe-sub mt-2.5 text-sm sm:text-base text-gray-500">
-          Trusted by operations leads, engineering heads, and executives across fast-growing enterprises.
+        <p className="text-blur-wipe-sub mt-2.5 text-sm sm:text-base text-gray-500 max-w-2xl mx-auto">
+          {t.testimonials.subtitle}
         </p>
       </div>
 
@@ -256,7 +262,7 @@ export function TestimonialsSection() {
         className={`testi-stage scroll-scale-up delay-150 relative max-w-[1400px] w-full mx-auto flex flex-col items-center justify-center min-h-[480px] sm:min-h-[500px] md:min-h-[520px] ${
           hasFannedOut ? 'is-fanout' : ''
         }`}
-        title="Click để xem hiệu ứng Phong Bì Thư / Fan-out Cards"
+        title="Click to interact with 3D Testimonials"
       >
         <div className="relative w-full max-w-[1240px] h-[450px] sm:h-[480px] md:h-[500px] mx-auto flex items-center justify-center overflow-visible">
           {/* 1. LEFT TILT CARD (Thẻ trắng to bản xòe sang trái) */}
@@ -329,7 +335,7 @@ export function TestimonialsSection() {
           {/* Interactive Pagination Dots + Counter Badge */}
           <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/95 backdrop-blur-md rounded-full border border-slate-200/90 shadow-xs">
             <span className="text-[11px] font-bold text-gray-400 mr-1 select-none">
-              {String(currentIdx + 1).padStart(2, '0')}&nbsp;/&nbsp;{String(TESTIMONIALS_DATA.length).padStart(2, '0')}
+              {String(currentIdx + 1).padStart(2, '0')}&nbsp;{t.testimonials.counterOf}&nbsp;{String(TESTIMONIALS_DATA.length).padStart(2, '0')}
             </span>
 
             <div className="flex items-center gap-1.5">

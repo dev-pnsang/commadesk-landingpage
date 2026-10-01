@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <Navbar />
 
-      <main className="max-w-[1440px] mx-auto space-y-6 sm:space-y-8 md:space-y-10 relative">
+      <main className="max-w-[1440px] mx-auto space-y-8 sm:space-y-12 md:space-y-16 relative px-2.5 sm:px-6 lg:px-8 pb-16">
         <Hero1Section />
         <Hero2Section />
         <BentoGridSection />

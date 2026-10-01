@@ -1,76 +1,78 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
-const BADGES = [
-  {
-    text: 'Executive Dashboard & KPIs',
-    iconClass: 'bg-sky-50 text-sky-500',
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        strokeWidth="2.5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
-  },
-  {
-    text: 'Multi-Manager Approvals',
-    iconClass: 'bg-red-50 text-red-500',
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
-        <circle cx="12" cy="2" r="1.5" />
-      </svg>
-    ),
-  },
-  {
-    text: 'Audit Logs & RBAC Health',
-    iconClass: 'bg-amber-50 text-amber-500',
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        strokeWidth="2.5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-        />
-      </svg>
-    ),
-  },
-];
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function ManagersLeadersCard() {
+  const { t } = useLanguage();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
+
+  const badges = [
+    {
+      text: t.features.card2.badge1Title,
+      iconClass: 'bg-sky-50 text-sky-500',
+      icon: (
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          strokeWidth="2.5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      ),
+    },
+    {
+      text: t.features.card2.badge2Title,
+      iconClass: 'bg-red-50 text-red-500',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+          <circle cx="12" cy="2" r="1.5" />
+        </svg>
+      ),
+    },
+    {
+      text: t.features.card2.badge3Title,
+      iconClass: 'bg-amber-50 text-amber-500',
+      icon: (
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          strokeWidth="2.5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+          />
+        </svg>
+      ),
+    },
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setIsFlipping(true);
 
       setTimeout(() => {
-        setCurrentIdx((prev) => (prev + 1) % BADGES.length);
+        setCurrentIdx((prev) => (prev + 1) % badges.length);
         setIsFlipping(false);
       }, 250);
     }, 3400);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [badges.length]);
 
-  const badge = BADGES[currentIdx];
+  const badge = badges[currentIdx];
 
   return (
     <div className="scroll-fade-up delay-150 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
@@ -116,9 +118,9 @@ export function ManagersLeadersCard() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Executive Insights &amp; Approvals</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{t.features.card2.title}</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Monitor budgets vs. actual costs, review task acceptance, and automate multi-level approvals across departments.
+          {t.features.card2.desc}
         </p>
       </div>
     </div>

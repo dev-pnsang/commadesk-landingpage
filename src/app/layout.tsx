@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from '@/i18n/LanguageContext';
+import { ScrollRevealManager } from '@/components/ui/ScrollRevealManager';
+
 export default function RootLayout({
   children,
 }: {
@@ -26,7 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${plusJakartaSans.variable}`}>
       <body className="bg-[#EAEDF1] min-h-screen text-slate-800 p-2 sm:p-4 md:p-6 lg:p-8 selection:bg-[#FF4D38] selection:text-white">
-        {children}
+        <LanguageProvider>
+          <ScrollRevealManager />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
