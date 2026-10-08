@@ -18,9 +18,9 @@ export function Footer() {
   return (
     <footer className="canvas-card bg-white rounded-[24px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-12 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-3.5 sm:px-10 md:px-12 lg:px-16 flex flex-col justify-between">
       {/* Upper Section */}
-      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-6 lg:gap-10 pb-10 sm:pb-16">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 xl:gap-10 pb-10 sm:pb-16 text-left">
         {/* Col 1: Bio & Branding */}
-        <div className="w-full md:w-[220px] lg:w-[260px] shrink-0 text-left">
+        <div className="md:col-span-7 lg:col-span-4 xl:col-span-3 text-left">
           <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
             <div className="w-10 h-10 bg-white flex items-center justify-center p-0.5 transition-transform group-hover:scale-105">
               <img
@@ -34,7 +34,7 @@ export function Footer() {
               CommaDesk
             </span>
           </Link>
-          <p className="text-sm font-normal text-gray-500 leading-relaxed">
+          <p className="text-sm font-normal text-gray-500 leading-relaxed max-w-sm">
             {t.footer.bio}
           </p>
 
@@ -49,8 +49,38 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Col 2: Navigation Links 4 Columns */}
-        <div className="w-full md:w-auto grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-6 lg:gap-8 xl:gap-10 text-left">
+        {/* Col 3 on Tablet (md only): Follow Us đặt cạnh Bio ở hàng trên */}
+        <div className="hidden md:flex lg:hidden md:col-span-5 flex-col md:items-end justify-start space-y-3 sm:space-y-3.5 text-right">
+          <h4 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider">
+            {t.footer.followUs}
+          </h4>
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="w-10 h-10 rounded-2xl bg-[#F4F5F7] hover:bg-slate-200 text-gray-950 flex items-center justify-center transition-all hover:scale-105 shrink-0"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="#"
+              aria-label="X Twitter"
+              className="w-10 h-10 rounded-2xl bg-[#F4F5F7] hover:bg-slate-200 text-gray-950 flex items-center justify-center transition-all hover:scale-105 shrink-0"
+            >
+              <TwitterIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="#"
+              aria-label="TikTok"
+              className="w-10 h-10 rounded-2xl bg-[#F4F5F7] hover:bg-slate-200 text-gray-950 flex items-center justify-center transition-all hover:scale-105 shrink-0"
+            >
+              <TikTokIcon className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        {/* Col 2: Navigation Links (Full 12 cols trên tablet, 6 cols trên desktop) */}
+        <div className="md:col-span-12 lg:col-span-6 xl:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 lg:gap-6 xl:gap-8 text-left pt-2 md:pt-4 lg:pt-0 border-t md:border-t-0 border-slate-100">
           {/* Sub-col 1: Operations & Supply */}
           <div className="space-y-3 sm:space-y-3.5">
             <h4 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider">
@@ -138,8 +168,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Col 3: Follow us */}
-        <div className="w-full md:w-auto space-y-3 sm:space-y-3.5 shrink-0 text-left">
+        {/* Col 3 on Mobile & Desktop: Follow Us */}
+        <div className="block md:hidden lg:block lg:col-span-2 xl:col-span-2 space-y-3 sm:space-y-3.5 shrink-0 text-left pt-2 md:pt-0">
           <h4 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider">
             {t.footer.followUs}
           </h4>

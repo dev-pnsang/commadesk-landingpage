@@ -238,7 +238,6 @@ export function Navbar() {
           <nav className="hidden md:flex items-center gap-3.5 lg:gap-6 xl:gap-8 text-[13px] lg:text-[13.5px] font-medium text-gray-700 whitespace-nowrap">
             {/* 1. Modules Dropdown */}
             <div
-              className="relative"
               ref={modulesRef}
               onMouseEnter={() => handleMenuHoverEnter("modules")}
               onMouseLeave={handleMenuHoverLeave}
@@ -269,7 +268,7 @@ export function Navbar() {
                   onMouseMove={cancelLeaveTimeout}
                   onMouseLeave={handleMenuHoverLeave}
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/3 sm:-translate-x-1/4 lg:-translate-x-1/3 top-full mt-3 w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-5 before:left-0 before:right-0 before:h-6 before:pointer-events-auto"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-5 before:left-0 before:right-0 before:h-6 before:pointer-events-auto"
                 >
                   <div className="flex items-center justify-between px-2 pb-3 mb-3 border-b border-slate-100">
                     <div className="flex items-center gap-2">

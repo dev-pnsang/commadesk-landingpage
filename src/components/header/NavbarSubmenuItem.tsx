@@ -66,8 +66,8 @@ export function NavbarSubmenuItem({ item, onClick, variant = 'desktop' }: Navbar
         <ModuleIcon name={item.iconName} className="w-4 h-4" />
       </div>
       <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between gap-1.5">
-          <span className="text-xs sm:text-[13px] font-bold text-gray-900 group-hover:text-[#FF4D38] transition-colors">
+        <div className="flex items-center justify-between gap-1.5 min-w-0">
+          <span className="text-xs sm:text-[13px] font-bold text-gray-900 group-hover:text-[#FF4D38] transition-colors truncate">
             {item.title}
           </span>
           {item.badge && (
