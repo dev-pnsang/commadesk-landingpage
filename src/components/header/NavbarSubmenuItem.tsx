@@ -60,24 +60,24 @@ export function NavbarSubmenuItem({ item, onClick, variant = 'desktop' }: Navbar
     <Link
       href={item.href}
       onClick={onClick}
-      className="group flex items-start gap-2 sm:gap-2.5 p-1.5 sm:p-2 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100/80 transition-all text-left w-full"
+      className="group flex items-start gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100/80 transition-all text-left w-full"
     >
-      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[#FF4D38] group-hover:bg-[#FF4D38]/10 group-hover:border-[#FF4D38]/30 flex items-center justify-center shrink-0 transition-all mt-0.5">
-        <ModuleIcon name={item.iconName} className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+      <div className="w-8 h-8 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[#FF4D38] group-hover:bg-[#FF4D38]/10 group-hover:border-[#FF4D38]/30 flex items-center justify-center shrink-0 transition-all mt-0.5">
+        <ModuleIcon name={item.iconName} className="w-4 h-4" />
       </div>
       <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between gap-1">
-          <span className="text-[11.5px] sm:text-xs font-bold text-gray-900 group-hover:text-[#FF4D38] transition-colors truncate">
+        <div className="flex items-center justify-between gap-1.5">
+          <span className="text-xs sm:text-[13px] font-bold text-gray-900 group-hover:text-[#FF4D38] transition-colors whitespace-nowrap">
             {item.title}
           </span>
           {item.badge && (
-            <span className="text-[8px] font-extrabold px-1.5 py-0.2 rounded-md bg-[#FF4D38]/10 text-[#FF4D38] transition-colors uppercase tracking-wider shrink-0">
+            <span className="text-[8.5px] font-extrabold px-1.5 py-0.5 rounded-md bg-[#FF4D38]/10 text-[#FF4D38] transition-colors uppercase tracking-wider shrink-0">
               {item.badge}
             </span>
           )}
         </div>
         {description && (
-          <p className="text-[10px] sm:text-[10.5px] text-gray-500 line-clamp-1 mt-0.5 leading-snug break-words">
+          <p className="text-[11px] text-gray-500 line-clamp-1 mt-0.5 leading-snug">
             {description}
           </p>
         )}

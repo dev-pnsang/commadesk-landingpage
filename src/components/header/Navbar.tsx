@@ -60,7 +60,7 @@ export function Navbar() {
     cancelLeaveTimeout();
     leaveTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 250);
+    }, 350);
   };
 
   const handleMenuClick = (menu: "modules" | "solutions" | "resources") => {
@@ -263,9 +263,9 @@ export function Navbar() {
               {isModulesOpen && (
                 <div
                   onWheel={(e) => e.stopPropagation()}
-                  className="fixed top-[60px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[calc(100vw-1.5rem)] sm:w-[calc(100vw-2.5rem)] max-w-[940px] xl:max-w-[980px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="fixed top-[60px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[calc(100vw-1.5rem)] sm:w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
-                  <div className="flex items-center justify-between px-2 pb-2.5 mb-2.5 border-b border-slate-100">
+                  <div className="flex items-center justify-between px-2 pb-3 mb-3 border-b border-slate-100">
                     <div className="flex items-center gap-2">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                         {t.nav.exploreAllModules}
@@ -284,27 +284,57 @@ export function Navbar() {
                     </Link>
                   </div>
 
-                  {/* 4 Categorized Columns */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3.5 xl:gap-x-4 gap-y-3">
-                    {categories.map((cat) => {
-                      const items = modules.filter((m) => m.category === cat.key);
-                      return (
-                        <div key={cat.key} className="space-y-1">
-                          <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2 pb-0.5">
-                            {cat.title}
+                  {/* 2 Categorized Columns: Cột 1 (Operations + Comms), Cột 2 (Workforce + Commerce) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                    {/* Cột 1: Operations & Supply (3 items) + Comms & Culture (3 items) */}
+                    <div className="space-y-4">
+                      {["operations", "comms"].map((catKey) => {
+                        const cat = categories.find((c) => c.key === catKey);
+                        if (!cat) return null;
+                        const items = modules.filter((m) => m.category === cat.key);
+                        return (
+                          <div key={cat.key} className="space-y-1">
+                            <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2 pb-0.5">
+                              {cat.title}
+                            </div>
+                            <div className="space-y-1">
+                              {items.map((item) => (
+                                <NavbarSubmenuItem
+                                  key={item.id}
+                                  item={item}
+                                  onClick={closeAllMenus}
+                                />
+                              ))}
+                            </div>
                           </div>
-                          <div className="space-y-0.5">
-                            {items.map((item) => (
-                              <NavbarSubmenuItem
-                                key={item.id}
-                                item={item}
-                                onClick={closeAllMenus}
-                              />
-                            ))}
+                        );
+                      })}
+                    </div>
+
+                    {/* Cột 2: Workforce & Execution (3 items) + Commerce & Technology (4 items) */}
+                    <div className="space-y-4">
+                      {["workforce", "commerce"].map((catKey) => {
+                        const cat = categories.find((c) => c.key === catKey);
+                        if (!cat) return null;
+                        const items = modules.filter((m) => m.category === cat.key);
+                        return (
+                          <div key={cat.key} className="space-y-1">
+                            <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2 pb-0.5">
+                              {cat.title}
+                            </div>
+                            <div className="space-y-1">
+                              {items.map((item) => (
+                                <NavbarSubmenuItem
+                                  key={item.id}
+                                  item={item}
+                                  onClick={closeAllMenus}
+                                />
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               )}
@@ -336,7 +366,7 @@ export function Navbar() {
               {isSolutionsOpen && (
                 <div
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 pb-5 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
                   <div className="space-y-1 w-full">
                     {solutionsList.map((sol, idx) => (
@@ -392,7 +422,7 @@ export function Navbar() {
               {isResourcesOpen && (
                 <div
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-3 w-[calc(100vw-2rem)] max-w-[380px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-3 w-[calc(100vw-2rem)] max-w-[420px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 pb-5 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
                   <div className="space-y-1 w-full">
                     {resourcesList.map((res, idx) => (
