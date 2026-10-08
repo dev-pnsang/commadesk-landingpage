@@ -1,14 +1,19 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { useLanguage } from '@/i18n/LanguageContext';
-import { FOOTER_LINKS } from '@/data/navigation';
-import { InstagramIcon, TwitterIcon, TikTokIcon, ArrowRightIcon } from '@/components/ui/UIIcons';
+import React from "react";
+import Link from "next/link";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { FOOTER_LINKS } from "@/data/navigation";
+import {
+  InstagramIcon,
+  TwitterIcon,
+  TikTokIcon,
+  ArrowRightIcon,
+} from "@/components/ui/UIIcons";
 
 export function Footer() {
   const { t, language } = useLanguage();
-  const isVi = language === 'vi';
+  const isVi = language === "vi";
 
   return (
     <footer className="canvas-card bg-white rounded-[24px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-12 sm:pt-20 md:pt-24 pb-8 sm:pb-10 px-3.5 sm:px-10 md:px-12 lg:px-16 flex flex-col justify-between">
@@ -17,9 +22,9 @@ export function Footer() {
         {/* Col 1: Bio & Branding */}
         <div className="w-full md:w-[220px] lg:w-[260px] shrink-0 text-left">
           <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
-            <div className="w-7 h-7 rounded-lg bg-white border border-slate-200/90 shadow-2xs flex items-center justify-center p-0.5 transition-transform group-hover:scale-105">
+            <div className="w-10 h-10 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center p-0.5 transition-transform group-hover:scale-105">
               <img
-                src="/commadesk/logo_commadesk.webp"
+                src="/commadesk/logo_CommaDesk.webp"
                 alt="CommaDesk Logo"
                 className="w-full h-full object-contain"
               />
@@ -38,7 +43,7 @@ export function Footer() {
               href="/#features"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FF4D38] hover:bg-[#E03E2A] text-white text-xs font-bold shadow-md shadow-[#FF4D38]/20 transition-all active:scale-95"
             >
-              <span>{isVi ? 'Khám phá 13 phân hệ' : 'Explore 13 Modules'}</span>
+              <span>{isVi ? "Khám phá 13 phân hệ" : "Explore 13 Modules"}</span>
               <ArrowRightIcon className="w-3.5 h-3.5" />
             </Link>
           </div>
