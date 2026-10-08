@@ -106,6 +106,7 @@ export function LanguageSelector({ variant = 'pill' }: LanguageSelectorProps) {
           <div
             className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
+            onTouchStart={() => setIsOpen(false)}
           />
 
           <div

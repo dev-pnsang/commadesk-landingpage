@@ -7,6 +7,74 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "@/components/ui/LanguageSelector";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 
+function NavItemIcon({
+  type,
+  className = "w-4 h-4",
+}: {
+  type: "modules" | "workspace" | "integrations" | "security" | "globe";
+  className?: string;
+}) {
+  switch (type) {
+    case "modules":
+      return (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+          />
+        </svg>
+      );
+    case "workspace":
+      return (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+          />
+        </svg>
+      );
+    case "integrations":
+      return (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          />
+        </svg>
+      );
+    case "security":
+      return (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+          />
+        </svg>
+      );
+    case "globe":
+      return (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+          />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 export function Navbar() {
   const { t, modules } = useLanguage();
   const pathname = usePathname();
@@ -81,16 +149,22 @@ export function Navbar() {
 
   const navItems = [
     {
+      id: "workspace",
       label: t.nav.workspace,
       href: pathname === "/" ? "#hero2Card" : "/#hero2Card",
+      iconType: "workspace" as const,
     },
     {
+      id: "integrations",
       label: t.nav.integrations,
       href: pathname === "/" ? "#integrations" : "/#integrations",
+      iconType: "integrations" as const,
     },
     {
+      id: "security",
       label: t.nav.security,
       href: pathname === "/" ? "#testimonials" : "/#testimonials",
+      iconType: "security" as const,
     },
   ];
 
@@ -103,7 +177,7 @@ export function Navbar() {
       >
         <div
           id="navbarPill"
-          className={`pointer-events-auto px-3 sm:px-6 lg:px-7 py-2 sm:py-2.5 rounded-full border transition-all duration-300 flex items-center justify-between gap-2 sm:gap-4 ${
+          className={`pointer-events-auto relative z-30 px-3 sm:px-6 lg:px-7 py-2 sm:py-2.5 rounded-full border transition-all duration-300 flex items-center justify-between gap-2 sm:gap-4 ${
             isScrolled
               ? "bg-white/95 backdrop-blur-md shadow-xl border-slate-300/80 shadow-slate-200/50"
               : "bg-white/95 backdrop-blur-md shadow-md border-slate-200/90 shadow-slate-200/40"
@@ -208,8 +282,8 @@ export function Navbar() {
                               </span>
                               {item.badge && (
                                 <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-600 group-hover:bg-[#FF4D38]/10 group-hover:text-[#FF4D38] transition-colors uppercase tracking-wider shrink-0">
-                                  {item.badge}
-                                </span>
+                                {item.badge}
+                              </span>
                               )}
                             </div>
                             <p className="text-[11px] text-gray-500 line-clamp-1 mt-0.5 leading-snug">
@@ -241,9 +315,10 @@ export function Navbar() {
             {/* Language Selector Dropdown */}
             <LanguageSelector variant="pill" />
 
+            {/* Desktop Only CTA button */}
             <Link
               href="/#features"
-              className="hidden sm:inline-flex bg-black hover:bg-neutral-800 text-white text-xs sm:text-[13px] font-medium px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xs whitespace-nowrap"
+              className="hidden md:inline-flex bg-black hover:bg-neutral-800 text-white text-xs sm:text-[13px] font-medium px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xs whitespace-nowrap"
             >
               {t.nav.getStarted}
             </Link>
@@ -272,23 +347,38 @@ export function Navbar() {
         {isMobileMenuOpen && (
           <div
             id="mobileMenuPanel"
-            className="pointer-events-auto md:hidden mt-2 bg-white/95 backdrop-blur-xl rounded-[26px] border border-slate-200/90 shadow-2xl shadow-slate-900/10 p-4 transition-all duration-300 ease-out origin-top animate-in fade-in zoom-in-95 max-h-[85vh] overflow-y-auto"
+            className="pointer-events-auto relative z-10 md:hidden mt-2 bg-white/95 backdrop-blur-xl rounded-[26px] border border-slate-200/90 shadow-2xl shadow-slate-900/10 p-3.5 sm:p-4 transition-all duration-300 ease-out origin-top animate-in fade-in zoom-in-95 max-h-[82vh] overflow-y-auto"
           >
-            <nav className="flex flex-col gap-1">
-              {/* Modules Accordion */}
-              <div className="rounded-xl overflow-hidden border border-slate-100">
+            <nav className="flex flex-col gap-1.5">
+              {/* Level 1: Modules Accordion Item */}
+              <div>
                 <button
                   type="button"
                   onClick={() => setIsMobileModulesOpen(!isMobileModulesOpen)}
-                  className="w-full flex items-center justify-between px-3.5 py-2.5 text-slate-800 font-semibold text-sm hover:bg-slate-50 transition-colors"
+                  className={`w-full group flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-all cursor-pointer ${
+                    isMobileModulesOpen
+                      ? "bg-slate-100/90 text-slate-950 font-bold"
+                      : "text-slate-800 hover:bg-slate-100/80 active:bg-slate-200/60 font-semibold"
+                  }`}
                 >
-                  <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#FF4D38]"></span>
-                    {t.nav.modules}
-                  </span>
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div
+                      className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border transition-all ${
+                        isMobileModulesOpen
+                          ? "bg-slate-900 text-white border-slate-900"
+                          : "bg-slate-100 text-slate-700 border-slate-200/60 group-hover:bg-slate-200/80"
+                      }`}
+                    >
+                      <NavItemIcon type="modules" />
+                    </div>
+                    <span className="text-sm tracking-tight">{t.nav.modules}</span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-slate-200/80 text-slate-600">
+                      {modules.length}
+                    </span>
+                  </div>
                   <svg
-                    className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${
-                      isMobileModulesOpen ? "rotate-180" : ""
+                    className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${
+                      isMobileModulesOpen ? "rotate-180 text-slate-900" : "group-hover:text-slate-700"
                     }`}
                     fill="none"
                     stroke="currentColor"
@@ -303,36 +393,70 @@ export function Navbar() {
                   </svg>
                 </button>
 
+                {/* Submenu List */}
                 {isMobileModulesOpen && (
-                  <div className="px-2 pb-2 pt-1 flex flex-col gap-1 bg-slate-50/70 border-t border-slate-100">
+                  <div className="bg-slate-50/90 rounded-2xl p-2 border border-slate-200/70 mt-1 mb-1.5 space-y-1 animate-in fade-in zoom-in-95 duration-200">
                     {modules.map((item) => (
                       <Link
                         key={item.id}
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:text-black hover:bg-white transition-colors text-xs font-medium"
+                        className="group flex items-start gap-2.5 p-2 rounded-xl hover:bg-white text-slate-700 hover:text-black transition-all border border-transparent hover:border-slate-200/70 shadow-none hover:shadow-2xs text-left"
                       >
-                        <ModuleIcon
-                          name={item.iconName}
-                          className="w-3.5 h-3.5 text-[#FF4D38]"
-                        />
-                        <span>{item.title}</span>
+                        <div className="w-7 h-7 rounded-lg bg-white border border-slate-200/70 text-[#FF4D38] group-hover:bg-[#FF4D38]/10 flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+                          <ModuleIcon
+                            name={item.iconName}
+                            className="w-3.5 h-3.5"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <span className="text-xs font-bold text-slate-900 group-hover:text-[#FF4D38] transition-colors truncate">
+                              {item.title}
+                            </span>
+                            {item.badge && (
+                              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-200/80 text-slate-600 uppercase tracking-wider shrink-0">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5 leading-snug">
+                            {item.shortDesc}
+                          </p>
+                        </div>
                       </Link>
                     ))}
+
+                    <div className="pt-1 border-t border-slate-200/60 mt-1">
+                      <Link
+                        href="/#features"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#FF4D38] hover:bg-[#FF4D38]/10 transition-colors"
+                      >
+                        <span>{t.nav.viewAll}</span>
+                        <span>→</span>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
 
+              {/* Level 1: Direct Link Items */}
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:bg-slate-100/80 transition-colors font-medium text-sm"
+                  className="group flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-800 hover:bg-slate-100/80 active:bg-slate-200/60 transition-all font-semibold text-sm cursor-pointer"
                 >
-                  <span>{item.label}</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 group-hover:bg-slate-200/80 flex items-center justify-center shrink-0 border border-slate-200/60 transition-colors">
+                      <NavItemIcon type={item.iconType} />
+                    </div>
+                    <span className="tracking-tight">{item.label}</span>
+                  </div>
                   <svg
-                    className="w-4 h-4 text-slate-400"
+                    className="w-4 h-4 text-slate-400 group-hover:text-slate-700 group-hover:translate-x-0.5 transition-all"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -350,20 +474,27 @@ export function Navbar() {
 
             <div className="h-px bg-slate-100 my-2.5"></div>
 
-            {/* Mobile Controls & Actions */}
-            <div className="flex flex-col gap-2 pt-1">
-              <div className="flex items-center justify-between px-3 py-1">
-                <span className="text-xs text-slate-500 font-medium">
-                  {t.nav.selectLanguage}
-                </span>
-                <LanguageSelector variant="pill" />
-              </div>
+            {/* Full Width Get Started CTA */}
+            <div className="pt-0.5">
               <Link
                 href="/#features"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full py-2.5 px-3 bg-[#FF4D38] hover:bg-[#E03E2A] text-white text-center text-sm font-bold rounded-full shadow-md shadow-[#FF4D38]/20 transition-all active:scale-[0.98]"
+                className="w-full py-3 px-4 bg-[#FF4D38] hover:bg-[#E03E2A] text-white text-center text-sm font-bold rounded-2xl shadow-lg shadow-[#FF4D38]/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
               >
-                {t.nav.getStarted}
+                <span>{t.nav.getStarted}</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
               </Link>
             </div>
           </div>
