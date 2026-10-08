@@ -56,6 +56,22 @@
   backdrop-filter: blur(24px) saturate(180%);
 }
 
+/* Custom menu scrollbar for compact flyout viewports */
+.custom-menu-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-menu-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-menu-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+.custom-menu-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
 /* Custom Floating Animations */
 @keyframes float-slow {
   0%, 100% {

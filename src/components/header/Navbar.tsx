@@ -23,9 +23,15 @@ export function Navbar() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isModulesOpen, setIsModulesOpen] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+
+  // Desktop active menu state with Click-to-Pin and Hover buffer
+  const [activeMenu, setActiveMenu] = useState<"modules" | "solutions" | "resources" | null>(null);
+  const [isMenuLocked, setIsMenuLocked] = useState(false);
+  const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const isModulesOpen = activeMenu === "modules";
+  const isSolutionsOpen = activeMenu === "solutions";
+  const isResourcesOpen = activeMenu === "resources";
 
   const [isMobileModulesOpen, setIsMobileModulesOpen] = useState(false);
   const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
@@ -35,6 +41,50 @@ export function Navbar() {
   const solutionsRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
 
+  const cancelLeaveTimeout = () => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = null;
+    }
+  };
+
+  const handleMenuHoverEnter = (menu: "modules" | "solutions" | "resources") => {
+    cancelLeaveTimeout();
+    if (!isMenuLocked || activeMenu === menu) {
+      setActiveMenu(menu);
+    }
+  };
+
+  const handleMenuHoverLeave = () => {
+    if (isMenuLocked) return;
+    cancelLeaveTimeout();
+    leaveTimeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 250);
+  };
+
+  const handleMenuClick = (menu: "modules" | "solutions" | "resources") => {
+    cancelLeaveTimeout();
+    if (activeMenu === menu) {
+      setActiveMenu(null);
+      setIsMenuLocked(false);
+    } else {
+      setActiveMenu(menu);
+      setIsMenuLocked(true);
+    }
+  };
+
+  const closeAllMenus = () => {
+    cancelLeaveTimeout();
+    setIsMobileMenuOpen(false);
+    setActiveMenu(null);
+    setIsMenuLocked(false);
+  };
+
+  useEffect(() => {
+    closeAllMenus();
+  }, [pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
@@ -42,23 +92,20 @@ export function Navbar() {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setIsMobileMenuOpen(false);
-        setIsModulesOpen(false);
-        setIsSolutionsOpen(false);
-        setIsResourcesOpen(false);
+        closeAllMenus();
       }
     };
 
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as Node;
-      if (modulesRef.current && !modulesRef.current.contains(target)) {
-        setIsModulesOpen(false);
-      }
-      if (solutionsRef.current && !solutionsRef.current.contains(target)) {
-        setIsSolutionsOpen(false);
-      }
-      if (resourcesRef.current && !resourcesRef.current.contains(target)) {
-        setIsResourcesOpen(false);
+      const insideModules = modulesRef.current?.contains(target);
+      const insideSolutions = solutionsRef.current?.contains(target);
+      const insideResources = resourcesRef.current?.contains(target);
+
+      if (!insideModules && !insideSolutions && !insideResources) {
+        cancelLeaveTimeout();
+        setActiveMenu(null);
+        setIsMenuLocked(false);
       }
     };
 
@@ -80,13 +127,6 @@ export function Navbar() {
       window.removeEventListener("resize", handleResize);
     };
   }, [isMobileMenuOpen]);
-
-  const closeAllMenus = () => {
-    setIsMobileMenuOpen(false);
-    setIsModulesOpen(false);
-    setIsSolutionsOpen(false);
-    setIsResourcesOpen(false);
-  };
 
   const categories = [
     { key: "operations" as const, title: t.nav.categories.operations },
@@ -200,16 +240,12 @@ export function Navbar() {
             <div
               className="relative"
               ref={modulesRef}
-              onMouseEnter={() => {
-                setIsModulesOpen(true);
-                setIsSolutionsOpen(false);
-                setIsResourcesOpen(false);
-              }}
-              onMouseLeave={() => setIsModulesOpen(false)}
+              onMouseEnter={() => handleMenuHoverEnter("modules")}
+              onMouseLeave={handleMenuHoverLeave}
             >
               <button
                 type="button"
-                onClick={() => setIsModulesOpen(!isModulesOpen)}
+                onClick={() => handleMenuClick("modules")}
                 aria-expanded={isModulesOpen}
                 className={`flex items-center gap-1 hover:text-black transition-colors cursor-pointer py-1 whitespace-nowrap ${
                   isModulesOpen ? "text-black font-semibold" : ""
@@ -226,9 +262,10 @@ export function Navbar() {
               {/* Modules Mega Flyout */}
               {isModulesOpen && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/3 sm:-translate-x-1/4 lg:-translate-x-1/3 top-full mt-3 w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[82vh] overflow-y-auto before:content-[''] before:absolute before:-top-3.5 before:left-0 before:right-0 before:h-4"
+                  onWheel={(e) => e.stopPropagation()}
+                  className="fixed top-[60px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[calc(100vw-1.5rem)] sm:w-[calc(100vw-2.5rem)] max-w-[940px] xl:max-w-[980px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
-                  <div className="flex items-center justify-between px-2 pb-3 mb-3 border-b border-slate-100">
+                  <div className="flex items-center justify-between px-2 pb-2.5 mb-2.5 border-b border-slate-100">
                     <div className="flex items-center gap-2">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                         {t.nav.exploreAllModules}
@@ -239,7 +276,7 @@ export function Navbar() {
                     </div>
                     <Link
                       href="/#features"
-                      onClick={() => setIsModulesOpen(false)}
+                      onClick={closeAllMenus}
                       className="text-xs font-semibold text-[#FF4D38] hover:underline inline-flex items-center gap-1"
                     >
                       <span>{t.nav.viewAll}</span>
@@ -247,21 +284,21 @@ export function Navbar() {
                     </Link>
                   </div>
 
-                  {/* 4 Categorized Columns / Sections */}
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                  {/* 4 Categorized Columns */}
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3.5 xl:gap-x-4 gap-y-3">
                     {categories.map((cat) => {
                       const items = modules.filter((m) => m.category === cat.key);
                       return (
-                        <div key={cat.key} className="space-y-1.5">
-                          <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">
+                        <div key={cat.key} className="space-y-1">
+                          <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2 pb-0.5">
                             {cat.title}
                           </div>
-                          <div className="space-y-1">
+                          <div className="space-y-0.5">
                             {items.map((item) => (
                               <NavbarSubmenuItem
                                 key={item.id}
                                 item={item}
-                                onClick={() => setIsModulesOpen(false)}
+                                onClick={closeAllMenus}
                               />
                             ))}
                           </div>
@@ -277,16 +314,12 @@ export function Navbar() {
             <div
               className="relative"
               ref={solutionsRef}
-              onMouseEnter={() => {
-                setIsSolutionsOpen(true);
-                setIsModulesOpen(false);
-                setIsResourcesOpen(false);
-              }}
-              onMouseLeave={() => setIsSolutionsOpen(false)}
+              onMouseEnter={() => handleMenuHoverEnter("solutions")}
+              onMouseLeave={handleMenuHoverLeave}
             >
               <button
                 type="button"
-                onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                onClick={() => handleMenuClick("solutions")}
                 aria-expanded={isSolutionsOpen}
                 className={`flex items-center gap-1 hover:text-black transition-colors cursor-pointer py-1 whitespace-nowrap ${
                   isSolutionsOpen ? "text-black font-semibold" : ""
@@ -302,14 +335,15 @@ export function Navbar() {
 
               {isSolutionsOpen && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 z-50 animate-in fade-in zoom-in-95 duration-200 before:content-[''] before:absolute before:-top-3.5 before:left-0 before:right-0 before:h-4"
+                  onWheel={(e) => e.stopPropagation()}
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
-                  <div className="space-y-1.5 w-full">
+                  <div className="space-y-1 w-full">
                     {solutionsList.map((sol, idx) => (
                       <NavbarSubmenuItem
                         key={idx}
                         item={sol}
-                        onClick={() => setIsSolutionsOpen(false)}
+                        onClick={closeAllMenus}
                       />
                     ))}
                   </div>
@@ -322,9 +356,10 @@ export function Navbar() {
               href="/deployment"
               onClick={closeAllMenus}
               onMouseEnter={() => {
-                setIsModulesOpen(false);
-                setIsSolutionsOpen(false);
-                setIsResourcesOpen(false);
+                cancelLeaveTimeout();
+                if (!isMenuLocked) {
+                  setActiveMenu(null);
+                }
               }}
               className="hover:text-black transition-colors whitespace-nowrap py-1"
             >
@@ -335,16 +370,12 @@ export function Navbar() {
             <div
               className="relative"
               ref={resourcesRef}
-              onMouseEnter={() => {
-                setIsResourcesOpen(true);
-                setIsModulesOpen(false);
-                setIsSolutionsOpen(false);
-              }}
-              onMouseLeave={() => setIsResourcesOpen(false)}
+              onMouseEnter={() => handleMenuHoverEnter("resources")}
+              onMouseLeave={handleMenuHoverLeave}
             >
               <button
                 type="button"
-                onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                onClick={() => handleMenuClick("resources")}
                 aria-expanded={isResourcesOpen}
                 className={`flex items-center gap-1 hover:text-black transition-colors cursor-pointer py-1 whitespace-nowrap ${
                   isResourcesOpen ? "text-black font-semibold" : ""
@@ -360,14 +391,15 @@ export function Navbar() {
 
               {isResourcesOpen && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[400px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 z-50 animate-in fade-in zoom-in-95 duration-200 before:content-[''] before:absolute before:-top-3.5 before:left-0 before:right-0 before:h-4"
+                  onWheel={(e) => e.stopPropagation()}
+                  className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-3 w-[calc(100vw-2rem)] max-w-[380px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
                   <div className="space-y-1 w-full">
                     {resourcesList.map((res, idx) => (
                       <NavbarSubmenuItem
                         key={idx}
                         item={res}
-                        onClick={() => setIsResourcesOpen(false)}
+                        onClick={closeAllMenus}
                       />
                     ))}
                   </div>
