@@ -66,7 +66,7 @@ export const vi: TranslationSchema = {
     badge: 'Nền Tảng Vận Hành Doanh Nghiệp Đa Phân Hệ',
     headlinePart1: 'Một Không Gian Hợp Nhất',
     headlinePart2: 'Cho Toàn Bộ Vận Hành Doanh Nghiệp',
-    subtitle: 'CommaDesk Version 2 hợp nhất phân tích bán lẻ AI, quản trị nhân sự & tính lương tự động, dự án Kanban & Gantt, sổ văn bản hành chính, kho vật tư & logistics đội xe, cùng bảo mật Casbin RBAC vào một hệ điều hành tập trung — vận hành mượt mà trên Web, Desktop Windows (.exe) và Mobile.',
+    subtitle: 'CommaDesk Version 2 hợp nhất phân tích bán lẻ AI, quản trị nhân sự & tính lương tự động, dự án Kanban & Gantt, sổ văn bản hành chính, kho vật tư & logistics đội xe, cùng bảo mật Casbin RBAC vào một hệ điều hành tập trung - vận hành mượt mà trên Web, Desktop Windows (.exe) và Mobile.',
     requestDemo: 'Khám phá Nền tảng',
     exploreFeatures: 'Kiến trúc Chuyển động',
     featuresTrack: [
@@ -90,7 +90,7 @@ export const vi: TranslationSchema = {
   hero2: {
     badge: 'Hợp Tác Đa Phòng Ban',
     headline: 'Kết nối toàn bộ lực lượng lao động dưới một hệ điều hành thông minh.',
-    subtitle: 'Từ ban lãnh đạo điều hành, kỹ sư phần mềm đến khối nhân sự, kho vận và chuỗi cửa hàng bán lẻ — CommaDesk xóa bỏ rào cản phân mảnh quy trình với kiến trúc định tuyến dữ liệu Hybrid DB (MySQL + ClickHouse + Redis) và phân quyền Casbin RBAC chặt chẽ.',
+    subtitle: 'Từ ban lãnh đạo điều hành, kỹ sư phần mềm đến khối nhân sự, kho vận và chuỗi cửa hàng bán lẻ - CommaDesk xóa bỏ rào cản phân mảnh quy trình với kiến trúc định tuyến dữ liệu Hybrid DB (MySQL + ClickHouse + Redis) và phân quyền Casbin RBAC chặt chẽ.',
   },
   features: {
     sectionBadge: 'Năng Lực Hợp Nhất',
@@ -146,7 +146,7 @@ export const vi: TranslationSchema = {
     counterOf: 'trên',
   },
   footer: {
-    bio: 'CommaDesk — Nền tảng SaaS doanh nghiệp thế hệ mới hợp nhất phân tích bán lẻ AI, nhân sự & tính lương, dự án Kanban & Gantt, kho vật tư & đội xe, sổ văn bản hành chính và bảo mật Casbin RBAC.',
+    bio: 'CommaDesk - Nền tảng SaaS doanh nghiệp thế hệ mới hợp nhất phân tích bán lẻ AI, nhân sự & tính lương, dự án Kanban & Gantt, kho vật tư & đội xe, sổ văn bản hành chính và bảo mật Casbin RBAC.',
     columns: {
       products: 'Phân hệ cốt lõi',
       solutions: 'Bộ giải pháp vận hành',

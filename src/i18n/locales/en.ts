@@ -65,7 +65,7 @@ export const en = {
     badge: 'Enterprise Multi-Module SaaS Platform',
     headlinePart1: 'One Unified Workspace',
     headlinePart2: 'For All Enterprise Operations',
-    subtitle: 'CommaDesk Version 2 combines AI retail analytics, HR & automated payroll, Kanban & Gantt project management, document registry, multi-location inventory, fleet logistics, and Casbin RBAC security into a single operational system — built for Web, Windows Desktop (.exe), and Mobile.',
+    subtitle: 'CommaDesk Version 2 combines AI retail analytics, HR & automated payroll, Kanban & Gantt project management, document registry, multi-location inventory, fleet logistics, and Casbin RBAC security into a single operational system - built for Web, Windows Desktop (.exe), and Mobile.',
     requestDemo: 'Explore Platform',
     exploreFeatures: 'System Motion',
     featuresTrack: [
@@ -89,7 +89,7 @@ export const en = {
   hero2: {
     badge: 'Cross-Department Collaboration',
     headline: 'Harmonize your entire workforce under one intelligent enterprise operating system.',
-    subtitle: 'From executive leaders and engineering squads to HR teams, warehouse operations, and retail stores — CommaDesk bridges operational silos with Hybrid DB routing (MySQL + ClickHouse + Redis) and strict Casbin RBAC security.',
+    subtitle: 'From executive leaders and engineering squads to HR teams, warehouse operations, and retail stores - CommaDesk bridges operational silos with Hybrid DB routing (MySQL + ClickHouse + Redis) and strict Casbin RBAC security.',
   },
   features: {
     sectionBadge: 'Unified Capabilities',
@@ -145,7 +145,7 @@ export const en = {
     counterOf: 'of',
   },
   footer: {
-    bio: 'CommaDesk — Next-generation enterprise SaaS platform uniting AI retail analytics, HR & automated payroll, Kanban & Gantt, multi-location inventory, document registry, fleet logistics, and Casbin RBAC security.',
+    bio: 'CommaDesk - Next-generation enterprise SaaS platform uniting AI retail analytics, HR & automated payroll, Kanban & Gantt, multi-location inventory, document registry, fleet logistics, and Casbin RBAC security.',
     columns: {
       products: 'Core Modules',
       solutions: 'Operational Suites',

@@ -1,25 +1,25 @@
-import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-sans',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: 'CommaDesk — Enterprise Multi-Module SaaS Platform (Version 2)',
+  title: "CommaDesk - Enterprise Multi-Module SaaS Platform (Version 2)",
   description:
-    'CommaDesk Version 2 combines AI retail analytics, HR & automated payroll, Kanban & Gantt project management, multi-location inventory, document registry (Decree 150/370), fleet logistics, ITIL helpdesk, and Casbin RBAC security into one unified operating system.',
+    "CommaDesk Version 2 combines AI retail analytics, HR & automated payroll, Kanban & Gantt project management, multi-location inventory, document registry (Decree 150/370), fleet logistics, ITIL helpdesk, and Casbin RBAC security into one unified operating system.",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
 };
 
-import { LanguageProvider } from '@/i18n/LanguageContext';
-import { ScrollRevealManager } from '@/components/ui/ScrollRevealManager';
+import { LanguageProvider } from "@/i18n/LanguageContext";
+import { ScrollRevealManager } from "@/components/ui/ScrollRevealManager";
 
 export default function RootLayout({
   children,
