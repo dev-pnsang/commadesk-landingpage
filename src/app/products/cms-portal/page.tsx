@@ -7,6 +7,7 @@ import { SubpageHero } from '@/components/subpage/SubpageHero';
 import { SubpageFeaturesGrid, SubpageFeatureItem } from '@/components/subpage/SubpageFeaturesGrid';
 import { SubpageCTA } from '@/components/subpage/SubpageCTA';
 import { useLanguage } from '@/i18n/LanguageContext';
+
 import { InteractiveCmsPortal } from '@/components/showcase/InteractiveCmsPortal';
 
 export default function CmsPortalPage() {
@@ -19,89 +20,89 @@ export default function CmsPortalPage() {
     ? [
         {
           id: 'visual-builder',
-          tag: 'Trình dựng No-Code',
-          title: 'Dựng Trang Trực Quan Với Thư Viện Khối Khởi Động',
-          description: 'Kéo thả các khối giao diện (Startup Blocks, Hero banners, Callouts, Lưới bài viết) mà không cần viết một dòng mã HTML/CSS.',
-          metricBadge: { label: 'Tốc độ xuất bản', value: 'Trong 5 phút' },
+          tag: 'Dựng trang',
+          title: 'Trình Dựng Kéo Thả',
+          description: 'Kéo thả các khối giao diện banner, tin tức mà không cần viết mã HTML/CSS.',
+          metricBadge: { label: 'Tốc độ', value: 'Trong 5 phút' },
         },
         {
           id: 'intranet-portal',
           tag: 'Cổng thông tin',
-          title: 'Cổng Thông Tin Nội Bộ (Enterprise Intranet)',
-          description: 'Kênh truyền thông chính thống cho thông điệp Tổng Giám đốc, bảng vinh danh, văn hóa doanh nghiệp và quy chế ban hành.',
-          metricBadge: { label: 'Tiếp cận nhân sự', value: '100% toàn công ty' },
+          title: 'Cổng Nội Bộ Intranet',
+          description: 'Kênh truyền thông chính thống cho thông điệp Lãnh đạo, vinh danh và văn hóa.',
+          metricBadge: { label: 'Tiếp cận', value: '100% công ty' },
         },
         {
           id: 'articles-newsroom',
-          tag: 'Tòa soạn tin tức',
-          title: 'Biên Tập Bài Viết Chuyên Nghiệp & Đa Danh Mục',
-          description: 'Trình soạn thảo rich-text hiện đại, quản lý danh mục đa cấp, gắn thẻ tag, bài viết ghim nổi bật và tối ưu SEO nội bộ.',
-          metricBadge: { label: 'Định dạng nội dung', value: 'Đa phương tiện' },
+          tag: 'Tòa soạn',
+          title: 'Biên Tập Bài Viết',
+          description: 'Soạn thảo rich-text hiện đại, quản lý danh mục đa cấp và bài viết ghim nổi bật.',
+          metricBadge: { label: 'Định dạng', value: 'Đa phương tiện' },
         },
         {
           id: 'media-library',
-          tag: 'Thư viện Media',
-          title: 'Quản Lý Kho Ảnh, Video & Tài Liệu Tập Trung',
-          description: 'Lưu trữ hình ảnh sự kiện, tài liệu đào tạo, banner đồ họa đồng bộ trực tiếp với đám mây MinIO S3 Object Storage.',
-          metricBadge: { label: 'Tốc độ CDN', value: '< 80ms Cache' },
+          tag: 'Media',
+          title: 'Quản Lý Kho Ảnh & Video',
+          description: 'Lưu trữ ảnh sự kiện, tài liệu đào tạo đồng bộ trực tiếp với đám mây MinIO S3.',
+          metricBadge: { label: 'Tốc độ', value: '< 80ms Cache' },
         },
         {
           id: 'comment-moderation',
-          tag: 'Tương tác & Kiểm duyệt',
-          title: 'Điều Duyệt Bình Luận & Biểu Mẫu Góp Ý Công Khai',
-          description: 'Bộ lọc bình luận thông minh, kiểm duyệt phản hồi độc giả và tích hợp biểu mẫu thu thập ý kiến khách hàng/nhân sự.',
-          metricBadge: { label: 'Kiểm soát nội dung', value: '100% chuẩn mực' },
+          tag: 'Kiểm duyệt',
+          title: 'Kiểm Duyệt Bình Luận',
+          description: 'Bộ lọc bình luận thông minh, kiểm duyệt phản hồi và biểu mẫu thu thập ý kiến.',
+          metricBadge: { label: 'Chuẩn mực', value: '100% kiểm duyệt' },
         },
         {
           id: 'cms-analytics',
-          tag: 'Thống kê độc giả',
-          title: 'Phân Tích Lượt Đọc & Mức Độ Tương Tác (CMS Analytics)',
-          description: 'Theo dõi lượt xem, thời gian đọc trung bình, chủ đề thịnh hành và tỷ lệ phản hồi theo từng phòng ban và thời gian thực.',
-          metricBadge: { label: 'Mức độ gắn kết', value: '+35% Tương tác' },
+          tag: 'Thống kê',
+          title: 'Phân Tích Lượt Đọc',
+          description: 'Theo dõi lượt xem, thời gian đọc và tỷ lệ tương tác bài viết thời gian thực.',
+          metricBadge: { label: 'Tương tác', value: '+35% Gắn kết' },
         },
       ]
     : [
         {
           id: 'visual-builder',
-          tag: 'No-Code Builder',
-          title: 'Visual Drag-and-Drop Page Builder with Startup Blocks',
-          description: 'Assemble stunning portal pages using modular layout blocks, hero carousels, callouts, and article grids without writing code.',
-          metricBadge: { label: 'Publishing Speed', value: 'Under 5 Minutes' },
+          tag: 'No-Code',
+          title: 'Visual Page Builder',
+          description: 'Assemble portal pages using modular layout blocks without writing code.',
+          metricBadge: { label: 'Speed', value: '< 5 Minutes' },
         },
         {
           id: 'intranet-portal',
-          tag: 'Intranet Portal',
-          title: 'Unified Corporate Intranet & Knowledge Portal',
-          description: 'The authoritative central communication hub for leadership memos, employee spotlights, company culture, and corporate announcements.',
-          metricBadge: { label: 'Employee Reach', value: '100% Enterprise-wide' },
+          tag: 'Intranet',
+          title: 'Corporate Intranet',
+          description: 'Central hub for leadership memos, employee spotlights, and announcements.',
+          metricBadge: { label: 'Reach', value: '100% Enterprise' },
         },
         {
           id: 'articles-newsroom',
-          tag: 'Newsroom CMS',
-          title: 'Professional Multi-Category Article Newsroom',
-          description: 'Rich-text editorial engine, multi-level hierarchy, tags, sticky articles, and full indexing for instant company-wide search.',
-          metricBadge: { label: 'Content Media', value: 'Full Rich-Media' },
+          tag: 'Newsroom',
+          title: 'Article Newsroom',
+          description: 'Rich-text editorial engine, categories, tags, and sticky announcements.',
+          metricBadge: { label: 'Media', value: 'Rich-Media' },
         },
         {
           id: 'media-library',
-          tag: 'Media Assets',
-          title: 'Centralized Digital Asset Management (DAM) & Media Library',
-          description: 'Store company event photos, training videos, graphics and branding assets backed directly by enterprise MinIO S3 storage.',
-          metricBadge: { label: 'CDN Latency', value: '< 80ms Edge' },
+          tag: 'Assets',
+          title: 'Digital Asset Library',
+          description: 'Store event photos and videos backed directly by enterprise MinIO S3.',
+          metricBadge: { label: 'Latency', value: '< 80ms Edge' },
         },
         {
           id: 'comment-moderation',
           tag: 'Moderation',
-          title: 'Smart Comment Moderation & Public Feedback Forms',
-          description: 'Built-in profanity filters, comment approval queues, and embedded customizable feedback forms for public readers or staff.',
-          metricBadge: { label: 'Content Safety', value: '100% Brand Safe' },
+          title: 'Comment Moderation',
+          description: 'Built-in profanity filters and moderation queues for comments and feedback.',
+          metricBadge: { label: 'Safety', value: '100% Brand Safe' },
         },
         {
           id: 'cms-analytics',
-          tag: 'Readership Pulse',
-          title: 'Readership Analytics & Content Engagement Metrics',
-          description: 'Track real-time page views, average reading time, trending departments, and content interaction across desktop and mobile.',
-          metricBadge: { label: 'Engagement Lift', value: '+35% Active Reads' },
+          tag: 'Analytics',
+          title: 'Readership Analytics',
+          description: 'Track real-time page views, average reading time, and engagement trends.',
+          metricBadge: { label: 'Engagement', value: '+35% Active' },
         },
       ];
 
@@ -114,30 +115,28 @@ export default function CmsPortalPage() {
           categoryBadge={isVi ? 'Phân hệ CMS Studio & Cổng Thông Tin' : 'CMS Studio & Portal Module'}
           title={
             isVi
-              ? ['Xây dựng cổng nội bộ.', 'Lan tỏa tiếng nói thương hiệu.']
+              ? ['Xây dựng cổng nội bộ.', 'Lan tỏa văn hóa thương hiệu.']
               : ['Build corporate portals.', 'Broadcast unified culture.']
           }
           subtitle={
             isVi
-              ? 'Trình dựng website kéo thả dạng khối no-code, tòa soạn xuất bản tin tức nội bộ, quản lý thư viện media MinIO S3 và điều duyệt phản hồi độc giả trên một nền tảng truyền thông hợp nhất.'
-              : 'Visual block composer, digital newsroom, MinIO S3 media asset storage, and content moderation under one enterprise communications suite.'
+              ? 'Trình dựng trang kéo thả no-code, tòa soạn xuất bản tin tức nội bộ và quản lý thư viện media.'
+              : 'Visual block composer, digital newsroom, and MinIO S3 media asset management in one suite.'
           }
           tags={
             isVi
               ? [
-                  'Kéo thả Startup Blocks',
+                  'Kéo thả khối giao diện',
                   'Cổng thông tin Intranet',
                   'Tòa soạn tin tức số',
-                  'Thư viện Media MinIO S3',
-                  'Điều duyệt bình luận',
+                  'Thư viện Media S3',
                   'Thống kê độc giả CMS',
                 ]
               : [
-                  'Drag & Drop Startup Blocks',
-                  'Enterprise Intranet Portal',
-                  'Digital Newsroom Engine',
-                  'MinIO S3 Media Assets',
-                  'Comment Moderation',
+                  'Drag & Drop Blocks',
+                  'Intranet Portal',
+                  'Digital Newsroom',
+                  'MinIO S3 Media',
                   'Readership Analytics',
                 ]
           }
@@ -146,11 +145,11 @@ export default function CmsPortalPage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Nền tảng xuất bản nội dung & truyền thông số' : 'Enterprise Content Publishing & Digital Communications'}
+          title={isVi ? 'Xuất bản nội dung & Truyền thông số' : 'Content Publishing & Communications'}
           subtitle={
             isVi
-              ? 'Đem lại cho doanh nghiệp tiếng nói thương hiệu thống nhất, gắn kết nhân viên và lan tỏa văn hóa doanh nghiệp sâu rộng.'
-              : 'Empower leadership with a unified brand voice, elevate employee engagement, and broadcast corporate culture seamlessly.'
+              ? 'Tiếng nói thương hiệu thống nhất, gắn kết nhân viên và lan tỏa văn hóa doanh nghiệp.'
+              : 'Empower leadership with a unified brand voice and elevate employee engagement.'
           }
           features={features}
         />

@@ -10,7 +10,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 
 import { InteractiveCRMPipeline } from '@/components/showcase/InteractiveCRMPipeline';
 
-export default function CrmHelpdeskPage() {
+export default function CRMHelpdeskPage() {
   const { language } = useLanguage();
   const isVi = language === 'vi';
 
@@ -20,89 +20,89 @@ export default function CrmHelpdeskPage() {
     ? [
         {
           id: 'crm-pipeline',
-          tag: 'Kinh doanh B2B',
-          title: 'Phễu cơ hội kinh doanh Deals & Dự báo doanh thu',
-          description: 'Theo dõi toàn bộ chu trình bán hàng từ Leads, Deals đến dự báo doanh thu.',
-          metricBadge: { label: 'Tăng trưởng doanh số', value: '+35% tỷ lệ chốt deal' },
+          tag: 'Kinh doanh',
+          title: 'Phễu Bán Hàng B2B',
+          description: 'Theo dõi chu trình bán hàng từ cơ hội tiềm năng đến dự báo doanh thu.',
+          metricBadge: { label: 'Tăng trưởng', value: '+35% chốt deal' },
         },
         {
           id: 'helpdesk-queues',
           tag: 'Hỗ trợ ITIL',
-          title: 'Hàng đợi Ticket & Đồng hồ kiểm soát SLA',
-          description: 'Tiếp nhận sự cố chuẩn ITIL, phân công tự động và đồng hồ đếm ngược vi phạm SLA.',
-          metricBadge: { label: 'Tuân thủ SLA', value: '98.5% giải quyết chuẩn' },
+          title: 'Hàng Đợi Ticket & SLA',
+          description: 'Tiếp nhận sự cố, phân công tự động và đồng hồ đếm ngược vi phạm cam kết SLA.',
+          metricBadge: { label: 'Tuân thủ SLA', value: '98.5% chuẩn hạn' },
         },
         {
           id: 'customer-360',
-          tag: 'Khách hàng 360°',
-          title: 'Hồ sơ khách hàng 360° tập trung',
-          description: 'Hồ sơ khách hàng tổng hợp hợp đồng, lịch sử giao dịch và nhật ký hỗ trợ.',
-          metricBadge: { label: 'Độ hài lòng CSAT', value: '4.9 / 5.0 sao' },
+          tag: 'Khách hàng',
+          title: 'Hồ Sơ Khách Hàng 360°',
+          description: 'Tổng hợp hợp đồng, lịch sử giao dịch và nhật ký hỗ trợ trên một màn hình.',
+          metricBadge: { label: 'Hài lòng CSAT', value: '4.9 / 5.0' },
         },
         {
           id: 'hr-helpdesk-widget',
-          tag: 'Hỗ trợ HR nội bộ',
-          title: 'Widget hỗ trợ HR & Phân bổ Hybrid Assign',
-          description: 'Widget gửi yêu cầu hỗ trợ nội bộ cho nhân sự ngay trên giao diện làm việc.',
-          metricBadge: { label: 'Thời gian hỗ trợ', value: 'Giải quyết < 1 giờ' },
+          tag: 'Hỗ trợ nội bộ',
+          title: 'Widget Hỗ Trợ HR',
+          description: 'Gửi yêu cầu hỗ trợ nội bộ cho nhân sự ngay trên không gian làm việc.',
+          metricBadge: { label: 'Xử lý', value: '< 1 giờ' },
         },
         {
           id: 'omnichannel',
-          tag: 'Đa kênh tích hợp',
-          title: 'Tiếp nhận ticket đa kênh & Tự động định tuyến',
-          description: 'Tự động tạo ticket từ Email, Chat trực tuyến hoặc cổng tự phục vụ đa kênh.',
-          metricBadge: { label: 'Thời gian tiếp nhận', value: 'Tức thì (Realtime)' },
+          tag: 'Đa kênh',
+          title: 'Tiếp Nhận Đa Kênh',
+          description: 'Tự động tạo ticket từ Email, Chat trực tuyến và cổng tự phục vụ.',
+          metricBadge: { label: 'Tốc độ', value: 'Thời gian thực' },
         },
         {
           id: 'knowledge-base',
-          tag: 'Tri thức & CSAT',
-          title: 'Kho tài liệu giải pháp & Khảo sát CSAT tự động',
-          description: 'Kho giải pháp tự phục vụ giúp giảm tải ticket trùng và khảo sát CSAT tự động.',
-          metricBadge: { label: 'Tự phục vụ', value: 'Giảm 50% ticket trùng' },
+          tag: 'Tri thức',
+          title: 'Kho Tri Thức Tự Phục Vụ',
+          description: 'Kho bài viết giải pháp tự phục vụ giúp giảm tải ticket trùng và khảo sát CSAT.',
+          metricBadge: { label: 'Giảm tải', value: '-50% ticket trùng' },
         },
       ]
     : [
         {
           id: 'crm-pipeline',
-          tag: 'B2B Sales Engine',
-          title: 'B2B Sales Pipeline, Deals & Revenue Forecasting',
-          description: 'Track complete sales journey from leads and deals to accurate revenue forecasting.',
-          metricBadge: { label: 'Win Rate Boost', value: '+35% Conversion' },
+          tag: 'Sales',
+          title: 'B2B Sales Pipeline',
+          description: 'Track deals from initial leads to closure with accurate revenue forecasting.',
+          metricBadge: { label: 'Win Rate', value: '+35% Boost' },
         },
         {
           id: 'helpdesk-queues',
-          tag: 'ITIL Service Desk',
-          title: 'ITIL Ticket Queues & SLA Breach Countdown',
-          description: 'ITIL ticket handling with automated triage and SLA escalation timers.',
-          metricBadge: { label: 'SLA Adherence', value: '98.5% On-Time' },
+          tag: 'Service Desk',
+          title: 'Ticket Queues & SLA',
+          description: 'ITIL ticket handling with automated triage and SLA countdown timers.',
+          metricBadge: { label: 'SLA Rate', value: '98.5% On-Time' },
         },
         {
           id: 'customer-360',
-          tag: 'Customer 360°',
-          title: 'Unified Customer 360° Dossier & Contacts',
-          description: 'Unified customer dossier uniting signed contracts, billing history, and support records.',
-          metricBadge: { label: 'Customer CSAT', value: '4.9 / 5.0 Score' },
+          tag: 'Customer',
+          title: 'Customer 360° View',
+          description: 'Unified customer dossier uniting signed contracts, billing, and support history.',
+          metricBadge: { label: 'CSAT', value: '4.9 / 5.0' },
         },
         {
           id: 'hr-helpdesk-widget',
-          tag: 'Internal HR Support',
-          title: 'Internal HR Support Widget & Hybrid Assign',
-          description: 'In-app HR service request widget enabling rapid employee query resolution.',
-          metricBadge: { label: 'Response Speed', value: '< 1 Hour Resolution' },
+          tag: 'Internal Desk',
+          title: 'Internal HR Widget',
+          description: 'In-app HR request widget enabling rapid employee query resolution.',
+          metricBadge: { label: 'Speed', value: '< 1 Hour' },
         },
         {
           id: 'omnichannel',
-          tag: 'Omnichannel Ingest',
-          title: 'Omnichannel Ticket Ingest & Automated Triage',
-          description: 'Ingest issues via inbound mailboxes, chat widgets, self-service portals, and APIs.',
-          metricBadge: { label: 'Ingest Speed', value: 'Zero-Lag Realtime' },
+          tag: 'Omnichannel',
+          title: 'Omnichannel Ingest',
+          description: 'Ingest issues via mailboxes, chat widgets, self-service portals, and APIs.',
+          metricBadge: { label: 'Ingest', value: 'Realtime' },
         },
         {
           id: 'knowledge-base',
-          tag: 'Knowledge & CSAT',
-          title: 'Self-Service Knowledge Base & Automated CSAT',
-          description: 'Self-service resolution articles deflect repetitive tickets with instant CSAT ratings.',
-          metricBadge: { label: 'Deflection Rate', value: '50% Fewer Repetitive Tickets' },
+          tag: 'Knowledge',
+          title: 'Self-Service Knowledge',
+          description: 'Deflect repetitive tickets with self-service resolution articles and CSAT.',
+          metricBadge: { label: 'Deflection', value: '-50% Repetitive' },
         },
       ];
 
@@ -120,26 +120,24 @@ export default function CrmHelpdeskPage() {
           }
           subtitle={
             isVi
-              ? 'CommaDesk CRM & Helpdesk kết nối phễu cơ hội kinh doanh B2B, hàng đợi ticket ITIL, hỗ trợ HR nội bộ và hồ sơ khách hàng 360° vào một nền tảng chăm sóc và phát triển khách hàng toàn diện.'
-              : 'CommaDesk CRM & Helpdesk unifies B2B opportunity pipelines, ITIL service desk queues with SLA countdowns, internal HR helpdesks, and customer 360° profiles into one connected platform.'
+              ? 'Hợp nhất phễu kinh doanh B2B, hàng đợi ticket ITIL và hỗ trợ nhân sự nội bộ trên một nền tảng.'
+              : 'Unify B2B opportunity pipelines, ITIL service desk queues, and internal HR support in one connected suite.'
           }
           tags={
             isVi
               ? [
-                  'Phễu cơ hội B2B Deals',
-                  'Hàng đợi ITIL Service Desk',
-                  'Đồng hồ đếm ngược SLA',
-                  'Widget hỗ trợ HR nội bộ',
+                  'Phễu bán hàng B2B',
+                  'Hàng đợi ITIL',
+                  'Đồng hồ đếm SLA',
                   'Hồ sơ khách hàng 360°',
-                  'Hội tụ đa kênh Omnichannel',
+                  'Tiếp nhận đa kênh',
                 ]
               : [
-                  'B2B Deals Pipeline',
+                  'B2B Sales Pipeline',
                   'ITIL Service Desk',
-                  'SLA Breach Timers',
-                  'HR Helpdesk Widget',
-                  'Customer 360° Dossier',
-                  'Omnichannel Ingestion',
+                  'SLA Countdown',
+                  'Customer 360°',
+                  'Omnichannel Ingest',
                 ]
           }
           visualPreview={visualPreview}
@@ -147,11 +145,11 @@ export default function CrmHelpdeskPage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Bộ giải pháp quan hệ khách hàng & Hỗ trợ dịch vụ' : 'Enterprise CRM & Service Desk Suite'}
+          title={isVi ? 'Bộ giải pháp quan hệ khách hàng & Dịch vụ' : 'Enterprise CRM & Service Desk Suite'}
           subtitle={
             isVi
-              ? 'Rút ngắn chu kỳ bán hàng B2B, tối ưu hóa năng suất giải quyết sự cố kỹ thuật và nâng cao chỉ số hài lòng của cả khách hàng lẫn nhân viên nội bộ.'
-              : 'Shorten enterprise deal cycles, empower support agents with automated workflows, and maximize satisfaction across external clients and internal staff.'
+              ? 'Rút ngắn chu kỳ bán hàng và tối ưu hóa tốc độ giải quyết sự cố kỹ thuật.'
+              : 'Shorten enterprise deal cycles and empower agents with automated workflows.'
           }
           features={features}
         />

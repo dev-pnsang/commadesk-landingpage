@@ -7,34 +7,34 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { CogIcon } from '@/components/ui/UIIcons';
 
 import {
-  TeamsLogo,
-  GmailLogo,
-  LoomLogo,
-  GoogleMeetLogo,
-  OutlookLogo,
+  WorkManagementLogo,
+  HrWorkforceLogo,
+  CommaMeetLogo,
+  DocumentRegistryLogo,
+  AiSmartCityLogo,
 } from '@/components/ui/BrandLogos';
 
 const APP_ICONS: Record<string, React.ReactNode> = {
-  teams: (
-    <TeamsLogo className="w-full h-full max-w-[40px] max-h-[40px] sm:max-w-[46px] sm:max-h-[46px] lg:max-w-[54px] lg:max-h-[54px] xl:max-w-[62px] xl:max-h-[62px]" />
+  'work-management': (
+    <WorkManagementLogo className="w-full h-full max-w-[42px] max-h-[42px] sm:max-w-[48px] sm:max-h-[48px] lg:max-w-[56px] lg:max-h-[56px] xl:max-w-[64px] xl:max-h-[64px]" />
   ),
-  gmail: (
-    <GmailLogo className="w-full h-full max-w-[38px] max-h-[38px] sm:max-w-[44px] sm:max-h-[44px] lg:max-w-[52px] lg:max-h-[52px] xl:max-w-[58px] xl:max-h-[58px]" />
+  'hr-workforce': (
+    <HrWorkforceLogo className="w-full h-full max-w-[42px] max-h-[42px] sm:max-w-[48px] sm:max-h-[48px] lg:max-w-[56px] lg:max-h-[56px] xl:max-w-[64px] xl:max-h-[64px]" />
   ),
-  loom: (
-    <LoomLogo className="w-full h-full max-w-[40px] max-h-[40px] sm:max-w-[46px] sm:max-h-[46px] lg:max-w-[54px] lg:max-h-[54px] xl:max-w-[62px] xl:max-h-[62px]" />
+  'comma-meet': (
+    <CommaMeetLogo className="w-full h-full max-w-[42px] max-h-[42px] sm:max-w-[48px] sm:max-h-[48px] lg:max-w-[56px] lg:max-h-[56px] xl:max-w-[64px] xl:max-h-[64px]" />
   ),
-  meet: (
-    <GoogleMeetLogo className="w-full h-full max-w-[38px] max-h-[38px] sm:max-w-[44px] sm:max-h-[44px] lg:max-w-[52px] lg:max-h-[52px] xl:max-w-[58px] xl:max-h-[58px]" />
+  'operations-documents': (
+    <DocumentRegistryLogo className="w-full h-full max-w-[42px] max-h-[42px] sm:max-w-[48px] sm:max-h-[48px] lg:max-w-[56px] lg:max-h-[56px] xl:max-w-[64px] xl:max-h-[64px]" />
   ),
-  outlook: (
-    <OutlookLogo className="w-full h-full max-w-[40px] max-h-[40px] sm:max-w-[46px] sm:max-h-[46px] lg:max-w-[54px] lg:max-h-[54px] xl:max-w-[62px] xl:max-h-[62px]" />
+  'ai-smart-city': (
+    <AiSmartCityLogo className="w-full h-full max-w-[42px] max-h-[42px] sm:max-w-[48px] sm:max-h-[48px] lg:max-w-[56px] lg:max-h-[56px] xl:max-w-[64px] xl:max-h-[64px]" />
   ),
 };
 
 export function ArcCarousel() {
   const { t, language } = useLanguage();
-  const [currentIndex, setCurrentIndex] = useState(2); // Loom ban đầu ở giữa
+  const [currentIndex, setCurrentIndex] = useState(2); // CommaMeet ban đầu ở vị trí trung tâm
   const [windowWidth, setWindowWidth] = useState(1200);
   const [textVisible, setTextVisible] = useState(true);
   const autoRotateRef = useRef<NodeJS.Timeout | null>(null);
@@ -143,7 +143,7 @@ export function ArcCarousel() {
       id="integrations"
       className="canvas-card scroll-mt-28 sm:scroll-mt-36 md:scroll-mt-40 bg-white rounded-[32px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative flex flex-col justify-center pt-24 sm:pt-32 md:pt-36 pb-20 sm:pb-28 px-4 sm:px-10 lg:px-14 text-center"
     >
-      {/* Icon 2 bánh răng đôi màu cam đỏ */}
+      {/* Icon bánh răng màu cam đỏ */}
       <div className="scroll-blur-reveal inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white text-[#FF5A43] mb-5 sm:mb-6 shadow-sm border border-slate-100 mx-auto">
         <CogIcon className="w-5 h-5 sm:w-6 sm:h-6" />
       </div>
@@ -158,11 +158,11 @@ export function ArcCarousel() {
       <div className="scroll-blur-reveal delay-100">
         <TextBlurWipe
           as="h2"
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black text-gray-900 tracking-tight max-w-2xl mx-auto leading-tight"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black text-gray-900 tracking-tight max-w-3xl mx-auto leading-tight"
         >
           {language === 'vi'
-            ? ['Tích hợp công cụ sẵn có', <br key="br3" />, 'chỉ trong vài giây']
-            : ['Integrate with your existing', <br key="br3" />, 'tools in seconds']}
+            ? ['Mọi chức năng vận hành', <br key="br3" />, 'hợp nhất trên một nền tảng']
+            : ['All critical enterprise functions', <br key="br3" />, 'united under one roof']}
         </TextBlurWipe>
 
         <p className="text-blur-wipe-sub mt-2.5 sm:mt-3 text-xs sm:text-base text-gray-500 font-normal leading-relaxed max-w-2xl mx-auto">
@@ -222,6 +222,8 @@ export function ArcCarousel() {
                 opacity = isDesktop ? 0.68 : isTablet ? 0.55 : 0.42;
               }
 
+              const appDisplayName = language === 'vi' ? (app.nameVi || app.name) : (app.nameEn || app.name);
+
               return (
                 <div
                   key={app.id}
@@ -229,14 +231,14 @@ export function ArcCarousel() {
                   data-index={appIndex}
                   onClick={() => handleTileClick(appIndex)}
                   className="arc-tile cursor-pointer flex items-center justify-center select-none"
-                  title={app.name}
+                  title={appDisplayName}
                   style={{
                     transform: `translate3d(calc(-50% + ${posX}px), calc(-50% + ${posY}px), 0) scale(${scale}) rotate(${rot}deg)`,
                     zIndex,
                     opacity,
                   }}
                 >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[142px] xl:h-[142px] rounded-[20px] sm:rounded-[24px] md:rounded-[26px] lg:rounded-[28px] xl:rounded-[32px] bg-[#F1F3F5] flex items-center justify-center p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-sm transition-all duration-300">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[142px] xl:h-[142px] rounded-[20px] sm:rounded-[24px] md:rounded-[26px] lg:rounded-[28px] xl:rounded-[32px] bg-[#F1F3F5] hover:bg-[#E9ECEF] flex items-center justify-center p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-sm transition-all duration-300 border border-slate-200/50">
                     {APP_ICONS[app.id]}
                   </div>
                 </div>
@@ -248,7 +250,7 @@ export function ArcCarousel() {
         {/* Active App Label & Details */}
         <div
           id="activeAppDetails"
-          className="mt-6 sm:mt-8 text-center transition-all duration-300 min-h-[52px]"
+          className="mt-6 sm:mt-8 text-center transition-all duration-300 min-h-[56px]"
           style={{
             opacity: textVisible ? 1 : 0,
             transform: textVisible ? 'translateY(0)' : 'translateY(4px)',
@@ -258,11 +260,11 @@ export function ArcCarousel() {
             id="activeAppName"
             className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight"
           >
-            {currentApp.name}
+            {language === 'vi' ? (currentApp.nameVi || currentApp.name) : (currentApp.nameEn || currentApp.name)}
           </h3>
           <p
             id="activeAppDesc"
-            className="text-xs sm:text-sm font-normal text-gray-500 mt-1"
+            className="text-xs sm:text-sm font-normal text-gray-500 mt-1 max-w-xl mx-auto"
           >
             {language === 'vi' ? (currentApp.descVi || currentApp.desc) : (currentApp.descEn || currentApp.desc)}
           </p>

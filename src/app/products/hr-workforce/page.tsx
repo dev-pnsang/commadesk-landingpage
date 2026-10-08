@@ -20,89 +20,89 @@ export default function HrWorkforcePage() {
     ? [
         {
           id: 'org-tree',
-          tag: 'Tổ chức & Cây ma trận',
-          title: 'Sơ đồ tổ chức đa cấp, Chi nhánh & Multi-Manager',
+          tag: 'Tổ chức',
+          title: 'Sơ Đồ Tổ Chức',
           description: 'Mô hình hóa cơ cấu công ty mẹ, chi nhánh và phòng ban với tuyến báo cáo đa cấp.',
-          metricBadge: { label: 'Khả năng mở rộng', value: 'Không giới hạn cấp' },
+          metricBadge: { label: 'Mở rộng', value: 'Không giới hạn cấp' },
         },
         {
           id: 'profile-360',
-          tag: 'Hồ sơ số hóa',
-          title: 'Hồ sơ nhân sự 360° & Danh bạ Directory',
-          description: 'Số hóa hợp đồng lao động, tài khoản lương, thuế TNCN và danh bạ nhân sự tức thì.',
-          metricBadge: { label: 'Chuẩn hóa hồ sơ', value: '100% số hóa' },
+          tag: 'Hồ sơ',
+          title: 'Hồ Sơ Nhân Sự 360°',
+          description: 'Số hóa hợp đồng lao động, thông tin thuế, bảo hiểm và danh bạ nhân sự tức thì.',
+          metricBadge: { label: 'Số hóa', value: '100% Paperless' },
         },
         {
           id: 'multi-shifts',
-          tag: 'Chấm công đa thức',
-          title: 'Chấm công đa ca linh hoạt: Kiosk, Face AI & GPS',
-          description: 'Chấm công nhận diện Face AI (<200ms), Mobile GPS và Kiosk chống gian lận.',
-          metricBadge: { label: 'Tỷ lệ chính xác', value: '99.98% chống gian lận' },
+          tag: 'Chấm công',
+          title: 'Chấm Công Đa Ca',
+          description: 'Chấm công nhận diện Face AI dưới 200ms, Kiosk và GPS chống gian lận.',
+          metricBadge: { label: 'Chính xác', value: '99.98% chống gian lận' },
         },
         {
           id: 'approvals',
-          tag: 'Luồng phê duyệt',
-          title: 'Phê duyệt nghỉ phép & Tăng ca OT đa cấp',
-          description: 'Định tuyến duyệt nghỉ phép, làm thêm giờ OT tự động trừ phép kèm cảnh báo SLA.',
+          tag: 'Phê duyệt',
+          title: 'Duyệt Phép & Tăng Ca OT',
+          description: 'Tự động định tuyến duyệt nghỉ phép, làm thêm giờ kèm kiểm soát thời hạn SLA.',
           metricBadge: { label: 'Thời gian duyệt', value: '< 2 giờ làm việc' },
         },
         {
           id: 'payroll',
-          tag: 'Lương bổng & Bảng công',
-          title: 'Bảng công Work Entries & Tính lương tự động',
-          description: 'Tự động tính công, làm thêm giờ, thuế, bảo hiểm và phát hành phiếu lương bảo mật.',
-          metricBadge: { label: 'Rút ngắn thời gian', value: 'Từ 5 ngày xuống 1 giờ' },
+          tag: 'Tính lương',
+          title: 'Tính Lương Tự Động',
+          description: 'Tổng hợp bảng công, tính thuế, bảo hiểm và phát hành phiếu lương bảo mật.',
+          metricBadge: { label: 'Tốc độ', value: 'Từ 5 ngày xuống 1 giờ' },
         },
         {
           id: 'hr-analytics',
-          tag: 'Báo cáo chuyên sâu',
-          title: 'HR Analytics (RPT-05/06/07) & Vòng đời Onboarding',
-          description: 'Báo cáo cơ cấu nhân sự, biến động vắng mặt và tự động hóa quy trình Onboarding.',
-          metricBadge: { label: 'Báo cáo HR', value: 'Chuẩn ISO/Kiểm toán' },
+          tag: 'Báo cáo',
+          title: 'Phân Tích Nhân Lực',
+          description: 'Báo cáo cơ cấu nhân sự, biến động nghỉ việc và tự động hóa quy trình đón nhân sự mới.',
+          metricBadge: { label: 'Tiêu chuẩn', value: 'Chuẩn kiểm toán' },
         },
       ]
     : [
         {
           id: 'org-tree',
-          tag: 'Hierarchy Matrix',
-          title: 'Multi-Level Org Matrix, Branches & Multi-Manager',
-          description: 'Model corporate holding, subsidiaries, and departments with dynamic matrix trees.',
+          tag: 'Hierarchy',
+          title: 'Org Chart Matrix',
+          description: 'Model holding companies, subsidiaries, and departments with dynamic matrix trees.',
           metricBadge: { label: 'Scalability', value: 'Unlimited Depth' },
         },
         {
           id: 'profile-360',
-          tag: '360° Digital Files',
-          title: 'Unified Employee 360° Files & Directory',
-          description: 'Digitize contracts, salary accounts, tax dependents, and corporate directory lookups.',
-          metricBadge: { label: 'Digital Records', value: '100% Paperless' },
+          tag: 'Profiles',
+          title: 'Employee 360° Files',
+          description: 'Digitize contracts, salary accounts, tax records, and corporate directory lookups.',
+          metricBadge: { label: 'Records', value: '100% Paperless' },
         },
         {
           id: 'multi-shifts',
-          tag: 'Multi-Modal Clock-in',
-          title: 'Multi-Shift Scheduling: Kiosk, Face AI & GPS Fences',
+          tag: 'Attendance',
+          title: 'Multi-Shift Clock-In',
           description: 'High-speed Face AI (<200ms), tablet Kiosk, and GPS geofences against buddy punching.',
           metricBadge: { label: 'Anti-Spoofing', value: '99.98% Accuracy' },
         },
         {
           id: 'approvals',
-          tag: 'Approval Workflows',
-          title: 'Multi-Manager Leave & Overtime (OT) Routing',
-          description: 'Automated approval routing with statutory overtime limit checks and SLA escalations.',
-          metricBadge: { label: 'Approval Speed', value: '< 2 Working Hours' },
+          tag: 'Approvals',
+          title: 'Leave & Overtime Routing',
+          description: 'Automated approval routing with statutory overtime limit checks and SLA alerts.',
+          metricBadge: { label: 'Turnaround', value: '< 2 Working Hours' },
         },
         {
           id: 'payroll',
-          tag: 'Compensation Engine',
-          title: 'Work Entries Timesheets & Automated Payroll',
+          tag: 'Compensation',
+          title: 'Automated Payroll Engine',
           description: 'Aggregate verified work entries, calculate taxes, insurance, and issue digital payslips.',
-          metricBadge: { label: 'Processing Speed', value: '5 Days to 1 Hr' },
+          metricBadge: { label: 'Speed', value: '5 Days to 1 Hr' },
         },
         {
           id: 'hr-analytics',
-          tag: 'Advanced Analytics',
-          title: 'HR Analytics (RPT-05/06/07) & Onboarding Lifecycles',
+          tag: 'Analytics',
+          title: 'Workforce Analytics',
           description: 'Workforce demographics, attendance trends, and automated paperless onboarding.',
-          metricBadge: { label: 'HR Compliance', value: 'Audit-Ready Specs' },
+          metricBadge: { label: 'Compliance', value: 'Audit-Ready' },
         },
       ];
 
@@ -120,26 +120,24 @@ export default function HrWorkforcePage() {
           }
           subtitle={
             isVi
-              ? 'CommaDesk HR & Workforce hợp nhất sơ đồ tổ chức đa cấp, hồ sơ nhân sự 360°, chấm công sinh trắc học đa phương thức, báo cáo HR Analytics và đóng bảng lương tự động vào một hệ thống tập trung duy nhất.'
-              : 'CommaDesk HR & Workforce unifies multi-level org charts, 360° employee dossiers, multi-modal biometric attendance, HR Analytics, and automated payroll into one centralized platform.'
+              ? 'Hợp nhất sơ đồ tổ chức, hồ sơ 360°, chấm công sinh trắc học và tính lương tự động trên một hệ thống duy nhất.'
+              : 'Unify multi-level org charts, 360° employee dossiers, biometric attendance, and automated payroll in one platform.'
           }
           tags={
             isVi
               ? [
-                  'Sơ đồ tổ chức đa cấp',
-                  'Hồ sơ nhân sự 360°',
-                  'Chấm công Face AI & Kiosk',
-                  'Định vị GPS Geofencing',
-                  'Bảng công & Tính lương',
-                  'Báo cáo HR Analytics',
+                  'Sơ đồ tổ chức',
+                  'Hồ sơ 360°',
+                  'Face AI & GPS',
+                  'Duyệt phép & OT',
+                  'Tính lương tự động',
                 ]
               : [
-                  'Multi-Level Org Matrix',
-                  '360° Employee Dossier',
-                  'Biometric Face AI & Kiosk',
-                  'Mobile GPS Fencing',
-                  'Work Entries & Payroll',
-                  'HR Analytics RPT',
+                  'Org Matrix',
+                  'Employee 360°',
+                  'Face AI & GPS',
+                  'Leave & OT',
+                  'Automated Payroll',
                 ]
           }
           visualPreview={visualPreview}
@@ -147,11 +145,11 @@ export default function HrWorkforcePage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Hệ điều hành nhân sự toàn diện' : 'Complete People Operations Operating System'}
+          title={isVi ? 'Hệ điều hành nhân sự toàn diện' : 'Complete People Operations Suite'}
           subtitle={
             isVi
-              ? 'Chuẩn hóa toàn bộ vòng đời nhân viên từ tiếp nhận, chấm công phân ca, phê duyệt nghỉ phép đến tự động hóa tính lương và phân tích dữ liệu nguồn nhân lực.'
-              : 'Standardize the entire employee lifecycle from onboarding, multi-shift attendance, leave approvals to automated payroll calculations and workforce analytics.'
+              ? 'Chuẩn hóa toàn bộ vòng đời nhân sự từ tiếp nhận, chấm công phân ca đến tính lương tự động.'
+              : 'Standardize employee lifecycle from onboarding, multi-shift attendance, to automated payroll.'
           }
           features={features}
         />

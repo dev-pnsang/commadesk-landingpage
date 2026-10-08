@@ -1,6 +1,8 @@
 export interface IntegrationApp {
   id: string;
   name: string;
+  nameVi?: string;
+  nameEn?: string;
   desc: string;
   descVi?: string;
   descEn?: string;
@@ -8,38 +10,48 @@ export interface IntegrationApp {
 
 export const INTEGRATION_APPS: IntegrationApp[] = [
   {
-    id: 'teams',
-    name: 'Microsoft Teams',
-    desc: 'Collaboration & unified chat',
-    descVi: 'Hợp tác & trò chuyện hợp nhất đa kênh',
-    descEn: 'Collaboration & unified chat',
+    id: 'work-management',
+    name: 'Work & Project Hub',
+    nameVi: 'Dự Án & Kanban',
+    nameEn: 'Work & Project Hub',
+    desc: 'Interactive Kanban boards, Gantt charts & sprint velocity tracking',
+    descVi: 'Bảng Kanban tương tác, sơ đồ Gantt & quản lý vận tốc sprint',
+    descEn: 'Interactive Kanban boards, Gantt charts & sprint velocity tracking',
   },
   {
-    id: 'gmail',
-    name: 'Gmail',
-    desc: 'Business email & communication',
-    descVi: 'Thư điện tử doanh nghiệp & thông báo tự động',
-    descEn: 'Business email & communication',
+    id: 'hr-workforce',
+    name: 'Smart HR & Attendance',
+    nameVi: 'Nhân Sự & Chấm Công AI',
+    nameEn: 'Smart HR & Attendance',
+    desc: '360° employee directory, AI biometric kiosk check-in & automated payroll',
+    descVi: 'Hồ sơ nhân sự 360°, chấm công sinh trắc học Kiosk AI & bảng lương tự động',
+    descEn: '360° employee directory, AI biometric kiosk check-in & automated payroll',
   },
   {
-    id: 'loom',
-    name: 'Loom',
-    desc: 'Video feedback & communication',
-    descVi: 'Ghi hình phản hồi & trao đổi công việc trực quan',
-    descEn: 'Video feedback & communication',
+    id: 'comma-meet',
+    name: 'CommaMeet & Unified Comms',
+    nameVi: 'CommaMeet & Giao Tiếp Hợp Nhất',
+    nameEn: 'CommaMeet & Unified Comms',
+    desc: 'Encrypted HD video meetings, team Matrix chat & instant push alerts',
+    descVi: 'Họp video HD bảo mật cao, trò chuyện nhóm Matrix & thông báo in-app realtime',
+    descEn: 'Encrypted HD video meetings, team Matrix chat & instant push alerts',
   },
   {
-    id: 'meet',
-    name: 'Google Meet',
-    desc: 'Seamless video meetings',
-    descVi: 'Họp trực tuyến liền mạch & chia sẻ màn hình',
-    descEn: 'Seamless video meetings',
+    id: 'operations-documents',
+    name: 'Official Document Registry',
+    nameVi: 'Sổ Văn Bản & Pháp Lý Số',
+    nameEn: 'Official Document Registry',
+    desc: 'Decree 30 numbering rules, digital approval workflows & archived records',
+    descVi: 'Đánh số văn bản tự động Nghị định 30, quy trình ký số & lưu trữ văn thư',
+    descEn: 'Decree 30 numbering rules, digital approval workflows & archived records',
   },
   {
-    id: 'outlook',
-    name: 'Microsoft Outlook',
-    desc: 'Email & schedule management',
-    descVi: 'Lịch biểu & hòm thư quản trị tập trung',
-    descEn: 'Email & schedule management',
+    id: 'ai-smart-city',
+    name: 'AI Vision & Smart City',
+    nameVi: 'Camera AI & Đô Thị Thông Minh',
+    nameEn: 'AI Vision & Smart City',
+    desc: 'Multi-stream camera VMS, AI facial recognition & automated ANPR license plate logs',
+    descVi: 'Giám sát camera VMS đa luồng, AI nhận diện khuôn mặt & ghi nhận biển số tự động',
+    descEn: 'Multi-stream camera VMS, AI facial recognition & automated ANPR license plate logs',
   },
 ];

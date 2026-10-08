@@ -35,52 +35,52 @@ export default function ReleaseNotesPage() {
       badge: isVi ? 'Bản Mới Nhất' : 'Latest Release',
       badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
       summary: {
-        vi: 'Bổ sung 5 phân hệ đột phá: Quản lý Kho SKU & Tài sản serial, CMS Studio kéo thả, Social Gateway kết nối POS KiotViet, Khảo sát eNPS và Trung tâm Phê duyệt tập trung.',
-        en: 'Major release introducing 5 core pillars: SKU Warehouses & Serial Assets, Drag-and-Drop CMS Studio, Social Gateway with KiotViet POS Sync, eNPS Surveys, and Unified Approvals.',
+        vi: 'Ra mắt 5 phân hệ: Kho SKU & Tài sản, CMS kéo thả, KiotViet POS Sync, Khảo sát eNPS và Phê duyệt tập trung.',
+        en: '5 core pillars: SKU Inventory & Assets, Visual CMS, KiotViet POS Sync, eNPS Surveys, and Approvals.',
       },
       highlights: [
         {
           category: 'feature',
           title: {
-            vi: 'Phân hệ Quản lý Kho SKU & Tài sản thiết bị',
-            en: 'Dedicated SKU Inventory & Fixed Asset Custody',
+            vi: 'Kho SKU & Tài sản serial',
+            en: 'SKU Inventory & Fixed Assets',
           },
           desc: {
-            vi: 'Cân bằng số dư kho đa địa điểm, luồng duyệt phiếu nhập xuất 2 cấp, quản lý tài sản theo số serial và tự động cảnh báo tồn an toàn.',
-            en: 'Multi-depot inventory balancing, 2-step stock voucher approvals, serial asset tracking, and proactive safety stock alerts.',
+            vi: 'Cân bằng kho đa điểm, duyệt phiếu 2 cấp và cảnh báo tồn an toàn.',
+            en: 'Multi-location balance, 2-step approvals, and safety stock alerts.',
           },
         },
         {
           category: 'feature',
           title: {
-            vi: 'CMS Studio & Cổng thông tin nội bộ',
-            en: 'Visual CMS Studio & Enterprise Intranet Portal',
+            vi: 'CMS Studio & Intranet',
+            en: 'CMS Studio & Intranet',
           },
           desc: {
-            vi: 'Dựng website kéo thả no-code dạng khối, tòa soạn bài viết đa cấp, quản lý thư viện media và kiểm duyệt bình luận tự động.',
-            en: 'Modular drag-and-drop page builder, multi-category newsroom, media asset library, and automated comment moderation.',
+            vi: 'Dựng website kéo thả no-code, tòa soạn tin tức và thư viện media.',
+            en: 'No-code visual page builder, newsroom, and media assets.',
           },
         },
         {
           category: 'feature',
           title: {
-            vi: 'Đồng bộ hai chiều với Phần mềm Bán lẻ KiotViet',
-            en: 'Bi-Directional Real-Time KiotViet POS Synchronization',
+            vi: 'Đồng bộ POS KiotViet',
+            en: 'KiotViet POS Sync',
           },
           desc: {
-            vi: 'Tự động đồng bộ sản phẩm, giá bán, chi nhánh và bù trừ số dư tồn kho tức thì trong < 1.2s khi phát sinh giao dịch tại quầy.',
-            en: 'Real-time synchronization of products, branch price tiers, and inventory deductions in < 1.2s upon counter sales.',
+            vi: 'Tự động đồng bộ sản phẩm, giá bán và trừ kho < 1.2s khi bán tại quầy.',
+            en: 'Real-time sync of items, prices, and stock deduction in < 1.2s.',
           },
         },
         {
           category: 'security',
           title: {
-            vi: 'Cơ chế Ủy quyền Phê duyệt & Hòm thư góp ý bảo mật',
-            en: 'Approval Delegation Engine & Encrypted Leadership Mailbox',
+            vi: 'Ủy quyền & Hòm thư lãnh đạo',
+            en: 'Approval Delegation & Mailbox',
           },
           desc: {
-            vi: 'Ủy quyền duyệt có ràng buộc hạn mức tài chính và kênh gửi phản ánh ẩn danh mã hóa hoàn toàn tới Ban Lãnh đạo.',
-            en: 'Threshold-constrained approval delegation and cryptographically shielded anonymous direct leadership mailboxes.',
+            vi: 'Ủy quyền duyệt theo hạn mức và tiếp nhận phản ánh ẩn danh bảo mật.',
+            en: 'Threshold-based delegation and encrypted anonymous feedback.',
           },
         },
       ],
@@ -91,30 +91,30 @@ export default function ReleaseNotesPage() {
       badge: isVi ? 'Cập Nhật Nền Tảng' : 'Platform Update',
       badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
       summary: {
-        vi: 'Nâng cấp chuẩn văn bản theo Nghị định 30, thuật toán ANPR nhận diện biển số xe và hệ thống họp video CommaMeet chất lượng HD.',
-        en: 'Full State Decree 30 official document compliance, enhanced ANPR camera plate recognition, and HD CommaMeet video conference engine.',
+        vi: 'Chuẩn văn bản Nghị định 30, Face AI & ANPR biển số xe, CommaMeet video HD.',
+        en: 'Decree 30 document registry, Face AI & ANPR recognition, and CommaMeet HD.',
       },
       highlights: [
         {
           category: 'feature',
           title: {
-            vi: 'Sổ Văn bản Đến/Đi & Giữ số theo Nghị định 30',
-            en: 'Decree 30 Official Document Registry & Reserved Numbers',
+            vi: 'Sổ Văn bản Nghị định 30',
+            en: 'Decree 30 Document Registry',
           },
           desc: {
-            vi: 'Quy tắc đánh số tự động, phân phối văn bản nội bộ và quản lý sổ chứa văn bản pháp lý chuẩn mực hành chính.',
-            en: 'Automated document numbering rules, intra-organization dispatch routing, and administrative decree compliance.',
+            vi: 'Đánh số tự động, luân chuyển văn bản nội bộ và quản lý sổ chuẩn mực.',
+            en: 'Auto numbering, internal dispatch, and decree-compliant books.',
           },
         },
         {
           category: 'performance',
           title: {
-            vi: 'Tối ưu tốc độ nhận diện khuôn mặt Face AI & ANPR',
-            en: 'High-Velocity Edge Inference for Face AI & ANPR Cameras',
+            vi: 'Face AI & ANPR Biển Số',
+            en: 'Face AI & ANPR Recognition',
           },
           desc: {
-            vi: 'Tốc độ nhận diện biển số xe và chấm công sinh trắc học đạt < 85ms trên hệ thống camera VMS đa điểm.',
-            en: 'Sub-85ms recognition speed for license plates and biometric check-ins across distributed VMS camera nodes.',
+            vi: 'Nhận diện biển số và chấm công sinh trắc học siêu tốc < 85ms qua camera VMS.',
+            en: 'Sub-85ms plate and biometric recognition across VMS cameras.',
           },
         },
       ],
@@ -125,19 +125,19 @@ export default function ReleaseNotesPage() {
       badge: isVi ? 'Bảo Mật & Ứng Dụng' : 'Security & App Parity',
       badgeColor: 'bg-slate-100 text-slate-700 border-slate-200',
       summary: {
-        vi: 'Ra mắt ứng dụng Desktop Windows (.exe) với cơ chế tự động cập nhật, ứng dụng Mobile Flutter và nâng cấp ma trận bảo mật Casbin RBAC.',
-        en: 'Launch of Windows Desktop (.exe) with auto-updater, Flutter Mobile apps, and enhanced Casbin RBAC permission matrix.',
+        vi: 'Ra mắt Desktop Windows (.exe), Mobile Flutter và nâng cấp Casbin RBAC.',
+        en: 'Windows Desktop app, Flutter Mobile, and enhanced Casbin RBAC matrix.',
       },
       highlights: [
         {
           category: 'security',
           title: {
-            vi: 'Ma trận phân quyền Casbin RBAC & Xác thực 2FA/TOTP',
-            en: 'Casbin RBAC Matrix & Mandatory TOTP 2FA Verification',
+            vi: 'Casbin RBAC & 2FA/TOTP',
+            en: 'Casbin RBAC & 2FA/TOTP',
           },
           desc: {
-            vi: 'Khóa phiên từ xa, kiểm soát danh tính thiết bị qua mã băm HMAC và lưu vết kiểm toán 3 tầng độc lập.',
-            en: 'Remote session revocation, HMAC device binding, and triple-layer cryptographic audit logging.',
+            vi: 'Thu hồi phiên từ xa, định danh HMAC và kiểm toán 3 tầng độc lập.',
+            en: 'Remote session revoke, HMAC binding, and 3-tier audit logs.',
           },
         },
       ],
@@ -161,17 +161,17 @@ export default function ReleaseNotesPage() {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/90 text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-4">
             <span className="w-2 h-2 rounded-full bg-[#FF4D38]"></span>
-            {isVi ? 'Nhật Ký Phát Hành & Tính Năng Mới' : "What's New & Release Changelog"}
+            {isVi ? 'Nhật Ký Phát Hành' : "Changelog"}
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-            {isVi ? 'Lịch Sử Cập Nhật & Tiến Hóa Nền Tảng' : 'Platform Evolution & Release Notes'}
+            {isVi ? 'Lịch Sử Cập Nhật & Nâng Cấp' : 'Release Notes & Changelog'}
           </h1>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             {isVi
-              ? 'Khám phá các cải tiến, tính năng mới và nâng cấp bảo mật liên tục được tích hợp vào hệ điều hành doanh nghiệp CommaDesk.'
-              : 'Discover continuous enhancements, enterprise modules, and security reinforcements engineered into the CommaDesk ecosystem.'}
+              ? 'Khám phá các cải tiến, tính năng mới và nâng cấp bảo mật liên tục của CommaDesk.'
+              : 'Continuous feature additions, module enhancements, and security updates for CommaDesk.'}
           </p>
 
           {/* Filter Pills */}
@@ -184,7 +184,6 @@ export default function ReleaseNotesPage() {
                   ? 'bg-[#FF4D38] text-white shadow-xs'
                   : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
               }`}
-
             >
               {isVi ? 'Tất cả thay đổi' : 'All Updates'}
             </button>
@@ -288,12 +287,12 @@ export default function ReleaseNotesPage() {
         {/* Bottom CTA to Docs */}
         <div className="max-w-4xl mx-auto mt-16 p-8 rounded-3xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 text-center shadow-xs space-y-3">
           <h2 className="text-lg sm:text-xl font-bold text-slate-900">
-            {isVi ? 'Cần Tra Cứu Đặc Tả Kỹ Thuật Chi Tiết?' : 'Looking for Complete Feature Documentation?'}
+            {isVi ? 'Cần Tra Cứu Đặc Tả Kỹ Thuật Chi Tiết?' : 'Looking for Technical Documentation?'}
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
             {isVi
-              ? 'Tham khảo kho tài liệu đặc tả 67+ phân hệ và OpenAPI Swagger để nắm rõ cấu trúc dữ liệu và API kết nối.'
-              : 'Explore our comprehensive 67+ module technical feature guide and OpenAPI Swagger documentation.'}
+              ? 'Tham khảo tài liệu đặc tả 67+ phân hệ và OpenAPI Swagger chi tiết.'
+              : 'Explore our 67+ module technical specs and OpenAPI Swagger docs.'}
           </p>
           <div className="pt-2 flex items-center justify-center gap-3">
             <Link

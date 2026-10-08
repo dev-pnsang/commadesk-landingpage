@@ -7,6 +7,7 @@ import { SubpageHero } from '@/components/subpage/SubpageHero';
 import { SubpageFeaturesGrid, SubpageFeatureItem } from '@/components/subpage/SubpageFeaturesGrid';
 import { SubpageCTA } from '@/components/subpage/SubpageCTA';
 import { useLanguage } from '@/i18n/LanguageContext';
+
 import { InteractiveApprovalsAnalytics } from '@/components/showcase/InteractiveApprovalsAnalytics';
 
 export default function ApprovalsAnalyticsPage() {
@@ -19,89 +20,89 @@ export default function ApprovalsAnalyticsPage() {
     ? [
         {
           id: 'unified-approval-inbox',
-          tag: 'Hàng đợi tập trung',
-          title: 'Hộp Thư Phê Duyệt Hợp Nhất Toàn Doanh Nghiệp',
-          description: 'Gom toàn bộ đơn từ từ mọi phân hệ: Đơn nghỉ phép, Cấp tài sản, Phiếu kho, Ký văn bản đi, Đề xuất chi phí vào một màn hình duy nhất.',
-          metricBadge: { label: 'Tập trung đơn từ', value: '100% Một Inbox' },
+          tag: 'Hàng đợi',
+          title: 'Hộp Thư Phê Duyệt',
+          description: 'Gom toàn bộ đơn từ từ mọi phân hệ: nghỉ phép, cấp tài sản, phiếu kho và văn bản.',
+          metricBadge: { label: 'Tập trung', value: '100% Một Inbox' },
         },
         {
           id: 'delegation-engine',
-          tag: 'Ủy quyền thông minh',
-          title: 'Cơ Chế Ủy Quyền Phê Duyệt Khi Vắng Mặt',
-          description: 'Thiết lập ủy quyền tự động cho cấp phó khi đi công tác/nghỉ phép, kèm ràng buộc hạn mức tài chính và khoảng thời gian hiệu lực nghiêm ngặt.',
-          metricBadge: { label: 'Tắc nghẽn quyết định', value: 'Giảm 100%' },
+          tag: 'Ủy quyền',
+          title: 'Ủy Quyền Vắng Mặt',
+          description: 'Tự động ủy quyền duyệt cho cấp phó khi vắng mặt kèm hạn mức tài chính.',
+          metricBadge: { label: 'Tắc nghẽn', value: 'Giảm 100%' },
         },
         {
           id: 'executive-kpi-radar',
-          tag: 'Radar lãnh đạo',
-          title: 'Bảng Điều Khiển Ban Lãnh Đạo (Executive Leadership Dashboard)',
-          description: 'Cung cấp góc nhìn vĩ mô 360° về nhịp đập doanh nghiệp: Tốc độ hoàn thành sprint, rủi ro trễ deadline và tỷ lệ phân bổ ngân sách.',
-          metricBadge: { label: 'Tầm nhìn quản trị', value: 'Thời gian thực' },
+          tag: 'Lãnh đạo',
+          title: 'Dashboard Ban Lãnh Đạo',
+          description: 'Góc nhìn vĩ mô 360° về nhịp đập doanh nghiệp: tiến độ sprint và rủi ro deadline.',
+          metricBadge: { label: 'Tầm nhìn', value: 'Thời gian thực' },
         },
         {
           id: 'acceptance-quality',
-          tag: 'Nghiệm thu công việc',
-          title: 'Báo Cáo Chất Lượng Nghiệm Thu & Năng Suất Nhân Sự',
-          description: 'Đánh giá tỷ lệ nhiệm vụ hoàn thành đúng hạn, năng suất velocity của từng phòng ban và nghiệm thu công việc kèm bằng chứng xác thực.',
-          metricBadge: { label: 'Tỷ lệ đúng hạn', value: '96.8% Milestones' },
+          tag: 'Nghiệm thu',
+          title: 'Nghiệm Thu Công Việc',
+          description: 'Đánh giá tỷ lệ nhiệm vụ hoàn thành đúng hạn và nghiệm thu việc kèm chứng từ.',
+          metricBadge: { label: 'Đúng hạn', value: '96.8% Milestones' },
         },
         {
           id: 'immutable-audit-trail',
-          tag: 'Kiểm toán bất biến',
-          title: 'Nhật Ký Kiểm Toán Chữ Ký Số Bất Biến (Audit Trail)',
-          description: 'Mọi thao tác phê duyệt, từ chối hay chuyển tiếp đều được gắn dấu thời gian và lưu vết bất biến tuân thủ ma trận Casbin RBAC.',
-          metricBadge: { label: 'Tính minh bạch', value: '100% Bất biến' },
+          tag: 'Kiểm toán',
+          title: 'Nhật Ký Kiểm Toán Số',
+          description: 'Mọi thao tác duyệt, từ chối hay ủy quyền đều được lưu vết chữ ký số bất biến.',
+          metricBadge: { label: 'Minh bạch', value: '100% Bất biến' },
         },
         {
           id: 'sla-escalation',
-          tag: 'Cảnh báo SLA',
-          title: 'Cảnh Báo Quá Hạn Phê Duyệt & Tự Động Leo Thang',
-          description: 'Tự động nhắc nhở và leo thang người phê duyệt cấp trên nếu yêu cầu vượt quá thời gian cam kết SLA, đảm bảo luồng vận hành luôn thông suốt.',
-          metricBadge: { label: 'Tốc độ ra quyết định', value: 'Nhanh hơn 4x' },
+          tag: 'Cảnh báo',
+          title: 'Cảnh Báo Hạn Duyệt SLA',
+          description: 'Tự động nhắc nhở và leo thang cấp trên nếu yêu cầu vượt quá cam kết SLA.',
+          metricBadge: { label: 'Tốc độ', value: 'Nhanh hơn 4x' },
         },
       ]
     : [
         {
           id: 'unified-approval-inbox',
-          tag: 'Unified Queue',
-          title: 'Unified Enterprise Cross-Module Approval Inbox',
-          description: 'Aggregate pending approvals from all operational modules: leave requests, inventory dispatches, document signings, and expense requests in one view.',
-          metricBadge: { label: 'Inbox Consolidation', value: 'Single Destination' },
+          tag: 'Inbox',
+          title: 'Unified Approval Inbox',
+          description: 'Aggregate pending approvals from all modules: leave, inventory, and legal sign-offs.',
+          metricBadge: { label: 'Consolidation', value: 'Single Inbox' },
         },
         {
           id: 'delegation-engine',
-          tag: 'Smart Delegation',
-          title: 'Automated Absence Delegation & Threshold Routing',
-          description: 'Delegate sign-off authority to deputies during travel or leave, bounded by maximum financial spending limits and strict expiry date windows.',
-          metricBadge: { label: 'Operational Bottleneck', value: 'Zero Delays' },
+          tag: 'Delegation',
+          title: 'Absence Delegation',
+          description: 'Delegate sign-off authority during absence, bounded by spending limits and expiry.',
+          metricBadge: { label: 'Bottlenecks', value: 'Zero Delays' },
         },
         {
           id: 'executive-kpi-radar',
-          tag: 'Executive Radar',
-          title: 'Executive C-Suite Dashboard & Operational Pulse',
-          description: 'A 360° strategic view over company health: delivery velocity, overdue milestone risks, workforce utilization, and multi-tenant budget burn.',
-          metricBadge: { label: 'Strategic Visibility', value: 'Live Telemetry' },
+          tag: 'Leadership',
+          title: 'Executive C-Suite Radar',
+          description: 'A 360° view over company health: delivery velocity, risks, and budget burn.',
+          metricBadge: { label: 'Visibility', value: 'Live Telemetry' },
         },
         {
           id: 'acceptance-quality',
-          tag: 'Delivery Quality',
-          title: 'Milestone Acceptance Quality & Productivity Metrics',
-          description: 'Measure task turnaround rates, team velocity trends, and rigorous deliverable acceptances backed by verifiable digital audit proofs.',
-          metricBadge: { label: 'On-time Milestones', value: '96.8% Velocity' },
+          tag: 'Acceptance',
+          title: 'Milestone Acceptance',
+          description: 'Measure task turnaround rates, team velocity trends, and verified sign-offs.',
+          metricBadge: { label: 'Milestones', value: '96.8% On-Time' },
         },
         {
           id: 'immutable-audit-trail',
-          tag: 'Cryptographic Audit',
-          title: 'Immutable Cryptographic Signature Audit Trail',
-          description: 'Every approval, rejection, or delegation is cryptographically timestamped and immutably recorded according to Casbin RBAC security policies.',
-          metricBadge: { label: 'Audit Rigor', value: '100% Immutable' },
+          tag: 'Audit',
+          title: 'Audit Trail & Signatures',
+          description: 'Every approval, rejection, or delegation is immutably timestamped and recorded.',
+          metricBadge: { label: 'Audit', value: '100% Immutable' },
         },
         {
           id: 'sla-escalation',
-          tag: 'SLA Escalations',
-          title: 'Approval SLA Countdown Timers & Auto-Escalation Engine',
-          description: 'Automatic urgency reminders and vertical supervisory escalations whenever approvals risk breaching designated SLA timeframes.',
-          metricBadge: { label: 'Decision Speed', value: '4x Faster' },
+          tag: 'SLA',
+          title: 'SLA Escalation Alerts',
+          description: 'Automatic urgency reminders and vertical escalations whenever approvals risk delay.',
+          metricBadge: { label: 'Decisions', value: '4x Faster' },
         },
       ];
 
@@ -119,25 +120,23 @@ export default function ApprovalsAnalyticsPage() {
           }
           subtitle={
             isVi
-              ? 'Một điểm đến duy nhất cho mọi quy trình phê duyệt nghỉ phép, tài sản, kho bãi, văn bản và chi phí, kết hợp dashboard năng suất thời gian thực cho Ban Lãnh đạo C-Suite.'
-              : 'A single unified inbox for leave, asset, warehouse, document and expense approvals, paired with real-time strategic productivity telemetry for C-Suite executives.'
+              ? 'Một điểm đến duy nhất cho mọi quy trình phê duyệt nghỉ phép, tài sản, kho bãi và chi phí.'
+              : 'A single unified inbox for all enterprise approvals paired with executive productivity telemetry.'
           }
           tags={
             isVi
               ? [
                   'Hộp thư duyệt hợp nhất',
-                  'Ủy quyền phê duyệt đa cấp',
-                  'Radar KPI lãnh đạo 360°',
-                  'Chất lượng nghiệm thu việc',
-                  'Nhật ký kiểm toán Casbin',
-                  'Cảnh báo leo thang SLA',
+                  'Ủy quyền vắng mặt',
+                  'Dashboard lãnh đạo 360°',
+                  'Nghiệm thu công việc',
+                  'Cảnh báo hạn SLA',
                 ]
               : [
-                  'Unified Approvals Inbox',
-                  'Absence Delegation Engine',
-                  'Executive 360° KPI Radar',
-                  'Deliverable Acceptance Proofs',
-                  'Casbin Immutable Audit',
+                  'Unified Inbox',
+                  'Absence Delegation',
+                  'Executive 360° Radar',
+                  'Milestone Acceptance',
                   'SLA Escalation Triggers',
                 ]
           }
@@ -146,11 +145,11 @@ export default function ApprovalsAnalyticsPage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Xóa bỏ điểm nghẽn ra quyết định trong doanh nghiệp' : 'Eliminate Decision Bottlenecks Across the Enterprise'}
+          title={isVi ? 'Xóa bỏ điểm nghẽn ra quyết định' : 'Eliminate Decision Bottlenecks'}
           subtitle={
             isVi
-              ? 'Tăng tốc tốc độ phê duyệt, chống tồn đọng đơn từ và trao cho lãnh đạo quyền kiểm soát toàn cảnh chỉ trong tích tắc.'
-              : 'Accelerate decision-making speed, prevent request backlog, and provide leaders with complete situational awareness.'
+              ? 'Tăng tốc phê duyệt, chống tồn đọng đơn từ và trao cho lãnh đạo quyền kiểm soát toàn cảnh.'
+              : 'Accelerate decision-making speed, prevent backlogs, and provide complete operational visibility.'
           }
           features={features}
         />

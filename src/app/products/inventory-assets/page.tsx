@@ -7,6 +7,7 @@ import { SubpageHero } from '@/components/subpage/SubpageHero';
 import { SubpageFeaturesGrid, SubpageFeatureItem } from '@/components/subpage/SubpageFeaturesGrid';
 import { SubpageCTA } from '@/components/subpage/SubpageCTA';
 import { useLanguage } from '@/i18n/LanguageContext';
+
 import { InteractiveInventoryAssets } from '@/components/showcase/InteractiveInventoryAssets';
 
 export default function InventoryAssetsPage() {
@@ -19,89 +20,89 @@ export default function InventoryAssetsPage() {
     ? [
         {
           id: 'multi-warehouse-balances',
-          tag: 'Cân bằng kho',
-          title: 'Quản lý Kho Đa Địa Điểm & Số Dư Realtime',
-          description: 'Theo dõi vị trí lưu kho, đối soát số dư tức thì, luân chuyển hàng hóa giữa các kho chi nhánh trên một màn hình duy nhất.',
-          metricBadge: { label: 'Độ chính xác tồn', value: '100% tức thì' },
+          tag: 'Tồn kho',
+          title: 'Kho Đa Địa Điểm',
+          description: 'Theo dõi vị trí lưu kho, đối soát số dư tức thì và luân chuyển hàng giữa các kho.',
+          metricBadge: { label: 'Chính xác', value: '100% Realtime' },
         },
         {
           id: 'voucher-approvals',
-          tag: 'Quy trình kho',
-          title: 'Phiếu Nhập, Xuất & Chuyển Kho Đa Cấp',
-          description: 'Tự động hóa luồng duyệt phiếu: từ thủ kho đề xuất, quản lý ký duyệt đến kế toán kiểm toán và tự động cập nhật số dư.',
-          metricBadge: { label: 'Tốc độ duyệt', value: 'Nhanh hơn 3x' },
+          tag: 'Quy trình',
+          title: 'Phiếu Kho Đa Cấp',
+          description: 'Tự động hóa luồng duyệt phiếu nhập, xuất, chuyển kho và cập nhật số dư tức thì.',
+          metricBadge: { label: 'Tốc độ', value: 'Nhanh hơn 3x' },
         },
         {
           id: 'serial-assets',
-          tag: 'Tài sản cố định',
-          title: 'Quản Lý Tài Sản Serial & Mã Vạch QR',
-          description: 'Theo dõi chi tiết từng máy tính, thiết bị máy móc theo số Serial duy nhất, lịch sử bàn giao cho nhân sự và khấu hao.',
-          metricBadge: { label: 'Chống thất thoát', value: 'Tuyệt đối 0 rủi ro' },
+          tag: 'Tài sản',
+          title: 'Tài Sản Serial & QR',
+          description: 'Theo dõi chi tiết thiết bị theo số Serial duy nhất, lịch sử bàn giao và khấu hao.',
+          metricBadge: { label: 'Thất thoát', value: 'Tuyệt đối 0%' },
         },
         {
           id: 'stationery-catalog',
-          tag: 'Mua sắm & VPP',
-          title: 'Đăng Ký & Quyết Toán Văn Phòng Phẩm (VPP)',
-          description: 'Danh mục định mức VPP tiêu chuẩn, nhân viên gửi yêu cầu trực tuyến và bảng tổng hợp quyết toán chi phí hàng tháng.',
-          metricBadge: { label: 'Tiết kiệm chi phí', value: '-18% hao phí' },
+          tag: 'Văn phòng phẩm',
+          title: 'Cấp Phát & Quyết Toán VPP',
+          description: 'Danh mục định mức VPP tiêu chuẩn, gửi yêu cầu trực tuyến và quyết toán chi phí.',
+          metricBadge: { label: 'Hao phí', value: '-18% chi phí' },
         },
         {
           id: 'machinery-maintenance',
-          tag: 'Bảo trì máy móc',
-          title: 'Quản Lý Máy In, Mực In & Thiết Bị Văn Phòng',
-          description: 'Lịch sử thay mực in, nhật ký bảo trì thiết bị, tự động cảnh báo lịch kiểm định định kỳ cho máy móc văn phòng.',
-          metricBadge: { label: 'Thời gian sẵn sàng', value: '99.8% Uptime' },
+          tag: 'Bảo trì',
+          title: 'Bảo Trì Thiết Bị',
+          description: 'Lịch sử thay mực in, bảo trì máy móc và tự động cảnh báo lịch kiểm định định kỳ.',
+          metricBadge: { label: 'Sẵn sàng', value: '99.8% Uptime' },
         },
         {
           id: 'min-stock-alerts',
-          tag: 'Cảnh báo tồn',
-          title: 'Cảnh Báo Tồn Tối Thiểu & Điểm Đặt Hàng Lại',
-          description: 'Hệ thống tự động kích hoạt cảnh báo thông minh khi lượng tồn chạm ngưỡng an toàn, hỗ trợ dự báo nhu cầu bổ sung hàng.',
-          metricBadge: { label: 'Cháy hàng (Out-of-Stock)', value: 'Giảm 95%' },
+          tag: 'Cảnh báo',
+          title: 'Cảnh Báo Tồn An Toàn',
+          description: 'Tự động kích hoạt cảnh báo khi tồn chạm ngưỡng tối thiểu để kịp thời bổ sung hàng.',
+          metricBadge: { label: 'Hết hàng', value: 'Giảm 95%' },
         },
       ]
     : [
         {
           id: 'multi-warehouse-balances',
-          tag: 'Stock Balance',
-          title: 'Multi-Depot Locations & Real-Time Stock Balances',
-          description: 'Track multi-location warehouse inventories, reconcile item balances instantaneously, and manage branch transfers on one screen.',
-          metricBadge: { label: 'Stock Accuracy', value: '100% Real-time' },
+          tag: 'Depots',
+          title: 'Multi-Depot Balances',
+          description: 'Track multi-location inventories, reconcile item balances, and manage transfers.',
+          metricBadge: { label: 'Accuracy', value: '100% Realtime' },
         },
         {
           id: 'voucher-approvals',
-          tag: 'Voucher Routing',
-          title: 'Inbound, Outbound & Transfer Stock Vouchers',
-          description: 'Automated multi-level voucher pipeline: keeper initiation, manager sign-off, accountant verification, and instant ledger deduction.',
-          metricBadge: { label: 'Cycle Speed', value: '3x Faster' },
+          tag: 'Vouchers',
+          title: 'Voucher Approvals',
+          description: 'Automated multi-level voucher pipeline with keeper sign-off and ledger deductions.',
+          metricBadge: { label: 'Speed', value: '3x Faster' },
         },
         {
           id: 'serial-assets',
-          tag: 'Fixed Assets',
-          title: 'Serial Numbered Assets & QR Asset Custody',
-          description: 'Track individual workstations, machinery and laptops by unique serial IDs, custody handoff history, and depreciation lifecycles.',
-          metricBadge: { label: 'Asset Loss Risk', value: 'Zero Slippage' },
+          tag: 'Assets',
+          title: 'Serial & QR Assets',
+          description: 'Track workstations and machinery by unique serial IDs, custody history, and lifecycles.',
+          metricBadge: { label: 'Loss Risk', value: 'Zero Slippage' },
         },
         {
           id: 'stationery-catalog',
-          tag: 'Procurement',
-          title: 'Employee Stationery Catalog & Settlement',
-          description: 'Standardized stationery allowances, digital request submissions, and automated monthly department cost settlement panels.',
-          metricBadge: { label: 'Spend Optimization', value: '-18% Waste' },
+          tag: 'Supplies',
+          title: 'Stationery Allowances',
+          description: 'Standardized allowances, digital requests, and automated monthly settlement.',
+          metricBadge: { label: 'Waste', value: '-18% Spend' },
         },
         {
           id: 'machinery-maintenance',
-          tag: 'Machinery SOP',
-          title: 'Printer, Toner Cartridge & Device Maintenance Logs',
-          description: 'Track consumables replacements, machine repairs, maintenance schedules, and device health status across all facilities.',
-          metricBadge: { label: 'Equipment Availability', value: '99.8% Uptime' },
+          tag: 'Maintenance',
+          title: 'Equipment Maintenance',
+          description: 'Track consumables replacements, machine repairs, and scheduled service logs.',
+          metricBadge: { label: 'Uptime', value: '99.8% Target' },
         },
         {
           id: 'min-stock-alerts',
-          tag: 'Stock Alerts',
-          title: 'Safety Stock Thresholds & Automated Reorder Alerts',
-          description: 'Automated proactive notifications when critical items breach safety limits, preventing operational downtime and stock-outs.',
-          metricBadge: { label: 'Stock-out Rate', value: '-95% Reduction' },
+          tag: 'Alerts',
+          title: 'Safety Stock Alerts',
+          description: 'Proactive notifications when critical items breach safety limits, preventing stock-outs.',
+          metricBadge: { label: 'Stock-out', value: '-95% Risk' },
         },
       ];
 
@@ -119,23 +120,21 @@ export default function InventoryAssetsPage() {
           }
           subtitle={
             isVi
-              ? 'Hợp nhất quản lý kho SKU đa điểm, tự động hóa luồng duyệt phiếu xuất nhập kho, theo dõi tài sản cố định theo số serial và quyết toán văn phòng phẩm trên một nền tảng chuẩn mực Casbin RBAC.'
-              : 'End-to-end multi-warehouse SKU tracking, automated voucher approvals, serial asset custody lifecycle, and department procurement under one Casbin RBAC platform.'
+              ? 'Quản lý kho SKU đa điểm, tự động hóa luồng duyệt phiếu xuất nhập và theo dõi tài sản theo số serial.'
+              : 'End-to-end multi-warehouse SKU tracking, automated voucher approvals, and serial asset custody.'
           }
           tags={
             isVi
               ? [
                   'Kho SKU đa điểm',
-                  'Phiếu nhập xuất chuyển',
-                  'Luồng duyệt 2 cấp',
+                  'Phiếu xuất nhập chuyển',
                   'Tài sản Serial & QR',
                   'Đăng ký VPP',
                   'Cảnh báo tồn tối thiểu',
                 ]
               : [
-                  'Multi-Warehouse Balances',
+                  'Multi-Warehouse SKU',
                   'Stock Voucher Pipeline',
-                  '2-Step Approval Routing',
                   'Serial & QR Asset Custody',
                   'Stationery Requests',
                   'Safety Stock Alerts',
@@ -146,11 +145,11 @@ export default function InventoryAssetsPage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Quản lý kho & tài sản chuẩn mực cấp doanh nghiệp' : 'Enterprise Inventory & Asset Lifecycle'}
+          title={isVi ? 'Quản lý kho & tài sản chuẩn mực' : 'Enterprise Inventory & Asset Lifecycle'}
           subtitle={
             isVi
-              ? 'Loại bỏ sai lệch số liệu kiểm kê, tự động hóa luồng phê duyệt và kiểm soát chặt chẽ từng đồng chi phí vật tư.'
-              : 'Eliminate inventory discrepancies, streamline voucher authorizations, and keep full custody over corporate assets.'
+              ? 'Loại bỏ sai lệch số liệu kiểm kê và tự động hóa luồng phê duyệt vật tư.'
+              : 'Eliminate inventory discrepancies and streamline authorizations across all assets.'
           }
           features={features}
         />

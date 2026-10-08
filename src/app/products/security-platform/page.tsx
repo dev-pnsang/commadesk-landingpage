@@ -20,89 +20,89 @@ export default function SecurityPlatformPage() {
     ? [
         {
           id: 'casbin-rbac',
-          tag: 'Kiểm soát truy cập',
-          title: 'Ma trận phân quyền Casbin RBAC Domain-Scoped',
+          tag: 'Phân quyền',
+          title: 'Ma Trận Casbin RBAC',
           description: 'Phân quyền rành mạch theo vai trò và tổ chức, kiểm tra quyền dưới 1ms trong bộ nhớ.',
-          metricBadge: { label: 'Độ trễ kiểm tra quyền', value: '< 1ms trong bộ nhớ' },
+          metricBadge: { label: 'Độ trễ', value: '< 1ms In-Memory' },
         },
         {
           id: 'multi-tenant',
-          tag: 'Kiến trúc cô lập',
-          title: 'Kiến trúc đa tổ chức Multi-Tenant an toàn tuyệt đối',
-          description: 'Cô lập dữ liệu tuyệt đối giữa các tổ chức và chi nhánh, loại bỏ rủi ro rò rỉ dữ liệu.',
-          metricBadge: { label: 'Cô lập dữ liệu', value: '100% Tenant Isolation' },
+          tag: 'Đa tổ chức',
+          title: 'Kiến Trúc Multi-Tenant',
+          description: 'Cô lập dữ liệu tuyệt đối giữa các tổ chức và chi nhánh, loại bỏ nguy cơ rò rỉ.',
+          metricBadge: { label: 'Cô lập', value: '100% Tenant Isolation' },
         },
         {
           id: 'audit-trails',
-          tag: 'Kiểm toán 3 tầng',
-          title: 'Nhật ký Audit 3 lớp chống gian lận & OBB Backup',
-          description: 'Ghi lại mọi thay đổi dữ liệu chi tiết, lịch sử truy cập và nhật ký quyền hạn bất biến.',
-          metricBadge: { label: 'Tính toàn vẹn', value: 'Bất biến (Immutable)' },
+          tag: 'Kiểm toán',
+          title: 'Nhật Ký Kiểm Toán 3 Lớp',
+          description: 'Ghi lại mọi thay đổi dữ liệu, lịch sử truy cập và nhật ký quyền hạn bất biến.',
+          metricBadge: { label: 'Toàn vẹn', value: 'Bất biến (Immutable)' },
         },
         {
           id: 'two-factor-auth',
-          tag: 'Định danh & Phiên',
-          title: 'Xác thực 2FA/TOTP & Device Identity HMAC',
-          description: 'Bảo vệ đăng nhập với xác thực 2FA/TOTP và định danh thiết bị IoT/camera bằng HMAC.',
-          metricBadge: { label: 'Mức độ bảo vệ', value: 'Zero Account Takeover' },
+          tag: 'Xác thực',
+          title: 'Xác Thực 2FA & Thiết Bị',
+          description: 'Bảo vệ đăng nhập với 2FA/TOTP và định danh thiết bị IoT, camera bằng HMAC.',
+          metricBadge: { label: 'An toàn', value: 'Zero Account Takeover' },
         },
         {
           id: 'rest-api-webhooks',
-          tag: 'Kết nối mở rộng',
-          title: 'REST API Swagger & Webhooks Trace Debug Pipeline',
+          tag: 'Kết nối',
+          title: 'REST API & Webhooks',
           description: 'Bộ API chuẩn OpenAPI 3.0 và hệ thống Webhooks hai chiều tích hợp không giới hạn.',
-          metricBadge: { label: 'Tiêu chuẩn API', value: 'OpenAPI 3.0 Ready' },
+          metricBadge: { label: 'Tiêu chuẩn', value: 'OpenAPI 3.0' },
         },
         {
           id: 'deployment-modes',
-          tag: 'Hạ tầng & Đa nền tảng',
-          title: 'Hybrid DB, Desktop Windows (.exe) & Mobile Flutter',
-          description: 'Triển khai linh hoạt Cloud, On-Premises hoặc Hybrid với ứng dụng Desktop và Mobile.',
-          metricBadge: { label: 'Mô hình triển khai', value: 'Docker / On-Prem / Hybrid' },
+          tag: 'Hạ tầng',
+          title: 'Triển Khai Linh Hoạt',
+          description: 'Vận hành trên Cloud, On-Premises hoặc Hybrid với ứng dụng Desktop và Mobile.',
+          metricBadge: { label: 'Mô hình', value: 'Docker / On-Prem / Hybrid' },
         },
       ]
     : [
         {
           id: 'casbin-rbac',
           tag: 'Access Control',
-          title: 'Casbin RBAC Multi-Tenant Matrix (<1ms Latency)',
+          title: 'Casbin RBAC Matrix',
           description: 'Fine-grained role-based authorization enforced across all actions under 1ms.',
-          metricBadge: { label: 'Enforcer Latency', value: '< 1ms In-Memory' },
+          metricBadge: { label: 'Latency', value: '< 1ms In-Memory' },
         },
         {
           id: 'multi-tenant',
-          tag: 'Isolation Architecture',
-          title: 'Zero-Leak Multi-Tenant Logical Partitioning',
-          description: 'Strict logical database isolation between corporate tenants eliminating cross-org leaks.',
-          metricBadge: { label: 'Data Isolation', value: '100% Tenant Scoped' },
+          tag: 'Multi-Tenant',
+          title: 'Tenant Isolation',
+          description: 'Strict logical database isolation between corporate tenants eliminating leaks.',
+          metricBadge: { label: 'Isolation', value: '100% Tenant Scoped' },
         },
         {
           id: 'audit-trails',
-          tag: 'Compliance Auditing',
-          title: 'Triple-Layer Audit Trails & OBB Backup/Restore',
-          description: 'Complete audit logs covering data deltas, access attempts, and immutable RBAC changes.',
-          metricBadge: { label: 'Audit Integrity', value: 'Cryptographic Logs' },
+          tag: 'Auditing',
+          title: 'Triple-Layer Audit Trails',
+          description: 'Complete audit logs covering data deltas, access attempts, and RBAC changes.',
+          metricBadge: { label: 'Integrity', value: 'Cryptographic Logs' },
         },
         {
           id: 'two-factor-auth',
-          tag: 'Identity & Tokens',
-          title: 'Mandatory 2FA / TOTP & HMAC Device Identity',
-          description: 'Fortify logins with TOTP 2FA, remote session kills, and HMAC device pairing.',
-          metricBadge: { label: 'Credential Security', value: 'Zero Account Takeover' },
+          tag: 'Auth & Tokens',
+          title: '2FA & Device Identity',
+          description: 'Fortify logins with TOTP 2FA, remote session control, and HMAC device pairing.',
+          metricBadge: { label: 'Security', value: 'Zero Account Takeover' },
         },
         {
           id: 'rest-api-webhooks',
-          tag: 'Enterprise Connectivity',
-          title: 'Enterprise REST API & Inbound/Outbound Webhooks',
-          description: 'OpenAPI 3.0 endpoints and bi-directional Webhooks with end-to-end event tracing.',
-          metricBadge: { label: 'API Standard', value: 'OpenAPI 3.0 / JSON' },
+          tag: 'APIs',
+          title: 'REST API & Webhooks',
+          description: 'OpenAPI 3.0 endpoints and bi-directional Webhooks with full trace debugging.',
+          metricBadge: { label: 'Standard', value: 'OpenAPI 3.0' },
         },
         {
           id: 'deployment-modes',
-          tag: 'Infrastructure Parity',
-          title: 'Hybrid DB, Desktop Windows (.exe) & Mobile Flutter',
+          tag: 'Deployment',
+          title: 'Hybrid Deployments',
           description: 'Flexible deployment across Cloud, On-Premises, or Hybrid with Desktop & Mobile apps.',
-          metricBadge: { label: 'Deployment Modes', value: 'Docker / On-Prem / Hybrid' },
+          metricBadge: { label: 'Modes', value: 'Docker / On-Prem / Hybrid' },
         },
       ];
 
@@ -115,31 +115,29 @@ export default function SecurityPlatformPage() {
           categoryBadge={isVi ? 'Phân hệ Bảo mật & Nền tảng' : 'Security & Platform Module'}
           title={
             isVi
-              ? ['Bảo mật cấp doanh nghiệp.', 'Hạ tầng mở rộng không giới hạn.']
-              : ['Enterprise-grade security.', 'Infinite infrastructure scalability.']
+              ? ['Bảo mật cấp doanh nghiệp.', 'Hạ tầng mở rộng linh hoạt.']
+              : ['Enterprise-grade security.', 'Scalable infrastructure.']
           }
           subtitle={
             isVi
-              ? 'CommaDesk Security & Platform cung cấp ma trận phân quyền Casbin RBAC, kiến trúc đa tổ chức Multi-tenant an toàn tuyệt đối, nhật ký Audit 3 lớp, kiến trúc Hybrid DB và bộ REST API chuẩn mở cấp doanh nghiệp.'
-              : 'CommaDesk Security & Platform delivers Casbin RBAC access governance, zero-leak multi-tenant partitioning, triple-layer audit trails, Hybrid DB routing, and enterprise OpenAPI capabilities.'
+              ? 'Phân quyền Casbin RBAC, kiến trúc đa tổ chức Multi-tenant an toàn và nhật ký kiểm toán bất biến.'
+              : 'Casbin RBAC access governance, zero-leak multi-tenant partitioning, and immutable audit trails.'
           }
           tags={
             isVi
               ? [
-                  'Ma trận quyền Casbin RBAC',
-                  'Đa tổ chức Multi-Tenant cô lập',
+                  'Phân quyền Casbin RBAC',
+                  'Đa tổ chức Multi-Tenant',
                   'Nhật ký Audit 3 lớp',
-                  '2FA RFC 6238 & Định danh HMAC',
-                  'Định tuyến dữ liệu Hybrid DB',
-                  'Đồng bộ Windows & Mobile',
+                  'Xác thực 2FA / HMAC',
+                  'REST API & Webhooks',
                 ]
               : [
                   'Casbin RBAC Matrix',
-                  'Zero-Leak Multi-Tenant',
-                  'Triple Audit Logs',
-                  'RFC 6238 2FA & HMAC',
-                  'Hybrid DB Routing',
-                  'Windows & Mobile Parity',
+                  'Multi-Tenant Isolation',
+                  'Triple-Layer Audit',
+                  '2FA & HMAC Identity',
+                  'REST API & Webhooks',
                 ]
           }
           visualPreview={visualPreview}
@@ -150,8 +148,8 @@ export default function SecurityPlatformPage() {
           title={isVi ? 'Nền tảng bảo mật & Hạ tầng công nghệ' : 'Enterprise Security & Technical Foundation'}
           subtitle={
             isVi
-              ? 'Được xây dựng theo tiêu chuẩn bảo mật khắt khe nhất, bảo vệ dữ liệu toàn vẹn và cho phép tùy biến cài đặt trên mọi môi trường hạ tầng.'
-              : 'Engineered according to rigorous enterprise security standards, protecting data integrity while offering versatile deployment on any cloud or on-prem environment.'
+              ? 'Xây dựng theo tiêu chuẩn an ninh nghiêm ngặt, bảo vệ dữ liệu và triển khai linh hoạt.'
+              : 'Engineered according to rigorous security standards with versatile cloud and on-prem deployments.'
           }
           features={features}
         />

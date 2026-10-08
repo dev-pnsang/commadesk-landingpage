@@ -21,11 +21,11 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/sarah_mitchell_hd.jpg',
     rating: 5.0,
     quote:
-      '“CommaDesk eliminated tool fragmentation across our teams. Having Kanban workflows, project time logs, and multi-tenant org charts in one platform saved our leads hours of status meetings every week.”',
+      '“CommaDesk eliminated tool fragmentation. Having Kanban, time logs, and org charts in one place saves us hours of meetings every week.”',
     quoteVi:
-      '“CommaDesk xóa bỏ hoàn toàn tình trạng phân mảnh công cụ giữa các đội ngũ của chúng tôi. Việc tích hợp quy trình Kanban, nhật ký giờ dự án và sơ đồ tổ chức đa chi nhánh vào một nền tảng duy nhất đã tiết kiệm cho các nhóm trưởng hàng giờ họp báo cáo tiến độ mỗi tuần.”',
+      '“CommaDesk xóa bỏ phân mảnh công cụ. Việc có Kanban, nhật ký giờ và sơ đồ tổ chức tại một nơi giúp chúng tôi tiết kiệm hàng giờ họp mỗi tuần.”',
     quoteEn:
-      '“CommaDesk eliminated tool fragmentation across our teams. Having Kanban workflows, project time logs, and multi-tenant org charts in one platform saved our leads hours of status meetings every week.”',
+      '“CommaDesk eliminated tool fragmentation. Having Kanban, time logs, and org charts in one place saves us hours of meetings every week.”',
   },
   {
     id: 'james',
@@ -36,11 +36,11 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/james_carter_hd.jpg',
     rating: 5.0,
     quote:
-      '“The document registry and Casbin RBAC permissions gave us enterprise-grade governance. Multi-manager approvals and shift timesheets happen in minutes without bureaucratic friction.”',
+      '“The document registry and Casbin RBAC deliver enterprise-grade governance. Multi-manager approvals now take minutes instead of days.”',
     quoteVi:
-      '“Hệ thống sổ văn bản hành chính và phân quyền Casbin RBAC mang lại cho chúng tôi năng lực quản trị chuẩn doanh nghiệp. Quy trình phê duyệt đa quản lý và bảng công theo ca diễn ra chỉ trong vài phút mà không gặp bất kỳ trở ngại thủ tục nào.”',
+      '“Sổ văn bản số và phân quyền Casbin mang lại năng lực quản trị chuẩn mực. Quy trình duyệt đa cấp giờ chỉ mất vài phút thay vì nhiều ngày.”',
     quoteEn:
-      '“The document registry and Casbin RBAC permissions gave us enterprise-grade governance. Multi-manager approvals and shift timesheets happen in minutes without bureaucratic friction.”',
+      '“The document registry and Casbin RBAC deliver enterprise-grade governance. Multi-manager approvals now take minutes instead of days.”',
   },
   {
     id: 'elena',
@@ -51,11 +51,11 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/elena_rostova_hd.jpg',
     rating: 5.0,
     quote:
-      '“The REST API, webhooks, and GitHub integration fit smoothly into our CI/CD pipelines. Casbin RBAC makes managing fine-grained developer permissions effortless and bulletproof.”',
+      '“The REST API and webhooks integrated smoothly into our CI/CD pipelines. Casbin RBAC keeps developer access secure and effortless.”',
     quoteVi:
-      '“Hệ thống REST API, Webhooks và tích hợp Git/GitHub kết nối mượt mà vào toàn bộ đường ống CI/CD của chúng tôi. Ma trận phân quyền Casbin RBAC giúp việc quản lý quyền hạn lập trình viên trở nên nhẹ nhàng, an toàn tuyệt đối.”',
+      '“Hệ thống REST API và Webhooks tích hợp mượt mà vào luồng CI/CD. Phân quyền Casbin giúp quản lý quyền hạn an toàn và tiện lợi.”',
     quoteEn:
-      '“The REST API, webhooks, and GitHub integration fit smoothly into our CI/CD pipelines. Casbin RBAC makes managing fine-grained developer permissions effortless and bulletproof.”',
+      '“The REST API and webhooks integrated smoothly into our CI/CD pipelines. Casbin RBAC keeps developer access secure and effortless.”',
   },
   {
     id: 'david',
@@ -66,11 +66,11 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/david_chen_hd.jpg',
     rating: 5.0,
     quote:
-      '“Managing multi-shift rosters across branches with mobile GPS and Kiosk check-in transformed our attendance. Automated timesheet calculations cut our month-end payroll cycle by 60%.”',
+      '“Mobile GPS and Face AI check-in transformed attendance across branches. Automated timesheets cut our payroll cycle by 60%.”',
     quoteVi:
-      '“Quản lý lịch phân ca đa chi nhánh kết hợp chấm công GPS trên di động và Kiosk Face AI đã thay đổi hoàn toàn cách chúng tôi theo dõi nhân sự. Cơ chế tự động tính bảng công đã rút ngắn 60% chu kỳ chốt bảng lương cuối tháng.”',
+      '“Chấm công GPS di động và Face AI giúp tinh gọn điểm danh chi nhánh. Bảng công tự động giúp giảm 60% thời gian chốt lương.”',
     quoteEn:
-      '“Managing multi-shift rosters across branches with mobile GPS and Kiosk check-in transformed our attendance. Automated timesheet calculations cut our month-end payroll cycle by 60%.”',
+      '“Mobile GPS and Face AI check-in transformed attendance across branches. Automated timesheets cut our payroll cycle by 60%.”',
   },
   {
     id: 'marcus',
@@ -81,11 +81,11 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/marcus_aurel_hd.jpg',
     rating: 5.0,
     quote:
-      '“CommaDesk’s multi-tenant database routing, hybrid MySQL architecture, and automated OBB backup/restore gave our security council the confidence to roll out company-wide.”',
+      '“CommaDesk’s multi-tenant architecture and automated backups gave our security council total confidence to deploy company-wide.”',
     quoteVi:
-      '“Kiến trúc định tuyến cơ sở dữ liệu đa tổ chức của CommaDesk, mô hình kết hợp MySQL 8.0, ClickHouse và sao lưu tự động OBB đã đem lại cho hội đồng an ninh thông tin của chúng tôi sự tin tưởng tuyệt đối để triển khai toàn tập đoàn.”',
+      '“Kiến trúc đa tổ chức và sao lưu tự động của CommaDesk đem lại sự yên tâm tuyệt đối khi triển khai trên toàn tập đoàn.”',
     quoteEn:
-      '“CommaDesk’s multi-tenant database routing, hybrid MySQL architecture, and automated OBB backup/restore gave our security council the confidence to roll out company-wide.”',
+      '“CommaDesk’s multi-tenant architecture and automated backups gave our security council total confidence to deploy company-wide.”',
   },
   {
     id: 'sophia',
@@ -96,10 +96,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/sophia_lin_hd.jpg',
     rating: 5.0,
     quote:
-      '“Real-time Gantt tracking and executive dashboard KPIs let our executive team spot project delivery bottlenecks weeks before milestones slip. The acceptance workflow is second to none.”',
+      '“Real-time Gantt timelines and executive KPIs let us spot bottlenecks before milestones slip. Delivery predictability has never been higher.”',
     quoteVi:
-      '“Sơ đồ Gantt thời gian thực và chỉ số KPI trên Executive Dashboard giúp ban lãnh đạo phát hiện sớm các nút thắt cổ chai trong tiến độ dự án nhiều tuần trước khi trễ hạn. Quy trình nghiệm thu 3 cấp thực sự vô cùng chuyên nghiệp.”',
+      '“Tiến độ Gantt realtime và KPI lãnh đạo giúp phát hiện điểm nghẽn trước khi trễ hạn. Tiến độ bàn giao luôn được đảm bảo.”',
     quoteEn:
-      '“Real-time Gantt tracking and executive dashboard KPIs let our executive team spot project delivery bottlenecks weeks before milestones slip. The acceptance workflow is second to none.”',
+      '“Real-time Gantt timelines and executive KPIs let us spot bottlenecks before milestones slip. Delivery predictability has never been higher.”',
   },
 ];

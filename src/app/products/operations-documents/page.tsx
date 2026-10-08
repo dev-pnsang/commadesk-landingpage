@@ -20,89 +20,89 @@ export default function OperationsDocumentsPage() {
     ? [
         {
           id: 'doc-registry',
-          tag: 'Văn thư & Pháp lý',
-          title: 'Sổ văn bản đến & văn bản đi (Nghị định 150/370)',
-          description: 'Chuẩn hóa quy trình tiếp nhận, đăng ký số hiệu tự động và phân loại lĩnh vực theo quy định.',
-          metricBadge: { label: 'Tốc độ số hóa', value: '100% không dùng giấy' },
+          tag: 'Văn thư',
+          title: 'Sổ Văn Bản Đến/Đi',
+          description: 'Chuẩn hóa quy trình tiếp nhận, đánh số tự động và phân loại theo quy định.',
+          metricBadge: { label: 'Số hóa', value: '100% Paperless' },
         },
         {
           id: 'approvals-flow',
-          tag: 'Trình ký số',
-          title: 'Quy trình ký duyệt điện tử & Dấu niêm phong số',
-          description: 'Thiết lập luồng trình ký linh hoạt, chữ ký số băm bất biến và đối soát vết sửa đổi minh bạch.',
-          metricBadge: { label: 'Thời gian trình duyệt', value: 'Giảm 75% chu kỳ' },
+          tag: 'Trình ký',
+          title: 'Ký Duyệt & Dấu Số',
+          description: 'Thiết lập luồng trình ký linh hoạt, chữ ký số băm bất biến và đối soát vết sửa đổi.',
+          metricBadge: { label: 'Tốc độ', value: 'Nhanh hơn 75%' },
         },
         {
           id: 'reserved-numbers',
-          tag: 'Đánh số tự động',
-          title: 'Quản lý Số chừa, Số hủy & Đánh số tự động',
+          tag: 'Đánh số',
+          title: 'Quản Lý Cấp Số',
           description: 'Hệ thống tự động cấp số văn bản liên tục, quản lý số chừa và số hủy tránh trùng lặp.',
-          metricBadge: { label: 'Độ chính xác', value: '100% không trùng số' },
+          metricBadge: { label: 'Chính xác', value: '100% không trùng' },
         },
         {
           id: 'policy-docs',
-          tag: 'Quy chế nội bộ',
-          title: 'Kho Quy chế, Chính sách & Hướng dẫn nội bộ',
+          tag: 'Quy chế',
+          title: 'Kho Quy Chế Nội Bộ',
           description: 'Lưu trữ tài liệu quy chế công ty, phân loại theo phòng ban và theo dõi lịch sử cập nhật.',
-          metricBadge: { label: 'Truy cập nội bộ', value: 'Tức thời' },
+          metricBadge: { label: 'Truy cập', value: 'Tức thời' },
         },
         {
           id: 'doc-search',
-          tag: 'Tra cứu thông minh',
-          title: 'Tra cứu trích yếu & Tìm kiếm văn bản tức thì',
-          description: 'Tìm kiếm nhanh theo số hiệu, trích yếu, ngày phát hành, cơ quan ban hành hoặc từ khóa tệp.',
-          metricBadge: { label: 'Thời gian tìm kiếm', value: '< 1 giây' },
+          tag: 'Tra cứu',
+          title: 'Tra Cứu Thông Minh',
+          description: 'Tìm kiếm nhanh theo số hiệu, trích yếu, ngày phát hành hoặc từ khóa đính kèm.',
+          metricBadge: { label: 'Thời gian', value: '< 1 giây' },
         },
         {
           id: 'casbin-registry-rbac',
-          tag: 'Kiểm soát truy cập',
-          title: 'Phân quyền hồ sơ văn bản theo Casbin RBAC',
-          description: 'Bảo mật văn bản mật và hồ sơ pháp lý, chỉ nhân sự có thẩm quyền mới được xem tệp đính kèm.',
-          metricBadge: { label: 'Tiêu chuẩn bảo mật', value: 'ISO 27001' },
+          tag: 'Bảo mật',
+          title: 'Phân Quyền Văn Bản',
+          description: 'Bảo mật văn bản mật và hồ sơ pháp lý, chỉ nhân sự có thẩm quyền mới được truy cập.',
+          metricBadge: { label: 'Bảo mật', value: 'Chuẩn ISO 27001' },
         },
       ]
     : [
         {
           id: 'doc-registry',
-          tag: 'Digital Registry',
-          title: 'Inbound & Outbound Registries (Decree 150/370)',
-          description: 'Standardize dispatch books with automated numbering and statutory administrative classifications.',
-          metricBadge: { label: 'Paperless Speed', value: '100% Digital Flow' },
+          tag: 'Registry',
+          title: 'Inbound & Outbound Registries',
+          description: 'Standardize dispatch books with automated numbering and administrative classifications.',
+          metricBadge: { label: 'Paperless', value: '100% Digital Flow' },
         },
         {
           id: 'approvals-flow',
-          tag: 'Digital Signing',
-          title: 'Multi-Tier Digital Signing & Cryptographic Seals',
-          description: 'Flexible digital signing workflows with cryptographic seals and tamper-proof revision audits.',
-          metricBadge: { label: 'Cycle Reduction', value: '75% Faster Routing' },
+          tag: 'Signatures',
+          title: 'Digital Signing & Seals',
+          description: 'Flexible digital signing workflows with cryptographic seals and tamper-proof audits.',
+          metricBadge: { label: 'Efficiency', value: '75% Faster' },
         },
         {
           id: 'reserved-numbers',
-          tag: 'Numbering Rules',
-          title: 'Reserved & Void Number Governance',
-          description: 'Automated continuous numbering engines preventing duplicate or skipped dispatch numbers.',
-          metricBadge: { label: 'Numbering Accuracy', value: 'Zero Collisions' },
+          tag: 'Numbering',
+          title: 'Numbering Governance',
+          description: 'Continuous numbering engine preventing duplicate or skipped dispatch numbers.',
+          metricBadge: { label: 'Accuracy', value: 'Zero Collisions' },
         },
         {
           id: 'policy-docs',
-          tag: 'Internal Policies',
-          title: 'Company Policy Repository & Circulars',
+          tag: 'Policies',
+          title: 'Internal Policy Repository',
           description: 'Centralized policy repository with department tags, role views, and version history.',
-          metricBadge: { label: 'Access Speed', value: 'Instant Access' },
+          metricBadge: { label: 'Access', value: 'Instant Access' },
         },
         {
           id: 'doc-search',
-          tag: 'Smart Search',
-          title: 'Instant Document & Abstract Full-Text Search',
+          tag: 'Search',
+          title: 'Instant Document Search',
           description: 'Rapid search by dispatch ID, abstract summary, issuance date, or full attachment text.',
-          metricBadge: { label: 'Search Latency', value: '< 1 Second' },
+          metricBadge: { label: 'Latency', value: '< 1 Second' },
         },
         {
           id: 'casbin-registry-rbac',
-          tag: 'Access Control',
-          title: 'Casbin RBAC Security for Confidential Records',
-          description: 'Strict Casbin access policies ensuring only authorized personnel view sensitive files.',
-          metricBadge: { label: 'Security Standard', value: 'ISO 27001' },
+          tag: 'Security',
+          title: 'Casbin RBAC Permissions',
+          description: 'Strict access control ensuring only authorized personnel view sensitive files.',
+          metricBadge: { label: 'Standard', value: 'ISO 27001' },
         },
       ];
 
@@ -115,31 +115,29 @@ export default function OperationsDocumentsPage() {
           categoryBadge={isVi ? 'Phân hệ Vận hành & Văn bản' : 'Operations & Registry Module'}
           title={
             isVi
-              ? ['Văn bản chuẩn mực.', 'Kho vận & Tài sản chính xác.']
-              : ['Standardized registry.', 'Flawless inventory & fleet operations.']
+              ? ['Văn bản chuẩn mực.', 'Số hóa pháp lý toàn diện.']
+              : ['Standardized registry.', 'Digital governance suite.']
           }
           subtitle={
             isVi
-              ? 'CommaDesk Operations & Registry hợp nhất sổ văn bản đến/đi theo chuẩn hành chính, quy trình ký duyệt số, kho đa vị trí SKU, cấp phát tài sản Serial và điều phối logistics đội xe GPS vào một quy trình vận hành đồng bộ.'
-              : 'CommaDesk Operations & Registry unifies statutory document dispatch books, digital approvals, multi-location SKU inventory, serialized fixed assets, and GPS fleet logistics into a single governance engine.'
+              ? 'Hợp nhất sổ văn bản đến/đi, quy trình ký duyệt số và lưu trữ hồ sơ pháp lý theo quy chuẩn nhà nước.'
+              : 'Unify document registry dispatches, digital approvals, and statutory legal archiving in one secure workflow.'
           }
           tags={
             isVi
               ? [
-                  'Sổ văn bản NĐ 150/370',
-                  'Ký số & Dấu mộc điện tử',
-                  'Kho SKU đa vị trí',
-                  'Tài sản mã định danh Serial',
-                  'Logistics đội xe GPS',
-                  'Biên bản giao nhận POD',
+                  'Sổ văn bản số',
+                  'Ký duyệt & Con dấu số',
+                  'Đánh số tự động',
+                  'Tra cứu trích yếu',
+                  'Phân quyền Casbin',
                 ]
               : [
-                  'Decree 150/370 Registry',
-                  'Digital Signing & Seals',
-                  'Multi-Warehouse SKU',
-                  'Serial Asset Tags',
-                  'Fleet Logistics GPS',
-                  'Proof of Delivery POD',
+                  'Document Registry',
+                  'Digital Signatures',
+                  'Auto-Numbering',
+                  'Abstract Search',
+                  'Casbin RBAC',
                 ]
           }
           visualPreview={visualPreview}
@@ -147,11 +145,11 @@ export default function OperationsDocumentsPage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Hệ thống vận hành văn thư, kho bãi & đội xe' : 'Enterprise Governance, Inventory & Fleet Suite'}
+          title={isVi ? 'Hệ thống quản lý văn thư & hồ sơ pháp lý' : 'Enterprise Registry & Governance Suite'}
           subtitle={
             isVi
-              ? 'Xóa bỏ quy trình giấy tờ thủ công, kiểm soát minh bạch từng công văn pháp lý, từng linh kiện vật tư và từng chuyến xe vận chuyển.'
-              : 'Eliminate manual paper trails, gain full transparency over legal dispatches, warehouse inventory balances, and commercial fleet movements.'
+              ? 'Xóa bỏ quy trình giấy tờ thủ công, kiểm soát minh bạch từng văn bản và hợp đồng.'
+              : 'Eliminate manual paperwork with full transparency over legal dispatches and records.'
           }
           features={features}
         />

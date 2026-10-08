@@ -10,7 +10,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 
 import { InteractiveVisionRadar } from '@/components/showcase/InteractiveVisionRadar';
 
-export default function AiSmartCityPage() {
+export default function AISmartCityPage() {
   const { language } = useLanguage();
   const isVi = language === 'vi';
 
@@ -20,89 +20,89 @@ export default function AiSmartCityPage() {
     ? [
         {
           id: 'face-recognition',
-          tag: 'Nhận diện AI Sinh trắc',
-          title: 'Nhận diện khuôn mặt thời gian thực (<200ms)',
+          tag: 'Khuôn mặt AI',
+          title: 'Nhận Diện Khuôn Mặt',
           description: 'Nhận diện khuôn mặt dưới 200ms, chống giả mạo cho chấm công và đón tiếp VIP.',
-          metricBadge: { label: 'Tốc độ đối khớp', value: '< 200ms' },
+          metricBadge: { label: 'Tốc độ', value: '< 200ms' },
         },
         {
           id: 'anpr',
-          tag: 'Bãi đỗ xe thông minh',
-          title: 'Nhận diện biển số xe tự động (ANPR)',
-          description: 'Tự động đọc biển số xe, điều khiển barrier ra vào tòa nhà và bãi đỗ xe thông minh.',
-          metricBadge: { label: 'Độ chính xác biển số', value: '99.4%' },
+          tag: 'Biển số xe',
+          title: 'Nhận Diện Biển Số',
+          description: 'Tự động đọc biển số xe và điều khiển barrier bãi đỗ xe thông minh.',
+          metricBadge: { label: 'Chính xác', value: '99.4%' },
         },
         {
           id: 'vms',
-          tag: 'Hệ thống VMS Đa kênh',
-          title: 'Hệ thống VMS Portal & Chuẩn nén H.265',
-          description: 'Quản lý tập trung camera RTSP/ONVIF chuẩn H.265 với độ trễ thấp và tua lại sự kiện.',
-          metricBadge: { label: 'Chuẩn kết nối', value: 'RTSP / ONVIF' },
+          tag: 'Camera VMS',
+          title: 'Quản Lý Camera VMS',
+          description: 'Quản lý tập trung camera RTSP/ONVIF độ trễ thấp và tua lại sự kiện tức thì.',
+          metricBadge: { label: 'Kết nối', value: 'RTSP / ONVIF' },
         },
         {
           id: 'heatmap',
-          tag: 'Phân tích không gian',
-          title: 'Bản đồ nhiệt 2D Heatmap & Thời gian dừng chân',
-          description: 'Theo dõi luồng di chuyển và mật độ khách dừng chân để tối ưu mặt bằng bán lẻ.',
-          metricBadge: { label: 'Dữ liệu phân tích', value: 'Realtime 2D Grid' },
+          tag: 'Bản đồ nhiệt',
+          title: 'Bản Đồ Nhiệt Mật Độ',
+          description: 'Theo dõi luồng di chuyển và mật độ dừng chân để tối ưu không gian bán lẻ.',
+          metricBadge: { label: 'Độ phân giải', value: 'Realtime 2D' },
         },
         {
           id: 'gis-map',
-          tag: 'Đô thị & Bản đồ số',
-          title: 'Bản đồ GIS Smart City & Trung tâm điều hành',
+          tag: 'Đô thị số',
+          title: 'Bản Đồ Số GIS',
           description: 'Bản đồ số định vị hệ thống camera, cảm biến IoT và cửa hàng thời gian thực.',
-          metricBadge: { label: 'Tọa độ GPS', value: 'Định vị chính xác cao' },
+          metricBadge: { label: 'Định vị', value: 'Độ chính xác cao' },
         },
         {
           id: 'retail-events',
-          tag: 'Bán lẻ & Chuyển đổi',
-          title: 'Phân tích bán lẻ Retail Analytics & Đối soát POS',
-          description: 'Phân tích đối soát lưu lượng khách với doanh thu POS thực tế đo lường chuyển đổi.',
-          metricBadge: { label: 'Tỷ lệ chuyển đổi', value: 'Đối soát tự động' },
+          tag: 'Bán lẻ',
+          title: 'Phân Tích Khách Bán Lẻ',
+          description: 'Đối soát lưu lượng khách với doanh thu POS thực tế để đo lường chuyển đổi.',
+          metricBadge: { label: 'Chuyển đổi', value: 'Đối soát tự động' },
         },
       ]
     : [
         {
           id: 'face-recognition',
           tag: 'Biometric AI',
-          title: 'Real-Time Facial Recognition Engine (<200ms)',
-          description: 'Sub-200ms AI face recognition with anti-spoofing for contactless check-in and VIP welcome.',
-          metricBadge: { label: 'Inference Latency', value: '< 200ms' },
+          title: 'Facial Recognition',
+          description: 'Sub-200ms face recognition with anti-spoofing for check-in and VIP welcome.',
+          metricBadge: { label: 'Latency', value: '< 200ms' },
         },
         {
           id: 'anpr',
           tag: 'Smart Parking',
-          title: 'Automatic Number Plate Recognition (ANPR)',
-          description: 'Automated vehicle license plate reading with automatic gate barrier controls.',
-          metricBadge: { label: 'Recognition Accuracy', value: '99.4%' },
+          title: 'Plate Recognition (ANPR)',
+          description: 'Automated vehicle license plate reading with automated gate barrier controls.',
+          metricBadge: { label: 'Accuracy', value: '99.4%' },
         },
         {
           id: 'vms',
-          tag: 'Video Management',
-          title: 'Enterprise VMS Portal & H.265 Streaming',
-          description: 'Centralized RTSP/ONVIF video management with low-latency live walls and event playback.',
-          metricBadge: { label: 'Protocol Support', value: 'RTSP / ONVIF' },
+          tag: 'Video VMS',
+          title: 'VMS Camera Portal',
+          description: 'Centralized RTSP/ONVIF video management with low-latency live streaming.',
+          metricBadge: { label: 'Protocol', value: 'RTSP / ONVIF' },
         },
         {
           id: 'heatmap',
-          tag: 'Spatial Analytics',
-          title: '2D Footfall & Customer Density Heatmaps',
-          description: 'Analyze customer dwell times and high-traffic retail aisles to maximize store layout.',
-          metricBadge: { label: 'Spatial Resolution', value: 'Realtime 2D Grid' },
+          tag: 'Footfall',
+          title: 'Density Heatmaps',
+          description: 'Analyze customer dwell times and high-traffic aisles to maximize retail layout.',
+          metricBadge: { label: 'Resolution', value: 'Realtime 2D' },
         },
         {
           id: 'gis-map',
-          tag: 'Smart City GIS',
-          title: 'Interactive GIS Map & Smart City Dashboard',
+          tag: 'Smart City',
+          title: 'GIS Smart City Map',
           description: 'Geospatial map plotting cameras, IoT sensors, and branch statuses in real time.',
-          metricBadge: { label: 'Geo-Precision', value: 'Meter-Level Accuracy' },
+          metricBadge: { label: 'Precision', value: 'Meter-Level' },
         },
         {
           id: 'retail-events',
-          tag: 'Retail Intelligence',
-          title: 'Retail Analytics & POS Revenue Correlation',
-          description: 'Correlate footfall traffic with actual POS register sales to compute true conversion rates.',
-          metricBadge: { label: 'Conversion Tracking', value: 'Automated Audit' },
+          tag: 'Retail AI',
+          title: 'Footfall & POS Analytics',
+          description: 'Correlate footfall traffic with POS register sales to compute conversion rates.',
+          metricBadge: { label: 'Tracking', value: 'Automated Audit' },
         },
       ];
 
@@ -120,26 +120,24 @@ export default function AiSmartCityPage() {
           }
           subtitle={
             isVi
-              ? 'CommaDesk AI Vision & Smart City biến luồng camera thông thường thành hệ thống phân tích thị giác máy tính: nhận diện khuôn mặt tức thì, đọc biển số xe ANPR, bản đồ nhiệt Heatmap và trung tâm điều hành Smart City Dashboard.'
-              : 'CommaDesk AI Vision & Smart City turns standard CCTV streams into high-value computer vision insights: sub-200ms face matching, automated ANPR plates, retail heatmaps, and unified GIS city management.'
+              ? 'Phân tích thị giác AI thông minh: nhận diện khuôn mặt, đọc biển số xe ANPR, bản đồ nhiệt và bản đồ GIS.'
+              : 'Enterprise computer vision insights: fast face matching, automated ANPR plates, retail heatmaps, and GIS city management.'
           }
           tags={
             isVi
               ? [
-                  'Nhận diện khuôn mặt <200ms',
-                  'Đọc biển số xe ANPR',
-                  'VMS Camera đa kênh',
-                  'Bản đồ nhiệt Heatmap 2D',
-                  'Bản đồ số Goong Map GIS',
-                  'Đối soát doanh thu POS',
+                  'Nhận diện khuôn mặt',
+                  'Đọc biển số ANPR',
+                  'VMS Camera',
+                  'Bản đồ nhiệt Heatmap',
+                  'Bản đồ số GIS',
                 ]
               : [
-                  'Face Matching <200ms',
+                  'Facial Recognition',
                   'ANPR License Plates',
-                  'Multi-Channel VMS',
-                  '2D Footfall Heatmap',
-                  'Goong Map GIS',
-                  'POS Conversion Tracking',
+                  'VMS Camera Portal',
+                  'Footfall Heatmaps',
+                  'GIS Smart City',
                 ]
           }
           visualPreview={visualPreview}
@@ -147,11 +145,11 @@ export default function AiSmartCityPage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Nền tảng thị giác máy tính & Phân tích bán lẻ' : 'Enterprise Computer Vision & Spatial Analytics'}
+          title={isVi ? 'Thị giác máy tính & Phân tích không gian' : 'Computer Vision & Spatial Analytics'}
           subtitle={
             isVi
-              ? 'Tận dụng công nghệ AI tiên tiến để nâng cao mức độ an ninh, tự động hóa quy trình kiểm soát ra vào và thấu hiểu hành vi khách hàng trong không gian thực.'
-              : 'Harness state-of-the-art vision models to fortify security perimeter gates, automate physical access, and optimize commercial footfall revenue.'
+              ? 'Nâng cao mức độ an ninh, tự động hóa kiểm soát ra vào và thấu hiểu hành vi khách hàng.'
+              : 'Fortify perimeter security, automate physical access, and optimize commercial footfall revenue.'
           }
           features={features}
         />

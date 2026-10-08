@@ -20,88 +20,88 @@ export default function SocialRetailPage() {
         {
           id: 'multi-channel-hub',
           tag: 'Đa kênh MXH',
-          title: 'Quản Lý Tập Trung Kênh Mạng Xã Hội (Social Gateway)',
-          description: 'Hội tụ toàn bộ các kênh Facebook Fanpage, Zalo Official Account, và Webchat chăm sóc khách hàng vào một bảng điều khiển duy nhất.',
+          title: 'Cổng Mạng Xã Hội',
+          description: 'Hội tụ Facebook Fanpage, Zalo OA và Webchat vào một màn hình duy nhất.',
           metricBadge: { label: 'Kết nối mạng xã hội', value: 'Đa kênh Meta & Zalo' },
         },
         {
           id: 'post-composer',
-          tag: 'Soạn thảo xuất bản',
-          title: 'Trình Soạn Thảo Đăng Bài Đa Kênh (Post Composer)',
-          description: 'Soạn thảo nội dung một lần, xem trước giao diện trực quan và hẹn giờ đăng bài đồng thời lên tất cả các fanpage và tài khoản Zalo OA.',
-          metricBadge: { label: 'Tiết kiệm thời gian', value: 'Nhanh hơn 4x' },
+          tag: 'Soạn thảo',
+          title: 'Đăng Bài Đa Kênh',
+          description: 'Soạn nội dung một lần, xem trước trực quan và hẹn giờ đăng bài đồng thời.',
+          metricBadge: { label: 'Tốc độ', value: 'Nhanh hơn 4x' },
         },
         {
           id: 'kiotviet-two-way-sync',
-          tag: 'Bán lẻ KiotViet',
-          title: 'Đồng Bộ Hai Chiều Với Phần Mềm Bán Lẻ KiotViet',
-          description: 'Tự động đồng bộ danh mục sản phẩm, giá bán, số dư tồn kho theo chi nhánh và đơn hàng realtime giữa KiotViet POS và CommaDesk.',
+          tag: 'Bán lẻ POS',
+          title: 'Đồng Bộ KiotViet',
+          description: 'Đồng bộ hai chiều danh mục sản phẩm, giá bán và đơn hàng thời gian thực.',
           metricBadge: { label: 'Độ trễ đồng bộ', value: '< 1.2 Giây' },
         },
         {
           id: 'branch-stock-balance',
-          tag: 'Tồn kho chi nhánh',
-          title: 'Kiểm Soát Tồn Kho Chuỗi Cửa Hàng Bán Lẻ',
-          description: 'Theo dõi lượng tồn kho tại từng điểm bán lẻ KiotViet, tự động bù trừ khi có đơn hàng phát sinh, chống bán quá số lượng có sẵn.',
+          tag: 'Tồn kho',
+          title: 'Tồn Kho Chi Nhánh',
+          description: 'Theo dõi tồn kho từng điểm bán lẻ, tự động trừ kho khi phát sinh đơn hàng.',
           metricBadge: { label: 'Sai lệch số dư', value: 'Tuyệt đối 0%' },
         },
         {
           id: 'social-monitoring',
-          tag: 'Giám sát tương tác',
-          title: 'Bảng Điều Khiển Giám Sát & Nhật Ký Kiểm Toán (Audit Log)',
-          description: 'Giám sát lưu lượng tương tác, cảnh báo vượt ngưỡng tần suất gọi API, ghi log chi tiết lịch sử gửi nhận thông điệp đa kênh.',
-          metricBadge: { label: 'Kiểm toán an toàn', value: '100% Casbin Log' },
+          tag: 'Giám sát',
+          title: 'Giám Sát & Nhật Ký',
+          description: 'Giám sát lưu lượng tương tác, giới hạn gọi API và ghi log gửi nhận đa kênh.',
+          metricBadge: { label: 'Kiểm toán', value: '100% Casbin Log' },
         },
         {
           id: 'omnichannel-orders',
-          tag: 'Đơn hàng đa kênh',
-          title: 'Xử Lý Đơn Hàng Từ Mạng Xã Hội Về Kho Trung Tâm',
-          description: 'Chuyển hóa tương tác khách hàng trên Facebook/Zalo thành đơn hàng thực tế, kích hoạt luồng xuất kho và giao vận tức thì.',
-          metricBadge: { label: 'Tỷ lệ chuyển đổi', value: '+28% Doanh thu' },
+          tag: 'Đơn hàng',
+          title: 'Đơn Hàng Đa Kênh',
+          description: 'Chuyển hóa tin nhắn và tương tác thành đơn hàng, kích hoạt xuất kho tức thì.',
+          metricBadge: { label: 'Tăng trưởng', value: '+28% Doanh thu' },
         },
       ]
     : [
         {
           id: 'multi-channel-hub',
-          tag: 'Omnichannel Hub',
-          title: 'Centralized Multi-Channel Social Gateway',
-          description: 'Unify company Facebook Fanpages, Zalo Official Accounts, and customer live webchats under a single high-availability operational dashboard.',
+          tag: 'Omnichannel',
+          title: 'Social Gateway',
+          description: 'Unify Facebook Fanpages, Zalo OA, and webchats into a single operational dashboard.',
           metricBadge: { label: 'Connected Channels', value: 'Meta & Zalo Native' },
         },
         {
           id: 'post-composer',
-          tag: 'Post Composer',
-          title: 'Multi-Channel Campaign Composer & Scheduled Broadcast',
-          description: 'Author campaigns once, inspect live platform previews, and schedule simultaneous broadcasts across pages and messaging channels.',
-          metricBadge: { label: 'Workflow Velocity', value: '4x Faster' },
+          tag: 'Composer',
+          title: 'Post Composer',
+          description: 'Draft campaigns once, preview live, and schedule simultaneous broadcasts.',
+          metricBadge: { label: 'Velocity', value: '4x Faster' },
         },
         {
           id: 'kiotviet-two-way-sync',
           tag: 'KiotViet Sync',
-          title: 'Bi-Directional Real-Time KiotViet POS Synchronization',
-          description: 'Real-time synchronization of product catalogs, multi-branch price tiers, stock balances and counter orders between KiotViet POS and CommaDesk.',
+          title: 'POS Synchronization',
+          description: 'Real-time two-way sync of product catalogs, branch prices, and store orders.',
           metricBadge: { label: 'Sync Latency', value: '< 1.2 Seconds' },
         },
         {
           id: 'branch-stock-balance',
-          tag: 'Store Stock',
-          title: 'Retail Storefront & Branch Inventory Ledger Reconciler',
-          description: 'Track real-time stock balances across all retail store locations, automatically deducting units whenever a retail sale is rung up.',
+          tag: 'Inventory',
+          title: 'Storefront Inventory',
+          description: 'Track stock balances across locations with automatic deduction per sale.',
           metricBadge: { label: 'Oversell Risk', value: 'Zero Discrepancy' },
         },
         {
           id: 'social-monitoring',
-          tag: 'Monitoring & Audit',
-          title: 'Gateway Health Monitor & Cryptographic Social Audit Logs',
-          description: 'Monitor inbound/outbound traffic volumes, API rate limits, webhook delivery retries, and comprehensive audit trails under Casbin RBAC.',
+          tag: 'Audit Log',
+          title: 'Health & Audit Logs',
+          description: 'Monitor traffic volume, API rate limits, and webhook audit trails under RBAC.',
           metricBadge: { label: 'Security & Audit', value: '100% Logged' },
         },
         {
           id: 'omnichannel-orders',
-          tag: 'Order Pipeline',
-          title: 'Social Lead Ingestion to Central Fulfillment Pipeline',
-          description: 'Convert social interactions from Facebook and Zalo into confirmed orders, dispatching warehouse fulfillment and logistics seamlessly.',
-          metricBadge: { label: 'Conversion Impact', value: '+28% Revenue' },
+          tag: 'Orders',
+          title: 'Order Fulfillment',
+          description: 'Convert social interactions into confirmed orders with automated dispatch.',
+          metricBadge: { label: 'Conversion', value: '+28% Revenue' },
         },
       ];
 
@@ -119,26 +119,24 @@ export default function SocialRetailPage() {
           }
           subtitle={
             isVi
-              ? 'Cổng kết nối mạng xã hội tập trung, soạn đăng bài đa kênh, giám sát tương tác và tự động đồng bộ hai chiều dữ liệu sản phẩm, tồn kho và đơn hàng với phần mềm KiotViet.'
-              : 'Enterprise social broadcasting, Facebook & Zalo multi-channel campaign composer, live audit logging, and bi-directional retail synchronization with KiotViet POS.'
+              ? 'Cổng kết nối mạng xã hội tập trung, đăng bài đa kênh và tự động đồng bộ tồn kho hai chiều với KiotViet.'
+              : 'Enterprise social broadcasting, multi-channel composer, and real-time retail synchronization with KiotViet POS.'
           }
           tags={
             isVi
               ? [
-                  'Social Gateway tập trung',
-                  'Soạn bài Post Composer',
+                  'Social Gateway',
+                  'Đăng bài đa kênh',
                   'Đồng bộ KiotViet POS',
-                  'Cân bằng tồn chi nhánh',
-                  'Giám sát & Nhật ký Audit',
-                  'Xử lý đơn hàng đa kênh',
+                  'Tồn kho chi nhánh',
+                  'Xử lý đơn hàng',
                 ]
               : [
-                  'Central Social Gateway',
-                  'Post Composer Tool',
-                  'KiotViet Real-Time Sync',
-                  'Branch Inventory Balances',
-                  'Gateway Health & Auditing',
-                  'Omnichannel Order Pipeline',
+                  'Social Gateway',
+                  'Post Composer',
+                  'KiotViet Sync',
+                  'Branch Inventory',
+                  'Order Pipeline',
                 ]
           }
           visualPreview={visualPreview}
@@ -146,11 +144,11 @@ export default function SocialRetailPage() {
 
         <SubpageFeaturesGrid
           badge={isVi ? 'Khả năng cốt lõi' : 'Core Capabilities'}
-          title={isVi ? 'Giải pháp bán lẻ đa kênh & mạng xã hội hợp nhất' : 'Enterprise Omnichannel Social & Retail Engine'}
+          title={isVi ? 'Giải pháp bán lẻ & mạng xã hội hợp nhất' : 'Omnichannel Social & Retail Engine'}
           subtitle={
             isVi
-              ? 'Không còn phân mảnh giữa đội ngũ marketing mạng xã hội và vận hành kho bãi, cửa hàng thực tế.'
-              : 'Bridge the gap between digital marketing campaigns, counter point-of-sale transactions, and central warehouse fulfillment.'
+              ? 'Xóa bỏ khoảng cách giữa tiếp thị số, bán lẻ tại quầy và xuất kho trung tâm.'
+              : 'Unify social marketing, store point-of-sale transactions, and warehouse fulfillment.'
           }
           features={features}
         />
