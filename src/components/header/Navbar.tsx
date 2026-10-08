@@ -60,7 +60,7 @@ export function Navbar() {
     cancelLeaveTimeout();
     leaveTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 350);
+    }, 450);
   };
 
   const handleMenuClick = (menu: "modules" | "solutions" | "resources") => {
@@ -176,26 +176,26 @@ export function Navbar() {
   }[] = [
     {
       title: t.nav.resourcesList.docs,
-      desc: "Full feature technical architecture",
+      desc: t.nav.resourcesList.docsDesc,
       href: "/docs",
       iconName: "BookOpen",
     },
     {
       title: t.nav.resourcesList.releaseNotes,
-      desc: "Changelog and continuous updates",
+      desc: t.nav.resourcesList.releaseNotesDesc,
       href: "/release-notes",
       badge: "What's New",
       iconName: "Sparkles",
     },
     {
       title: t.nav.resourcesList.api,
-      desc: "Interactive OpenAPI 3.0 endpoints",
+      desc: t.nav.resourcesList.apiDesc,
       href: "/docs",
       iconName: "Code2",
     },
     {
       title: t.nav.resourcesList.deployment,
-      desc: "Cloud, On-Prem & Desktop (.exe)",
+      desc: t.nav.resourcesList.deploymentDesc,
       href: "/deployment",
       iconName: "Monitor",
     },
@@ -262,8 +262,14 @@ export function Navbar() {
               {/* Modules Mega Flyout */}
               {isModulesOpen && (
                 <div
+                  onMouseEnter={() => {
+                    cancelLeaveTimeout();
+                    if (!isMenuLocked) setActiveMenu("modules");
+                  }}
+                  onMouseMove={cancelLeaveTimeout}
+                  onMouseLeave={handleMenuHoverLeave}
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/3 sm:-translate-x-1/4 lg:-translate-x-1/3 top-full mt-3 w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/3 sm:-translate-x-1/4 lg:-translate-x-1/3 top-full mt-3 w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-5 before:left-0 before:right-0 before:h-6 before:pointer-events-auto"
                 >
                   <div className="flex items-center justify-between px-2 pb-3 mb-3 border-b border-slate-100">
                     <div className="flex items-center gap-2">
@@ -365,8 +371,14 @@ export function Navbar() {
 
               {isSolutionsOpen && (
                 <div
+                  onMouseEnter={() => {
+                    cancelLeaveTimeout();
+                    if (!isMenuLocked) setActiveMenu("solutions");
+                  }}
+                  onMouseMove={cancelLeaveTimeout}
+                  onMouseLeave={handleMenuHoverLeave}
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-5 before:left-0 before:right-0 before:h-6 before:pointer-events-auto"
                 >
                   <div className="space-y-1 w-full">
                     {solutionsList.map((sol, idx) => (
@@ -421,8 +433,14 @@ export function Navbar() {
 
               {isResourcesOpen && (
                 <div
+                  onMouseEnter={() => {
+                    cancelLeaveTimeout();
+                    if (!isMenuLocked) setActiveMenu("resources");
+                  }}
+                  onMouseMove={cancelLeaveTimeout}
+                  onMouseLeave={handleMenuHoverLeave}
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-3 w-[calc(100vw-2rem)] max-w-[420px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-3 w-[calc(100vw-2rem)] max-w-[420px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-5 before:left-0 before:right-0 before:h-6 before:pointer-events-auto"
                 >
                   <div className="space-y-1 w-full">
                     {resourcesList.map((res, idx) => (

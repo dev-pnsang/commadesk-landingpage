@@ -5,7 +5,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'fleet-logistics',
     title: 'Fleet & Logistics',
-    shortDesc: 'Live GPS GIS tracking, vehicle dispatch, driver PWA & fleet ledger.',
+    shortDesc: 'Live GPS GIS tracking, dispatch & driver PWA.',
     href: '/products/fleet-logistics',
     badge: 'Operations',
     category: 'operations',
@@ -14,7 +14,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'inventory-assets',
     title: 'Inventory & Assets',
-    shortDesc: 'SKU warehouses, voucher approvals, serial assets & stationery requests.',
+    shortDesc: 'SKU warehouses, stock vouchers & serial assets.',
     href: '/products/inventory-assets',
     badge: 'New',
     category: 'operations',
@@ -23,7 +23,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'operations-documents',
     title: 'Operations & Registry',
-    shortDesc: 'Official document registry, Decree 30 auto-numbering & digital approval.',
+    shortDesc: 'Official document registry, Decree 30 & e-signatures.',
     href: '/products/operations-documents',
     category: 'operations',
     iconName: 'FileText',
@@ -33,7 +33,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'work-management',
     title: 'Work & Projects',
-    shortDesc: 'Real-time project tracking, Kanban boards & interactive Gantt.',
+    shortDesc: 'Project tracking, Kanban boards & live Gantt.',
     href: '/products/work-management',
     badge: 'Core',
     category: 'workforce',
@@ -42,7 +42,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'hr-workforce',
     title: 'HR & Workforce',
-    shortDesc: 'Org hierarchy, 360° employee files, attendance & payroll.',
+    shortDesc: 'Org hierarchy, 360° profiles, attendance & payroll.',
     href: '/products/hr-workforce',
     badge: 'Popular',
     category: 'workforce',
@@ -51,7 +51,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'approvals-analytics',
     title: 'Approvals & Leadership',
-    shortDesc: 'Unified approvals inbox, delegation rules & C-suite productivity KPI.',
+    shortDesc: 'Unified inbox, delegation rules & C-suite KPIs.',
     href: '/products/approvals-analytics',
     badge: 'Enterprise',
     category: 'workforce',
@@ -62,7 +62,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'communication-meet',
     title: 'CommaMeet & Comms',
-    shortDesc: 'Secure HD video meetings, team Matrix chat & instant push alerts.',
+    shortDesc: 'Secure HD video meetings & team Matrix chat.',
     href: '/products/communication-meet',
     category: 'comms',
     iconName: 'Video',
@@ -70,7 +70,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'surveys-feedback',
     title: 'Surveys & Feedback',
-    shortDesc: 'Visual survey builder, eNPS metrics & confidential leadership mailbox.',
+    shortDesc: 'Visual survey builder, eNPS & confidential mailbox.',
     href: '/products/surveys-feedback',
     badge: 'New',
     category: 'comms',
@@ -79,7 +79,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'cms-portal',
     title: 'CMS Studio & Portal',
-    shortDesc: 'Visual website builder, employee intranet portal & content moderation.',
+    shortDesc: 'No-code site builder, intranet portal & moderation.',
     href: '/products/cms-portal',
     category: 'comms',
     iconName: 'Globe',
@@ -89,7 +89,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'crm-helpdesk',
     title: 'CRM & Helpdesk',
-    shortDesc: 'ITIL service desk, SLA tracking & B2B deals pipeline.',
+    shortDesc: 'ITIL service desk, SLA tracking & B2B pipeline.',
     href: '/products/crm-helpdesk',
     category: 'commerce',
     iconName: 'HelpCircle',
@@ -97,7 +97,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'social-retail',
     title: 'Social & Retail',
-    shortDesc: 'Multi-channel post composer & real-time KiotViet POS sync.',
+    shortDesc: 'Multi-channel posting & 2-way KiotViet POS sync.',
     href: '/products/social-retail',
     badge: 'Omnichannel',
     category: 'commerce',
@@ -106,7 +106,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'ai-smart-city',
     title: 'AI Vision & Smart City',
-    shortDesc: 'AI camera VMS, instant face recognition & ANPR license plates.',
+    shortDesc: 'AI camera VMS, facial recognition & ANPR plates.',
     href: '/products/ai-smart-city',
     badge: 'AI Powered',
     category: 'commerce',
@@ -115,7 +115,7 @@ export const modulesEn: ModuleMenuItem[] = [
   {
     id: 'security-platform',
     title: 'Security & Platform',
-    shortDesc: 'Casbin RBAC matrix, multi-tenant isolation & open APIs.',
+    shortDesc: 'Casbin RBAC matrix, multi-tenant & open APIs.',
     href: '/products/security-platform',
     badge: 'Enterprise',
     category: 'commerce',
@@ -154,9 +154,13 @@ export const en = {
     },
     resourcesList: {
       docs: 'Feature Documentation (67+ Specs)',
+      docsDesc: 'Full feature technical architecture',
       api: 'REST API & Webhooks Swagger',
+      apiDesc: 'Interactive OpenAPI 3.0 endpoints',
       releaseNotes: "What's New & Release Notes",
+      releaseNotesDesc: 'Changelog and continuous updates',
       deployment: 'Cloud, On-Prem & Desktop Setup',
+      deploymentDesc: 'Docker, On-Prem & Desktop (.exe)',
     },
   },
   hero1: {

@@ -6,7 +6,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'fleet-logistics',
     title: 'Vận tải & Đội xe',
-    shortDesc: 'Giám sát GPS thời gian thực, điều phối xe, tài xế PWA & sổ cái cước.',
+    shortDesc: 'Giám sát GPS thời gian thực, điều phối xe & tài xế PWA.',
     href: '/products/fleet-logistics',
     badge: 'Vận hành',
     category: 'operations',
@@ -15,7 +15,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'inventory-assets',
     title: 'Kho SKU & Tài sản',
-    shortDesc: 'Quản lý kho đa điểm, duyệt phiếu xuất nhập, tài sản serial & VPP.',
+    shortDesc: 'Kho đa điểm, phiếu xuất nhập & tài sản serial.',
     href: '/products/inventory-assets',
     badge: 'Mới',
     category: 'operations',
@@ -24,7 +24,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'operations-documents',
     title: 'Sổ văn bản & Pháp lý',
-    shortDesc: 'Sổ văn bản đến/đi, đánh số tự động theo Nghị định 30 & ký duyệt số.',
+    shortDesc: 'Sổ văn bản đến/đi, Nghị định 30 & ký số.',
     href: '/products/operations-documents',
     category: 'operations',
     iconName: 'FileText',
@@ -34,7 +34,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'work-management',
     title: 'Dự án & Công việc',
-    shortDesc: 'Quản lý tiến độ dự án, Kanban & sơ đồ Gantt thời gian thực.',
+    shortDesc: 'Quản lý dự án, Kanban & Gantt thời gian thực.',
     href: '/products/work-management',
     badge: 'Cốt lõi',
     category: 'workforce',
@@ -43,7 +43,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'hr-workforce',
     title: 'Tổ chức & Nhân sự',
-    shortDesc: 'Sơ đồ tổ chức, hồ sơ 360°, chấm công tự động & tính lương.',
+    shortDesc: 'Sơ đồ tổ chức, hồ sơ 360°, chấm công & tính lương.',
     href: '/products/hr-workforce',
     badge: 'Phổ biến',
     category: 'workforce',
@@ -52,7 +52,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'approvals-analytics',
     title: 'Phê duyệt & Lãnh đạo',
-    shortDesc: 'Hàng đợi duyệt tập trung, ủy quyền duyệt & KPI năng suất C-Level.',
+    shortDesc: 'Hàng đợi duyệt tập trung, ủy quyền & KPI C-Level.',
     href: '/products/approvals-analytics',
     badge: 'Doanh nghiệp',
     category: 'workforce',
@@ -63,7 +63,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'communication-meet',
     title: 'Giao tiếp & CommaMeet',
-    shortDesc: 'Họp video HD bảo mật, chat nội bộ Matrix E2EE & thông báo in-app.',
+    shortDesc: 'Họp video HD bảo mật, chat Matrix & in-app.',
     href: '/products/communication-meet',
     category: 'comms',
     iconName: 'Video',
@@ -71,7 +71,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'surveys-feedback',
     title: 'Khảo sát & Góp ý',
-    shortDesc: 'Trình tạo khảo sát trực quan, chỉ số eNPS & hòm thư bảo mật tới Lãnh đạo.',
+    shortDesc: 'Khảo sát trực quan, chỉ số eNPS & hòm thư góp ý.',
     href: '/products/surveys-feedback',
     badge: 'Mới',
     category: 'comms',
@@ -80,7 +80,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'cms-portal',
     title: 'CMS Studio & Portal',
-    shortDesc: 'Dựng website kéo thả no-code, cổng thông tin nội bộ & kiểm duyệt bài viết.',
+    shortDesc: 'Dựng website kéo thả, cổng nội bộ & kiểm duyệt.',
     href: '/products/cms-portal',
     category: 'comms',
     iconName: 'Globe',
@@ -90,7 +90,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'crm-helpdesk',
     title: 'Khách hàng & Hỗ trợ',
-    shortDesc: 'Hàng đợi Helpdesk ITIL, quản lý SLA & pipeline cơ hội B2B.',
+    shortDesc: 'Helpdesk ITIL, quản lý SLA & pipeline cơ hội B2B.',
     href: '/products/crm-helpdesk',
     category: 'commerce',
     iconName: 'HelpCircle',
@@ -98,7 +98,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'social-retail',
     title: 'Mạng xã hội & Bán lẻ',
-    shortDesc: 'Soạn thảo đăng bài đa kênh & đồng bộ hai chiều POS KiotViet.',
+    shortDesc: 'Đăng bài đa kênh & đồng bộ POS KiotViet 2 chiều.',
     href: '/products/social-retail',
     badge: 'Đa kênh',
     category: 'commerce',
@@ -107,7 +107,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'ai-smart-city',
     title: 'AI Vision & Smart City',
-    shortDesc: 'Camera AI giám sát, nhận diện khuôn mặt & biển số xe tức thì.',
+    shortDesc: 'Camera AI giám sát, nhận diện mặt & biển số xe.',
     href: '/products/ai-smart-city',
     badge: 'Công nghệ AI',
     category: 'commerce',
@@ -116,7 +116,7 @@ export const modulesVi: ModuleMenuItem[] = [
   {
     id: 'security-platform',
     title: 'Bảo mật & Nền tảng',
-    shortDesc: 'Phân quyền Casbin RBAC, bảo mật đa tổ chức & API kết nối mở.',
+    shortDesc: 'Phân quyền Casbin RBAC, đa tổ chức & API mở.',
     href: '/products/security-platform',
     badge: 'Doanh nghiệp',
     category: 'commerce',
@@ -155,9 +155,13 @@ export const vi: TranslationSchema = {
     },
     resourcesList: {
       docs: 'Tài liệu tính năng (67+ phân hệ)',
+      docsDesc: 'Kiến trúc kỹ thuật toàn diện',
       api: 'REST API & Webhooks Swagger',
+      apiDesc: 'Cổng tra cứu OpenAPI 3.0 trực quan',
       releaseNotes: 'Nhật ký phát hành & Tính năng mới',
+      releaseNotesDesc: 'Lịch sử cập nhật liên tục',
       deployment: 'Hướng dẫn cài đặt Cloud, On-Prem & Desktop',
+      deploymentDesc: 'Triển khai Cloud, On-Prem & Desktop (.exe)',
     },
   },
   hero1: {

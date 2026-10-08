@@ -47,7 +47,7 @@ export function NavbarSubmenuItem({ item, onClick, variant = 'desktop' }: Navbar
             )}
           </div>
           {description && (
-            <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5 leading-snug">
+            <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-snug break-words">
               {description}
             </p>
           )}
@@ -67,7 +67,7 @@ export function NavbarSubmenuItem({ item, onClick, variant = 'desktop' }: Navbar
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between gap-1.5">
-          <span className="text-xs sm:text-[13px] font-bold text-gray-900 group-hover:text-[#FF4D38] transition-colors whitespace-nowrap">
+          <span className="text-xs sm:text-[13px] font-bold text-gray-900 group-hover:text-[#FF4D38] transition-colors">
             {item.title}
           </span>
           {item.badge && (
@@ -77,7 +77,7 @@ export function NavbarSubmenuItem({ item, onClick, variant = 'desktop' }: Navbar
           )}
         </div>
         {description && (
-          <p className="text-[11px] text-gray-500 line-clamp-1 mt-0.5 leading-snug">
+          <p className="text-[11px] sm:text-[11.5px] text-gray-500 line-clamp-2 mt-0.5 leading-snug break-words">
             {description}
           </p>
         )}
