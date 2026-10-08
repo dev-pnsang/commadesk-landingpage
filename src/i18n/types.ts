@@ -6,5 +6,5 @@ export interface ModuleMenuItem {
   shortDesc: string;
   href: string;
   badge?: string;
-  iconName: 'Kanban' | 'Users' | 'Camera' | 'FileText' | 'HelpCircle' | 'Shield';
+  iconName: 'Kanban' | 'Users' | 'Camera' | 'FileText' | 'HelpCircle' | 'Shield' | 'Truck' | 'Video';
 }

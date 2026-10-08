@@ -26,7 +26,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             onClick={() => setActiveTab('desktop')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'desktop'
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
@@ -37,7 +37,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             onClick={() => setActiveTab('mobile')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'mobile'
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
@@ -48,7 +48,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             onClick={() => setActiveTab('hybrid')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'hybrid'
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
@@ -59,7 +59,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             onClick={() => setActiveTab('docker')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'docker'
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >

@@ -34,7 +34,7 @@ export function InteractiveDocsConsole({ isVi }: Props) {
             onClick={() => setActiveTab('api')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'api'
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
@@ -45,7 +45,7 @@ export function InteractiveDocsConsole({ isVi }: Props) {
             onClick={() => setActiveTab('webhooks')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'webhooks'
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
@@ -56,7 +56,7 @@ export function InteractiveDocsConsole({ isVi }: Props) {
             onClick={() => setActiveTab('casbin')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'casbin'
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >

@@ -16,14 +16,14 @@ export const FOOTER_LINKS = {
   product: [
     { label: 'Projects & Kanban', labelVi: 'Dự án & Kanban', labelEn: 'Projects & Kanban', href: '/products/work-management' },
     { label: 'Org Chart & Directory', labelVi: 'Tổ chức & Nhân sự', labelEn: 'Org Chart & Directory', href: '/products/hr-workforce' },
-    { label: 'AI Vision & Cameras', labelVi: 'AI Vision & Smart City', labelEn: 'AI Vision & Cameras', href: '/products/ai-smart-city' },
-    { label: 'Operations & Registry', labelVi: 'Sổ văn bản & Kho SKU', labelEn: 'Operations & Registry', href: '/products/operations-documents' },
+    { label: 'Fleet & Logistics', labelVi: 'Vận tải & Kho bãi', labelEn: 'Fleet & Logistics', href: '/products/fleet-logistics' },
+    { label: 'Operations & Registry', labelVi: 'Văn bản & Pháp lý', labelEn: 'Operations & Registry', href: '/products/operations-documents' },
   ],
   features: [
+    { label: 'CommaMeet & Comms', labelVi: 'Giao tiếp & CommaMeet', labelEn: 'CommaMeet & Comms', href: '/products/communication-meet' },
     { label: 'CRM & Helpdesk', labelVi: 'CRM & IT Helpdesk', labelEn: 'CRM & Helpdesk', href: '/products/crm-helpdesk' },
+    { label: 'AI Vision & Cameras', labelVi: 'AI Vision & Smart City', labelEn: 'AI Vision & Cameras', href: '/products/ai-smart-city' },
     { label: 'Casbin RBAC Security', labelVi: 'Bảo mật Casbin RBAC', labelEn: 'Casbin RBAC Security', href: '/products/security-platform' },
-    { label: 'Multi-Tenant Platform', labelVi: 'Đa tổ chức Multi-Tenant', labelEn: 'Multi-Tenant Platform', href: '/products/security-platform' },
-    { label: 'Executive Dashboard', labelVi: 'Báo cáo điều hành & KPIs', labelEn: 'Executive Dashboard', href: '/products/work-management' },
   ],
   pricing: [
     { label: 'Multi-Tenant Cloud', labelVi: 'Đám mây Đa tổ chức', labelEn: 'Multi-Tenant Cloud', href: '/deployment' },
