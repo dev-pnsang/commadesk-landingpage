@@ -22,7 +22,7 @@ export function Footer() {
         {/* Col 1: Bio & Branding */}
         <div className="w-full md:w-[220px] lg:w-[260px] shrink-0 text-left">
           <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
-            <div className="w-10 h-10 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center p-0.5 transition-transform group-hover:scale-105">
+            <div className="w-10 h-10 bg-white flex items-center justify-center p-0.5 transition-transform group-hover:scale-105">
               <img
                 src="/commadesk/logo_CommaDesk.webp"
                 alt="CommaDesk Logo"
