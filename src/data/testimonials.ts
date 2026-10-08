@@ -15,7 +15,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/sarah_mitchell_hd.jpg',
     rating: 5.0,
     quote:
-      '“Commadesk eliminated tool fragmentation across our teams. Having Kanban workflows, project time logs, and multi-tenant org charts in one platform saved our leads hours of status meetings every week.”',
+      '“CommaDesk eliminated tool fragmentation across our teams. Having Kanban workflows, project time logs, and multi-tenant org charts in one platform saved our leads hours of status meetings every week.”',
   },
   {
     id: 'james',
@@ -51,7 +51,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatar: '/avatars/marcus_aurel_hd.jpg',
     rating: 5.0,
     quote:
-      '“Commadesk’s multi-tenant database routing, hybrid MySQL architecture, and automated OBB backup/restore gave our security council the confidence to roll out company-wide.”',
+      '“CommaDesk’s multi-tenant database routing, hybrid MySQL architecture, and automated OBB backup/restore gave our security council the confidence to roll out company-wide.”',
   },
   {
     id: 'sophia',

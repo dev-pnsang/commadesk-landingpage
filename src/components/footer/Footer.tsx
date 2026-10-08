@@ -18,12 +18,12 @@ export function Footer() {
             <div className="w-7 h-7 rounded-lg bg-black flex items-center justify-center p-1 transition-transform group-hover:scale-105">
               <img
                 src="/commadesk/logo_CommaDesk-icon.webp"
-                alt="Commadesk Logo"
+                alt="CommaDesk Logo"
                 className="w-full h-full object-contain"
               />
             </div>
             <span className="font-extrabold text-lg tracking-tight text-gray-950">
-              Commadesk
+              CommaDesk
             </span>
           </Link>
           <p className="text-sm font-normal text-gray-500 leading-relaxed">

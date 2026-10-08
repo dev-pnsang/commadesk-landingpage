@@ -121,12 +121,12 @@ export function Navbar() {
             <div className="w-6 h-6 rounded-md bg-black flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 p-0.5">
               <img
                 src="/commadesk/logo_CommaDesk-icon.webp"
-                alt="Commadesk Logo"
+                alt="CommaDesk Logo"
                 className="w-full h-full object-contain"
               />
             </div>
             <span className="font-extrabold text-sm sm:text-base tracking-tight text-gray-950">
-              Commadesk
+              CommaDesk
             </span>
           </Link>
 
