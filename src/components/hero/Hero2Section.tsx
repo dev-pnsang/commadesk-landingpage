@@ -17,7 +17,13 @@ export function Hero2Section() {
       <HeroDualOrbit />
 
       {/* Center Content: Icon Tím, Tiêu đề, Phụ đề, Nút Learn more */}
-      <div className="relative z-20 max-w-[480px] lg:max-w-[540px] mx-auto px-2 sm:px-4 py-8">
+      <div className="relative z-20 max-w-[480px] lg:max-w-[560px] mx-auto px-2 sm:px-4 py-8">
+        {/* Category Badge */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 mx-auto">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span>
+          {t.hero2.badge}
+        </div>
+
         {/* Center Icon: Purple User Profile */}
         <div className="scroll-blur-reveal w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-lg shadow-indigo-100/80 flex items-center justify-center text-[#7C3AED] mx-auto mb-4 sm:mb-6 border border-slate-100">
           <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">

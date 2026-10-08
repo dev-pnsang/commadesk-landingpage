@@ -203,6 +203,12 @@ export function ArcCarousel() {
         </svg>
       </div>
 
+      {/* Top Badge */}
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 mx-auto">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A43]"></span>
+        {t.integrations.badge}
+      </div>
+
       {/* Heading */}
       <div className="scroll-blur-reveal delay-100">
         <TextBlurWipe
@@ -213,6 +219,10 @@ export function ArcCarousel() {
             ? ['Tích hợp công cụ sẵn có', <br key="br3" />, 'chỉ trong vài giây']
             : ['Integrate with your existing', <br key="br3" />, 'tools in seconds']}
         </TextBlurWipe>
+
+        <p className="text-blur-wipe-sub mt-2.5 sm:mt-3 text-xs sm:text-base text-gray-500 font-normal leading-relaxed max-w-2xl mx-auto">
+          {t.integrations.subtitle}
+        </p>
       </div>
 
       {/* 3D Arc Curved Carousel Container */}
