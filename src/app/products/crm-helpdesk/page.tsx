@@ -123,14 +123,25 @@ export default function CrmHelpdeskPage() {
               ? 'CommaDesk CRM & Helpdesk kết nối phễu cơ hội kinh doanh B2B, hàng đợi ticket ITIL, hỗ trợ HR nội bộ và hồ sơ khách hàng 360° vào một nền tảng chăm sóc và phát triển khách hàng toàn diện.'
               : 'CommaDesk CRM & Helpdesk unifies B2B opportunity pipelines, ITIL service desk queues with SLA countdowns, internal HR helpdesks, and customer 360° profiles into one connected platform.'
           }
-          tags={[
-            'B2B Deals Pipeline',
-            'ITIL Service Desk',
-            'SLA Breach Timers',
-            'HR Helpdesk Widget',
-            'Customer 360° Dossier',
-            'Omnichannel Ingestion',
-          ]}
+          tags={
+            isVi
+              ? [
+                  'Phễu cơ hội B2B Deals',
+                  'Hàng đợi ITIL Service Desk',
+                  'Đồng hồ đếm ngược SLA',
+                  'Widget hỗ trợ HR nội bộ',
+                  'Hồ sơ khách hàng 360°',
+                  'Hội tụ đa kênh Omnichannel',
+                ]
+              : [
+                  'B2B Deals Pipeline',
+                  'ITIL Service Desk',
+                  'SLA Breach Timers',
+                  'HR Helpdesk Widget',
+                  'Customer 360° Dossier',
+                  'Omnichannel Ingestion',
+                ]
+          }
           visualPreview={visualPreview}
         />
 

@@ -132,23 +132,23 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
               <li>
-                <Link href="/products/security-platform" className="hover:text-black transition-colors">
-                  Multi-Tenant Cloud
+                <Link href="/deployment" className="hover:text-black transition-colors">
+                  {isVi ? 'Đám mây Đa tổ chức' : 'Multi-Tenant Cloud'}
                 </Link>
               </li>
               <li>
-                <Link href="/products/security-platform" className="hover:text-black transition-colors">
-                  Private Cloud / On-Prem
+                <Link href="/deployment" className="hover:text-black transition-colors">
+                  {isVi ? 'Máy chủ riêng On-Premises' : 'Private Cloud / On-Prem'}
                 </Link>
               </li>
               <li>
-                <Link href="/#hero2Card" className="hover:text-black transition-colors">
-                  Desktop &amp; Mobile Parity
+                <Link href="/deployment" className="hover:text-black transition-colors">
+                  {isVi ? 'Bản Desktop (.exe) & Mobile' : 'Desktop & Mobile Parity'}
                 </Link>
               </li>
               <li>
-                <Link href="/products/security-platform" className="hover:text-black transition-colors">
-                  SLA &amp; Compliance
+                <Link href="/deployment" className="hover:text-black transition-colors">
+                  {isVi ? 'Cam kết SLA & Uptime 99.9%' : 'SLA & Compliance'}
                 </Link>
               </li>
             </ul>
@@ -161,23 +161,23 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-gray-500">
               <li>
-                <Link href="/products/work-management" className="hover:text-black transition-colors font-semibold text-slate-700">
-                  {isVi ? 'Tài liệu quản lý công việc' : 'Work & Projects Guide'}
+                <Link href="/docs" className="hover:text-black transition-colors">
+                  {isVi ? 'Đặc tả 14 phân hệ' : '14-Module Technical Specs'}
                 </Link>
               </li>
               <li>
-                <Link href="/products/ai-smart-city" className="hover:text-black transition-colors">
-                  {isVi ? 'Kiến trúc AI Smart City' : 'AI Smart City Architecture'}
+                <Link href="/docs" className="hover:text-black transition-colors">
+                  REST API &amp; Swagger
                 </Link>
               </li>
               <li>
-                <Link href="/products/security-platform" className="hover:text-black transition-colors">
-                  REST API &amp; Webhooks
+                <Link href="/docs" className="hover:text-black transition-colors">
+                  Webhooks Pipeline
                 </Link>
               </li>
               <li>
-                <Link href="/products/work-management" className="hover:text-black transition-colors">
-                  {isVi ? 'Tài liệu hướng dẫn' : 'Feature Documentation'}
+                <Link href="/docs" className="hover:text-black transition-colors">
+                  {isVi ? 'Trung tâm tài liệu' : 'Feature Documentation'}
                 </Link>
               </li>
             </ul>

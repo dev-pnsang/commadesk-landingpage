@@ -36,7 +36,7 @@ export function InteractiveCRMPipeline({ isVi }: Props) {
               </span>
             </div>
             <span className="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100">
-              Live Queue
+              {isVi ? 'Hàng đợi trực tuyến' : 'Live Queue'}
             </span>
           </div>
 
@@ -71,10 +71,10 @@ export function InteractiveCRMPipeline({ isVi }: Props) {
             </p>
             <div className="grid grid-cols-4 gap-1.5 p-1 bg-slate-100 rounded-xl">
               {[
-                { id: 1, label: 'Lead', val: '$120K' },
-                { id: 2, label: 'Proposal', val: '$340K' },
-                { id: 3, label: 'Negotiation', val: '$510K' },
-                { id: 4, label: 'Won Deal', val: '$890K' },
+                { id: 1, label: isVi ? 'Tiềm năng' : 'Lead', val: '$120K' },
+                { id: 2, label: isVi ? 'Đề xuất' : 'Proposal', val: '$340K' },
+                { id: 3, label: isVi ? 'Đàm phán' : 'Negotiation', val: '$510K' },
+                { id: 4, label: isVi ? 'Thành công' : 'Won Deal', val: '$890K' },
               ].map((s) => (
                 <button
                   key={s.id}
@@ -101,7 +101,7 @@ export function InteractiveCRMPipeline({ isVi }: Props) {
                 {isVi ? 'Đồng Hồ Kiểm Soát SLA' : 'Real-Time SLA Engine'}
               </span>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700">
-                CRITICAL TIER
+                {isVi ? 'MỨC KHẨN CẤP' : 'CRITICAL TIER'}
               </span>
             </div>
 

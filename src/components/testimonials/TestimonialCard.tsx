@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { TestimonialItem } from '@/data/testimonials';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 interface TestimonialCardProps {
   testimonial: TestimonialItem;
@@ -9,6 +12,12 @@ interface TestimonialCardProps {
 }
 
 export function TestimonialCard({ testimonial, id, statusClass }: TestimonialCardProps) {
+  const { language } = useLanguage();
+  const isVi = language === 'vi';
+
+  const roleText = isVi ? (testimonial.roleVi || testimonial.role) : (testimonial.roleEn || testimonial.role);
+  const quoteText = isVi ? (testimonial.quoteVi || testimonial.quote) : (testimonial.quoteEn || testimonial.quote);
+
   return (
     <div
       id={id}
@@ -34,7 +43,7 @@ export function TestimonialCard({ testimonial, id, statusClass }: TestimonialCar
         {testimonial.name}
       </h4>
       <p className="text-xs sm:text-sm text-gray-400 font-medium mt-0.5 select-text cursor-text">
-        {testimonial.role}
+        {roleText}
       </p>
 
       <div className="flex items-center justify-center gap-1 my-2.5 text-amber-400 text-sm sm:text-base select-text">
@@ -49,7 +58,7 @@ export function TestimonialCard({ testimonial, id, statusClass }: TestimonialCar
       </div>
 
       <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal select-text cursor-text">
-        {testimonial.quote}
+        {quoteText}
       </p>
     </div>
   );

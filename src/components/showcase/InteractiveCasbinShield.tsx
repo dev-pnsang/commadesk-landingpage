@@ -66,18 +66,43 @@ export function InteractiveCasbinShield({ isVi }: Props) {
                 {isVi ? 'Trình Thử Nghiệm Ma Trận Phân Quyền Casbin' : 'Casbin Access Matrix Simulator'}
               </span>
               <span className="text-[10px] font-mono text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">
-                Interactive
+                {isVi ? 'Thử nghiệm' : 'Interactive'}
               </span>
             </div>
 
             {/* Matrix Rules */}
             <div className="space-y-2">
               {[
-                { key: 'admin:all', role: 'Role: SuperAdmin', action: 'All Resources (*)', defaultDesc: 'Root Cluster Access' },
-                { key: 'mgr:projects_write', role: 'Role: Ops Manager', action: 'Projects:Write & Approve', defaultDesc: 'Sprint & Vouchers' },
-                { key: 'mgr:payroll_view', role: 'Role: Ops Manager', action: 'Payroll:ConfidentialView', defaultDesc: 'Salary Master Data' },
-                { key: 'auditor:audit_read', role: 'Role: Compliance', action: 'AuditLogs:ImmutableRead', defaultDesc: 'Tamper-Proof Stream' },
-                { key: 'auditor:system_modify', role: 'Role: Compliance', action: 'SystemConfig:Write', defaultDesc: 'Kernel Parameter' },
+                {
+                  key: 'admin:all',
+                  role: 'Role: SuperAdmin',
+                  action: 'All Resources (*)',
+                  defaultDesc: isVi ? 'Toàn quyền cụm máy chủ' : 'Root Cluster Access',
+                },
+                {
+                  key: 'mgr:projects_write',
+                  role: 'Role: Ops Manager',
+                  action: 'Projects:Write & Approve',
+                  defaultDesc: isVi ? 'Sprint & Phiếu chi vật tư' : 'Sprint & Vouchers',
+                },
+                {
+                  key: 'mgr:payroll_view',
+                  role: 'Role: Ops Manager',
+                  action: 'Payroll:ConfidentialView',
+                  defaultDesc: isVi ? 'Dữ liệu lương mật' : 'Salary Master Data',
+                },
+                {
+                  key: 'auditor:audit_read',
+                  role: 'Role: Compliance',
+                  action: 'AuditLogs:ImmutableRead',
+                  defaultDesc: isVi ? 'Nhật ký kiểm toán bất biến' : 'Tamper-Proof Stream',
+                },
+                {
+                  key: 'auditor:system_modify',
+                  role: 'Role: Compliance',
+                  action: 'SystemConfig:Write',
+                  defaultDesc: isVi ? 'Tham số nhân hệ thống' : 'Kernel Parameter',
+                },
               ].map((rule) => {
                 const isAllowed = permissions[rule.key];
                 return (
@@ -106,7 +131,7 @@ export function InteractiveCasbinShield({ isVi }: Props) {
                           isAllowed ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
                         }`}
                       >
-                        {isAllowed ? 'ALLOW' : 'DENY'}
+                        {isVi ? (isAllowed ? 'CHO PHÉP' : 'TỪ CHỐI') : (isAllowed ? 'ALLOW' : 'DENY')}
                       </span>
                       <div
                         className={`w-8 h-4 rounded-full p-0.5 transition-colors ${

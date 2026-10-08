@@ -40,11 +40,13 @@ export function InteractiveDigitalSignature({ isVi }: Props) {
                 </span>
                 <div>
                   <p className="text-xs font-bold text-slate-900">DOC-2026-HQ-882</p>
-                  <p className="text-[10px] text-slate-500">Official Executive Directive</p>
+                  <p className="text-[10px] text-slate-500">
+                    {isVi ? 'Chỉ thị điều hành chính thức' : 'Official Executive Directive'}
+                  </p>
                 </div>
               </div>
               <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${isSigned ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}`}>
-                {isSigned ? 'VERIFIED SIGNED' : 'PENDING SIGNATURE'}
+                {isVi ? (isSigned ? 'ĐÃ KÝ XÁC THỰC' : 'CHỜ KÝ SỐ') : (isSigned ? 'VERIFIED SIGNED' : 'PENDING SIGNATURE')}
               </span>
             </div>
 
@@ -75,7 +77,9 @@ export function InteractiveDigitalSignature({ isVi }: Props) {
               <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                 {isVi ? 'Luồng Phê Duyệt Văn Bản Đa Cấp' : 'Multi-Tier Review Pipeline'}
               </span>
-              <span className="text-[11px] font-mono text-slate-400">Step {currentStep} of 3</span>
+              <span className="text-[11px] font-mono text-slate-400">
+                {isVi ? `Bước ${currentStep}/3` : `Step ${currentStep} of 3`}
+              </span>
             </div>
 
             {/* Steps Timeline */}
@@ -92,12 +96,16 @@ export function InteractiveDigitalSignature({ isVi }: Props) {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-900">{s.role}</p>
-                      <p className="text-[10px] text-slate-500">{s.done ? `Signed by ${s.by}` : 'Awaiting digital token'}</p>
+                      <p className="text-[10px] text-slate-500">
+                        {isVi
+                          ? (s.done ? `Đã ký bởi ${s.by}` : 'Đang chờ token ký số')
+                          : (s.done ? `Signed by ${s.by}` : 'Awaiting digital token')}
+                      </p>
                     </div>
                   </div>
                   {s.done && (
                     <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
-                      Verified
+                      {isVi ? 'Đã duyệt' : 'Verified'}
                     </span>
                   )}
                 </div>

@@ -123,14 +123,25 @@ export default function OperationsDocumentsPage() {
               ? 'CommaDesk Operations & Registry hợp nhất sổ văn bản đến/đi theo chuẩn hành chính, quy trình ký duyệt số, kho đa vị trí SKU, cấp phát tài sản Serial và điều phối logistics đội xe GPS vào một quy trình vận hành đồng bộ.'
               : 'CommaDesk Operations & Registry unifies statutory document dispatch books, digital approvals, multi-location SKU inventory, serialized fixed assets, and GPS fleet logistics into a single governance engine.'
           }
-          tags={[
-            'Decree 150/370 Registry',
-            'Digital Signing & Seals',
-            'Multi-Warehouse SKU',
-            'Serial Asset Tags',
-            'Fleet Logistics GPS',
-            'Proof of Delivery POD',
-          ]}
+          tags={
+            isVi
+              ? [
+                  'Sổ văn bản NĐ 150/370',
+                  'Ký số & Dấu mộc điện tử',
+                  'Kho SKU đa vị trí',
+                  'Tài sản mã định danh Serial',
+                  'Logistics đội xe GPS',
+                  'Biên bản giao nhận POD',
+                ]
+              : [
+                  'Decree 150/370 Registry',
+                  'Digital Signing & Seals',
+                  'Multi-Warehouse SKU',
+                  'Serial Asset Tags',
+                  'Fleet Logistics GPS',
+                  'Proof of Delivery POD',
+                ]
+          }
           visualPreview={visualPreview}
         />
 

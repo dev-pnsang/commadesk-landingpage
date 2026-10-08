@@ -74,12 +74,16 @@ export function InteractiveKanbanFlow({ isVi }: Props) {
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 animate-float bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-3 shadow-lg max-w-[200px] hidden sm:block">
             <div className="flex items-center gap-2 mb-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span className="text-[11px] font-bold text-slate-900">Sprint 14 Velocity</span>
+              <span className="text-[11px] font-bold text-slate-900">
+                {isVi ? 'Vận tốc Sprint 14' : 'Sprint 14 Velocity'}
+              </span>
             </div>
             <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mb-1">
               <div className="bg-emerald-500 h-full w-[84%] rounded-full animate-pulse"></div>
             </div>
-            <span className="text-[10px] text-slate-500 font-medium">+17% Delivered ahead</span>
+            <span className="text-[10px] text-slate-500 font-medium">
+              {isVi ? '+17% Vượt tiến độ bàn giao' : '+17% Delivered ahead'}
+            </span>
           </div>
 
           {/* Floating Badge 2: Casbin Verified */}
@@ -89,8 +93,12 @@ export function InteractiveKanbanFlow({ isVi }: Props) {
                 ✓
               </div>
               <div>
-                <p className="text-[11px] font-bold text-slate-900">Casbin Task RBAC</p>
-                <p className="text-[10px] text-slate-500">Tamper-proof Assignment</p>
+                <p className="text-[11px] font-bold text-slate-900">
+                  {isVi ? 'Phân quyền thẻ việc Casbin' : 'Casbin Task RBAC'}
+                </p>
+                <p className="text-[10px] text-slate-500">
+                  {isVi ? 'Giao việc minh bạch chống can thiệp' : 'Tamper-proof Assignment'}
+                </p>
               </div>
             </div>
           </div>
@@ -101,10 +109,34 @@ export function InteractiveKanbanFlow({ isVi }: Props) {
         <div className="w-full bg-white rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { id: 1, title: 'Backlog (Epic)', count: '4 Tasks', color: 'border-l-sky-500', pct: 25 },
-              { id: 2, title: 'In Progress', count: '6 Tasks', color: 'border-l-amber-500', pct: 60 },
-              { id: 3, title: 'Code Review', count: '3 Tasks', color: 'border-l-purple-500', pct: 85 },
-              { id: 4, title: 'Done & Verified', count: '12 Tasks', color: 'border-l-emerald-500', pct: 100 },
+              {
+                id: 1,
+                title: isVi ? 'Hàng đợi (Backlog)' : 'Backlog (Epic)',
+                count: isVi ? '4 Nhiệm vụ' : '4 Tasks',
+                color: 'border-l-sky-500',
+                pct: 25,
+              },
+              {
+                id: 2,
+                title: isVi ? 'Đang thực hiện' : 'In Progress',
+                count: isVi ? '6 Nhiệm vụ' : '6 Tasks',
+                color: 'border-l-amber-500',
+                pct: 60,
+              },
+              {
+                id: 3,
+                title: isVi ? 'Kiểm tra & Review' : 'Code Review',
+                count: isVi ? '3 Nhiệm vụ' : '3 Tasks',
+                color: 'border-l-purple-500',
+                pct: 85,
+              },
+              {
+                id: 4,
+                title: isVi ? 'Đã xong & Nghiệm thu' : 'Done & Verified',
+                count: isVi ? '12 Nhiệm vụ' : '12 Tasks',
+                color: 'border-l-emerald-500',
+                pct: 100,
+              },
             ].map((col) => (
               <div
                 key={col.id}
@@ -154,10 +186,30 @@ export function InteractiveKanbanFlow({ isVi }: Props) {
         <div className="w-full bg-white rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md">
           <div className="space-y-3">
             {[
-              { label: 'Q1: Core Microservice Architecture', width: '90%', progress: '90%', color: 'bg-indigo-500' },
-              { label: 'Q2: Casbin Multi-Tenant Enforcement', width: '75%', progress: '75%', color: 'bg-emerald-500' },
-              { label: 'Q3: AI Camera Pipeline Integration', width: '55%', progress: '55%', color: 'bg-amber-500' },
-              { label: 'Q4: Production Deployment & Auditing', width: '35%', progress: '35%', color: 'bg-rose-500' },
+              {
+                label: isVi ? 'Q1: Kiến trúc vi dịch vụ cốt lõi' : 'Q1: Core Microservice Architecture',
+                width: '90%',
+                progress: '90%',
+                color: 'bg-indigo-500',
+              },
+              {
+                label: isVi ? 'Q2: Kiểm soát đa tổ chức Casbin' : 'Q2: Casbin Multi-Tenant Enforcement',
+                width: '75%',
+                progress: '75%',
+                color: 'bg-emerald-500',
+              },
+              {
+                label: isVi ? 'Q3: Tích hợp đường ống Camera AI' : 'Q3: AI Camera Pipeline Integration',
+                width: '55%',
+                progress: '55%',
+                color: 'bg-amber-500',
+              },
+              {
+                label: isVi ? 'Q4: Triển khai vận hành & Kiểm toán' : 'Q4: Production Deployment & Auditing',
+                width: '35%',
+                progress: '35%',
+                color: 'bg-rose-500',
+              },
             ].map((item, idx) => (
               <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-100">
                 <div className="flex justify-between text-xs font-semibold text-slate-800 mb-2">

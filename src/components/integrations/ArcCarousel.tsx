@@ -319,7 +319,7 @@ export function ArcCarousel() {
             id="activeAppDesc"
             className="text-xs sm:text-sm font-normal text-gray-500 mt-1"
           >
-            {currentApp.desc}
+            {language === 'vi' ? (currentApp.descVi || currentApp.desc) : (currentApp.descEn || currentApp.desc)}
           </p>
         </div>
       </div>

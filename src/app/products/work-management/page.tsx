@@ -123,15 +123,27 @@ export default function WorkManagementPage() {
               ? 'CommaDesk Work Management kết nối bảng việc Kanban, sơ đồ Gantt tương tác, nhật ký thời gian Time Logs và báo cáo điều hành Executive Dashboard vào một nền tảng hợp nhất, loại bỏ hoàn toàn tình trạng phân mảnh công cụ.'
               : 'CommaDesk Work Management unifies Kanban boards, interactive Gantt dependencies, subtask time logs, and executive PMO dashboards into one enterprise operational suite.'
           }
-          tags={[
-            'Kanban Drag & Drop',
-            'Interactive Gantt',
-            'My Work & Inbox',
-            'Time Logs & Hours',
-            'Sprint Burndown',
-            'Executive KPIs',
-            'Casbin Task RBAC',
-          ]}
+          tags={
+            isVi
+              ? [
+                  'Bảng việc Kanban kéo thả',
+                  'Biểu đồ Gantt tương tác',
+                  'Công việc của tôi & Inbox',
+                  'Nhật ký giờ Time Logs',
+                  'Vận tốc Sprint Burndown',
+                  'Báo cáo điều hành KPIs',
+                  'Phân quyền thẻ việc Casbin',
+                ]
+              : [
+                  'Kanban Drag & Drop',
+                  'Interactive Gantt',
+                  'My Work & Inbox',
+                  'Time Logs & Hours',
+                  'Sprint Burndown',
+                  'Executive KPIs',
+                  'Casbin Task RBAC',
+                ]
+          }
           visualPreview={visualPreview}
         />
 

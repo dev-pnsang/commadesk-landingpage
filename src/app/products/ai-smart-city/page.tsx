@@ -123,14 +123,25 @@ export default function AiSmartCityPage() {
               ? 'CommaDesk AI Vision & Smart City biến luồng camera thông thường thành hệ thống phân tích thị giác máy tính: nhận diện khuôn mặt tức thì, đọc biển số xe ANPR, bản đồ nhiệt Heatmap và trung tâm điều hành Smart City Dashboard.'
               : 'CommaDesk AI Vision & Smart City turns standard CCTV streams into high-value computer vision insights: sub-200ms face matching, automated ANPR plates, retail heatmaps, and unified GIS city management.'
           }
-          tags={[
-            'Face Matching <200ms',
-            'ANPR License Plates',
-            'Multi-Channel VMS',
-            '2D Footfall Heatmap',
-            'Goong Map GIS',
-            'POS Conversion Tracking',
-          ]}
+          tags={
+            isVi
+              ? [
+                  'Nhận diện khuôn mặt <200ms',
+                  'Đọc biển số xe ANPR',
+                  'VMS Camera đa kênh',
+                  'Bản đồ nhiệt Heatmap 2D',
+                  'Bản đồ số Goong Map GIS',
+                  'Đối soát doanh thu POS',
+                ]
+              : [
+                  'Face Matching <200ms',
+                  'ANPR License Plates',
+                  'Multi-Channel VMS',
+                  '2D Footfall Heatmap',
+                  'Goong Map GIS',
+                  'POS Conversion Tracking',
+                ]
+          }
           visualPreview={visualPreview}
         />
 

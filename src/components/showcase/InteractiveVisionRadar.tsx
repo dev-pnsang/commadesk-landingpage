@@ -73,9 +73,13 @@ export function InteractiveVisionRadar({ isVi }: Props) {
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 animate-float bg-white/95 backdrop-blur-md border border-cyan-200/80 rounded-2xl p-3 shadow-lg hidden sm:block">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse"></span>
-              <p className="text-[11px] font-bold text-slate-900">Neural Camera Stream Active</p>
+              <p className="text-[11px] font-bold text-slate-900">
+                {isVi ? 'Luồng Camera AI Trực Tuyến' : 'Neural Camera Stream Active'}
+              </p>
             </div>
-            <p className="text-[10px] text-slate-500 mt-1">24 Edge Nodes • 99.4% Face Accuracy</p>
+            <p className="text-[10px] text-slate-500 mt-1">
+              {isVi ? '24 Nút mạng Edge • Khớp mặt 99.4%' : '24 Edge Nodes • 99.4% Face Accuracy'}
+            </p>
           </div>
 
           {/* Floating Live Tag 2: ANPR Lock */}
@@ -86,7 +90,9 @@ export function InteractiveVisionRadar({ isVi }: Props) {
               </div>
               <div>
                 <p className="text-[11px] font-bold text-slate-900 font-mono">ANPR: 29A-992.84</p>
-                <p className="text-[10px] text-emerald-600 font-semibold">Matched Whitelist • Gate Opened</p>
+                <p className="text-[10px] text-emerald-600 font-semibold">
+                  {isVi ? 'Khớp biển số Whitelist • Mở cổng tự động' : 'Matched Whitelist • Gate Opened'}
+                </p>
               </div>
             </div>
           </div>
@@ -134,11 +140,15 @@ export function InteractiveVisionRadar({ isVi }: Props) {
             </p>
             <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
               <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
-                <span className="text-slate-500 font-medium">Total Cameras:</span>
+                <span className="text-slate-500 font-medium">
+                  {isVi ? 'Tổng số camera:' : 'Total Cameras:'}
+                </span>
                 <p className="text-base font-bold text-cyan-700 font-mono mt-0.5">128 Feeds</p>
               </div>
               <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
-                <span className="text-slate-500 font-medium">Latency:</span>
+                <span className="text-slate-500 font-medium">
+                  {isVi ? 'Độ trễ xử lý:' : 'Latency:'}
+                </span>
                 <p className="text-base font-bold text-emerald-700 font-mono mt-0.5">&lt; 45ms</p>
               </div>
             </div>
@@ -151,10 +161,34 @@ export function InteractiveVisionRadar({ isVi }: Props) {
         <div className="w-full bg-white rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-md">
           <div className="space-y-3">
             {[
-              { plate: '29A-992.84', time: '10:24:12', gate: 'Gate A (South)', status: 'Approved', type: 'Executive Fleet' },
-              { plate: '51G-771.02', time: '10:23:45', gate: 'Gate B (North)', status: 'Visitor Access', type: 'Guest Pass' },
-              { plate: '30E-145.99', time: '10:22:18', gate: 'Gate A (South)', status: 'Approved', type: 'Staff Parking' },
-              { plate: '43C-652.11', time: '10:21:04', gate: 'Loading Dock C', status: 'Inspected', type: 'Logistics Truck' },
+              {
+                plate: '29A-992.84',
+                time: '10:24:12',
+                gate: isVi ? 'Cổng A (Khu Nam)' : 'Gate A (South)',
+                status: isVi ? 'Đã cấp phép' : 'Approved',
+                type: isVi ? 'Đội xe ban giám đốc' : 'Executive Fleet',
+              },
+              {
+                plate: '51G-771.02',
+                time: '10:23:45',
+                gate: isVi ? 'Cổng B (Khu Bắc)' : 'Gate B (North)',
+                status: isVi ? 'Khách ghé thăm' : 'Visitor Access',
+                type: isVi ? 'Thẻ khách mời' : 'Guest Pass',
+              },
+              {
+                plate: '30E-145.99',
+                time: '10:22:18',
+                gate: isVi ? 'Cổng A (Khu Nam)' : 'Gate A (South)',
+                status: isVi ? 'Đã cấp phép' : 'Approved',
+                type: isVi ? 'Bãi đỗ nhân viên' : 'Staff Parking',
+              },
+              {
+                plate: '43C-652.11',
+                time: '10:21:04',
+                gate: isVi ? 'Kho hàng Dock C' : 'Loading Dock C',
+                status: isVi ? 'Đã kiểm tra' : 'Inspected',
+                type: isVi ? 'Xe tải Logistics' : 'Logistics Truck',
+              },
             ].map((item, idx) => (
               <div key={idx} className="flex flex-wrap items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 gap-3">
                 <div className="flex items-center gap-3">

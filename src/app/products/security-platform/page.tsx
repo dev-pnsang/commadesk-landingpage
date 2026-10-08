@@ -123,14 +123,25 @@ export default function SecurityPlatformPage() {
               ? 'CommaDesk Security & Platform cung cấp ma trận phân quyền Casbin RBAC, kiến trúc đa tổ chức Multi-tenant an toàn tuyệt đối, nhật ký Audit 3 lớp, kiến trúc Hybrid DB và bộ REST API chuẩn mở cấp doanh nghiệp.'
               : 'CommaDesk Security & Platform delivers Casbin RBAC access governance, zero-leak multi-tenant partitioning, triple-layer audit trails, Hybrid DB routing, and enterprise OpenAPI capabilities.'
           }
-          tags={[
-            'Casbin RBAC Matrix',
-            'Zero-Leak Multi-Tenant',
-            'Triple Audit Logs',
-            'RFC 6238 2FA & HMAC',
-            'Hybrid DB Routing',
-            'Windows & Mobile Parity',
-          ]}
+          tags={
+            isVi
+              ? [
+                  'Ma trận quyền Casbin RBAC',
+                  'Đa tổ chức Multi-Tenant cô lập',
+                  'Nhật ký Audit 3 lớp',
+                  '2FA RFC 6238 & Định danh HMAC',
+                  'Định tuyến dữ liệu Hybrid DB',
+                  'Đồng bộ Windows & Mobile',
+                ]
+              : [
+                  'Casbin RBAC Matrix',
+                  'Zero-Leak Multi-Tenant',
+                  'Triple Audit Logs',
+                  'RFC 6238 2FA & HMAC',
+                  'Hybrid DB Routing',
+                  'Windows & Mobile Parity',
+                ]
+          }
           visualPreview={visualPreview}
         />
 

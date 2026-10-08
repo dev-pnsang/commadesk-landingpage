@@ -123,14 +123,25 @@ export default function HrWorkforcePage() {
               ? 'CommaDesk HR & Workforce hợp nhất sơ đồ tổ chức đa cấp, hồ sơ nhân sự 360°, chấm công sinh trắc học đa phương thức, báo cáo HR Analytics và đóng bảng lương tự động vào một hệ thống tập trung duy nhất.'
               : 'CommaDesk HR & Workforce unifies multi-level org charts, 360° employee dossiers, multi-modal biometric attendance, HR Analytics, and automated payroll into one centralized platform.'
           }
-          tags={[
-            'Multi-Level Org Matrix',
-            '360° Employee Dossier',
-            'Biometric Face AI & Kiosk',
-            'Mobile GPS Fencing',
-            'Work Entries & Payroll',
-            'HR Analytics RPT',
-          ]}
+          tags={
+            isVi
+              ? [
+                  'Sơ đồ tổ chức đa cấp',
+                  'Hồ sơ nhân sự 360°',
+                  'Chấm công Face AI & Kiosk',
+                  'Định vị GPS Geofencing',
+                  'Bảng công & Tính lương',
+                  'Báo cáo HR Analytics',
+                ]
+              : [
+                  'Multi-Level Org Matrix',
+                  '360° Employee Dossier',
+                  'Biometric Face AI & Kiosk',
+                  'Mobile GPS Fencing',
+                  'Work Entries & Payroll',
+                  'HR Analytics RPT',
+                ]
+          }
           visualPreview={visualPreview}
         />
 
