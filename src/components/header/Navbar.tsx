@@ -263,7 +263,7 @@ export function Navbar() {
               {isModulesOpen && (
                 <div
                   onWheel={(e) => e.stopPropagation()}
-                  className="fixed top-[60px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[calc(100vw-1.5rem)] sm:w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/3 sm:-translate-x-1/4 lg:-translate-x-1/3 top-full mt-3 w-[calc(100vw-2rem)] max-w-[820px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
                   <div className="flex items-center justify-between px-2 pb-3 mb-3 border-b border-slate-100">
                     <div className="flex items-center gap-2">
@@ -366,7 +366,7 @@ export function Navbar() {
               {isSolutionsOpen && (
                 <div
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 pb-5 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[calc(100vw-2rem)] max-w-[460px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
                   <div className="space-y-1 w-full">
                     {solutionsList.map((sol, idx) => (
@@ -422,7 +422,7 @@ export function Navbar() {
               {isResourcesOpen && (
                 <div
                   onWheel={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-3 w-[calc(100vw-2rem)] max-w-[420px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 pb-5 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
+                  className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-3 w-[calc(100vw-2rem)] max-w-[420px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-4 sm:p-5 pb-6 z-50 animate-in fade-in zoom-in-95 duration-200 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain custom-menu-scroll before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-5"
                 >
                   <div className="space-y-1 w-full">
                     {resourcesList.map((res, idx) => (
