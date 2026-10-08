@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { ClockIcon, BarChartIcon, TrendingUpIcon } from '@/components/ui/UIIcons';
 
 export function ManagersLeadersCard() {
   const { t } = useLanguage();
@@ -12,50 +13,17 @@ export function ManagersLeadersCard() {
     {
       text: t.features.card2.badge1Title,
       iconClass: 'bg-sky-50 text-sky-500',
-      icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          strokeWidth="2.5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
+      icon: <ClockIcon className="w-5 h-5" />,
     },
     {
       text: t.features.card2.badge2Title,
       iconClass: 'bg-red-50 text-red-500',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
-          <circle cx="12" cy="2" r="1.5" />
-        </svg>
-      ),
+      icon: <BarChartIcon className="w-5 h-5" />,
     },
     {
       text: t.features.card2.badge3Title,
       iconClass: 'bg-amber-50 text-amber-500',
-      icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          strokeWidth="2.5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-          />
-        </svg>
-      ),
+      icon: <TrendingUpIcon className="w-5 h-5" />,
     },
   ];
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { CheckIcon, ZapIcon } from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -90,7 +91,7 @@ export function InteractiveKanbanFlow({ isVi }: Props) {
           <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 animate-float-delayed bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-3 shadow-lg hidden sm:block">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center font-bold text-xs">
-                ✓
+                <CheckIcon className="w-3.5 h-3.5" />
               </div>
               <div>
                 <p className="text-[11px] font-bold text-slate-900">
@@ -163,8 +164,8 @@ export function InteractiveKanbanFlow({ isVi }: Props) {
 
           <div className="mt-5 p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black">
-                ⚡
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <ZapIcon className="w-5 h-5 text-emerald-700" />
               </div>
               <div>
                 <p className="text-xs font-bold text-slate-900">

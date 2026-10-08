@@ -4,6 +4,7 @@ import React from 'react';
 import { HeroGraphicNetwork } from './HeroGraphicNetwork';
 import { TextBlurWipe } from '@/components/ui/TextBlurWipe';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { ArrowRightIcon } from '@/components/ui/UIIcons';
 
 export function Hero1Section() {
   const { t } = useLanguage();
@@ -44,9 +45,10 @@ export function Hero1Section() {
           </a>
           <a
             href="#hero2Card"
-            className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[160px] px-6 py-3 sm:py-3.5 rounded-2xl text-slate-800 font-semibold text-xs sm:text-base bg-slate-100 hover:bg-slate-200/80 border border-slate-200/80 transition-all duration-300 active:scale-95 text-center"
+            className="inline-flex items-center justify-center gap-1.5 w-full sm:w-auto sm:min-w-[160px] px-6 py-3 sm:py-3.5 rounded-2xl text-slate-800 font-semibold text-xs sm:text-base bg-slate-100 hover:bg-slate-200/80 border border-slate-200/80 transition-all duration-300 active:scale-95 text-center"
           >
-            {t.hero1.exploreFeatures} →
+            <span>{t.hero1.exploreFeatures}</span>
+            <ArrowRightIcon className="w-4 h-4" />
           </a>
         </div>
 

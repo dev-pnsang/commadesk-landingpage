@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { LandmarkIcon, CameraIcon, OrgOrbitRaysGraphic } from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -26,20 +27,15 @@ export function InteractiveOrgOrbit({ isVi }: Props) {
           <div className="absolute w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] rounded-full bg-indigo-50/70 border border-indigo-100 animate-ping" style={{ animationDuration: '3.5s' }}></div>
 
           {/* SVG Connecting Ray Lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none stroke-indigo-200/70" strokeWidth="1.5" strokeDasharray="3 3">
-            <line x1="50%" y1="50%" x2="22%" y2="20%" />
-            <line x1="50%" y1="50%" x2="78%" y2="20%" />
-            <line x1="50%" y1="50%" x2="22%" y2="80%" />
-            <line x1="50%" y1="50%" x2="78%" y2="80%" />
-          </svg>
+          <OrgOrbitRaysGraphic />
 
           {/* Central Hub Node (Holographic Executive Core) */}
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-[#FF4D38] via-indigo-600 to-purple-600 shadow-xl sm:shadow-2xl shadow-indigo-500/30 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
               <div className="w-full h-full rounded-xl sm:rounded-2xl bg-white flex flex-col items-center justify-center relative overflow-hidden p-1.5 sm:p-2 text-center">
                 {/* 3D Core Icon */}
-                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-tr from-[#FF4D38] to-indigo-600 text-white flex items-center justify-center text-sm sm:text-lg shadow-md mb-0.5 sm:mb-1">
-                  🏛️
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-tr from-[#FF4D38] to-indigo-600 text-white flex items-center justify-center shadow-md mb-0.5 sm:mb-1">
+                  <LandmarkIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <span className="text-[9px] sm:text-[10px] font-black text-slate-900 tracking-tight leading-none uppercase">
                   {isVi ? 'Ban Điều Hành' : 'Executive Core'}
@@ -151,8 +147,8 @@ export function InteractiveOrgOrbit({ isVi }: Props) {
 
             {/* Live Scan Preview */}
             <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/60 flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl shadow-md shadow-emerald-500/20">
-                📷
+              <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20">
+                <CameraIcon className="w-6 h-6 text-white" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between">

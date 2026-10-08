@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { CarIcon, CheckIcon } from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -86,7 +87,7 @@ export function InteractiveVisionRadar({ isVi }: Props) {
           <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 animate-float-delayed bg-white/95 backdrop-blur-md border border-emerald-200/80 rounded-2xl p-3 shadow-lg hidden sm:block">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">
-                🚗
+                <CarIcon className="w-4 h-4" />
               </div>
               <div>
                 <p className="text-[11px] font-bold text-slate-900 font-mono">ANPR: 29A-992.84</p>
@@ -200,8 +201,9 @@ export function InteractiveVisionRadar({ isVi }: Props) {
                     <p className="text-[11px] text-slate-500">{item.gate} • {item.time}</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">
-                  ✓ {item.status}
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">
+                  <CheckIcon className="w-3.5 h-3.5" />
+                  <span>{item.status}</span>
                 </span>
               </div>
             ))}

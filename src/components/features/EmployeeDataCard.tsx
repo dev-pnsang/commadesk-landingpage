@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { FileTextIcon, MailIcon } from '@/components/ui/UIIcons';
 
 export function EmployeeDataCard() {
   const { t } = useLanguage();
@@ -25,9 +26,7 @@ export function EmployeeDataCard() {
     <div className="scroll-fade-up delay-250 md:col-span-2 bg-[#FAFAFC] rounded-3xl p-6 sm:p-8 border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
       {/* Icon tài liệu đỏ cam góc trái */}
       <div className="absolute top-6 left-6 w-10 h-10 rounded-2xl bg-white border border-slate-100 shadow-md flex items-center justify-center text-red-500 z-20">
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-        </svg>
+        <FileTextIcon className="w-5 h-5" />
       </div>
 
       {/* Graphic Grid: Slider trượt luân phiên */}
@@ -56,7 +55,7 @@ export function EmployeeDataCard() {
               <div className="flex items-center gap-1 text-[9px]">
                 <span className="text-gray-400">Daily</span>
                 <span className="text-gray-400">Weekly</span>
-                <span className="bg-black text-white px-1.5 py-0.5 rounded-full">Monthly</span>
+                <span className="bg-slate-800 text-white px-1.5 py-0.5 rounded-full">Monthly</span>
               </div>
             </div>
             <div className="h-20 flex items-end justify-between gap-1.5 pt-2">
@@ -77,7 +76,7 @@ export function EmployeeDataCard() {
               />
               <div className="w-full flex flex-col items-center relative">
                 <span
-                  className="chart-badge absolute -top-5 text-[8px] font-bold bg-black text-white px-1 py-0.2 rounded-xs"
+                  className="chart-badge absolute -top-5 text-[8px] font-bold bg-slate-800 text-white px-1 py-0.2 rounded-xs"
                   style={{ transitionDelay: '500ms' }}
                 >
                   46%
@@ -110,7 +109,7 @@ export function EmployeeDataCard() {
               <span className="text-[10px] text-gray-400 font-normal">See all</span>
             </div>
             <div className="flex items-center gap-1.5 text-[9px] font-semibold text-gray-500 overflow-x-auto">
-              <span className="bg-black text-white px-2 py-0.5 rounded-full whitespace-nowrap">
+              <span className="bg-slate-800 text-white px-2 py-0.5 rounded-full whitespace-nowrap">
                 Engineering Dept.
               </span>
               <span className="bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">
@@ -139,7 +138,7 @@ export function EmployeeDataCard() {
                     <p className="text-[9px] text-gray-400">Visual Director</p>
                   </div>
                 </div>
-                <span className="text-gray-400 text-xs">✉</span>
+                <MailIcon className="w-3.5 h-3.5 text-slate-400" />
               </div>
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
@@ -159,7 +158,7 @@ export function EmployeeDataCard() {
                     <p className="text-[9px] text-gray-400">PM/BA</p>
                   </div>
                 </div>
-                <span className="text-gray-400 text-xs">✉</span>
+                <MailIcon className="w-3.5 h-3.5 text-slate-400" />
               </div>
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
@@ -179,7 +178,7 @@ export function EmployeeDataCard() {
                     <p className="text-[9px] text-gray-400">PM/BA</p>
                   </div>
                 </div>
-                <span className="text-gray-400 text-xs">✉</span>
+                <MailIcon className="w-3.5 h-3.5 text-slate-400" />
               </div>
             </div>
           </div>

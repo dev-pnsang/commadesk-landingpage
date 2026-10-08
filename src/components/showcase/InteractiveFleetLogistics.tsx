@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { TruckIcon, BoxIcon } from '@/components/ui/UIIcons';
+import { ShowcaseCard, ShowcaseTabBar } from '@/components/ui/ShowcaseCard';
 
 interface InteractiveFleetLogisticsProps {
   isVi: boolean;
@@ -10,6 +12,19 @@ export function InteractiveFleetLogistics({ isVi }: InteractiveFleetLogisticsPro
   const [activeTab, setActiveTab] = useState<'fleet' | 'inventory'>('fleet');
   const [selectedVehicle, setSelectedVehicle] = useState<number>(0);
 
+  const tabs = [
+    {
+      id: 'fleet' as const,
+      label: isVi ? 'Đội Xe Live' : 'Live Fleet',
+      icon: <TruckIcon className="w-3.5 h-3.5" />,
+    },
+    {
+      id: 'inventory' as const,
+      label: isVi ? 'Kho SKU' : 'SKU Stock',
+      icon: <BoxIcon className="w-3.5 h-3.5" />,
+    },
+  ];
+
   const vehicles = [
     {
       id: '29C-882.14',
@@ -17,7 +32,7 @@ export function InteractiveFleetLogistics({ isVi }: InteractiveFleetLogisticsPro
       type: isVi ? 'Xe tải 2.5T' : '2.5T Truck',
       status: isVi ? 'Đang giao' : 'In Transit',
       speed: '48 km/h',
-      route: isVi ? 'Kho Tổng → Chi nhánh Cầu Giấy' : 'Main Hub → Cau Giay Hub',
+      route: isVi ? 'Kho Tổng -> Chi nhánh Cầu Giấy' : 'Main Hub -> Cau Giay Hub',
       eta: '18 phút',
       load: '82%',
       color: 'bg-emerald-500',
@@ -59,41 +74,16 @@ export function InteractiveFleetLogistics({ isVi }: InteractiveFleetLogisticsPro
   ];
 
   return (
-    <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden bg-slate-100/60 p-3 sm:p-5 border border-slate-200/80 text-left font-sans select-none">
-      {/* Top Header Controls Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-200/80">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-          <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-            {isVi ? 'Hệ Thống Điều Phối Vận Tải GPS' : 'Fleet & Logistics Radar'}
-          </span>
-        </div>
-        <div className="flex items-center gap-1 p-1 bg-white rounded-xl border border-slate-200 shadow-2xs">
-          <button
-            type="button"
-            onClick={() => setActiveTab('fleet')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-              activeTab === 'fleet'
-                ? 'bg-[#FF4D38] text-white shadow-xs'
-                : 'text-slate-600 hover:text-black hover:bg-slate-100'
-            }`}
-          >
-            🚚 {isVi ? 'Đội Xe Live' : 'Live Fleet'}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('inventory')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-              activeTab === 'inventory'
-                ? 'bg-[#FF4D38] text-white shadow-xs'
-                : 'text-slate-600 hover:text-black hover:bg-slate-100'
-            }`}
-          >
-            📦 {isVi ? 'Kho SKU' : 'SKU Stock'}
-          </button>
-        </div>
-      </div>
-
+    <ShowcaseCard
+      title={isVi ? 'Hệ Thống Điều Phối Vận Tải GPS' : 'Fleet & Logistics Radar'}
+      headerRight={
+        <ShowcaseTabBar
+          tabs={tabs}
+          activeTab={activeTab}
+          onChange={setActiveTab}
+        />
+      }
+    >
       {activeTab === 'fleet' ? (
         <div className="space-y-3">
           {/* Light Mode Mini Map View */}
@@ -197,6 +187,6 @@ export function InteractiveFleetLogistics({ isVi }: InteractiveFleetLogisticsPro
           {isVi ? 'Tiết kiệm 22% chi phí' : '-22% Fuel Cost'}
         </span>
       </div>
-    </div>
+    </ShowcaseCard>
   );
 }

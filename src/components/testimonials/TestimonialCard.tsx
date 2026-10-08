@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { TestimonialItem } from '@/data/testimonials';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { StarIcon } from '@/components/ui/UIIcons';
 
 interface TestimonialCardProps {
   testimonial: TestimonialItem;
@@ -46,12 +47,12 @@ export function TestimonialCard({ testimonial, id, statusClass }: TestimonialCar
         {roleText}
       </p>
 
-      <div className="flex items-center justify-center gap-1 my-2.5 text-amber-400 text-sm sm:text-base select-text">
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
+      <div className="flex items-center justify-center gap-1 my-2.5 text-amber-400 select-text">
+        <StarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+        <StarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+        <StarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+        <StarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+        <StarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
         <span className="text-xs sm:text-sm font-bold text-gray-800 ml-1.5">
           {testimonial.rating.toFixed(1)}
         </span>

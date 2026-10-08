@@ -1,6 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import {
+  ZapIcon,
+  WebhookIcon,
+  ShieldCheckIcon,
+  CopyIcon,
+  CheckIcon,
+} from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -32,35 +39,38 @@ export function InteractiveDocsConsole({ isVi }: Props) {
           <button
             type="button"
             onClick={() => setActiveTab('api')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'api'
                 ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            ⚡ {isVi ? 'REST API (OpenAPI 3.0)' : 'REST API Swagger'}
+            <ZapIcon className="w-3.5 h-3.5" />
+            <span>{isVi ? 'REST API (OpenAPI 3.0)' : 'REST API Swagger'}</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('webhooks')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'webhooks'
                 ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            🪝 {isVi ? 'Webhooks Pipeline' : 'Webhooks Trace'}
+            <WebhookIcon className="w-3.5 h-3.5" />
+            <span>{isVi ? 'Webhooks Pipeline' : 'Webhooks Trace'}</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('casbin')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'casbin'
                 ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            🛡️ {isVi ? 'Ma Trận Quyền Casbin' : 'Casbin Policy'}
+            <ShieldCheckIcon className="w-3.5 h-3.5" />
+            <span>{isVi ? 'Ma Trận Quyền Casbin' : 'Casbin Policy'}</span>
           </button>
         </div>
       </div>
@@ -161,7 +171,17 @@ export function InteractiveDocsConsole({ isVi }: Props) {
                 onClick={() => handleCopy('curl -X GET "https://api.commadesk.app/v1/projects/tasks" -H "Authorization: Bearer <TOKEN>"')}
                 className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 font-semibold cursor-pointer"
               >
-                <span>{isCopied ? '✔ Copied cURL' : '📋 Copy cURL'}</span>
+                {isCopied ? (
+                  <>
+                    <CheckIcon className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Copied cURL</span>
+                  </>
+                ) : (
+                  <>
+                    <CopyIcon className="w-3.5 h-3.5" />
+                    <span>Copy cURL</span>
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -234,7 +254,7 @@ export function InteractiveDocsConsole({ isVi }: Props) {
 
             <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 flex items-center justify-between text-xs text-emerald-800">
               <div className="flex items-center gap-2">
-                <span>🛡️</span>
+                <ShieldCheckIcon className="w-4 h-4 text-emerald-700 shrink-0" />
                 <span>
                   {isVi
                     ? 'Chính sách được cô lập tuyệt đối theo Tenant Domain ID. 0% rủi ro rò rỉ quyền hạn giữa các tổ chức.'

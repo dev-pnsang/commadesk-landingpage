@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { QuantumShieldGraphic } from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -32,17 +33,7 @@ export function InteractiveCasbinShield({ isVi }: Props) {
           {/* Central 3D Quantum Shield */}
           <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-indigo-500 via-[#6366F1] to-[#FF4D38] shadow-2xl shadow-indigo-500/30 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
             <div className="w-full h-full rounded-xl sm:rounded-2xl bg-white flex flex-col items-center justify-center relative overflow-hidden">
-              {/* Dynamic Security Grid Matrix SVG */}
-              <svg className="w-11 h-11 sm:w-14 sm:h-14 text-indigo-600 drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#shield-grad)" fillOpacity="0.15" />
-                <path d="M9 12l2 2 4-4" stroke="#10B981" strokeWidth="2.2" />
-                <defs>
-                  <linearGradient id="shield-grad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#4F46E5" />
-                    <stop offset="100%" stopColor="#FF4D38" />
-                  </linearGradient>
-                </defs>
-              </svg>
+              <QuantumShieldGraphic className="w-11 h-11 sm:w-14 sm:h-14 text-indigo-600 drop-shadow-md" />
               <div className="absolute bottom-1 px-1.5 py-0.5 rounded bg-emerald-100 text-[8px] font-black text-emerald-800 uppercase tracking-widest">
                 VERIFIED
               </div>

@@ -1,12 +1,42 @@
 import type { ModuleMenuItem } from '../types';
 
 export const modulesEn: ModuleMenuItem[] = [
+  // Operations & Supply
+  {
+    id: 'fleet-logistics',
+    title: 'Fleet & Logistics',
+    shortDesc: 'Live GPS GIS tracking, vehicle dispatch, driver PWA & fleet ledger.',
+    href: '/products/fleet-logistics',
+    badge: 'Operations',
+    category: 'operations',
+    iconName: 'Truck',
+  },
+  {
+    id: 'inventory-assets',
+    title: 'Inventory & Assets',
+    shortDesc: 'SKU warehouses, voucher approvals, serial assets & stationery requests.',
+    href: '/products/inventory-assets',
+    badge: 'New',
+    category: 'operations',
+    iconName: 'Package',
+  },
+  {
+    id: 'operations-documents',
+    title: 'Operations & Registry',
+    shortDesc: 'Official document registry, Decree 30 auto-numbering & digital approval.',
+    href: '/products/operations-documents',
+    category: 'operations',
+    iconName: 'FileText',
+  },
+
+  // Workforce & Execution
   {
     id: 'work-management',
     title: 'Work & Projects',
     shortDesc: 'Real-time project tracking, Kanban boards & interactive Gantt.',
     href: '/products/work-management',
     badge: 'Core',
+    category: 'workforce',
     iconName: 'Kanban',
   },
   {
@@ -15,44 +45,71 @@ export const modulesEn: ModuleMenuItem[] = [
     shortDesc: 'Org hierarchy, 360° employee files, attendance & payroll.',
     href: '/products/hr-workforce',
     badge: 'Popular',
+    category: 'workforce',
     iconName: 'Users',
   },
   {
-    id: 'fleet-logistics',
-    title: 'Fleet & Logistics',
-    shortDesc: 'SKU inventory, assets, vehicle dispatch & live GPS map.',
-    href: '/products/fleet-logistics',
-    badge: 'Operations',
-    iconName: 'Truck',
+    id: 'approvals-analytics',
+    title: 'Approvals & Leadership',
+    shortDesc: 'Unified approvals inbox, delegation rules & C-suite productivity KPI.',
+    href: '/products/approvals-analytics',
+    badge: 'Enterprise',
+    category: 'workforce',
+    iconName: 'FileCheck',
   },
-  {
-    id: 'operations-documents',
-    title: 'Operations & Registry',
-    shortDesc: 'Official document registry, digital signing & compliance.',
-    href: '/products/operations-documents',
-    iconName: 'FileText',
-  },
+
+  // Comms & Culture
   {
     id: 'communication-meet',
     title: 'CommaMeet & Comms',
-    shortDesc: 'Secure HD video meetings, team chat & company portal.',
+    shortDesc: 'Secure HD video meetings, team Matrix chat & instant push alerts.',
     href: '/products/communication-meet',
-    badge: 'New',
+    category: 'comms',
     iconName: 'Video',
   },
+  {
+    id: 'surveys-feedback',
+    title: 'Surveys & Feedback',
+    shortDesc: 'Visual survey builder, eNPS metrics & confidential leadership mailbox.',
+    href: '/products/surveys-feedback',
+    badge: 'New',
+    category: 'comms',
+    iconName: 'ClipboardCheck',
+  },
+  {
+    id: 'cms-portal',
+    title: 'CMS Studio & Portal',
+    shortDesc: 'Visual website builder, employee intranet portal & content moderation.',
+    href: '/products/cms-portal',
+    category: 'comms',
+    iconName: 'Globe',
+  },
+
+  // Commerce & Technology
   {
     id: 'crm-helpdesk',
     title: 'CRM & Helpdesk',
     shortDesc: 'ITIL service desk, SLA tracking & B2B deals pipeline.',
     href: '/products/crm-helpdesk',
+    category: 'commerce',
     iconName: 'HelpCircle',
+  },
+  {
+    id: 'social-retail',
+    title: 'Social & Retail',
+    shortDesc: 'Multi-channel post composer & real-time KiotViet POS sync.',
+    href: '/products/social-retail',
+    badge: 'Omnichannel',
+    category: 'commerce',
+    iconName: 'Share2',
   },
   {
     id: 'ai-smart-city',
     title: 'AI Vision & Smart City',
-    shortDesc: 'AI camera VMS, instant face recognition & ANPR plates.',
+    shortDesc: 'AI camera VMS, instant face recognition & ANPR license plates.',
     href: '/products/ai-smart-city',
     badge: 'AI Powered',
+    category: 'commerce',
     iconName: 'Camera',
   },
   {
@@ -61,6 +118,7 @@ export const modulesEn: ModuleMenuItem[] = [
     shortDesc: 'Casbin RBAC matrix, multi-tenant isolation & open APIs.',
     href: '/products/security-platform',
     badge: 'Enterprise',
+    category: 'commerce',
     iconName: 'Shield',
   },
 ];
@@ -68,14 +126,38 @@ export const modulesEn: ModuleMenuItem[] = [
 export const en = {
   nav: {
     modules: 'Modules',
+    solutions: 'Solutions',
     workspace: 'Workplace',
     integrations: 'Integrations',
-    security: 'Security & Trust',
+    platform: 'Platform & Trust',
+    resources: 'Resources',
     getStarted: 'Explore Modules',
-    exploreAllModules: 'Explore all enterprise modules',
+    exploreAllModules: 'Explore all 13 enterprise modules',
     viewAll: 'View all capabilities',
     closeMenu: 'Close menu',
     selectLanguage: 'Language',
+    categories: {
+      operations: 'Operations & Supply',
+      workforce: 'Workforce & Execution',
+      comms: 'Comms & Culture',
+      commerce: 'Commerce & Technology',
+    },
+    solutionsList: {
+      logistics: 'Logistics & Supply Chain',
+      logisticsDesc: 'Fleet GPS dispatch, multi-warehouse SKU balances and asset tracking.',
+      retail: 'Retail & Multi-Branch POS',
+      retailDesc: 'Omnichannel social publishing and bi-directional KiotViet sync.',
+      enterprise: 'Corporate Holdings & Multi-Tenant',
+      enterpriseDesc: 'Unified multi-organization governance, delegation and Casbin RBAC.',
+      public: 'Administrative & Public Sector',
+      publicDesc: 'State Decree 30 document registry, numbering rules and digital signing.',
+    },
+    resourcesList: {
+      docs: 'Feature Documentation (67+ Specs)',
+      api: 'REST API & Webhooks Swagger',
+      releaseNotes: "What's New & Release Notes",
+      deployment: 'Cloud, On-Prem & Desktop Setup',
+    },
   },
   hero1: {
     badge: 'Enterprise Multi-Module SaaS Platform',
@@ -93,6 +175,8 @@ export const en = {
       'CommaMeet Video & Matrix Chat',
       'Official Decree Document Registry',
       'AI Camera VMS & ANPR Plates',
+      'Visual CMS Studio & Intranet Portal',
+      'Unified Approvals & C-Suite Radar',
     ],
     nodes: {
       central: 'CommaDesk Hub',
@@ -163,9 +247,10 @@ export const en = {
   footer: {
     bio: 'CommaDesk - Unified enterprise operating system for projects, workforce, logistics, official documents, and vision AI.',
     columns: {
-      products: 'Core Modules',
-      solutions: 'Operational Suites',
-      pricing: 'Deployment Models',
+      products: 'Operations & Supply',
+      workforce: 'Workforce & Execution',
+      comms: 'Comms & Commerce',
+      pricing: 'Deployment & Trust',
       resources: 'Technical Resources',
     },
     followUs: 'Follow us',
@@ -182,3 +267,4 @@ export const en = {
 };
 
 export type TranslationSchema = typeof en;
+

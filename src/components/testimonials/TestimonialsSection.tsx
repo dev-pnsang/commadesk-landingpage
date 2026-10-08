@@ -6,6 +6,7 @@ import { TESTIMONIALS_DATA } from '@/data/testimonials';
 import { EnvelopeGraphic } from './EnvelopeGraphic';
 import { TestimonialCard } from './TestimonialCard';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { ArrowLeftIcon, ArrowRightIcon } from '@/components/ui/UIIcons';
 
 export function TestimonialsSection() {
   const { t, language } = useLanguage();
@@ -317,19 +318,7 @@ export function TestimonialsSection() {
             aria-label="Previous Testimonial"
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+            <ArrowLeftIcon className="w-4 h-4" />
           </button>
 
           {/* Interactive Pagination Dots + Counter Badge */}
@@ -367,19 +356,7 @@ export function TestimonialsSection() {
             aria-label="Next Testimonial"
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm flex items-center justify-center text-gray-700 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <ArrowRightIcon className="w-4 h-4" />
           </button>
         </div>
       </div>

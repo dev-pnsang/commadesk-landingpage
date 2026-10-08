@@ -1,6 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import {
+  ZapIcon,
+  MailIcon,
+  MessageSquareIcon,
+  GlobeIcon,
+} from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -44,19 +50,22 @@ export function InteractiveCRMPipeline({ isVi }: Props) {
           <div className="relative">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 relative z-10">
               {[
-                { name: 'REST API', icon: '⚡', color: 'from-amber-400 to-orange-500', count: '14 req/s' },
-                { name: 'Email ITIL', icon: '✉️', color: 'from-blue-400 to-indigo-500', count: '8 tk/min' },
-                { name: 'Matrix Chat', icon: '💬', color: 'from-emerald-400 to-teal-500', count: '26 msg/s' },
-                { name: 'Web Forms', icon: '🌐', color: 'from-purple-400 to-pink-500', count: '5 sub/min' },
-              ].map((c, i) => (
-                <div key={i} className="p-3 rounded-xl bg-slate-50/90 border border-slate-200/70 text-center hover:bg-white hover:shadow-md transition-all group">
-                  <div className={`w-8 h-8 mx-auto rounded-lg bg-gradient-to-tr ${c.color} text-white flex items-center justify-center text-sm shadow-xs mb-1.5 group-hover:scale-110 transition-transform`}>
-                    {c.icon}
+                { name: 'REST API', icon: ZapIcon, color: 'from-amber-400 to-orange-500', count: '14 req/s' },
+                { name: 'Email ITIL', icon: MailIcon, color: 'from-blue-400 to-indigo-500', count: '8 tk/min' },
+                { name: 'Matrix Chat', icon: MessageSquareIcon, color: 'from-emerald-400 to-teal-500', count: '26 msg/s' },
+                { name: 'Web Forms', icon: GlobeIcon, color: 'from-purple-400 to-pink-500', count: '5 sub/min' },
+              ].map((c, i) => {
+                const IconComponent = c.icon;
+                return (
+                  <div key={i} className="p-3 rounded-xl bg-slate-50/90 border border-slate-200/70 text-center hover:bg-white hover:shadow-md transition-all group">
+                    <div className={`w-8 h-8 mx-auto rounded-lg bg-gradient-to-tr ${c.color} text-white flex items-center justify-center shadow-xs mb-1.5 group-hover:scale-110 transition-transform`}>
+                      <IconComponent className="w-4 h-4 text-white" />
+                    </div>
+                    <p className="text-xs font-bold text-slate-800">{c.name}</p>
+                    <p className="text-[10px] text-slate-500 font-mono">{c.count}</p>
                   </div>
-                  <p className="text-xs font-bold text-slate-800">{c.name}</p>
-                  <p className="text-[10px] text-slate-500 font-mono">{c.count}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
             {/* Optical Stream Flow Bar */}
             <div className="mt-2.5 h-1 w-full bg-slate-100 rounded-full overflow-hidden relative">

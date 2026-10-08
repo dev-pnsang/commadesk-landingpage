@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { ChevronDownIcon } from '@/components/ui/UIIcons';
 
 export function AttendanceReportCard() {
   const { t } = useLanguage();
@@ -16,8 +17,8 @@ export function AttendanceReportCard() {
 
         <div className="relative z-10 flex items-center justify-between mb-3">
           <span className="text-xs font-semibold text-gray-700">Time Logs &amp; Velocity</span>
-          <span className="text-[10px] font-medium text-gray-400 bg-slate-50 px-2 py-0.5 rounded-full border border-gray-100">
-            Weekly ▾
+          <span className="text-[10px] font-medium text-gray-500 bg-slate-50 px-2 py-0.5 rounded-full border border-gray-100 inline-flex items-center gap-1">
+            Weekly <ChevronDownIcon className="w-2.5 h-2.5 text-gray-400" />
           </span>
         </div>
 
@@ -50,7 +51,7 @@ export function AttendanceReportCard() {
           {/* Cột 3 - Cao nhất kèm Badge đen +17% */}
           <div className="w-full flex flex-col items-center relative">
             <span
-              className="chart-badge absolute -top-6 text-[9px] font-bold bg-black text-white px-1.5 py-0.5 rounded-md shadow-xs"
+              className="chart-badge absolute -top-6 text-[9px] font-bold bg-slate-800 text-white px-1.5 py-0.5 rounded-md shadow-xs"
               style={{ transitionDelay: '500ms' }}
             >
               +17%

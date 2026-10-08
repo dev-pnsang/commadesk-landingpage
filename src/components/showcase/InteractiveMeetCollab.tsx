@@ -1,6 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
+import {
+  VideoIcon,
+  MessageSquareIcon,
+  MicIcon,
+  MicOffIcon,
+  CameraIcon,
+  CameraOffIcon,
+  ScreenShareIcon,
+} from '@/components/ui/UIIcons';
+import { ShowcaseCard, ShowcaseTabBar } from '@/components/ui/ShowcaseCard';
 
 interface InteractiveMeetCollabProps {
   isVi: boolean;
@@ -11,6 +21,19 @@ export function InteractiveMeetCollab({ isVi }: InteractiveMeetCollabProps) {
   const [isCamOn, setIsCamOn] = useState(true);
   const [isSharing, setIsSharing] = useState(false);
   const [activeTab, setActiveTab] = useState<'meet' | 'chat'>('meet');
+
+  const tabs = [
+    {
+      id: 'meet' as const,
+      label: isVi ? 'Họp Video' : 'Video Grid',
+      icon: <VideoIcon className="w-3.5 h-3.5" />,
+    },
+    {
+      id: 'chat' as const,
+      label: isVi ? 'Chat Matrix' : 'Matrix Chat',
+      icon: <MessageSquareIcon className="w-3.5 h-3.5" />,
+    },
+  ];
 
   const participants = [
     {
@@ -61,41 +84,16 @@ export function InteractiveMeetCollab({ isVi }: InteractiveMeetCollabProps) {
   ];
 
   return (
-    <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden bg-slate-100/60 p-3 sm:p-5 border border-slate-200/80 text-left font-sans select-none">
-      {/* Top Header Controls Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-200/80">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-            {isVi ? 'Phòng Họp: Chiến Lược Q4 [LiveKit E2EE]' : 'Meeting Room: Q4 Strategy [LiveKit]'}
-          </span>
-        </div>
-        <div className="flex items-center gap-1 p-1 bg-white rounded-xl border border-slate-200 shadow-2xs">
-          <button
-            type="button"
-            onClick={() => setActiveTab('meet')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-              activeTab === 'meet'
-                ? 'bg-[#FF4D38] text-white shadow-xs'
-                : 'text-slate-600 hover:text-black hover:bg-slate-100'
-            }`}
-          >
-            📹 {isVi ? 'Họp Video' : 'Video Grid'}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('chat')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-              activeTab === 'chat'
-                ? 'bg-[#FF4D38] text-white shadow-xs'
-                : 'text-slate-600 hover:text-black hover:bg-slate-100'
-            }`}
-          >
-            💬 {isVi ? 'Chat Matrix' : 'Matrix Chat'}
-          </button>
-        </div>
-      </div>
-
+    <ShowcaseCard
+      title={isVi ? 'Phòng Họp: Chiến Lược Q4 [LiveKit E2EE]' : 'Meeting Room: Q4 Strategy [LiveKit]'}
+      headerRight={
+        <ShowcaseTabBar
+          tabs={tabs}
+          activeTab={activeTab}
+          onChange={setActiveTab}
+        />
+      }
+    >
       {activeTab === 'meet' ? (
         <div className="space-y-3">
           {/* 2x2 Video Participant Grid (Light Mode) */}
@@ -151,7 +149,8 @@ export function InteractiveMeetCollab({ isVi }: InteractiveMeetCollabProps) {
                   : 'bg-red-50 text-red-600 border border-red-200 font-bold shadow-2xs'
               }`}
             >
-              <span>{isMicOn ? '🎙️ Mic Bật' : '🔇 Mic Tắt'}</span>
+              {isMicOn ? <MicIcon className="w-3.5 h-3.5 text-slate-700" /> : <MicOffIcon className="w-3.5 h-3.5 text-red-600" />}
+              <span>{isMicOn ? (isVi ? 'Mic Bật' : 'Mic On') : (isVi ? 'Mic Tắt' : 'Mic Muted')}</span>
             </button>
             <button
               type="button"
@@ -162,7 +161,8 @@ export function InteractiveMeetCollab({ isVi }: InteractiveMeetCollabProps) {
                   : 'bg-red-50 text-red-600 border border-red-200 font-bold shadow-2xs'
               }`}
             >
-              <span>{isCamOn ? '📷 Cam Bật' : '🚫 Cam Tắt'}</span>
+              {isCamOn ? <CameraIcon className="w-3.5 h-3.5 text-slate-700" /> : <CameraOffIcon className="w-3.5 h-3.5 text-red-600" />}
+              <span>{isCamOn ? (isVi ? 'Cam Bật' : 'Cam On') : (isVi ? 'Cam Tắt' : 'Cam Off')}</span>
             </button>
             <button
               type="button"
@@ -173,7 +173,8 @@ export function InteractiveMeetCollab({ isVi }: InteractiveMeetCollabProps) {
                   : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-2xs'
               }`}
             >
-              <span>{isSharing ? '🖥️ Đang Share' : '🖥️ Chia sẻ'}</span>
+              <ScreenShareIcon className={`w-3.5 h-3.5 ${isSharing ? 'text-emerald-700' : 'text-slate-700'}`} />
+              <span>{isSharing ? (isVi ? 'Đang Share' : 'Sharing') : (isVi ? 'Chia sẻ' : 'Share Screen')}</span>
             </button>
           </div>
         </div>
@@ -207,6 +208,6 @@ export function InteractiveMeetCollab({ isVi }: InteractiveMeetCollabProps) {
           {isVi ? 'Độ trễ <100ms' : '<100ms Latency'}
         </span>
       </div>
-    </div>
+    </ShowcaseCard>
   );
 }

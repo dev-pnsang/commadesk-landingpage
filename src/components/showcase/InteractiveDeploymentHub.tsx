@@ -1,6 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+import {
+  LaptopIcon,
+  SmartphoneIcon,
+  ZapIcon,
+  ContainerIcon,
+  WindowsIcon,
+  LightbulbIcon,
+  MapPinIcon,
+  PenToolIcon,
+  BellIcon,
+  CheckIcon,
+} from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -24,46 +36,50 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
           <button
             type="button"
             onClick={() => setActiveTab('desktop')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'desktop'
                 ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            💻 {isVi ? 'Desktop Windows (.exe)' : 'Desktop (.exe)'}
+            <LaptopIcon className="w-3.5 h-3.5" />
+            <span>{isVi ? 'Desktop Windows (.exe)' : 'Desktop (.exe)'}</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('mobile')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'mobile'
                 ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            📱 {isVi ? 'Mobile Flutter' : 'Mobile Flutter'}
+            <SmartphoneIcon className="w-3.5 h-3.5" />
+            <span>{isVi ? 'Mobile Flutter' : 'Mobile Flutter'}</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('hybrid')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'hybrid'
                 ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            ⚡ {isVi ? 'Kiến trúc Hybrid DB' : 'Hybrid DB'}
+            <ZapIcon className="w-3.5 h-3.5" />
+            <span>{isVi ? 'Kiến trúc Hybrid DB' : 'Hybrid DB'}</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('docker')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'docker'
                 ? 'bg-[#FF4D38] text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            🐳 {isVi ? 'Docker & On-Prem' : 'Docker Compose'}
+            <ContainerIcon className="w-3.5 h-3.5" />
+            <span>{isVi ? 'Docker & On-Prem' : 'Docker Compose'}</span>
           </button>
         </div>
       </div>
@@ -76,7 +92,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center font-bold text-sm">
-                  🪟
+                  <WindowsIcon className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">
@@ -125,7 +141,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
 
             <div className="p-3 rounded-xl bg-sky-50/70 border border-sky-100 flex items-center justify-between text-xs text-sky-800">
               <div className="flex items-center gap-2">
-                <span>💡</span>
+                <LightbulbIcon className="w-4 h-4 text-sky-600 shrink-0" />
                 <span>
                   {isVi
                     ? 'Khách hàng khối doanh nghiệp chỉ cần cài file installer, toàn bộ dữ liệu lưu trữ tập trung tại server bảo mật.'
@@ -145,7 +161,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-teal-500/10 text-teal-600 flex items-center justify-center font-bold text-sm">
-                  📱
+                  <SmartphoneIcon className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">
@@ -163,8 +179,8 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70 text-center">
-                <div className="w-10 h-10 mx-auto rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-2">
-                  📍
+                <div className="w-10 h-10 mx-auto rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center mb-2">
+                  <MapPinIcon className="w-5 h-5 text-indigo-600" />
                 </div>
                 <h5 className="text-xs font-bold text-slate-900 mb-1">
                   {isVi ? 'Chấm công GPS & Khuôn mặt' : 'GPS Geofenced Check-in'}
@@ -174,8 +190,8 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70 text-center">
-                <div className="w-10 h-10 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-2">
-                  ✍️
+                <div className="w-10 h-10 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
+                  <PenToolIcon className="w-5 h-5 text-emerald-600" />
                 </div>
                 <h5 className="text-xs font-bold text-slate-900 mb-1">
                   {isVi ? 'Duyệt đơn 1 chạm' : '1-Tap Manager Approvals'}
@@ -185,8 +201,8 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70 text-center">
-                <div className="w-10 h-10 mx-auto rounded-full bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-2">
-                  🔔
+                <div className="w-10 h-10 mx-auto rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mb-2">
+                  <BellIcon className="w-5 h-5 text-amber-600" />
                 </div>
                 <h5 className="text-xs font-bold text-slate-900 mb-1">
                   {isVi ? 'Thông báo Push & Chat Matrix' : 'Native Push & Matrix Chat'}
@@ -205,7 +221,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-bold text-sm">
-                  ⚡
+                  <ZapIcon className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">
@@ -264,7 +280,7 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
             <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold text-sm">
-                  🐳
+                  <ContainerIcon className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">
@@ -287,12 +303,12 @@ export function InteractiveDeploymentHub({ isVi }: Props) {
                 <span className="text-emerald-600 font-bold">1-Click Automated</span>
               </div>
               <p className="text-slate-800 font-bold">$ docker compose -f docker/docker-compose.prod.yml up -d</p>
-              <p className="text-emerald-600">✔ Network commadesk_default Created</p>
-              <p className="text-emerald-600">✔ Container cp_db (MySQL 8.0) Started [healthy]</p>
-              <p className="text-emerald-600">✔ Container cp_redis Started [healthy]</p>
-              <p className="text-emerald-600">✔ Container cp_clickhouse Started [healthy]</p>
-              <p className="text-emerald-600">✔ Container cp_backend (Gin/GORM API) Listening on :8080</p>
-              <p className="text-emerald-600">✔ Container cp_frontend (Next.js 16) Listening on :3000</p>
+              <p className="text-emerald-600 flex items-center gap-1"><CheckIcon className="w-3.5 h-3.5 text-emerald-600" /> Network commadesk_default Created</p>
+              <p className="text-emerald-600 flex items-center gap-1"><CheckIcon className="w-3.5 h-3.5 text-emerald-600" /> Container cp_db (MySQL 8.0) Started [healthy]</p>
+              <p className="text-emerald-600 flex items-center gap-1"><CheckIcon className="w-3.5 h-3.5 text-emerald-600" /> Container cp_redis Started [healthy]</p>
+              <p className="text-emerald-600 flex items-center gap-1"><CheckIcon className="w-3.5 h-3.5 text-emerald-600" /> Container cp_clickhouse Started [healthy]</p>
+              <p className="text-emerald-600 flex items-center gap-1"><CheckIcon className="w-3.5 h-3.5 text-emerald-600" /> Container cp_backend (Gin/GORM API) Listening on :8080</p>
+              <p className="text-emerald-600 flex items-center gap-1"><CheckIcon className="w-3.5 h-3.5 text-emerald-600" /> Container cp_frontend (Next.js 16) Listening on :3000</p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { FileTextIcon, CheckIcon, PenToolIcon } from '@/components/ui/UIIcons';
 
 interface Props {
   isVi?: boolean;
@@ -36,7 +37,7 @@ export function InteractiveDigitalSignature({ isVi }: Props) {
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3 relative z-10">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xs">
-                  📄
+                  <FileTextIcon className="w-3.5 h-3.5" />
                 </span>
                 <div>
                   <p className="text-xs font-bold text-slate-900">DOC-2026-HQ-882</p>
@@ -92,7 +93,7 @@ export function InteractiveDigitalSignature({ isVi }: Props) {
                 <div key={s.step} className={`p-3 rounded-xl border transition-all flex items-center justify-between ${s.done ? 'bg-emerald-50/60 border-emerald-200/80' : 'bg-slate-50 border-slate-100'}`}>
                   <div className="flex items-center gap-2.5">
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${s.done ? 'bg-emerald-500 text-white' : 'bg-slate-200 text-slate-600'}`}>
-                      {s.done ? '✓' : s.step}
+                      {s.done ? <CheckIcon className="w-3.5 h-3.5" /> : s.step}
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-900">{s.role}</p>
@@ -116,9 +117,10 @@ export function InteractiveDigitalSignature({ isVi }: Props) {
             {!isSigned && (
               <button
                 onClick={handleSign}
-                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FF4D38] to-rose-600 hover:opacity-95 text-white font-bold text-xs shadow-md shadow-[#FF4D38]/20 transition-all active:scale-[0.98] cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FF4D38] to-rose-600 hover:opacity-95 text-white font-bold text-xs shadow-md shadow-[#FF4D38]/20 transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5"
               >
-                {isVi ? '✍️ Nhấn Để Ký Số & Ban Hành Ngay' : '✍️ Click to Digitally Sign & Dispatch'}
+                <PenToolIcon className="w-3.5 h-3.5" />
+                <span>{isVi ? 'Nhấn Để Ký Số & Ban Hành Ngay' : 'Click to Digitally Sign & Dispatch'}</span>
               </button>
             )}
           </div>

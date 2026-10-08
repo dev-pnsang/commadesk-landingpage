@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Language } from '@/i18n/translations';
 import { FlagVN, FlagUS } from '@/components/ui/FlagIcons';
+import { ChevronDownIcon, CheckIcon } from '@/components/ui/UIIcons';
 
 interface LanguageSelectorProps {
   variant?: 'pill' | 'minimal';
@@ -82,21 +83,11 @@ export function LanguageSelector({ variant = 'pill' }: LanguageSelectorProps) {
         <span className="tracking-wide uppercase font-bold text-[11px] sm:text-xs">
           {current.short}
         </span>
-        <svg
+        <ChevronDownIcon
           className={`w-3 h-3 text-gray-500 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2.5"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+        />
       </button>
 
       {/* Dropdown Menu */}
@@ -138,19 +129,7 @@ export function LanguageSelector({ variant = 'pill' }: LanguageSelectorProps) {
                     <span className="text-slate-800 font-medium">{item.label}</span>
                   </div>
                   {isSelected && (
-                    <svg
-                      className="w-4 h-4 text-[#FF4D38] shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                    <CheckIcon className="w-4 h-4 text-[#FF4D38] shrink-0" />
                   )}
                 </button>
               );

@@ -4,6 +4,7 @@ import React from 'react';
 import { HeroDualOrbit } from './HeroDualOrbit';
 import { TextBlurWipe } from '@/components/ui/TextBlurWipe';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { UserIcon } from '@/components/ui/UIIcons';
 
 export function Hero2Section() {
   const { t, language } = useLanguage();
@@ -26,9 +27,7 @@ export function Hero2Section() {
 
         {/* Center Icon: Purple User Profile */}
         <div className="scroll-blur-reveal w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-lg shadow-indigo-100/80 flex items-center justify-center text-[#7C3AED] mx-auto mb-4 sm:mb-6 border border-slate-100">
-          <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-          </svg>
+          <UserIcon className="w-6 h-6 sm:w-8 sm:h-8" />
         </div>
 
         {/* Typography & CTA */}

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { TextBlurWipe } from '@/components/ui/TextBlurWipe';
 import { useLanguage } from '@/i18n/LanguageContext';
 
+import { ArrowBackIcon, ArrowDownIcon, ArrowLeftIcon } from "@/components/ui/UIIcons";
+
 interface SubpageHeroProps {
   categoryBadge: string;
   title: string | string[];
@@ -30,9 +32,7 @@ export function SubpageHero({
           href="/"
           className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-semibold text-gray-500 hover:text-black transition-colors px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-slate-100 hover:bg-slate-200/80 shadow-2xs"
         >
-          <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
+          <ArrowBackIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           <span>{t.subpages.backHome}</span>
         </Link>
 
@@ -73,15 +73,17 @@ export function SubpageHero({
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-5 mt-4 sm:mt-6 mb-10 sm:mb-18 md:mb-20 w-full max-w-xs sm:max-w-none mx-auto">
           <a
             href="#capabilities"
-            className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[210px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-white font-bold text-xs sm:text-base bg-[#FF4D38] hover:bg-[#E03E2A] shadow-xl shadow-[#FF4D38]/25 transition-all active:scale-95 text-center"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto sm:min-w-[210px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-white font-bold text-xs sm:text-base bg-[#FF4D38] hover:bg-[#E03E2A] shadow-xl shadow-[#FF4D38]/25 transition-all active:scale-95 text-center"
           >
-            {language === 'vi' ? 'Khám phá tính năng chi tiết' : 'Explore Capabilities'} ↓
+            <span>{language === 'vi' ? 'Khám phá tính năng chi tiết' : 'Explore Capabilities'}</span>
+            <ArrowDownIcon className="w-4 h-4" />
           </a>
           <Link
             href="/#features"
-            className="inline-flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-slate-800 font-bold text-xs sm:text-base bg-slate-100 hover:bg-slate-200/80 border border-slate-200/90 shadow-2xs transition-all active:scale-95 text-center"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto sm:min-w-[180px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-slate-800 font-bold text-xs sm:text-base bg-slate-100 hover:bg-slate-200/80 border border-slate-200/90 shadow-2xs transition-all active:scale-95 text-center"
           >
-            {language === 'vi' ? '← Xem tất cả phân hệ' : '← All Modules'}
+            <ArrowLeftIcon className="w-4 h-4" />
+            <span>{language === 'vi' ? 'Xem tất cả phân hệ' : 'All Modules'}</span>
           </Link>
         </div>
       </div>

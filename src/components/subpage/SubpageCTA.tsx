@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { CheckCircleIcon } from '@/components/ui/UIIcons';
 
 interface SubpageCTAProps {
   moduleName: string;
@@ -56,21 +57,15 @@ export function SubpageCTA({ moduleName }: SubpageCTAProps) {
         {/* Security badges guarantee */}
         <div className="mt-12 pt-8 border-t border-slate-100 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-slate-500 font-medium">
           <span className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
+            <CheckCircleIcon className="w-4 h-4 text-emerald-600" />
             Casbin RBAC Matrix
           </span>
           <span className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
+            <CheckCircleIcon className="w-4 h-4 text-emerald-600" />
             Multi-Tenant Isolation
           </span>
           <span className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
+            <CheckCircleIcon className="w-4 h-4 text-emerald-600" />
             SOC2 &amp; ISO 27001 Ready
           </span>
         </div>
