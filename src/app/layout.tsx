@@ -10,9 +10,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Commadesk — Enterprise Multi-Module SaaS Platform',
+  title: 'CommaDesk — Enterprise Multi-Module SaaS Platform (Version 2)',
   description:
-    'Commadesk unites project management, Kanban & Gantt, multi-tenant org charts, timesheets, document registry, and Casbin RBAC security in one centralized workplace.',
+    'CommaDesk Version 2 combines AI retail analytics, HR & automated payroll, Kanban & Gantt project management, multi-location inventory, document registry (Decree 150/370), fleet logistics, ITIL helpdesk, and Casbin RBAC security into one unified operating system.',
   icons: {
     icon: '/favicon.ico',
   },
