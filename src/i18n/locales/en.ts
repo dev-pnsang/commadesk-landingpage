@@ -65,7 +65,7 @@ export const en = {
     badge: 'Enterprise Multi-Module SaaS Platform',
     headlinePart1: 'One Unified Workspace',
     headlinePart2: 'For All Enterprise Operations',
-    subtitle: 'CommaDesk Version 2 combines AI retail analytics, HR & automated payroll, Kanban & Gantt project management, document registry, multi-location inventory, fleet logistics, and Casbin RBAC security into a single operational system - built for Web, Windows Desktop (.exe), and Mobile.',
+    subtitle: 'CommaDesk combines AI retail analytics, HR & automated payroll, Kanban & Gantt project management, document registry, multi-location inventory, fleet logistics, and Casbin RBAC security into a single operational system - built for Web, Windows Desktop (.exe), and Mobile.',
     requestDemo: 'Explore Platform',
     exploreFeatures: 'System Motion',
     featuresTrack: [
@@ -79,7 +79,7 @@ export const en = {
       'ITIL Helpdesk & B2B CRM Pipelines',
     ],
     nodes: {
-      central: 'CommaDesk V2 Hub',
+      central: 'CommaDesk Hub',
       attendance: 'HR & Attendance',
       kanban: 'Projects & Kanban',
       org: 'Org Hierarchy Matrix',

@@ -14,7 +14,7 @@ export function SubpageCTA({ moduleName }: SubpageCTAProps) {
   return (
     <section
       id="demo"
-      className="canvas-card scroll-mt-28 bg-white rounded-[24px] sm:rounded-[44px] md:rounded-[48px] border border-slate-200/80 p-5 sm:p-12 md:p-16 lg:p-20 relative overflow-hidden shadow-xl shadow-slate-200/40 my-6 text-slate-900"
+      className="canvas-card scroll-mt-28 bg-white rounded-[24px] sm:rounded-[44px] md:rounded-[48px] border border-slate-200/80 p-5 sm:p-12 md:p-16 lg:p-20 relative overflow-hidden shadow-xl shadow-slate-200/40 text-slate-900"
     >
       {/* Decorative Light Glows */}
       <div className="pointer-events-none absolute -right-20 -top-20 w-96 h-96 rounded-full bg-[#FF4D38]/5 blur-3xl" />

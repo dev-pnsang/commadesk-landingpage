@@ -66,7 +66,7 @@ export const vi: TranslationSchema = {
     badge: 'Nền Tảng Vận Hành Doanh Nghiệp Đa Phân Hệ',
     headlinePart1: 'Một Không Gian Hợp Nhất',
     headlinePart2: 'Cho Toàn Bộ Vận Hành Doanh Nghiệp',
-    subtitle: 'CommaDesk Version 2 hợp nhất phân tích bán lẻ AI, quản trị nhân sự & tính lương tự động, dự án Kanban & Gantt, sổ văn bản hành chính, kho vật tư & logistics đội xe, cùng bảo mật Casbin RBAC vào một hệ điều hành tập trung - vận hành mượt mà trên Web, Desktop Windows (.exe) và Mobile.',
+    subtitle: 'CommaDesk hợp nhất phân tích bán lẻ AI, quản trị nhân sự & tính lương tự động, dự án Kanban & Gantt, sổ văn bản hành chính, kho vật tư & logistics đội xe, cùng bảo mật Casbin RBAC vào một hệ điều hành tập trung - vận hành mượt mà trên Web, Desktop Windows (.exe) và Mobile.',
     requestDemo: 'Khám phá Nền tảng',
     exploreFeatures: 'Kiến trúc Chuyển động',
     featuresTrack: [
@@ -80,7 +80,7 @@ export const vi: TranslationSchema = {
       'Hỗ trợ ITIL Helpdesk & CRM B2B',
     ],
     nodes: {
-      central: 'CommaDesk V2 Hub',
+      central: 'CommaDesk Hub',
       attendance: 'Nhân sự & Chấm công',
       kanban: 'Dự án & Kanban',
       org: 'Sơ đồ Tổ chức Đa cấp',

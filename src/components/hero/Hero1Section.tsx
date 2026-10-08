@@ -11,19 +11,19 @@ export function Hero1Section() {
   return (
     <section
       id="hero1Card"
-      className="canvas-card bg-white rounded-[24px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-14 sm:pt-20 md:pt-24 pb-12 sm:pb-16 px-2.5 sm:px-6 md:px-8 text-center min-h-[80vh] sm:min-h-[88vh] flex flex-col justify-center"
+      className="canvas-card bg-white rounded-[24px] sm:rounded-[44px] md:rounded-[48px] shadow-sm border border-slate-200/60 overflow-hidden relative pt-24 sm:pt-32 md:pt-36 pb-12 sm:pb-16 px-2.5 sm:px-6 md:px-8 text-center min-h-[82vh] sm:min-h-[88vh] flex flex-col justify-center"
     >
-      {/* Top Category Badge */}
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2 mx-auto">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D38]"></span>
-        {t.hero1.badge}
-      </div>
-
       {/* Central Graphic Network */}
       <HeroGraphicNetwork />
 
       {/* Typography & CTA Button */}
-      <div className="scroll-blur-reveal max-w-4xl mx-auto px-1 sm:px-4 mt-4 sm:mt-6">
+      <div className="scroll-blur-reveal max-w-4xl mx-auto px-1 sm:px-4 mt-6 sm:mt-8">
+        {/* Category Badge */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3.5 mx-auto">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D38]"></span>
+          {t.hero1.badge}
+        </div>
+
         <TextBlurWipe
           as="h1"
           className="text-3xl sm:text-5xl md:text-6xl lg:text-[70px] xl:text-[76px] font-black text-gray-950 tracking-tight leading-[1.08] break-words"
